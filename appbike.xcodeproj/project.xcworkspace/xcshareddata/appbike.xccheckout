@@ -10,50 +10,31 @@
 	<string>appbike</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>16c6b5eb-f64b-41ff-a20e-8b8a045cf1d4++574</key>
-		<string>svn://192.168.10.187/mobile/iphone/repoGlobal/trunk/client</string>
-		<key>fd358012-db8a-4aa6-9d6e-020da1e4980a++8714</key>
-		<string>svn://192.168.10.187/mobile/piaggio/b2c</string>
+		<key>5F352BE0CBBE8AC7CCAFA92E23F819D672E5F388</key>
+		<string>https://github.com/appbike/appbike.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>ios/tag/1.0.0/appbike.xcodeproj</string>
+	<string>appbike.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>16c6b5eb-f64b-41ff-a20e-8b8a045cf1d4++574</key>
-		<string>../../../../../..</string>
-		<key>fd358012-db8a-4aa6-9d6e-020da1e4980a++8714</key>
-		<string>../../../../..</string>
-	</dict>
-	<key>IDESourceControlProjectRepositoryRootDictionary</key>
-	<dict>
-		<key>16c6b5eb-f64b-41ff-a20e-8b8a045cf1d4++574</key>
-		<string>svn://192.168.10.187/mobile/iphone/repoGlobal</string>
-		<key>fd358012-db8a-4aa6-9d6e-020da1e4980a++8714</key>
-		<string>svn://192.168.10.187/mobile/piaggio</string>
+		<key>5F352BE0CBBE8AC7CCAFA92E23F819D672E5F388</key>
+		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>svn://192.168.10.187/mobile/piaggio/b2c/ios/tag/1.0.0/appbike.xcodeproj</string>
+	<string>https://github.com/appbike/appbike.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>fd358012-db8a-4aa6-9d6e-020da1e4980a++8714</string>
+	<string>5F352BE0CBBE8AC7CCAFA92E23F819D672E5F388</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
-			<string>public.vcs.subversion</string>
+			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>16c6b5eb-f64b-41ff-a20e-8b8a045cf1d4++574</string>
+			<string>5F352BE0CBBE8AC7CCAFA92E23F819D672E5F388</string>
 			<key>IDESourceControlWCCName</key>
-			<string></string>
-		</dict>
-		<dict>
-			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
-			<string>public.vcs.subversion</string>
-			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>fd358012-db8a-4aa6-9d6e-020da1e4980a++8714</string>
-			<key>IDESourceControlWCCName</key>
-			<string>Piaggio</string>
+			<string>AppBike-Git</string>
 		</dict>
 	</array>
 </dict>

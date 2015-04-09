@@ -124,3 +124,14 @@ typedef enum {
 #define ConstantCycle 1.0
 #define ConstantTreadmill 30.0
 
+
+
+typedef enum {
+    SelectedSensorTypeSpeedNormal,
+    SelectedSensorTypeSpeedMinMax,
+    SelectedSensorTypeCalories,
+    SelectedSensorTypePulse,
+    SelectedSensorTypeAvgPulse
+} SelectedSensorType;
+
+

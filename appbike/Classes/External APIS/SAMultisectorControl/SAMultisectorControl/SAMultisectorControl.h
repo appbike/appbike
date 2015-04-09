@@ -21,6 +21,7 @@
 @property (nonatomic, readwrite) NSUInteger numbersAfterPoint;
 @property (nonatomic, readwrite) double minCircleMarkerRadius;
 @property (nonatomic, readwrite) double maxCircleMarkerRadius;
+@property (nonatomic) BOOL isDisplayCurrentValue;
 
 - (void)addSector:(SAMultisectorSector *)sector;
 - (void)removeSector:(SAMultisectorSector *)sector;
@@ -45,6 +46,7 @@
 @property (nonatomic, readwrite) double endValue;
 @property (nonatomic, readwrite) double currValue;
 @property (nonatomic, readwrite) NSInteger tag;
+
 
 - (instancetype) init;
 

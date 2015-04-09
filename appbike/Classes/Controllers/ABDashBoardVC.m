@@ -64,6 +64,8 @@
 @property (strong, nonatomic) IBOutlet UILabel  *lblDynamicMode;
 
 //Phase2
+
+@property (strong, nonatomic) IBOutlet UIView  *viewNormalSpeed;
 @property (unsafe_unretained, nonatomic) IBOutlet UICircularSlider *sliderDashboardSpeed;
 @property (strong, nonatomic) IBOutlet UIImageView *imgBGDashboardSpeed;
 
@@ -71,18 +73,33 @@
 @property (strong, nonatomic) IBOutlet UILabel  *lblRPMText;
 @property (strong, nonatomic) IBOutlet UILabel  *lblBPMCount;
 @property (strong, nonatomic) IBOutlet UILabel  *lblBPMText;
+
 @property (strong, nonatomic) IBOutlet UIView  *viewSelectionMenu;
+@property (strong, nonatomic) IBOutlet UIButton *btnSelectPulse;
+@property (strong, nonatomic) IBOutlet UIButton *btnSelectAvgPulse;
+@property (strong, nonatomic) IBOutlet UIButton *btnSelectSpeed;
+@property (strong, nonatomic) IBOutlet UIButton *btnSelectAvgSpeed;
+@property (strong, nonatomic) IBOutlet UIButton *btnSelectCalories;
 
 @property (strong, nonatomic) IBOutlet UIView  *viewSetSpeed;
 @property (weak, nonatomic) IBOutlet SAMultisectorControl *multisectorControl;
 @property (strong, nonatomic) IBOutlet UILabel *setSpeedlblDistance;
 @property (strong, nonatomic) IBOutlet UIImageView *imgBgSetSpeed;
 
+//Variable for Min Max Speed Slider on Dashboard
+
+@property (weak, nonatomic) IBOutlet SAMultisectorControl *sliderDashboardMinMax;
+@property (strong, nonatomic) IBOutlet UIView  *viewMinMaxSpeed;
+@property (strong, nonatomic) IBOutlet UIImageView *bgMinMaxSpeed; //This image will be change when out of speed limit
+
+
 @property (strong, nonatomic) IBOutlet UIView  *viewSetCalories;
 @property (unsafe_unretained, nonatomic) IBOutlet UICircularSlider *sliderSetCalories;
 @property (nonatomic, strong) IBOutlet UILabel *lblSetCaloriesValue;
 
 @property (strong, nonatomic) IBOutlet UIView  *viewProgress;
+@property (strong, nonatomic) IBOutlet UILabel *lblEngineText;
+@property (strong, nonatomic) IBOutlet UILabel *lblMeText;
 
 @property (strong, nonatomic) IBOutlet UIView  *viewCountdown;
 @property (unsafe_unretained, nonatomic) IBOutlet UICircularSlider *circularSlider;
@@ -319,8 +336,32 @@
 
    // [self.bleManager getHeaderPacket];//Comment this after test
    // [self.simpleCSlider movehandleToValue:50];
-    [self.sliderDashboardSpeed setValue:100];
-   
+    //[self.sliderDashboardSpeed setValue:100];
+    
+    
+//    [self.sliderDashboardMinMax removeAllSectors];
+//    UIColor *greenColor = [UIColor colorWithRed:42.0/255.0 green:133.0/255.0 blue:202/255.0 alpha:1.0];
+//    
+//    SAMultisectorSector *sector3 = [SAMultisectorSector sectorWithColor:greenColor maxValue:100.0];
+//    
+//    sector3.tag = 1;
+//    
+//    
+//    sector3.startValue = [[appDelegate().dictKMHData objectForKey:@"min"] doubleValue];
+//    sector3.endValue = [[appDelegate().dictKMHData objectForKey:@"max"] doubleValue];
+//    sector3.currValue = 50.0;
+//    
+//    minValue = sector3.startValue;
+//    maxValue = sector3.endValue;
+//    
+//    
+//    self.setSpeedlblDistance.text = [NSString stringWithFormat:@"%.0f / %.0f",sector3.startValue,sector3.endValue];
+//    self.sliderDashboardMinMax.isDisplayCurrentValue = YES;
+//    
+//    //[self.sliderDashboardMinMax addSubview:self.bgMinMaxSpeed];
+//    
+//    [self.sliderDashboardMinMax addSector:sector3];
+    
 
 }
 
@@ -380,28 +421,34 @@
         case 1101:
         {
             //Pulse
+            self.currentSelectedSensorType = SelectedSensorTypePulse;
         }
         break;
         case 1102:
         {
             //Avg Pulse
+            self.currentSelectedSensorType = SelectedSensorTypeAvgPulse;
         }
         break;
         case 1103:
         {
             //Speed
-            //Check if session is already started if NO then
+            self.currentSelectedSensorType = SelectedSensorTypeSpeedMinMax;
             self.viewSetSpeed.hidden = NO;
         }
         break;
         case 1104:
         {
             //Avg Speed
+            self.currentSelectedSensorType = SelectedSensorTypeSpeedNormal;
+            self.viewMinMaxSpeed.hidden = YES;
+            self.viewNormalSpeed.hidden = NO;
         }
         break;
         case 1105:
         {
             //Calories
+            self.currentSelectedSensorType = SelectedSensorTypeCalories;
             //Check if calories values already set if not then display that view
             self.viewSetCalories.hidden = NO;
         }
@@ -416,6 +463,7 @@
 #pragma mark - Set Speed View method
 - (void)setupMultiSelectorControl{
     
+    [self.multisectorControl removeAllSectors];
     [self.multisectorControl addTarget:self action:@selector(multisectorValueChanged:) forControlEvents:UIControlEventValueChanged];
     
     //UIColor *redColor = [UIColor colorWithRed:245.0/255.0 green:76.0/255.0 blue:76.0/255.0 alpha:1.0];
@@ -460,12 +508,43 @@
         NSString *startValue = [NSString stringWithFormat:@"%.0f", sector.startValue];
         NSString *endValue = [NSString stringWithFormat:@"%.0f", sector.endValue];
         
+        minValue = sector.startValue;
+        maxValue = sector.endValue;
         self.setSpeedlblDistance.text = [NSString stringWithFormat:@"%@ / %@",startValue,endValue];
         
         [self.multisectorControl sendSubviewToBack:self.imgBgSetSpeed];
     }
 }
 
+- (void)updateCurrentValueAndCheckMinMax:(int)speed
+{
+    [self.sliderDashboardMinMax removeAllSectors];
+    UIColor *greenColor = [UIColor colorWithRed:42.0/255.0 green:133.0/255.0 blue:202/255.0 alpha:1.0];
+    
+    SAMultisectorSector *sector3 = [SAMultisectorSector sectorWithColor:greenColor maxValue:100.0];
+    
+    sector3.tag = 1;
+    
+    
+    sector3.startValue = minValue;
+    sector3.endValue = maxValue;
+    sector3.currValue = speed;
+    
+    if(speed < minValue || speed > maxValue)
+    {
+        self.bgMinMaxSpeed.image = [UIImage imageNamed:@"max_speed_ring.png"];
+    }
+    else
+    {
+        self.bgMinMaxSpeed.image = [UIImage imageNamed:@"set_speed_ring.png"];
+    }
+    minValue = sector3.startValue;
+    maxValue = sector3.endValue;
+    
+    
+    [self.sliderDashboardMinMax sendSubviewToBack:self.bgMinMaxSpeed];
+    [self.sliderDashboardMinMax addSector:sector3];
+}
 - (IBAction)skipOrSetSpeed:(id)sender
 {
     UIButton *btnPressed = (UIButton *) sender;
@@ -479,6 +558,18 @@
         //We can get latest value for min and max speeed from following local variable
         //minValue
         //maxValue
+        
+//        CGRect frame = self.bgMinMaxSpeed.frame;
+//        [self.bgMinMaxSpeed removeFromSuperview];
+//        self.bgMinMaxSpeed = [[UIImageView alloc] initWithFrame:frame];
+//        self.bgMinMaxSpeed.image = [UIImage imageNamed:@"set_speed_ring.png"];
+//        
+        self.sliderDashboardMinMax.isDisplayCurrentValue = YES;
+        //[self.sliderDashboardMinMax addSubview:self.bgMinMaxSpeed];
+        [self updateCurrentValueAndCheckMinMax:50];
+        NSLog(@"Here is min and max value : %d and %d",minValue,maxValue);
+        
+
     }
     self.viewSetSpeed.hidden = YES;
 }
@@ -516,7 +607,7 @@
         //[self.circularSlider setValue:initialValue];
         
         self.viewCountdown.hidden = YES;
-       // [self.bleManager getHeaderPacket]; //Uncomment this
+        //[self.bleManager getHeaderPacket]; //Uncomment this
         self.viewProgress.hidden = NO;
         [self addProgressbar];
         appDelegate().isSessionStart = YES;
@@ -619,9 +710,28 @@
 - (void)updateUIForiPhone6
 {
     
+    NSLog(@"iPhone 6 Size Width : %f and Height : %f",self.view.frame.size.width, self.view.frame.size.height);
+    //375 x 667
     self.sliderDashboardSpeed.frame = CGRectMake(self.sliderDashboardSpeed.frame.origin.x, self.sliderDashboardSpeed.frame.origin.y, 300, 300);
     self.imgBGDashboardSpeed.frame = CGRectMake(self.sliderDashboardSpeed.frame.origin.x-50, self.sliderDashboardSpeed.frame.origin.y-30, 300, 300);
     self.sliderDashboardSpeed.frame = CGRectMake(self.sliderDashboardSpeed.frame.origin.x-35, self.sliderDashboardSpeed.frame.origin.y-15, 270, 270);
+    
+    //Top Progress
+    self.lblEngineText.frame = CGRectMake(self.lblEngineText.frame.origin.x + 20, self.lblEngineText.frame.origin.y, self.lblEngineText.frame.size.width, self.lblEngineText.frame.size.height);
+    self.lblMeText.frame = CGRectMake(self.lblMeText.frame.origin.x - 20, self.lblMeText.frame.origin.y, self.lblMeText.frame.size.width, self.lblMeText.frame.size.height);
+    
+    //Selection Menu
+    [self.btnSelectPulse setTitleEdgeInsets:UIEdgeInsetsMake(30,-42, 0, 0)];
+    [self.btnSelectAvgPulse setTitleEdgeInsets:UIEdgeInsetsMake(30,-52, 0, 0)];
+    [self.btnSelectSpeed setTitleEdgeInsets:UIEdgeInsetsMake(30,-42, 0, 0)];
+    
+    [self.btnSelectAvgSpeed setTitleEdgeInsets:UIEdgeInsetsMake(30,-12, 0, 0)];
+    [self.btnSelectAvgSpeed setImageEdgeInsets:UIEdgeInsetsMake(0,50, 0, 0)];
+    
+    [self.btnSelectCalories setTitleEdgeInsets:UIEdgeInsetsMake(30,-42, 0, 0)];
+    
+    
+    
     return;
     
     self.simpleCSlider = [[DKCircularSlider alloc] initWithFrame:iPhone6Rect usingMax:99 usingMin:1 withContentImage:[UIImage imageNamed:@"sensitivity"] withTitle:@"" withTarget:nil usingSelector:nil];
@@ -644,11 +754,31 @@
 - (void)updateUIForiPhone6Plus
 {
     
+     NSLog(@"iPhone 6+ Size Width : %f and Height : %f",self.view.frame.size.width, self.view.frame.size.height);
+    //414x736
    // self.imgBGDashboardSpeed.frame =
    // NSLog(@"slider frame : %@ and image frame : %@",self.sliderDashboardSpeed.frame,self.imgBGDashboardSpeed.frame);
     self.sliderDashboardSpeed.frame = CGRectMake(self.sliderDashboardSpeed.frame.origin.x, self.sliderDashboardSpeed.frame.origin.y, 300, 300);
     self.imgBGDashboardSpeed.frame = CGRectMake(self.sliderDashboardSpeed.frame.origin.x-40, self.sliderDashboardSpeed.frame.origin.y, 300, 300);
     self.sliderDashboardSpeed.frame = CGRectMake(self.sliderDashboardSpeed.frame.origin.x-30, self.sliderDashboardSpeed.frame.origin.y+10, 280, 280);
+    
+    //Top Progress
+    self.lblEngineText.frame = CGRectMake(self.lblEngineText.frame.origin.x + 30, self.lblEngineText.frame.origin.y, self.lblEngineText.frame.size.width, self.lblEngineText.frame.size.height);
+    self.lblMeText.frame = CGRectMake(self.lblMeText.frame.origin.x - 30, self.lblMeText.frame.origin.y, self.lblMeText.frame.size.width, self.lblMeText.frame.size.height);
+    
+
+    
+    //Selection Menu
+    [self.btnSelectPulse setTitleEdgeInsets:UIEdgeInsetsMake(30,-42, 0, 0)];
+    [self.btnSelectAvgPulse setTitleEdgeInsets:UIEdgeInsetsMake(30,-52, 0, 0)];
+    [self.btnSelectSpeed setTitleEdgeInsets:UIEdgeInsetsMake(30,-42, 0, 0)];
+    
+    [self.btnSelectAvgSpeed setTitleEdgeInsets:UIEdgeInsetsMake(30,-12, 0, 0)];
+    [self.btnSelectAvgSpeed setImageEdgeInsets:UIEdgeInsetsMake(0,50, 0, 0)];
+    
+    [self.btnSelectCalories setTitleEdgeInsets:UIEdgeInsetsMake(30,-42, 0, 0)];
+
+    
     return;
     self.simpleCSlider = [[DKCircularSlider alloc] initWithFrame:iPhone6PlusRect usingMax:99 usingMin:1 withContentImage:[UIImage imageNamed:@"sensitivity"] withTitle:@"" withTarget:nil usingSelector:nil];
     
@@ -1069,7 +1199,44 @@
         
         [self.simpleCSlider movehandleToValue:[speed intValue]];
         
-        [self.sliderDashboardSpeed setValue:[speed floatValue]];
+        
+        
+        
+        switch (self.currentSelectedSensorType)
+        {
+            case SelectedSensorTypePulse:
+            {
+                //Pulse Sensor goes here
+            }
+            break;
+            case SelectedSensorTypeAvgPulse:
+            {
+                //Avg Sensor method
+            }
+            break;
+            case SelectedSensorTypeSpeedNormal:
+            {
+                //Normal
+                [self.sliderDashboardSpeed setValue:[speed floatValue]];
+            }
+            break;
+            case SelectedSensorTypeSpeedMinMax:
+            {
+                //Min Max Speed
+                [self updateCurrentValueAndCheckMinMax:[speed intValue]];
+            }
+            break;
+            case SelectedSensorTypeCalories:
+            {
+                //Calories Sensor goes here
+            }
+            break;
+            default:
+            break;
+        }
+        
+      
+
         
         //Better Parameters
         NSDictionary *dictParam = @{@"Autonomy" : [dictionary objectForKey:@"Autonomy"],

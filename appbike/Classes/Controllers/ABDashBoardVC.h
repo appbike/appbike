@@ -10,9 +10,12 @@
 #import <CoreLocation/CoreLocation.h>
 #import "GPSLocation.h"
 #import "BleManager.h"
+#import "ConstantList.h"
 
 @interface ABDashBoardVC : UIViewController<UIGestureRecognizerDelegate,GPSLocationDelegate,UIPageViewControllerDelegate,CLLocationManagerDelegate,BleManagerDelegate>
 
 @property (nonatomic, strong) UITapGestureRecognizer *tapGestureRecognizer;
+
+@property (nonatomic) SelectedSensorType currentSelectedSensorType;
 
 @end

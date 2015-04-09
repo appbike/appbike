@@ -238,12 +238,15 @@ typedef struct{
         
        // if([appDelegate().strComeFromView isEqualToString:@"settingVC"])
         //{
-            [self drawSector_Setting:sector atPosition:i+1];
+            if(!self.isDisplayCurrentValue)
+            {
+                [self drawSector_Setting:sector atPosition:i+1];
+            }
         //}
-        //else
-        //{
-        //    [self drawSector:sector atPosition:i+1];
-        //}
+        else
+        {
+            [self drawSector:sector atPosition:i+1];
+        }
         
     }
 }
@@ -346,9 +349,10 @@ typedef struct{
     
     CGContextSetLineWidth(context, saCircleLineWidth);
     
-    UIColor *startCircleColor = [sector.color colorWithAlphaComponent:0.3];
+    UIColor *startCircleColor = [sector.color colorWithAlphaComponent:0.0];
     UIColor *circleColor = sector.color;
-    UIColor *endCircleColor = [[UIColor whiteColor] colorWithAlphaComponent:0.1];
+    //UIColor *circleColor = [UIColor redColor];
+    UIColor *endCircleColor = [[UIColor whiteColor] colorWithAlphaComponent:0.1]; //0.1
     
     SASectorDrawingInformation drawInf = [self sectorToDrawInf:sector position:position];
 
@@ -402,7 +406,9 @@ typedef struct{
     CGContextSetLineWidth(context, saMarkersLineWidth);
     
     //drawing start marker
-    [[circleColor colorWithAlphaComponent:drawInf.startMarkerAlpha] setStroke];
+   [[circleColor colorWithAlphaComponent:drawInf.startMarkerAlpha] setStroke];
+  //  [[UIColor redColor] setStroke];
+  //    [[circleColor colorWithAlphaComponent:0.0] setStroke];
     CGContextAddArc(context, drawInf.startMarkerCenter.x, drawInf.startMarkerCenter.y, drawInf.startMarkerRadius, 0.0, 6.28, 0);
     CGContextStrokePath(context);
     
@@ -505,6 +511,7 @@ typedef struct{
     if(markersCentresSegmentLength < markersRadiusSumm){
         
         drawInf.startMarkerAlpha = markersCentresSegmentLength / markersRadiusSumm;
+        //drawInf.startMarkerAlpha = 1.0;
     }else{
         drawInf.startMarkerAlpha = 1.0;
     }

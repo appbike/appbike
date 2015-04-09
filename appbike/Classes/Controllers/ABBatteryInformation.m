@@ -38,7 +38,8 @@
         
         [self.lblBatterMeter setTextAlignment:NSTextAlignmentRight];
         [self.lblBatterMeter setAutoresizingMask:UIViewAutoresizingFlexibleRightMargin];
-        [self.lblBatterMeter setFont:[UIFont systemFontOfSize:22]];
+        //[self.lblBatterMeter setFont:[UIFont systemFontOfSize:22]];
+        [self.lblBatterMeter setFont:[UIFont fontWithName:@"Roboto-Bold" size:22]];
         [self.lblBatterMeter setAdjustsFontSizeToFitWidth:YES];
         [self.lblBatterMeter setMinimumScaleFactor:0.5];
         [self.lblBatterMeter setTextColor:[appDelegate() toUIColor:[appDelegate().dictSkinData objectForKey:@"titleWindowColor"]]];
@@ -54,7 +55,7 @@
         _lblBatterKM = [[UILabel alloc] initWithFrame:CGRectMake(20, 5, 75, 38)];
         [self.lblBatterKM setTextAlignment:NSTextAlignmentRight];
         [self.lblBatterKM setAutoresizingMask:UIViewAutoresizingFlexibleLeftMargin];
-        [self.lblBatterKM setFont:[UIFont systemFontOfSize:22]];
+        [self.lblBatterKM setFont:[UIFont fontWithName:@"Roboto-Bold" size:22]];
         [self.lblBatterKM setAdjustsFontSizeToFitWidth:YES];
         [self.lblBatterKM setMinimumScaleFactor:0.5];
         [self.lblBatterKM setTextColor:[appDelegate() toUIColor:[appDelegate().dictSkinData objectForKey:@"titleWindowColor"]]];

@@ -1,0 +1,12 @@
+{"titleWindowColor":"2F3E54",
+    "TopColor" : "#2F3E54",
+    "BottomColor" : "#FFFFFF",
+    "activeColor" : "#FFFFFF",
+    "speedometerExternalColor" : "#4194EA",
+    "speedometerInternalColorNotActive" : "#E8ECF5",
+    "speedometerInternalColorActive" : "#2F3E54",
+    "mapLinePathColor" : "#FF0000",
+    "menuTextColor" : "2A85DD",
+    "menuTextHighlightColor" : "FF7F00",
+    
+}

@@ -1,0 +1,7 @@
+{
+    "topLeft":"cal",
+    "topRight" : "km",
+    "main" : "kmh",
+    "bottomLeft" : "rpm",
+    "bottomRight" : "bpm"
+}

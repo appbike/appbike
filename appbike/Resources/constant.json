@@ -1,0 +1,11 @@
+{
+    "gearMode1":"Auto",
+    "gearMode2" : "Auto",
+    "dinamicMode1" : "City",
+    "dinamicMode2" : "City",
+    "dinamicMode3" : "City",
+    "UserWeight" : "80",
+    "ConstantCycle" : "1",
+    "ConstantTreadmill" : "30"
+    
+}

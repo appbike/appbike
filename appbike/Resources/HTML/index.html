@@ -1,0 +1,41 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+       <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+       <title></title>
+</head>
+
+<body class="blur">
+
+  <!-- Terms and condition view-->
+  <<div id="TermsAndCondition">
+        <p id="termsAndCondition">Terms and Conditions</p> 
+        <p id="termsAndConditionlicense">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.</p>
+        <BUTTON id="acceptConditions" onclick="clickOnAcceptConditions()">Accept Conditions</BUTTON>
+        <BUTTON id="linkToWebSite" href="http://www.piaggioaerospace.it/it/engines" onclick ="clickOnReadSpecifics()">Click to read specifics</BUTTON>
+  </div>
+
+  <script type="text/javascript">
+    function clickOnAcceptConditions(){
+    window.location.href = "checklicense://ConditionsAccepted";
+    
+    return false
+
+    }
+
+
+    function clickOnReadSpecifics(){
+        window.location.href = "checklicense://GoToWebSite/" + "http://www.piaggioaerospace.it/it/engines";
+        
+    return false
+}
+
+
+  </script>
+
+</body>
+</html>

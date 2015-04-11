@@ -43,8 +43,6 @@
 	<array>
 		<string>location</string>
 	</array>
-	<key>UILaunchStoryboardName</key>
-	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
 	<string>AppBike</string>
 	<key>UIRequiredDeviceCapabilities</key>

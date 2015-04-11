@@ -97,12 +97,16 @@
 @property (unsafe_unretained, nonatomic) IBOutlet UICircularSlider *sliderSetCalories;
 @property (nonatomic, strong) IBOutlet UILabel *lblSetCaloriesValue;
 
+@property (strong, nonatomic) IBOutlet UIView  *viewCalories;
+@property (unsafe_unretained, nonatomic) IBOutlet UICircularSlider *sliderDashboardCalories;
+
 @property (strong, nonatomic) IBOutlet UIView  *viewProgress;
 @property (strong, nonatomic) IBOutlet UILabel *lblEngineText;
 @property (strong, nonatomic) IBOutlet UILabel *lblMeText;
 
 @property (strong, nonatomic) IBOutlet UIView  *viewCountdown;
 @property (unsafe_unretained, nonatomic) IBOutlet UICircularSlider *circularSlider;
+@property (strong, nonatomic) IBOutlet UILabel *lblCaloriesValueSlider;
 
 
 @property (strong, nonatomic) IBOutlet UIView  *viewSaveSession;
@@ -192,18 +196,35 @@
     [self loadDashboardData];
     [self setupMultiSelectorControl]; //For Set speed range
     
+    
+    
     self.sliderDashboardSpeed.minimumValue = 0;
     self.sliderDashboardSpeed.maximumValue = 100;
     self.sliderDashboardSpeed.continuous = NO;
     
     self.sliderDashboardSpeed.isThumbnailEnabled = YES;
-    self.sliderDashboardSpeed.thumbImage = [UIImage imageNamed:@"me.png"];
+    self.sliderDashboardSpeed.thumbImage = [UIImage imageNamed:@"noimage.png"];
     [self.sliderDashboardSpeed addProfileImage];
     self.sliderDashboardSpeed.transform = CGAffineTransformMakeRotation(3.14);
     self.sliderDashboardSpeed.userInteractionEnabled = NO;
     [self.sliderDashboardSpeed setThumbTintColor:[UIColor colorWithRed:55/255.0 green:155/255.0 blue:233/255.0 alpha:1.0]];
     [self.sliderDashboardSpeed setMaximumTrackTintColor:[UIColor clearColor]];
     [self.sliderDashboardSpeed setMinimumTrackTintColor:[UIColor colorWithRed:55/255.0 green:155/255.0 blue:233/255.0 alpha:1.0]];
+    
+    //Calories Dashboard
+    self.sliderDashboardCalories.minimumValue = 0;
+    self.sliderDashboardCalories.maximumValue = [[appDelegate().dictCaloriesData objectForKey:@"max"] floatValue];
+    self.sliderDashboardCalories.continuous = NO;
+    
+    self.sliderDashboardCalories.isThumbnailEnabled = YES;
+    self.sliderDashboardCalories.thumbImage = [UIImage imageNamed:@"noimage.png"];
+    [self.sliderDashboardCalories addProfileImage];
+    self.sliderDashboardCalories.transform = CGAffineTransformMakeRotation(3.14);
+    self.sliderDashboardCalories.userInteractionEnabled = NO;
+    [self.sliderDashboardCalories setThumbTintColor:[UIColor colorWithRed:55/255.0 green:155/255.0 blue:233/255.0 alpha:1.0]];
+    [self.sliderDashboardCalories setMaximumTrackTintColor:[UIColor clearColor]];
+    [self.sliderDashboardCalories setMinimumTrackTintColor:[UIColor colorWithRed:55/255.0 green:155/255.0 blue:233/255.0 alpha:1.0]];
+    
     
     
     //Set counter variables
@@ -334,7 +355,7 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getHeaderPacketWithNotification:) name:@"headerPacket" object:nil];
 
-   // [self.bleManager getHeaderPacket];//Comment this after test
+    //[self.bleManager getHeaderPacket];//Comment this after test
    // [self.simpleCSlider movehandleToValue:50];
     //[self.sliderDashboardSpeed setValue:100];
     
@@ -361,7 +382,9 @@
 //    //[self.sliderDashboardMinMax addSubview:self.bgMinMaxSpeed];
 //    
 //    [self.sliderDashboardMinMax addSector:sector3];
-    
+    self.sliderDashboardMinMax.isDisplayCurrentValue = YES;
+    //[self.sliderDashboardMinMax addSubview:self.bgMinMaxSpeed];
+    [self updateCurrentValueAndCheckMinMax:50];
 
 }
 
@@ -565,6 +588,7 @@
 //        self.bgMinMaxSpeed.image = [UIImage imageNamed:@"set_speed_ring.png"];
 //        
         self.sliderDashboardMinMax.isDisplayCurrentValue = YES;
+        self.currentSelectedSensorType = SelectedSensorTypeSpeedMinMax;
         //[self.sliderDashboardMinMax addSubview:self.bgMinMaxSpeed];
         [self updateCurrentValueAndCheckMinMax:50];
         NSLog(@"Here is min and max value : %d and %d",minValue,maxValue);
@@ -572,6 +596,8 @@
 
     }
     self.viewSetSpeed.hidden = YES;
+    self.viewMinMaxSpeed.hidden = NO;
+    self.viewNormalSpeed.hidden = YES;
 }
 
 #pragma mark - Set Calories View Method
@@ -583,6 +609,7 @@
 {
     NSLog(@"We have new updated calory value : %f",self.sliderSetCalories.value);
     self.viewSetCalories.hidden = YES;
+    
 }
 
 
@@ -1185,6 +1212,8 @@
         
         [self.lblCalorieCount setText:[cal stringValue]];
         
+        [self.lblCaloriesValueSlider setText:[cal stringValue]];
+        [self.sliderDashboardCalories setValue:[cal floatValue]]; //update calories
         
         NSString *speed = [NSString stringWithFormat:@"%ld",(long)[[dictionary objectForKey:@"Speed"] integerValue] ];
         
@@ -1229,6 +1258,8 @@
             case SelectedSensorTypeCalories:
             {
                 //Calories Sensor goes here
+                [self.lblCaloriesValueSlider setText:[cal stringValue]];
+                [self.sliderDashboardCalories setValue:[cal floatValue]];
             }
             break;
             default:

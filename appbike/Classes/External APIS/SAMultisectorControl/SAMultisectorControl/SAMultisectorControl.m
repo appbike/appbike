@@ -86,6 +86,10 @@ typedef struct{
     self.minCircleMarkerRadius = 10.0; //10.0
     self.maxCircleMarkerRadius = 50.0; //50.0
     self.numbersAfterPoint = 0;
+    self.imgProfile = [UIImage imageNamed:@"noimage.png"];
+    self.imgViewProfile = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
+    self.imgViewProfile.image = self.imgProfile;
+    [self addSubview:self.imgViewProfile];
 }
 
 #pragma mark - Setters
@@ -97,6 +101,10 @@ typedef struct{
 
 #pragma mark - Sectors manipulations
 
+- (void)setProfileImage:(UIImage *)profile
+{
+    self.imgViewProfile.image = profile;
+}
 - (void)addSector:(SAMultisectorSector *)sector{
     [sectorsArray addObject:sector];
     [self setNeedsDisplay];
@@ -232,6 +240,7 @@ typedef struct{
 
 - (void)drawRect:(CGRect)rect
 {
+    
     for(int i = 0; i < sectorsArray.count; i++)
     {
         SAMultisectorSector *sector = sectorsArray[i];
@@ -240,11 +249,13 @@ typedef struct{
         //{
             if(!self.isDisplayCurrentValue)
             {
+                self.imgViewProfile.hidden = YES;
                 [self drawSector_Setting:sector atPosition:i+1];
             }
         //}
         else
         {
+            self.imgViewProfile.hidden = NO;
             [self drawSector:sector atPosition:i+1];
         }
         
@@ -315,12 +326,23 @@ typedef struct{
     
     //drawing start marker
     [[circleColor colorWithAlphaComponent:drawInf.startMarkerAlpha] setStroke];
+    //[[UIColor redColor] setFill];
     CGContextAddArc(context, drawInf.startMarkerCenter.x, drawInf.startMarkerCenter.y, drawInf.startMarkerRadius, 0.0, 6.28, 0);
+    //New line
+    CGContextSetFillColorWithColor(context, [UIColor colorWithRed:42.0/255.0 green:133.0/255.0 blue:202/255.0 alpha:1.0].CGColor);
+    CGContextFillPath(context);
+    //End new line
     CGContextStrokePath(context);
+    
+   
     
     //drawing end marker
     [[circleColor colorWithAlphaComponent:drawInf.endMarkerAlpha] setStroke];
     CGContextAddArc(context, drawInf.endMarkerCenter.x, drawInf.endMarkerCenter.y, drawInf.endMarkerRadius, 0.0, 6.28, 0);
+    //New line
+    CGContextSetFillColorWithColor(context, [UIColor colorWithRed:42.0/255.0 green:133.0/255.0 blue:202/255.0 alpha:1.0].CGColor);
+    CGContextFillPath(context);
+    //End new line
     CGContextStrokePath(context);
     
     
@@ -330,15 +352,23 @@ typedef struct{
     NSString *endMarkerStr = [NSString stringWithFormat:markerStrTemplate, sector.endValue];
     
     //drawing start marker's text
+//    [self drawString:startMarkerStr
+//            withFont:[UIFont boldSystemFontOfSize:drawInf.startMarkerFontSize]
+//               color:[circleColor colorWithAlphaComponent:drawInf.startMarkerAlpha]
+//          withCenter:drawInf.startMarkerCenter];
     [self drawString:startMarkerStr
             withFont:[UIFont boldSystemFontOfSize:drawInf.startMarkerFontSize]
-               color:[circleColor colorWithAlphaComponent:drawInf.startMarkerAlpha]
+               color:[UIColor whiteColor]
           withCenter:drawInf.startMarkerCenter];
     
     //drawing end marker's text
+//    [self drawString:endMarkerStr
+//            withFont:[UIFont boldSystemFontOfSize:drawInf.endMarkerFontize]
+//               color:[circleColor colorWithAlphaComponent:drawInf.endMarkerAlpha]
+//          withCenter:drawInf.endMarkerCenter];
     [self drawString:endMarkerStr
             withFont:[UIFont boldSystemFontOfSize:drawInf.endMarkerFontize]
-               color:[circleColor colorWithAlphaComponent:drawInf.endMarkerAlpha]
+               color:[UIColor whiteColor]
           withCenter:drawInf.endMarkerCenter];
     
 
@@ -395,11 +425,11 @@ typedef struct{
     CGContextRestoreGState(context);
     
     //clearing place for current marker
-    CGContextSaveGState(context);
-    CGContextAddArc(context, drawInf.currentMarkerCenter.x, drawInf.currentMarkerCenter.y, drawInf.currMarkerRadius - (saMarkersLineWidth/2.0), 0.0, 6.28, 0);
-    CGContextClip(context);
-    CGContextClearRect(context, self.bounds);
-    CGContextRestoreGState(context);
+//    CGContextSaveGState(context);
+//    CGContextAddArc(context, drawInf.currentMarkerCenter.x, drawInf.currentMarkerCenter.y, drawInf.currMarkerRadius - (saMarkersLineWidth/2.0), 0.0, 6.28, 0);
+//    CGContextClip(context);
+//    CGContextClearRect(context, self.bounds);
+//    CGContextRestoreGState(context);
     
     
     //markers
@@ -410,17 +440,31 @@ typedef struct{
   //  [[UIColor redColor] setStroke];
   //    [[circleColor colorWithAlphaComponent:0.0] setStroke];
     CGContextAddArc(context, drawInf.startMarkerCenter.x, drawInf.startMarkerCenter.y, drawInf.startMarkerRadius, 0.0, 6.28, 0);
+    //New line
+    CGContextSetFillColorWithColor(context, [UIColor colorWithRed:42.0/255.0 green:133.0/255.0 blue:202/255.0 alpha:1.0].CGColor);
+    CGContextFillPath(context);
+    //end new line
     CGContextStrokePath(context);
     
     //drawing end marker
     [[circleColor colorWithAlphaComponent:drawInf.endMarkerAlpha] setStroke];
     CGContextAddArc(context, drawInf.endMarkerCenter.x, drawInf.endMarkerCenter.y, drawInf.endMarkerRadius, 0.0, 6.28, 0);
+    //New line
+    CGContextSetFillColorWithColor(context, [UIColor colorWithRed:42.0/255.0 green:133.0/255.0 blue:202/255.0 alpha:1.0].CGColor);
+    CGContextFillPath(context);
+    //New line end
     CGContextStrokePath(context);
     
     //drawing Current marker
-    [[circleColor colorWithAlphaComponent:drawInf.endMarkerAlpha] setStroke];
-    CGContextAddArc(context,drawInf.currentMarkerCenter.x, drawInf.currentMarkerCenter.y, drawInf.currMarkerRadius, 0.0, 6.28, 0);
-    CGContextStrokePath(context);
+//    [[circleColor colorWithAlphaComponent:drawInf.endMarkerAlpha] setStroke];
+//   
+//    CGContextAddArc(context,drawInf.currentMarkerCenter.x, drawInf.currentMarkerCenter.y, drawInf.currMarkerRadius, 0.0, 6.28, 0);
+//    
+//    
+//    CGContextStrokePath(context);
+    
+    self.imgViewProfile.frame = CGRectMake(drawInf.currentMarkerCenter.x-15,drawInf.currentMarkerCenter.y-15,self.imgViewProfile.frame.size.width,self.imgViewProfile.frame.size.height);
+   
     
     
     //text on markers
@@ -430,22 +474,30 @@ typedef struct{
     NSString *currentMarkerStr = [NSString stringWithFormat:markerStrTemplate, sector.currValue];
     
     //drawing start marker's text
+//    [self drawString:startMarkerStr
+//            withFont:[UIFont boldSystemFontOfSize:drawInf.startMarkerFontSize]
+//               color:[circleColor colorWithAlphaComponent:drawInf.startMarkerAlpha]
+//          withCenter:drawInf.startMarkerCenter];
     [self drawString:startMarkerStr
             withFont:[UIFont boldSystemFontOfSize:drawInf.startMarkerFontSize]
-               color:[circleColor colorWithAlphaComponent:drawInf.startMarkerAlpha]
+               color:[UIColor whiteColor]
           withCenter:drawInf.startMarkerCenter];
     
     //drawing end marker's text
+//    [self drawString:endMarkerStr
+//            withFont:[UIFont boldSystemFontOfSize:drawInf.endMarkerFontize]
+//               color:[circleColor colorWithAlphaComponent:drawInf.endMarkerAlpha]
+//          withCenter:drawInf.endMarkerCenter];
     [self drawString:endMarkerStr
             withFont:[UIFont boldSystemFontOfSize:drawInf.endMarkerFontize]
-               color:[circleColor colorWithAlphaComponent:drawInf.endMarkerAlpha]
+               color:[UIColor whiteColor]
           withCenter:drawInf.endMarkerCenter];
     
     //drawing current marker's text
-    [self drawString:currentMarkerStr
-            withFont:[UIFont boldSystemFontOfSize:drawInf.endMarkerFontize]
-               color:[circleColor colorWithAlphaComponent:drawInf.endMarkerAlpha]
-          withCenter:drawInf.currentMarkerCenter];
+//    [self drawString:currentMarkerStr
+//            withFont:[UIFont boldSystemFontOfSize:drawInf.endMarkerFontize]
+//               color:[circleColor colorWithAlphaComponent:drawInf.endMarkerAlpha]
+//          withCenter:drawInf.currentMarkerCenter];
     
 }
 

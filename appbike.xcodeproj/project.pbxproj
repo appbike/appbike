@@ -113,6 +113,19 @@
 		CFBABC681AD2EFCA008AEA7B /* set_speed_ring@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFBABC651AD2EFCA008AEA7B /* set_speed_ring@3x.png */; };
 		CFBABC6D1AD2FFCC008AEA7B /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = CFBABC6A1AD2FFCC008AEA7B /* LICENSE */; };
 		CFBABC6E1AD2FFCC008AEA7B /* UICircularSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBABC6C1AD2FFCC008AEA7B /* UICircularSlider.m */; };
+		CFBB9F481AD80E69000DDE89 /* flow_ring_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = CFBB9F451AD80E69000DDE89 /* flow_ring_logo.png */; };
+		CFBB9F491AD80E69000DDE89 /* flow_ring_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFBB9F461AD80E69000DDE89 /* flow_ring_logo@2x.png */; };
+		CFBB9F4A1AD80E69000DDE89 /* flow_ring_logo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFBB9F471AD80E69000DDE89 /* flow_ring_logo@3x.png */; };
+		CFBB9F501AD80FBD000DDE89 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFBB9F4C1AD80FBD000DDE89 /* Default-568h@2x.png */; };
+		CFBB9F511AD80FBD000DDE89 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = CFBB9F4D1AD80FBD000DDE89 /* Default.png */; };
+		CFBB9F521AD80FBD000DDE89 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFBB9F4E1AD80FBD000DDE89 /* Default@2x.png */; };
+		CFBB9F531AD80FBD000DDE89 /* Default@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFBB9F4F1AD80FBD000DDE89 /* Default@3x.png */; };
+		CFBB9F551AD82A7B000DDE89 /* noimage.png in Resources */ = {isa = PBXBuildFile; fileRef = CFBB9F541AD82A7B000DDE89 /* noimage.png */; };
+		CFBB9F5A1AD84240000DDE89 /* ABNavigationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB9F591AD84240000DDE89 /* ABNavigationVC.m */; };
+		CFBB9F5E1AD8459A000DDE89 /* ABHistoryListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB9F5D1AD8459A000DDE89 /* ABHistoryListVC.m */; };
+		CFBB9F611AD845AD000DDE89 /* ABHistoryDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB9F601AD845AD000DDE89 /* ABHistoryDetailVC.m */; };
+		CFBB9F651AD845EB000DDE89 /* ABDiagnosticVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB9F641AD845EB000DDE89 /* ABDiagnosticVC.m */; };
+		CFBB9F691AD84616000DDE89 /* ABFindMyBikeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB9F681AD84616000DDE89 /* ABFindMyBikeVC.m */; };
 		CFC183D11ACEE39600FEFC0A /* AppBike.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFC183CF1ACEE39600FEFC0A /* AppBike.storyboard */; };
 		CFC184301ACEE5E500FEFC0A /* aasistance_level_0@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFC183D61ACEE5E500FEFC0A /* aasistance_level_0@2x.png */; };
 		CFC184311ACEE5E500FEFC0A /* aasistance_level_0@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFC183D71ACEE5E500FEFC0A /* aasistance_level_0@3x.png */; };
@@ -492,6 +505,24 @@
 		CFBABC6A1AD2FFCC008AEA7B /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		CFBABC6B1AD2FFCC008AEA7B /* UICircularSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICircularSlider.h; sourceTree = "<group>"; };
 		CFBABC6C1AD2FFCC008AEA7B /* UICircularSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICircularSlider.m; sourceTree = "<group>"; };
+		CFBB9F451AD80E69000DDE89 /* flow_ring_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flow_ring_logo.png; sourceTree = "<group>"; };
+		CFBB9F461AD80E69000DDE89 /* flow_ring_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flow_ring_logo@2x.png"; sourceTree = "<group>"; };
+		CFBB9F471AD80E69000DDE89 /* flow_ring_logo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flow_ring_logo@3x.png"; sourceTree = "<group>"; };
+		CFBB9F4C1AD80FBD000DDE89 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		CFBB9F4D1AD80FBD000DDE89 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		CFBB9F4E1AD80FBD000DDE89 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		CFBB9F4F1AD80FBD000DDE89 /* Default@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@3x.png"; sourceTree = "<group>"; };
+		CFBB9F541AD82A7B000DDE89 /* noimage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = noimage.png; sourceTree = "<group>"; };
+		CFBB9F581AD84240000DDE89 /* ABNavigationVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ABNavigationVC.h; path = Navigation/ABNavigationVC.h; sourceTree = "<group>"; };
+		CFBB9F591AD84240000DDE89 /* ABNavigationVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ABNavigationVC.m; path = Navigation/ABNavigationVC.m; sourceTree = "<group>"; };
+		CFBB9F5C1AD8459A000DDE89 /* ABHistoryListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABHistoryListVC.h; sourceTree = "<group>"; };
+		CFBB9F5D1AD8459A000DDE89 /* ABHistoryListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABHistoryListVC.m; sourceTree = "<group>"; };
+		CFBB9F5F1AD845AD000DDE89 /* ABHistoryDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABHistoryDetailVC.h; sourceTree = "<group>"; };
+		CFBB9F601AD845AD000DDE89 /* ABHistoryDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABHistoryDetailVC.m; sourceTree = "<group>"; };
+		CFBB9F631AD845EB000DDE89 /* ABDiagnosticVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABDiagnosticVC.h; sourceTree = "<group>"; };
+		CFBB9F641AD845EB000DDE89 /* ABDiagnosticVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABDiagnosticVC.m; sourceTree = "<group>"; };
+		CFBB9F671AD84616000DDE89 /* ABFindMyBikeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABFindMyBikeVC.h; sourceTree = "<group>"; };
+		CFBB9F681AD84616000DDE89 /* ABFindMyBikeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABFindMyBikeVC.m; sourceTree = "<group>"; };
 		CFC183D01ACEE39600FEFC0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = appbike/Base.lproj/AppBike.storyboard; sourceTree = SOURCE_ROOT; };
 		CFC183D61ACEE5E500FEFC0A /* aasistance_level_0@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "aasistance_level_0@2x.png"; sourceTree = "<group>"; };
 		CFC183D71ACEE5E500FEFC0A /* aasistance_level_0@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "aasistance_level_0@3x.png"; sourceTree = "<group>"; };
@@ -942,6 +973,7 @@
 		66E197C41A5FB332003D1A9B /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				CFBB9F561AD841A8000DDE89 /* NavigationsVC */,
 				66E197C51A5FB332003D1A9B /* App */,
 				66E197C81A5FB332003D1A9B /* Controllers */,
 				66E197CB1A5FB332003D1A9B /* External APIS */,
@@ -961,6 +993,9 @@
 		66E197C81A5FB332003D1A9B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				CFBB9F661AD845F7000DDE89 /* FindMyBike */,
+				CFBB9F621AD845CD000DDE89 /* Diagnostic */,
+				CFBB9F5B1AD8456B000DDE89 /* History */,
 				CFA6389F1AD6D7320045AF98 /* SessionManager */,
 				C3F1DECE1AB07BFF005C2D56 /* Bikes Connection */,
 				66A8475D1A6D7D8700B96F6E /* General */,
@@ -1239,9 +1274,59 @@
 			path = UICircularSlider;
 			sourceTree = "<group>";
 		};
+		CFBB9F4B1AD80FA9000DDE89 /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				CFBB9F4C1AD80FBD000DDE89 /* Default-568h@2x.png */,
+				CFBB9F4D1AD80FBD000DDE89 /* Default.png */,
+				CFBB9F4E1AD80FBD000DDE89 /* Default@2x.png */,
+				CFBB9F4F1AD80FBD000DDE89 /* Default@3x.png */,
+			);
+			name = Splash;
+			sourceTree = "<group>";
+		};
+		CFBB9F561AD841A8000DDE89 /* NavigationsVC */ = {
+			isa = PBXGroup;
+			children = (
+				CFBB9F581AD84240000DDE89 /* ABNavigationVC.h */,
+				CFBB9F591AD84240000DDE89 /* ABNavigationVC.m */,
+			);
+			name = NavigationsVC;
+			sourceTree = "<group>";
+		};
+		CFBB9F5B1AD8456B000DDE89 /* History */ = {
+			isa = PBXGroup;
+			children = (
+				CFBB9F5C1AD8459A000DDE89 /* ABHistoryListVC.h */,
+				CFBB9F5D1AD8459A000DDE89 /* ABHistoryListVC.m */,
+				CFBB9F5F1AD845AD000DDE89 /* ABHistoryDetailVC.h */,
+				CFBB9F601AD845AD000DDE89 /* ABHistoryDetailVC.m */,
+			);
+			name = History;
+			sourceTree = "<group>";
+		};
+		CFBB9F621AD845CD000DDE89 /* Diagnostic */ = {
+			isa = PBXGroup;
+			children = (
+				CFBB9F631AD845EB000DDE89 /* ABDiagnosticVC.h */,
+				CFBB9F641AD845EB000DDE89 /* ABDiagnosticVC.m */,
+			);
+			name = Diagnostic;
+			sourceTree = "<group>";
+		};
+		CFBB9F661AD845F7000DDE89 /* FindMyBike */ = {
+			isa = PBXGroup;
+			children = (
+				CFBB9F671AD84616000DDE89 /* ABFindMyBikeVC.h */,
+				CFBB9F681AD84616000DDE89 /* ABFindMyBikeVC.m */,
+			);
+			name = FindMyBike;
+			sourceTree = "<group>";
+		};
 		CFC183D41ACEE5E500FEFC0A /* ImagesNew */ = {
 			isa = PBXGroup;
 			children = (
+				CFBB9F4B1AD80FA9000DDE89 /* Splash */,
 				CFBABC621AD2EFCA008AEA7B /* setspeed */,
 				CFD15D941AD1316800AE6A12 /* Savesession */,
 				CFD15D751AD0EEFE00AE6A12 /* progressbar */,
@@ -1254,6 +1339,10 @@
 		CFC183D51ACEE5E500FEFC0A /* Dashboard */ = {
 			isa = PBXGroup;
 			children = (
+				CFBB9F541AD82A7B000DDE89 /* noimage.png */,
+				CFBB9F451AD80E69000DDE89 /* flow_ring_logo.png */,
+				CFBB9F461AD80E69000DDE89 /* flow_ring_logo@2x.png */,
+				CFBB9F471AD80E69000DDE89 /* flow_ring_logo@3x.png */,
 				CFD15D1A1ACF1E6500AE6A12 /* avg_pulse_selected.png */,
 				CFD15D1B1ACF1E6500AE6A12 /* avg_pulse_selected@2x.png */,
 				CFD15D1C1ACF1E6500AE6A12 /* avg_pulse_selected@3x.png */,
@@ -1702,12 +1791,15 @@
 				CFD15D051ACF0F6D00AE6A12 /* cal.png in Resources */,
 				CFC184521ACEE5E500FEFC0A /* battery5@2x.png in Resources */,
 				CFD15D6C1AD03F2C00AE6A12 /* devider.png in Resources */,
+				CFBB9F501AD80FBD000DDE89 /* Default-568h@2x.png in Resources */,
 				CFD15D011ACF0F6D00AE6A12 /* battery9.png in Resources */,
 				CFD15DA31AD1316800AE6A12 /* no_btn@3x.png in Resources */,
 				CFC184601ACEE5E500FEFC0A /* cal@2x.png in Resources */,
 				CFD15D871AD0EEFE00AE6A12 /* me@3x.png in Resources */,
+				CFBB9F481AD80E69000DDE89 /* flow_ring_logo.png in Resources */,
 				CFD15D3C1ACF1E6500AE6A12 /* avg_pulse_selected@2x.png in Resources */,
 				CF26CCD61AD6F1200049E8B8 /* RobotoCondensed-LightItalic.ttf in Resources */,
+				CFBB9F531AD80FBD000DDE89 /* Default@3x.png in Resources */,
 				CFC1847B1ACEE5E500FEFC0A /* menu_middlebar@3x.png in Resources */,
 				CF756F7C1A90BD690084DB8B /* menu_transperent@2x.png in Resources */,
 				CFC184811ACEE5E500FEFC0A /* rpm@3x.png in Resources */,
@@ -1718,6 +1810,7 @@
 				CF26CCCA1AD6F1200049E8B8 /* Roboto-Italic.ttf in Resources */,
 				CFC1847D1ACEE5E500FEFC0A /* minus@3x.png in Resources */,
 				CFD15CD11ACF08F000AE6A12 /* aasistance_level_6.png in Resources */,
+				CFBB9F551AD82A7B000DDE89 /* noimage.png in Resources */,
 				CF9257FE1A923BC800B53F03 /* kilometer_transperent@3x.png in Resources */,
 				CFC1846F1ACEE5E500FEFC0A /* icon2_selected@3x.png in Resources */,
 				CF26CCD51AD6F1200049E8B8 /* RobotoCondensed-Light.ttf in Resources */,
@@ -1863,6 +1956,7 @@
 				C3DA2C011AB1A24E00DB636D /* index.html in Resources */,
 				CFD15DA11AD1316800AE6A12 /* no_btn.png in Resources */,
 				CFC184531ACEE5E500FEFC0A /* battery5@3x.png in Resources */,
+				CFBB9F511AD80FBD000DDE89 /* Default.png in Resources */,
 				CFD15CCB1ACF08F000AE6A12 /* aasistance_level_0.png in Resources */,
 				CFC1843E1ACEE5E500FEFC0A /* aasistance_level_6@2x.png in Resources */,
 				CF756F7A1A90BD690084DB8B /* fitness_transperent@2x.png in Resources */,
@@ -1886,6 +1980,7 @@
 				CFD15D0E1ACF0F6D00AE6A12 /* icon3.png in Resources */,
 				C3DA2BF71AB1A24E00DB636D /* logo.png in Resources */,
 				CFC1845E1ACEE5E500FEFC0A /* bpm@2x.png in Resources */,
+				CFBB9F521AD80FBD000DDE89 /* Default@2x.png in Resources */,
 				CF756F6B1A90AB770084DB8B /* utility_transperent.png in Resources */,
 				CFD15D4C1ACF1E6500AE6A12 /* calories@3x.png in Resources */,
 				CFC184321ACEE5E500FEFC0A /* aasistance_level_10@2x.png in Resources */,
@@ -1921,6 +2016,7 @@
 				CFC1845A1ACEE5E500FEFC0A /* battery9@2x.png in Resources */,
 				CFC1845D1ACEE5E500FEFC0A /* bottombar@3x.png in Resources */,
 				CFD15CD21ACF08F000AE6A12 /* aasistance_level_7.png in Resources */,
+				CFBB9F491AD80E69000DDE89 /* flow_ring_logo@2x.png in Resources */,
 				CFD15D431ACF1E6500AE6A12 /* avg_speed_selected@3x.png in Resources */,
 				CFD15D171ACF0F6E00AE6A12 /* start.png in Resources */,
 				CFC1846D1ACEE5E500FEFC0A /* icon2@3x.png in Resources */,
@@ -1940,6 +2036,7 @@
 				CFC1847A1ACEE5E500FEFC0A /* menu_middlebar@2x.png in Resources */,
 				CFC1844B1ACEE5E500FEFC0A /* battery1@3x.png in Resources */,
 				CF9257FB1A923BC800B53F03 /* gear_mode_transperent@3x.png in Resources */,
+				CFBB9F4A1AD80E69000DDE89 /* flow_ring_logo@3x.png in Resources */,
 				CFC184651ACEE5E500FEFC0A /* flow_ring@3x.png in Resources */,
 				CFD15D921AD10B9D00AE6A12 /* dashboard.json in Resources */,
 				CFD15D031ACF0F6D00AE6A12 /* bottombar.png in Resources */,
@@ -1964,11 +2061,13 @@
 				66A847571A6D677600B96F6E /* ABNavBGView.m in Sources */,
 				CFBABC6E1AD2FFCC008AEA7B /* UICircularSlider.m in Sources */,
 				CFBABC511AD2E79F008AEA7B /* Session.m in Sources */,
+				CFBB9F5A1AD84240000DDE89 /* ABNavigationVC.m in Sources */,
 				CFD15D8B1AD0F18800AE6A12 /* YLProgressBar.m in Sources */,
 				CFD15E461AD14B2500AE6A12 /* NSEntityDescription+MagicalDataImport.m in Sources */,
 				CFD15E521AD14B2500AE6A12 /* NSManagedObjectContext+MagicalRecord.m in Sources */,
 				CFD15E571AD14B2500AE6A12 /* NSPersistentStoreCoordinator+MagicalRecord.m in Sources */,
 				66AF00E91A6A780500342647 /* SPGooglePlacesPlaceDetailQuery.m in Sources */,
+				CFBB9F691AD84616000DDE89 /* ABFindMyBikeVC.m in Sources */,
 				CFBABC611AD2EF46008AEA7B /* SAMultisectorControl.m in Sources */,
 				CFD15E471AD14B2500AE6A12 /* NSNumber+MagicalDataImport.m in Sources */,
 				CFD15E511AD14B2500AE6A12 /* NSManagedObjectContext+MagicalObserving.m in Sources */,
@@ -1996,6 +2095,7 @@
 				CFBABC551AD2E808008AEA7B /* Session+Utils.m in Sources */,
 				CFD15E551AD14B2500AE6A12 /* NSManagedObjectModel+MagicalRecord.m in Sources */,
 				CFD15E581AD14B2500AE6A12 /* MagicalRecord+Actions.m in Sources */,
+				CFBB9F5E1AD8459A000DDE89 /* ABHistoryListVC.m in Sources */,
 				CFD15E5B1AD14B2500AE6A12 /* MagicalRecord+Options.m in Sources */,
 				CFD15E5C1AD14B2500AE6A12 /* MagicalRecord+Setup.m in Sources */,
 				CFD15E011AD148EF00AE6A12 /* ABDatabase.xcdatamodeld in Sources */,
@@ -2004,6 +2104,7 @@
 				669435E11A6A8383005F4183 /* GPSLocation.m in Sources */,
 				CFD15E491AD14B2500AE6A12 /* NSRelationshipDescription+MagicalDataImport.m in Sources */,
 				66AF00E81A6A780500342647 /* SPGooglePlacesAutocompleteUtilities.m in Sources */,
+				CFBB9F611AD845AD000DDE89 /* ABHistoryDetailVC.m in Sources */,
 				C362D0211AB07C8100A1D392 /* BleManager.m in Sources */,
 				66F3D3511A63873E00E87424 /* SWRevealViewController.m in Sources */,
 				CFD15E5E1AD14B2500AE6A12 /* MagicalRecord.m in Sources */,
@@ -2018,6 +2119,7 @@
 				C362D01E1AB07C3800A1D392 /* BikesConnectionViewController.m in Sources */,
 				CFD15E4A1AD14B2500AE6A12 /* NSString+MagicalDataImport.m in Sources */,
 				CFD15E4B1AD14B2500AE6A12 /* NSManagedObject+MagicalAggregation.m in Sources */,
+				CFBB9F651AD845EB000DDE89 /* ABDiagnosticVC.m in Sources */,
 				66E197D61A5FB332003D1A9B /* DKRepeatableButton.m in Sources */,
 				CFD15E481AD14B2500AE6A12 /* NSObject+MagicalDataImport.m in Sources */,
 			);
@@ -2139,7 +2241,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Gianluca Cagiano (CZFLGG72K4)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Gianluca Cagiano (CZFLGG72K4)";
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -2162,7 +2263,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Gianluca Cagiano (CZFLGG72K4)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Gianluca Cagiano (CZFLGG72K4)";
 				FRAMEWORK_SEARCH_PATHS = (

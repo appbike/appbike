@@ -22,10 +22,15 @@
 @property (nonatomic, readwrite) double minCircleMarkerRadius;
 @property (nonatomic, readwrite) double maxCircleMarkerRadius;
 @property (nonatomic) BOOL isDisplayCurrentValue;
+@property (nonatomic) UIImage *imgProfile;
+@property (nonatomic) UIImageView *imgViewProfile;
+
 
 - (void)addSector:(SAMultisectorSector *)sector;
 - (void)removeSector:(SAMultisectorSector *)sector;
 - (void)removeAllSectors;
+- (void)setProfileImage:(UIImage *)profile;
+
 
 - (instancetype)init;
 - (instancetype)initWithFrame:(CGRect)frame;

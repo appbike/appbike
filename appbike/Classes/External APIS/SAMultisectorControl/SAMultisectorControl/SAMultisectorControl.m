@@ -249,6 +249,8 @@ typedef struct{
         //{
             if(!self.isDisplayCurrentValue)
             {
+                NSLog(@"bound width : %f and height : %f",self.bounds.size.width,self.bounds.size.height);
+                
                 self.imgViewProfile.hidden = YES;
                 [self drawSector_Setting:sector atPosition:i+1];
             }

@@ -11,11 +11,14 @@
 #import "GPSLocation.h"
 #import "BleManager.h"
 #import "ConstantList.h"
+#import "REFrostedViewController.h"
 
 @interface ABDashBoardVC : UIViewController<UIGestureRecognizerDelegate,GPSLocationDelegate,UIPageViewControllerDelegate,CLLocationManagerDelegate,BleManagerDelegate>
 
 @property (nonatomic, strong) UITapGestureRecognizer *tapGestureRecognizer;
 
 @property (nonatomic) SelectedSensorType currentSelectedSensorType;
+
+- (IBAction)showLeftMenu:(id)sender;
 
 @end

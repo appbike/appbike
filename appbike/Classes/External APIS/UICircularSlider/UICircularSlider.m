@@ -10,8 +10,9 @@
 //
 
 #import "UICircularSlider.h"
+#import "ConstantList.h"
 
-#define kLineWidth 10.0
+#define kLineWidth IS_IPHONE_6 ? 16.0 : IS_IPHONE_6_PLUS ? 16 : 10
 #define kThumbRadius 12.0
 
 @interface UICircularSlider()

@@ -126,6 +126,21 @@
 		CFBB9F611AD845AD000DDE89 /* ABHistoryDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB9F601AD845AD000DDE89 /* ABHistoryDetailVC.m */; };
 		CFBB9F651AD845EB000DDE89 /* ABDiagnosticVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB9F641AD845EB000DDE89 /* ABDiagnosticVC.m */; };
 		CFBB9F691AD84616000DDE89 /* ABFindMyBikeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB9F681AD84616000DDE89 /* ABFindMyBikeVC.m */; };
+		CFBB9F6D1AD91AC9000DDE89 /* ABRootVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB9F6C1AD91AC9000DDE89 /* ABRootVC.m */; };
+		CFBB9F7B1AD91AF7000DDE89 /* RECommonFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB9F701AD91AF7000DDE89 /* RECommonFunctions.m */; };
+		CFBB9F7C1AD91AF7000DDE89 /* REFrostedContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB9F721AD91AF7000DDE89 /* REFrostedContainerViewController.m */; };
+		CFBB9F7D1AD91AF7000DDE89 /* REFrostedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB9F741AD91AF7000DDE89 /* REFrostedViewController.m */; };
+		CFBB9F7E1AD91AF7000DDE89 /* UIImage+REFrostedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB9F761AD91AF7000DDE89 /* UIImage+REFrostedViewController.m */; };
+		CFBB9F7F1AD91AF7000DDE89 /* UIView+REFrostedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB9F781AD91AF7000DDE89 /* UIView+REFrostedViewController.m */; };
+		CFBB9F801AD91AF7000DDE89 /* UIViewController+REFrostedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB9F7A1AD91AF7000DDE89 /* UIViewController+REFrostedViewController.m */; };
+		CFBB9F841AD91D35000DDE89 /* ABLeftMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB9F831AD91D35000DDE89 /* ABLeftMenu.m */; };
+		CFBB9F881AD97087000DDE89 /* goal_ring.png in Resources */ = {isa = PBXBuildFile; fileRef = CFBB9F851AD97087000DDE89 /* goal_ring.png */; };
+		CFBB9F891AD97087000DDE89 /* goal_ring@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFBB9F861AD97087000DDE89 /* goal_ring@2x.png */; };
+		CFBB9F8A1AD97087000DDE89 /* goal_ring@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFBB9F871AD97087000DDE89 /* goal_ring@3x.png */; };
+		CFBB9F8E1AD9715F000DDE89 /* stars.png in Resources */ = {isa = PBXBuildFile; fileRef = CFBB9F8B1AD9715F000DDE89 /* stars.png */; };
+		CFBB9F8F1AD9715F000DDE89 /* stars@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFBB9F8C1AD9715F000DDE89 /* stars@2x.png */; };
+		CFBB9F901AD9715F000DDE89 /* stars@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFBB9F8D1AD9715F000DDE89 /* stars@3x.png */; };
+		CFBB9F921ADA4941000DDE89 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFBB9F911ADA4941000DDE89 /* Images.xcassets */; };
 		CFC183D11ACEE39600FEFC0A /* AppBike.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFC183CF1ACEE39600FEFC0A /* AppBike.storyboard */; };
 		CFC184301ACEE5E500FEFC0A /* aasistance_level_0@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFC183D61ACEE5E500FEFC0A /* aasistance_level_0@2x.png */; };
 		CFC184311ACEE5E500FEFC0A /* aasistance_level_0@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFC183D71ACEE5E500FEFC0A /* aasistance_level_0@3x.png */; };
@@ -363,6 +378,15 @@
 		CFDA79AB1A8BCB3F006BF182 /* NewLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = CFDA79AA1A8BCB3F006BF182 /* NewLogo.png */; };
 		CFECD6901A80D1E70012488E /* flow_tire.png in Resources */ = {isa = PBXBuildFile; fileRef = CFECD68E1A80D1E70012488E /* flow_tire.png */; };
 		CFECD6911A80D1E70012488E /* mask_circular.png in Resources */ = {isa = PBXBuildFile; fileRef = CFECD68F1A80D1E70012488E /* mask_circular.png */; };
+		CFF94FEF1ADA922D004FCFED /* calories_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = CFF94FE91ADA922D004FCFED /* calories_logo.png */; };
+		CFF94FF01ADA922D004FCFED /* calories_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFF94FEA1ADA922D004FCFED /* calories_logo@2x.png */; };
+		CFF94FF11ADA922D004FCFED /* calories_logo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFF94FEB1ADA922D004FCFED /* calories_logo@3x.png */; };
+		CFF94FF21ADA922D004FCFED /* calories_ring.png in Resources */ = {isa = PBXBuildFile; fileRef = CFF94FEC1ADA922D004FCFED /* calories_ring.png */; };
+		CFF94FF31ADA922D004FCFED /* calories_ring@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFF94FED1ADA922D004FCFED /* calories_ring@2x.png */; };
+		CFF94FF41ADA922D004FCFED /* calories_ring@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFF94FEE1ADA922D004FCFED /* calories_ring@3x.png */; };
+		CFF94FF81ADA9639004FCFED /* difit_circle.png in Resources */ = {isa = PBXBuildFile; fileRef = CFF94FF51ADA9639004FCFED /* difit_circle.png */; };
+		CFF94FF91ADA9639004FCFED /* difit_circle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFF94FF61ADA9639004FCFED /* difit_circle@2x.png */; };
+		CFF94FFA1ADA9639004FCFED /* difit_circle@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFF94FF71ADA9639004FCFED /* difit_circle@3x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -523,6 +547,29 @@
 		CFBB9F641AD845EB000DDE89 /* ABDiagnosticVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABDiagnosticVC.m; sourceTree = "<group>"; };
 		CFBB9F671AD84616000DDE89 /* ABFindMyBikeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABFindMyBikeVC.h; sourceTree = "<group>"; };
 		CFBB9F681AD84616000DDE89 /* ABFindMyBikeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABFindMyBikeVC.m; sourceTree = "<group>"; };
+		CFBB9F6B1AD91AC9000DDE89 /* ABRootVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABRootVC.h; sourceTree = "<group>"; };
+		CFBB9F6C1AD91AC9000DDE89 /* ABRootVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABRootVC.m; sourceTree = "<group>"; };
+		CFBB9F6F1AD91AF7000DDE89 /* RECommonFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RECommonFunctions.h; sourceTree = "<group>"; };
+		CFBB9F701AD91AF7000DDE89 /* RECommonFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RECommonFunctions.m; sourceTree = "<group>"; };
+		CFBB9F711AD91AF7000DDE89 /* REFrostedContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REFrostedContainerViewController.h; sourceTree = "<group>"; };
+		CFBB9F721AD91AF7000DDE89 /* REFrostedContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REFrostedContainerViewController.m; sourceTree = "<group>"; };
+		CFBB9F731AD91AF7000DDE89 /* REFrostedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REFrostedViewController.h; sourceTree = "<group>"; };
+		CFBB9F741AD91AF7000DDE89 /* REFrostedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REFrostedViewController.m; sourceTree = "<group>"; };
+		CFBB9F751AD91AF7000DDE89 /* UIImage+REFrostedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+REFrostedViewController.h"; sourceTree = "<group>"; };
+		CFBB9F761AD91AF7000DDE89 /* UIImage+REFrostedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+REFrostedViewController.m"; sourceTree = "<group>"; };
+		CFBB9F771AD91AF7000DDE89 /* UIView+REFrostedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+REFrostedViewController.h"; sourceTree = "<group>"; };
+		CFBB9F781AD91AF7000DDE89 /* UIView+REFrostedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+REFrostedViewController.m"; sourceTree = "<group>"; };
+		CFBB9F791AD91AF7000DDE89 /* UIViewController+REFrostedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+REFrostedViewController.h"; sourceTree = "<group>"; };
+		CFBB9F7A1AD91AF7000DDE89 /* UIViewController+REFrostedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+REFrostedViewController.m"; sourceTree = "<group>"; };
+		CFBB9F821AD91D35000DDE89 /* ABLeftMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABLeftMenu.h; sourceTree = "<group>"; };
+		CFBB9F831AD91D35000DDE89 /* ABLeftMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABLeftMenu.m; sourceTree = "<group>"; };
+		CFBB9F851AD97087000DDE89 /* goal_ring.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = goal_ring.png; sourceTree = "<group>"; };
+		CFBB9F861AD97087000DDE89 /* goal_ring@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "goal_ring@2x.png"; sourceTree = "<group>"; };
+		CFBB9F871AD97087000DDE89 /* goal_ring@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "goal_ring@3x.png"; sourceTree = "<group>"; };
+		CFBB9F8B1AD9715F000DDE89 /* stars.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stars.png; sourceTree = "<group>"; };
+		CFBB9F8C1AD9715F000DDE89 /* stars@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "stars@2x.png"; sourceTree = "<group>"; };
+		CFBB9F8D1AD9715F000DDE89 /* stars@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "stars@3x.png"; sourceTree = "<group>"; };
+		CFBB9F911ADA4941000DDE89 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CFC183D01ACEE39600FEFC0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = appbike/Base.lproj/AppBike.storyboard; sourceTree = SOURCE_ROOT; };
 		CFC183D61ACEE5E500FEFC0A /* aasistance_level_0@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "aasistance_level_0@2x.png"; sourceTree = "<group>"; };
 		CFC183D71ACEE5E500FEFC0A /* aasistance_level_0@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "aasistance_level_0@3x.png"; sourceTree = "<group>"; };
@@ -792,6 +839,15 @@
 		CFDA79AA1A8BCB3F006BF182 /* NewLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NewLogo.png; sourceTree = "<group>"; };
 		CFECD68E1A80D1E70012488E /* flow_tire.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flow_tire.png; sourceTree = "<group>"; };
 		CFECD68F1A80D1E70012488E /* mask_circular.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mask_circular.png; sourceTree = "<group>"; };
+		CFF94FE91ADA922D004FCFED /* calories_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calories_logo.png; sourceTree = "<group>"; };
+		CFF94FEA1ADA922D004FCFED /* calories_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "calories_logo@2x.png"; sourceTree = "<group>"; };
+		CFF94FEB1ADA922D004FCFED /* calories_logo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "calories_logo@3x.png"; sourceTree = "<group>"; };
+		CFF94FEC1ADA922D004FCFED /* calories_ring.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calories_ring.png; sourceTree = "<group>"; };
+		CFF94FED1ADA922D004FCFED /* calories_ring@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "calories_ring@2x.png"; sourceTree = "<group>"; };
+		CFF94FEE1ADA922D004FCFED /* calories_ring@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "calories_ring@3x.png"; sourceTree = "<group>"; };
+		CFF94FF51ADA9639004FCFED /* difit_circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = difit_circle.png; sourceTree = "<group>"; };
+		CFF94FF61ADA9639004FCFED /* difit_circle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "difit_circle@2x.png"; sourceTree = "<group>"; };
+		CFF94FF71ADA9639004FCFED /* difit_circle@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "difit_circle@3x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -938,6 +994,7 @@
 				C3F1DECD1AB07BE7005C2D56 /* BleLibrary */,
 				66E197C41A5FB332003D1A9B /* Classes */,
 				66E197D11A5FB332003D1A9B /* Resources */,
+				CFBB9F911ADA4941000DDE89 /* Images.xcassets */,
 				66E197951A5F8DB2003D1A9B /* Supporting Files */,
 			);
 			path = appbike;
@@ -973,7 +1030,6 @@
 		66E197C41A5FB332003D1A9B /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				CFBB9F561AD841A8000DDE89 /* NavigationsVC */,
 				66E197C51A5FB332003D1A9B /* App */,
 				66E197C81A5FB332003D1A9B /* Controllers */,
 				66E197CB1A5FB332003D1A9B /* External APIS */,
@@ -993,6 +1049,9 @@
 		66E197C81A5FB332003D1A9B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				CFBB9F811AD91D21000DDE89 /* LeftMenu */,
+				CFBB9F6A1AD91AB2000DDE89 /* RootVC */,
+				CFBB9F561AD841A8000DDE89 /* NavigationsVC */,
 				CFBB9F661AD845F7000DDE89 /* FindMyBike */,
 				CFBB9F621AD845CD000DDE89 /* Diagnostic */,
 				CFBB9F5B1AD8456B000DDE89 /* History */,
@@ -1009,6 +1068,7 @@
 		66E197CB1A5FB332003D1A9B /* External APIS */ = {
 			isa = PBXGroup;
 			children = (
+				CFBB9F6E1AD91AF7000DDE89 /* REFrostedViewController */,
 				CFBABC691AD2FFCC008AEA7B /* UICircularSlider */,
 				CFBABC561AD2EF46008AEA7B /* SAMultisectorControl */,
 				CFD15E041AD14B2400AE6A12 /* MagicalRecord */,
@@ -1254,6 +1314,21 @@
 		CFBABC621AD2EFCA008AEA7B /* setspeed */ = {
 			isa = PBXGroup;
 			children = (
+				CFF94FF51ADA9639004FCFED /* difit_circle.png */,
+				CFF94FF61ADA9639004FCFED /* difit_circle@2x.png */,
+				CFF94FF71ADA9639004FCFED /* difit_circle@3x.png */,
+				CFF94FE91ADA922D004FCFED /* calories_logo.png */,
+				CFF94FEA1ADA922D004FCFED /* calories_logo@2x.png */,
+				CFF94FEB1ADA922D004FCFED /* calories_logo@3x.png */,
+				CFF94FEC1ADA922D004FCFED /* calories_ring.png */,
+				CFF94FED1ADA922D004FCFED /* calories_ring@2x.png */,
+				CFF94FEE1ADA922D004FCFED /* calories_ring@3x.png */,
+				CFBB9F8B1AD9715F000DDE89 /* stars.png */,
+				CFBB9F8C1AD9715F000DDE89 /* stars@2x.png */,
+				CFBB9F8D1AD9715F000DDE89 /* stars@3x.png */,
+				CFBB9F851AD97087000DDE89 /* goal_ring.png */,
+				CFBB9F861AD97087000DDE89 /* goal_ring@2x.png */,
+				CFBB9F871AD97087000DDE89 /* goal_ring@3x.png */,
 				CF26CCD81AD7141B0049E8B8 /* max_speed_ring.png */,
 				CF26CCD91AD7141B0049E8B8 /* max_speed_ring@2x.png */,
 				CF26CCDA1AD7141B0049E8B8 /* max_speed_ring@3x.png */,
@@ -1292,6 +1367,7 @@
 				CFBB9F591AD84240000DDE89 /* ABNavigationVC.m */,
 			);
 			name = NavigationsVC;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		CFBB9F5B1AD8456B000DDE89 /* History */ = {
@@ -1321,6 +1397,43 @@
 				CFBB9F681AD84616000DDE89 /* ABFindMyBikeVC.m */,
 			);
 			name = FindMyBike;
+			sourceTree = "<group>";
+		};
+		CFBB9F6A1AD91AB2000DDE89 /* RootVC */ = {
+			isa = PBXGroup;
+			children = (
+				CFBB9F6B1AD91AC9000DDE89 /* ABRootVC.h */,
+				CFBB9F6C1AD91AC9000DDE89 /* ABRootVC.m */,
+			);
+			name = RootVC;
+			sourceTree = "<group>";
+		};
+		CFBB9F6E1AD91AF7000DDE89 /* REFrostedViewController */ = {
+			isa = PBXGroup;
+			children = (
+				CFBB9F6F1AD91AF7000DDE89 /* RECommonFunctions.h */,
+				CFBB9F701AD91AF7000DDE89 /* RECommonFunctions.m */,
+				CFBB9F711AD91AF7000DDE89 /* REFrostedContainerViewController.h */,
+				CFBB9F721AD91AF7000DDE89 /* REFrostedContainerViewController.m */,
+				CFBB9F731AD91AF7000DDE89 /* REFrostedViewController.h */,
+				CFBB9F741AD91AF7000DDE89 /* REFrostedViewController.m */,
+				CFBB9F751AD91AF7000DDE89 /* UIImage+REFrostedViewController.h */,
+				CFBB9F761AD91AF7000DDE89 /* UIImage+REFrostedViewController.m */,
+				CFBB9F771AD91AF7000DDE89 /* UIView+REFrostedViewController.h */,
+				CFBB9F781AD91AF7000DDE89 /* UIView+REFrostedViewController.m */,
+				CFBB9F791AD91AF7000DDE89 /* UIViewController+REFrostedViewController.h */,
+				CFBB9F7A1AD91AF7000DDE89 /* UIViewController+REFrostedViewController.m */,
+			);
+			path = REFrostedViewController;
+			sourceTree = "<group>";
+		};
+		CFBB9F811AD91D21000DDE89 /* LeftMenu */ = {
+			isa = PBXGroup;
+			children = (
+				CFBB9F821AD91D35000DDE89 /* ABLeftMenu.h */,
+				CFBB9F831AD91D35000DDE89 /* ABLeftMenu.m */,
+			);
+			name = LeftMenu;
 			sourceTree = "<group>";
 		};
 		CFC183D41ACEE5E500FEFC0A /* ImagesNew */ = {
@@ -1784,6 +1897,7 @@
 				CF9257F61A923BC800B53F03 /* dynemic_mode_transperent.png in Resources */,
 				CF756F7F1A90BD690084DB8B /* safety_transperent@3x.png in Resources */,
 				CFD15D5A1ACF1E6500AE6A12 /* speed@2x.png in Resources */,
+				CFF94FF41ADA922D004FCFED /* calories_ring@3x.png in Resources */,
 				CFC184411ACEE5E500FEFC0A /* aasistance_level_7@3x.png in Resources */,
 				CFD15D901AD10B9C00AE6A12 /* calories.json in Resources */,
 				CFD15D121ACF0F6E00AE6A12 /* menu.png in Resources */,
@@ -1798,6 +1912,7 @@
 				CFD15D871AD0EEFE00AE6A12 /* me@3x.png in Resources */,
 				CFBB9F481AD80E69000DDE89 /* flow_ring_logo.png in Resources */,
 				CFD15D3C1ACF1E6500AE6A12 /* avg_pulse_selected@2x.png in Resources */,
+				CFF94FF11ADA922D004FCFED /* calories_logo@3x.png in Resources */,
 				CF26CCD61AD6F1200049E8B8 /* RobotoCondensed-LightItalic.ttf in Resources */,
 				CFBB9F531AD80FBD000DDE89 /* Default@3x.png in Resources */,
 				CFC1847B1ACEE5E500FEFC0A /* menu_middlebar@3x.png in Resources */,
@@ -1840,11 +1955,13 @@
 				CFC184881ACEE5E500FEFC0A /* uparrow@2x.png in Resources */,
 				CFC184831ACEE5E500FEFC0A /* seperator@3x.png in Resources */,
 				CFC1844D1ACEE5E500FEFC0A /* battery2@3x.png in Resources */,
+				CFBB9F881AD97087000DDE89 /* goal_ring.png in Resources */,
 				CFC1847F1ACEE5E500FEFC0A /* plus@3x.png in Resources */,
 				CF756F671A90AB770084DB8B /* fitness_transperent.png in Resources */,
 				CF26CCCE1AD6F1200049E8B8 /* Roboto-MediumItalic.ttf in Resources */,
 				CFD15D001ACF0F6D00AE6A12 /* battery8.png in Resources */,
 				CFD15D721AD03F2C00AE6A12 /* right.png in Resources */,
+				CFF94FFA1ADA9639004FCFED /* difit_circle@3x.png in Resources */,
 				CF26CCDC1AD7141B0049E8B8 /* max_speed_ring@2x.png in Resources */,
 				CFC184541ACEE5E500FEFC0A /* battery6@2x.png in Resources */,
 				CFD15CF81ACF0F6D00AE6A12 /* battery0.png in Resources */,
@@ -1859,6 +1976,7 @@
 				CFD15D111ACF0F6E00AE6A12 /* menu_middlebar.png in Resources */,
 				CFBABC5E1AD2EF46008AEA7B /* LICENSE in Resources */,
 				CFD15CFB1ACF0F6D00AE6A12 /* battery3.png in Resources */,
+				CFF94FEF1ADA922D004FCFED /* calories_logo.png in Resources */,
 				CFD15CCF1ACF08F000AE6A12 /* aasistance_level_4.png in Resources */,
 				CFD15D451ACF1E6500AE6A12 /* avg_speed@2x.png in Resources */,
 				CFC184491ACEE5E500FEFC0A /* battery10@3x.png in Resources */,
@@ -1878,6 +1996,7 @@
 				CFC184501ACEE5E500FEFC0A /* battery4@2x.png in Resources */,
 				CFC184581ACEE5E500FEFC0A /* battery8@2x.png in Resources */,
 				CFD15D0F1ACF0F6D00AE6A12 /* kilometer.png in Resources */,
+				CFF94FF01ADA922D004FCFED /* calories_logo@2x.png in Resources */,
 				CFD15D581ACF1E6500AE6A12 /* speed_selected@3x.png in Resources */,
 				CFD15D931AD10B9D00AE6A12 /* kmh.json in Resources */,
 				CFECD6911A80D1E70012488E /* mask_circular.png in Resources */,
@@ -1922,6 +2041,7 @@
 				CF756F7D1A90BD690084DB8B /* menu_transperent@3x.png in Resources */,
 				CFD15D481ACF1E6500AE6A12 /* calories_selected@2x.png in Resources */,
 				CFD15D3F1ACF1E6500AE6A12 /* avg_pulse@2x.png in Resources */,
+				CFBB9F921ADA4941000DDE89 /* Images.xcassets in Resources */,
 				CFD15D4F1ACF1E6500AE6A12 /* middlebar@3x.png in Resources */,
 				CFD15D3D1ACF1E6500AE6A12 /* avg_pulse_selected@3x.png in Resources */,
 				CFC183D11ACEE39600FEFC0A /* AppBike.storyboard in Resources */,
@@ -1950,14 +2070,19 @@
 				CFC184761ACEE5E500FEFC0A /* logo@2x.png in Resources */,
 				CFD15CCD1ACF08F000AE6A12 /* aasistance_level_2.png in Resources */,
 				CFC184741ACEE5E500FEFC0A /* kilometer@2x.png in Resources */,
+				CFBB9F8E1AD9715F000DDE89 /* stars.png in Resources */,
 				CF26CCD01AD6F1200049E8B8 /* Roboto-Thin.ttf in Resources */,
+				CFF94FF81ADA9639004FCFED /* difit_circle.png in Resources */,
 				CFD15D4E1ACF1E6500AE6A12 /* middlebar@2x.png in Resources */,
 				CFD15D0C1ACF0F6D00AE6A12 /* icon2.png in Resources */,
 				C3DA2C011AB1A24E00DB636D /* index.html in Resources */,
 				CFD15DA11AD1316800AE6A12 /* no_btn.png in Resources */,
+				CFF94FF21ADA922D004FCFED /* calories_ring.png in Resources */,
 				CFC184531ACEE5E500FEFC0A /* battery5@3x.png in Resources */,
 				CFBB9F511AD80FBD000DDE89 /* Default.png in Resources */,
+				CFF94FF31ADA922D004FCFED /* calories_ring@2x.png in Resources */,
 				CFD15CCB1ACF08F000AE6A12 /* aasistance_level_0.png in Resources */,
+				CFBB9F8F1AD9715F000DDE89 /* stars@2x.png in Resources */,
 				CFC1843E1ACEE5E500FEFC0A /* aasistance_level_6@2x.png in Resources */,
 				CF756F7A1A90BD690084DB8B /* fitness_transperent@2x.png in Resources */,
 				CF756F801A90BD690084DB8B /* social_transperent@2x.png in Resources */,
@@ -2003,6 +2128,7 @@
 				CFC184781ACEE5E500FEFC0A /* menu@2x.png in Resources */,
 				CFD15D441ACF1E6500AE6A12 /* avg_speed.png in Resources */,
 				CFD15DA61AD1316800AE6A12 /* yes_btn@3x.png in Resources */,
+				CFBB9F8A1AD97087000DDE89 /* goal_ring@3x.png in Resources */,
 				CFC184631ACEE5E500FEFC0A /* cycle@3x.png in Resources */,
 				CFD15D3E1ACF1E6500AE6A12 /* avg_pulse.png in Resources */,
 				CF26CCC81AD6F1200049E8B8 /* Roboto-Bold.ttf in Resources */,
@@ -2016,6 +2142,7 @@
 				CFC1845A1ACEE5E500FEFC0A /* battery9@2x.png in Resources */,
 				CFC1845D1ACEE5E500FEFC0A /* bottombar@3x.png in Resources */,
 				CFD15CD21ACF08F000AE6A12 /* aasistance_level_7.png in Resources */,
+				CFBB9F891AD97087000DDE89 /* goal_ring@2x.png in Resources */,
 				CFBB9F491AD80E69000DDE89 /* flow_ring_logo@2x.png in Resources */,
 				CFD15D431ACF1E6500AE6A12 /* avg_speed_selected@3x.png in Resources */,
 				CFD15D171ACF0F6E00AE6A12 /* start.png in Resources */,
@@ -2024,6 +2151,7 @@
 				CFC1845B1ACEE5E500FEFC0A /* battery9@3x.png in Resources */,
 				CF26CCD31AD6F1200049E8B8 /* RobotoCondensed-BoldItalic.ttf in Resources */,
 				CF26CCD21AD6F1200049E8B8 /* RobotoCondensed-Bold.ttf in Resources */,
+				CFBB9F901AD9715F000DDE89 /* stars@3x.png in Resources */,
 				CFD15DA21AD1316800AE6A12 /* no_btn@2x.png in Resources */,
 				CFD15D191ACF0F6E00AE6A12 /* uparrow.png in Resources */,
 				CF26CCD11AD6F1200049E8B8 /* Roboto-ThinItalic.ttf in Resources */,
@@ -2045,6 +2173,7 @@
 				CFD15D151ACF0F6E00AE6A12 /* rpm.png in Resources */,
 				CFC184661ACEE5E500FEFC0A /* header@2x.png in Resources */,
 				CFD15D521ACF1E6500AE6A12 /* pulse_selected@3x.png in Resources */,
+				CFF94FF91ADA9639004FCFED /* difit_circle@2x.png in Resources */,
 				CF756F811A90BD690084DB8B /* social_transperent@3x.png in Resources */,
 				CFD15CCE1ACF08F000AE6A12 /* aasistance_level_3.png in Resources */,
 				CFC184561ACEE5E500FEFC0A /* battery7@2x.png in Resources */,
@@ -2070,16 +2199,20 @@
 				CFBB9F691AD84616000DDE89 /* ABFindMyBikeVC.m in Sources */,
 				CFBABC611AD2EF46008AEA7B /* SAMultisectorControl.m in Sources */,
 				CFD15E471AD14B2500AE6A12 /* NSNumber+MagicalDataImport.m in Sources */,
+				CFBB9F7F1AD91AF7000DDE89 /* UIView+REFrostedViewController.m in Sources */,
 				CFD15E511AD14B2500AE6A12 /* NSManagedObjectContext+MagicalObserving.m in Sources */,
 				CFD15E4F1AD14B2500AE6A12 /* NSManagedObject+MagicalRequests.m in Sources */,
 				66E197D51A5FB332003D1A9B /* DKCircularSlider.m in Sources */,
 				CFD15E591AD14B2500AE6A12 /* MagicalRecord+ErrorHandling.m in Sources */,
 				CFA638A21AD6D7A40045AF98 /* SessionManager.m in Sources */,
+				CFBB9F841AD91D35000DDE89 /* ABLeftMenu.m in Sources */,
 				66AF00E61A6A780500342647 /* SPGooglePlacesAutocompletePlace.m in Sources */,
 				04AEF1AE1A65230900DAA839 /* AssistanceLevelView.m in Sources */,
 				CFD15E451AD14B2500AE6A12 /* NSAttributeDescription+MagicalDataImport.m in Sources */,
 				66F3D34F1A63873E00E87424 /* ApplicationData.m in Sources */,
 				669435E81A6ACACC005F4183 /* UIColor+FSPalette.m in Sources */,
+				CFBB9F7E1AD91AF7000DDE89 /* UIImage+REFrostedViewController.m in Sources */,
+				CFBB9F7C1AD91AF7000DDE89 /* REFrostedContainerViewController.m in Sources */,
 				66E197D31A5FB332003D1A9B /* AppDelegate.m in Sources */,
 				CFD15E501AD14B2500AE6A12 /* NSManagedObjectContext+MagicalChainSave.m in Sources */,
 				66F3D3501A63873E00E87424 /* MBProgressHUD.m in Sources */,
@@ -2089,8 +2222,10 @@
 				66AF00DC1A6A77E000342647 /* ABLocationAutoCompleteVC.m in Sources */,
 				66F3D3541A63A3EC00E87424 /* ABBatteryInformation.m in Sources */,
 				CFBABC601AD2EF46008AEA7B /* SAMath.m in Sources */,
+				CFBB9F7B1AD91AF7000DDE89 /* RECommonFunctions.m in Sources */,
 				669435E71A6ACACC005F4183 /* FSLineChart.m in Sources */,
 				CFD15E4C1AD14B2500AE6A12 /* NSManagedObject+MagicalDataImport.m in Sources */,
+				CFBB9F801AD91AF7000DDE89 /* UIViewController+REFrostedViewController.m in Sources */,
 				CFD15E5A1AD14B2500AE6A12 /* MagicalRecord+iCloud.m in Sources */,
 				CFBABC551AD2E808008AEA7B /* Session+Utils.m in Sources */,
 				CFD15E551AD14B2500AE6A12 /* NSManagedObjectModel+MagicalRecord.m in Sources */,
@@ -2120,6 +2255,8 @@
 				CFD15E4A1AD14B2500AE6A12 /* NSString+MagicalDataImport.m in Sources */,
 				CFD15E4B1AD14B2500AE6A12 /* NSManagedObject+MagicalAggregation.m in Sources */,
 				CFBB9F651AD845EB000DDE89 /* ABDiagnosticVC.m in Sources */,
+				CFBB9F6D1AD91AC9000DDE89 /* ABRootVC.m in Sources */,
+				CFBB9F7D1AD91AF7000DDE89 /* REFrostedViewController.m in Sources */,
 				66E197D61A5FB332003D1A9B /* DKRepeatableButton.m in Sources */,
 				CFD15E481AD14B2500AE6A12 /* NSObject+MagicalDataImport.m in Sources */,
 			);
@@ -2241,6 +2378,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Gianluca Cagiano (CZFLGG72K4)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Gianluca Cagiano (CZFLGG72K4)";
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -2263,6 +2401,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Gianluca Cagiano (CZFLGG72K4)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Gianluca Cagiano (CZFLGG72K4)";
 				FRAMEWORK_SEARCH_PATHS = (

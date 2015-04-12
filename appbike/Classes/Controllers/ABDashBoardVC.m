@@ -68,6 +68,7 @@
 @property (strong, nonatomic) IBOutlet UIView  *viewNormalSpeed;
 @property (unsafe_unretained, nonatomic) IBOutlet UICircularSlider *sliderDashboardSpeed;
 @property (strong, nonatomic) IBOutlet UIImageView *imgBGDashboardSpeed;
+@property (strong, nonatomic) IBOutlet UIImageView *imgBGLogoDashboardSpeed;
 
 @property (strong, nonatomic) IBOutlet UILabel  *lblRPMCount;
 @property (strong, nonatomic) IBOutlet UILabel  *lblRPMText;
@@ -91,7 +92,7 @@
 @property (weak, nonatomic) IBOutlet SAMultisectorControl *sliderDashboardMinMax;
 @property (strong, nonatomic) IBOutlet UIView  *viewMinMaxSpeed;
 @property (strong, nonatomic) IBOutlet UIImageView *bgMinMaxSpeed; //This image will be change when out of speed limit
-
+@property (strong, nonatomic) IBOutlet UILabel *lblMinMaxSpeedValue;
 
 @property (strong, nonatomic) IBOutlet UIView  *viewSetCalories;
 @property (unsafe_unretained, nonatomic) IBOutlet UICircularSlider *sliderSetCalories;
@@ -99,10 +100,18 @@
 
 @property (strong, nonatomic) IBOutlet UIView  *viewCalories;
 @property (unsafe_unretained, nonatomic) IBOutlet UICircularSlider *sliderDashboardCalories;
+@property (strong, nonatomic) IBOutlet UIImageView *imgBGCalories;
+@property (strong, nonatomic) IBOutlet UIImageView *imgBGLogoCalories;
+@property (strong, nonatomic) IBOutlet UIButton *btnMaxCalories;
+@property (strong, nonatomic) IBOutlet UILabel *lblCaloriesPercentage;
+
+@property (strong, nonatomic) IBOutlet UIView  *viewGoalCalories;
+@property (strong, nonatomic) IBOutlet UILabel *lblGoalCalories;
 
 @property (strong, nonatomic) IBOutlet UIView  *viewProgress;
 @property (strong, nonatomic) IBOutlet UILabel *lblEngineText;
 @property (strong, nonatomic) IBOutlet UILabel *lblMeText;
+
 
 @property (strong, nonatomic) IBOutlet UIView  *viewCountdown;
 @property (unsafe_unretained, nonatomic) IBOutlet UICircularSlider *circularSlider;
@@ -251,6 +260,7 @@
     [self.sliderSetCalories setMaximumTrackTintColor:[UIColor lightGrayColor]];
     [self.sliderSetCalories setMinimumTrackTintColor:[UIColor colorWithRed:55/255.0 green:155/255.0 blue:233/255.0 alpha:1.0]];
     
+    [self.btnMaxCalories setTitle:[NSString stringWithFormat:@"%@",[appDelegate().dictCaloriesData objectForKey:@"max"]] forState:UIControlStateNormal];
     
     
     self.locationManager = [GPSLocation sharedManager].locationManager;
@@ -288,21 +298,25 @@
         self.lblKilometerCount.text = [NSString stringWithFormat:@"%.2f",appDelegate().distanceKM];
     }
     
+    NSLog(@"Screen height : %f and width : %f",[[UIScreen mainScreen]bounds].size.height,[[UIScreen mainScreen]bounds].size.width);
     if(IS_IPHONE_6)
     {
         [self updateUIForiPhone6];
-         self.viewDashboardExternalView.frame = CGRectMake(self.viewDashboardExternalView.frame.origin.x+5, self.viewDashboardExternalView.frame.origin.y+3, self.viewDashboardExternalView.frame.size.width, self.viewDashboardExternalView.frame.size.height);
+    
     }
     else if(IS_IPHONE_6_PLUS)
     {
         [self updateUIForiPhone6Plus];
-        self.viewDashboardExternalView.frame = CGRectMake(self.viewDashboardExternalView.frame.origin.x+2, self.viewDashboardExternalView.frame.origin.y+5, self.viewDashboardExternalView.frame.size.width, self.viewDashboardExternalView.frame.size.height);
        
     }
     else
     {
-        self.simpleCSlider = [[DKCircularSlider alloc] initWithFrame:COMPONENTRECT usingMax:99 usingMin:1 withContentImage:[UIImage imageNamed:@"sensitivity"] withTitle:@"" withTarget:nil usingSelector:nil];
-        self.imgSettle.frame = CGRectMake(53,149, 13, 11);
+        
+        NSLog(@"iPhone5");
+        self.imgBGCalories.frame = CGRectMake(self.sliderDashboardCalories.frame.origin.x+5, self.sliderDashboardCalories.frame.origin.y, 195, 195);
+        [self.sliderDashboardCalories setValue:400];
+        //self.simpleCSlider = [[DKCircularSlider alloc] initWithFrame:COMPONENTRECT usingMax:99 usingMin:1 withContentImage:[UIImage imageNamed:@"sensitivity"] withTitle:@"" withTarget:nil usingSelector:nil];
+        //self.imgSettle.frame = CGRectMake(53,149, 13, 11);
     }
   
     self.simpleCSlider.transform = CGAffineTransformMakeRotation(M_PI);
@@ -404,6 +418,17 @@
 
 #pragma mark - New Methods for Phase 2
 
+- (IBAction)showLeftMenu:(id)sender
+{
+    return;
+    [self.view endEditing:YES];
+    [self.frostedViewController.view endEditing:YES];
+    
+    // Present the view controller
+    //
+    [self.frostedViewController presentMenuViewController];
+}
+
 - (IBAction)btnStartPressed:(id)sender
 {
     UIButton *btnPressed = (UIButton *)sender;
@@ -428,6 +453,7 @@
 - (IBAction)displaySelectionMenu:(id)sender
 {
     //Display selection menu
+    self.viewGoalCalories.hidden = YES;
     self.viewSelectionMenu.hidden = NO;
 }
 
@@ -436,6 +462,7 @@
     //Hide Selection menu
     self.viewSelectionMenu.hidden = YES;
 }
+
 - (IBAction)selectMenuItemPressed:(id)sender
 {
     UIButton *btnPressed = (UIButton *)sender;
@@ -444,13 +471,21 @@
         case 1101:
         {
             //Pulse
-            self.currentSelectedSensorType = SelectedSensorTypePulse;
+            //self.currentSelectedSensorType = SelectedSensorTypePulse;
+            self.currentSelectedSensorType = SelectedSensorTypeSpeedNormal;
+            self.viewMinMaxSpeed.hidden = YES;
+            self.viewNormalSpeed.hidden = NO;
+            self.viewCalories.hidden = YES;
         }
         break;
         case 1102:
         {
             //Avg Pulse
-            self.currentSelectedSensorType = SelectedSensorTypeAvgPulse;
+            //self.currentSelectedSensorType = SelectedSensorTypeAvgPulse;
+            self.currentSelectedSensorType = SelectedSensorTypeSpeedNormal;
+            self.viewMinMaxSpeed.hidden = YES;
+            self.viewNormalSpeed.hidden = NO;
+            self.viewCalories.hidden = YES;
         }
         break;
         case 1103:
@@ -466,6 +501,8 @@
             self.currentSelectedSensorType = SelectedSensorTypeSpeedNormal;
             self.viewMinMaxSpeed.hidden = YES;
             self.viewNormalSpeed.hidden = NO;
+            self.viewCalories.hidden = YES;
+            
         }
         break;
         case 1105:
@@ -541,6 +578,8 @@
 
 - (void)updateCurrentValueAndCheckMinMax:(int)speed
 {
+    
+    self.lblMinMaxSpeedValue.text = [NSString stringWithFormat:@"%d",speed];
     [self.sliderDashboardMinMax removeAllSectors];
     UIColor *greenColor = [UIColor colorWithRed:42.0/255.0 green:133.0/255.0 blue:202/255.0 alpha:1.0];
     
@@ -556,10 +595,12 @@
     if(speed < minValue || speed > maxValue)
     {
         self.bgMinMaxSpeed.image = [UIImage imageNamed:@"max_speed_ring.png"];
+        self.lblMinMaxSpeedValue.textColor = [UIColor redColor];
     }
     else
     {
         self.bgMinMaxSpeed.image = [UIImage imageNamed:@"set_speed_ring.png"];
+        self.lblMinMaxSpeedValue.textColor = [UIColor blackColor];
     }
     minValue = sector3.startValue;
     maxValue = sector3.endValue;
@@ -568,6 +609,7 @@
     [self.sliderDashboardMinMax sendSubviewToBack:self.bgMinMaxSpeed];
     [self.sliderDashboardMinMax addSector:sector3];
 }
+
 - (IBAction)skipOrSetSpeed:(id)sender
 {
     UIButton *btnPressed = (UIButton *) sender;
@@ -598,20 +640,31 @@
     self.viewSetSpeed.hidden = YES;
     self.viewMinMaxSpeed.hidden = NO;
     self.viewNormalSpeed.hidden = YES;
+    self.viewCalories.hidden = YES;
 }
 
 #pragma mark - Set Calories View Method
 - (IBAction)ColoriesValueChange:(id)sender
 {
-    self.lblSetCaloriesValue.text = [NSString stringWithFormat:@"%d",(int)self.sliderSetCalories.value];
+    self.lblSetCaloriesValue.text = [NSString stringWithFormat:@"%d",(int)self.sliderSetCalories.value+1];
+    
+    self.lblGoalCalories.text = [NSString stringWithFormat:@"%d",(int)self.sliderSetCalories.value+1];
+
 }
 - (IBAction)CaloriesSet:(id)sender
 {
-    NSLog(@"We have new updated calory value : %f",self.sliderSetCalories.value);
+    NSLog(@"We have new updated calory value : %f",self.sliderSetCalories.value+1);
     self.viewSetCalories.hidden = YES;
+    self.viewNormalSpeed.hidden = YES;
+    self.viewMinMaxSpeed.hidden = YES;
+    self.viewCalories.hidden = NO;
     
 }
 
+- (IBAction)hideGoalView:(id)sender
+{
+    self.viewGoalCalories.hidden = YES;
+}
 
 #pragma mark - Counter View Methods
 
@@ -630,11 +683,14 @@
 {
     if (counterTime < 1)
     {
+        
+        //NSArray *arr;
+        
         //int initialValue = 100/counterTime;
         //[self.circularSlider setValue:initialValue];
         
         self.viewCountdown.hidden = YES;
-        //[self.bleManager getHeaderPacket]; //Uncomment this
+        [self.bleManager getHeaderPacket]; //Uncomment this
         self.viewProgress.hidden = NO;
         [self addProgressbar];
         appDelegate().isSessionStart = YES;
@@ -741,7 +797,8 @@
     //375 x 667
     self.sliderDashboardSpeed.frame = CGRectMake(self.sliderDashboardSpeed.frame.origin.x, self.sliderDashboardSpeed.frame.origin.y, 300, 300);
     self.imgBGDashboardSpeed.frame = CGRectMake(self.sliderDashboardSpeed.frame.origin.x-50, self.sliderDashboardSpeed.frame.origin.y-30, 300, 300);
-    self.sliderDashboardSpeed.frame = CGRectMake(self.sliderDashboardSpeed.frame.origin.x-35, self.sliderDashboardSpeed.frame.origin.y-15, 270, 270);
+    self.sliderDashboardSpeed.frame = CGRectMake(self.sliderDashboardSpeed.frame.origin.x-40, self.sliderDashboardSpeed.frame.origin.y-15, 280, 280);
+    self.imgBGLogoDashboardSpeed.frame = CGRectMake(self.imgBGLogoDashboardSpeed.frame.origin.x-12,self.imgBGLogoDashboardSpeed.frame.origin.y+55, 70, 46);
     
     //Top Progress
     self.lblEngineText.frame = CGRectMake(self.lblEngineText.frame.origin.x + 20, self.lblEngineText.frame.origin.y, self.lblEngineText.frame.size.width, self.lblEngineText.frame.size.height);
@@ -758,6 +815,18 @@
     [self.btnSelectCalories setTitleEdgeInsets:UIEdgeInsetsMake(30,-42, 0, 0)];
     
     
+    //Set Calories
+    self.sliderSetCalories.frame = CGRectMake(self.sliderDashboardSpeed.frame.origin.x+75, self.sliderDashboardSpeed.frame.origin.y+99, 300, 300);
+    
+    
+    //Calories Dashboard view UI
+    self.sliderDashboardCalories.frame = CGRectMake(self.sliderDashboardCalories.frame.origin.x, self.sliderDashboardCalories.frame.origin.y, 300, 300);
+    self.imgBGCalories.frame = CGRectMake(self.sliderDashboardCalories.frame.origin.x-45, self.sliderDashboardCalories.frame.origin.y-20, 290, 290);
+    self.sliderDashboardCalories.frame = CGRectMake(self.sliderDashboardCalories.frame.origin.x-40, self.sliderDashboardCalories.frame.origin.y-10, 280, 280);
+    self.imgBGLogoCalories.frame = CGRectMake(self.imgBGLogoCalories.frame.origin.x-12,self.imgBGLogoCalories.frame.origin.y+55, 70, 46);
+    self.btnMaxCalories.frame = CGRectMake(self.imgBGLogoCalories.frame.origin.x+self.imgBGLogoCalories.frame.size.width,self.imgBGLogoCalories.frame.origin.y-8, self.btnMaxCalories.frame.size.width, self.btnMaxCalories.frame.size.height);
+    
+   //[self.sliderDashboardCalories setValue:400];
     
     return;
     
@@ -785,16 +854,27 @@
     //414x736
    // self.imgBGDashboardSpeed.frame =
    // NSLog(@"slider frame : %@ and image frame : %@",self.sliderDashboardSpeed.frame,self.imgBGDashboardSpeed.frame);
+//    self.sliderDashboardSpeed.frame = CGRectMake(self.sliderDashboardSpeed.frame.origin.x, self.sliderDashboardSpeed.frame.origin.y, 300, 300);
+//    self.imgBGDashboardSpeed.frame = CGRectMake(self.sliderDashboardSpeed.frame.origin.x+40, self.sliderDashboardSpeed.frame.origin.y, 100, 100);
+//    self.sliderDashboardSpeed.frame = CGRectMake(self.sliderDashboardSpeed.frame.origin.x, self.sliderDashboardSpeed.frame.origin.y, 340, 310);
+    
     self.sliderDashboardSpeed.frame = CGRectMake(self.sliderDashboardSpeed.frame.origin.x, self.sliderDashboardSpeed.frame.origin.y, 300, 300);
-    self.imgBGDashboardSpeed.frame = CGRectMake(self.sliderDashboardSpeed.frame.origin.x-40, self.sliderDashboardSpeed.frame.origin.y, 300, 300);
-    self.sliderDashboardSpeed.frame = CGRectMake(self.sliderDashboardSpeed.frame.origin.x-30, self.sliderDashboardSpeed.frame.origin.y+10, 280, 280);
+    self.imgBGDashboardSpeed.frame = CGRectMake(self.sliderDashboardSpeed.frame.origin.x-50, self.sliderDashboardSpeed.frame.origin.y-25, 300, 300);
+    self.sliderDashboardSpeed.frame = CGRectMake(self.sliderDashboardSpeed.frame.origin.x-40, self.sliderDashboardSpeed.frame.origin.y-15, 290, 290);
+    self.imgBGLogoDashboardSpeed.frame = CGRectMake(self.imgBGLogoDashboardSpeed.frame.origin.x-10,self.imgBGLogoDashboardSpeed.frame.origin.y+70, 70, 46);
     
     //Top Progress
     self.lblEngineText.frame = CGRectMake(self.lblEngineText.frame.origin.x + 30, self.lblEngineText.frame.origin.y, self.lblEngineText.frame.size.width, self.lblEngineText.frame.size.height);
     self.lblMeText.frame = CGRectMake(self.lblMeText.frame.origin.x - 30, self.lblMeText.frame.origin.y, self.lblMeText.frame.size.width, self.lblMeText.frame.size.height);
     
 
+    //Set Min Max Speed View UI
+    NSLog(@"Multi sector control frame : x : %f, y : %f, width : %f, height : %f",self.multisectorControl.frame.origin.x, self.multisectorControl.frame.origin.y, self.multisectorControl.frame.size.width, self.multisectorControl.frame.size.height);
     
+    //self.multisectorControl.frame = CGRectMake(self.multisectorControl.frame.origin.x+95, self.multisectorControl.frame.origin.y+119, 600, 600);
+    //self.multisectorControl.frame = CGRectMake(self.multisectorControl.frame.origin.x, self.multisectorControl.frame.origin.y, self.view.frame.size.width, self.view.frame.size.height-150);
+    
+     NSLog(@"Multi sector control frame : x : %f, y : %f, width : %f, height : %f",self.multisectorControl.frame.origin.x, self.multisectorControl.frame.origin.y, self.multisectorControl.frame.size.width, self.multisectorControl.frame.size.height);
     //Selection Menu
     [self.btnSelectPulse setTitleEdgeInsets:UIEdgeInsetsMake(30,-42, 0, 0)];
     [self.btnSelectAvgPulse setTitleEdgeInsets:UIEdgeInsetsMake(30,-52, 0, 0)];
@@ -805,6 +885,19 @@
     
     [self.btnSelectCalories setTitleEdgeInsets:UIEdgeInsetsMake(30,-42, 0, 0)];
 
+    
+    //Set Calories
+    self.sliderSetCalories.frame = CGRectMake(self.sliderDashboardSpeed.frame.origin.x+95, self.sliderDashboardSpeed.frame.origin.y+119, 300, 300);
+   
+    
+    //Calories on Dashboard UI
+    self.sliderDashboardCalories.frame = CGRectMake(self.sliderDashboardCalories.frame.origin.x, self.sliderDashboardCalories.frame.origin.y, 300, 300);
+    self.imgBGCalories.frame = CGRectMake(self.sliderDashboardCalories.frame.origin.x-50, self.sliderDashboardCalories.frame.origin.y-25, 300, 300);
+    self.sliderDashboardCalories.frame = CGRectMake(self.sliderDashboardCalories.frame.origin.x-40, self.sliderDashboardCalories.frame.origin.y-12, 290, 290);
+    self.imgBGLogoCalories.frame = CGRectMake(self.imgBGLogoCalories.frame.origin.x-10,self.imgBGLogoCalories.frame.origin.y+70, 70, 46);
+    self.btnMaxCalories.frame = CGRectMake(self.imgBGLogoCalories.frame.origin.x+self.imgBGLogoCalories.frame.size.width,self.imgBGLogoCalories.frame.origin.y-15, self.btnMaxCalories.frame.size.width, self.btnMaxCalories.frame.size.height);
+    
+    [self.sliderDashboardCalories setValue:400];
     
     return;
     self.simpleCSlider = [[DKCircularSlider alloc] initWithFrame:iPhone6PlusRect usingMax:99 usingMin:1 withContentImage:[UIImage imageNamed:@"sensitivity"] withTitle:@"" withTarget:nil usingSelector:nil];
@@ -1102,6 +1195,7 @@
   //   didUpdateLocations:(NSArray *)locations
 - (void)updateMyLocation:(NSNotification*) notify
 {
+    return; ///No need for now
     NSLog(@"Dashboard didUpdateLocations");
     CLLocation *newLocation = (CLLocation *)notify.object;
     //CLLocation *newLocation = [locations firstObject];
@@ -1194,7 +1288,17 @@
     NSLog(@"Placemark : %@",[placemark description]);
 }
 
-
+- (void)checkIfCaloriesGoalAchieve:(int)cal
+{
+    int goalCalories = [self.lblGoalCalories.text intValue];
+    if(goalCalories > 0)
+    {
+        if(goalCalories == cal)
+        {
+            self.viewGoalCalories.hidden = NO;
+        }
+    }
+}
 
 -(void)getHeaderPacketWithNotification:(NSNotification*)notification{
 
@@ -1260,6 +1364,9 @@
                 //Calories Sensor goes here
                 [self.lblCaloriesValueSlider setText:[cal stringValue]];
                 [self.sliderDashboardCalories setValue:[cal floatValue]];
+                [self checkIfCaloriesGoalAchieve:[cal intValue]];
+                float totalPer = ([cal floatValue] / self.sliderSetCalories.maximumValue) * 100;
+                self.lblCaloriesPercentage.text = [NSString stringWithFormat:@"%.0f%%",totalPer];
             }
             break;
             default:

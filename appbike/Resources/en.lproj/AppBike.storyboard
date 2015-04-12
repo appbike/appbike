@@ -45,10 +45,8 @@
             <string>RobotoCondensed-Bold</string>
             <string>RobotoCondensed-Bold</string>
             <string>RobotoCondensed-Bold</string>
-            <string>RobotoCondensed-Bold</string>
         </mutableArray>
         <mutableArray key="RobotoCondensed-Regular.ttf">
-            <string>RobotoCondensed-Regular</string>
             <string>RobotoCondensed-Regular</string>
             <string>RobotoCondensed-Regular</string>
             <string>RobotoCondensed-Regular</string>
@@ -413,7 +411,7 @@
                                         <rect key="frame" x="57" y="48" width="205" height="205"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calories_ring.png" id="ZYE-Bi-5pG">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flow_ring.png" id="ZYE-Bi-5pG">
                                                 <rect key="frame" x="0.0" y="0.0" width="205" height="205"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                             </imageView>
@@ -422,38 +420,22 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             </view>
-                                            <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calories_logo.png" id="rEM-OQ-PcN">
+                                            <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flow_ring_logo.png" id="rEM-OQ-PcN">
                                                 <rect key="frame" x="81" y="172" width="46" height="31"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </imageView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="0A0-xp-jFb">
-                                                <rect key="frame" x="121" y="158" width="48" height="48"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" name="RobotoCondensed-Regular" family="Roboto Condensed" pointSize="20"/>
-                                                <state key="normal" title="500" backgroundImage="difit_circle.png">
-                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                            </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kWP-EY-nMt">
-                                                <rect key="frame" x="43" y="41" width="118" height="47"/>
+                                                <rect key="frame" x="43" y="79" width="118" height="47"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" name="RobotoCondensed-Bold" family="Roboto Condensed" pointSize="53"/>
-                                                <color key="textColor" red="0.28627450980000002" green="0.37647058820000001" blue="0.42745098040000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="cal" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="n51-aE-NND">
-                                                <rect key="frame" x="43" y="92" width="118" height="47"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cal" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="n51-aE-NND">
+                                                <rect key="frame" x="43" y="126" width="118" height="47"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" name="RobotoCondensed-Bold" family="Roboto Condensed" pointSize="22"/>
-                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="F17-Wi-tDs">
-                                                <rect key="frame" x="43" y="127" width="118" height="47"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" name="RobotoCondensed-Bold" family="Roboto Condensed" pointSize="30"/>
-                                                <color key="textColor" red="0.28627450980000002" green="0.37647058820000001" blue="0.42745098040000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
@@ -596,6 +578,9 @@
                                 <state key="normal" image="uparrow.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="displaySelectionMenu:" destination="M0w-tV-0Be" eventType="touchUpInside" id="ffV-rT-bEp"/>
+                                </connections>
                             </button>
                             <view hidden="YES" contentMode="scaleToFill" id="FKo-WK-MDc" userLabel="Selection Menu">
                                 <rect key="frame" x="0.0" y="160" width="320" height="55"/>
@@ -965,7 +950,6 @@
                     <connections>
                         <outlet property="assistantLevelView" destination="p3H-id-Ay2" id="Ghu-Zf-pFg"/>
                         <outlet property="bgMinMaxSpeed" destination="4fa-Mf-hcd" id="345-iN-Bxl"/>
-                        <outlet property="btnMaxCalories" destination="0A0-xp-jFb" id="AIk-ni-yOK"/>
                         <outlet property="btnSelectAvgPulse" destination="S5l-ty-gtX" id="Qpl-1f-6gh"/>
                         <outlet property="btnSelectAvgSpeed" destination="xOL-Wc-XkG" id="gX7-aJ-RZ6"/>
                         <outlet property="btnSelectCalories" destination="u3i-gE-zQm" id="cr0-16-yuw"/>
@@ -973,16 +957,12 @@
                         <outlet property="btnSelectSpeed" destination="Ie0-dq-2WV" id="S6h-8Z-BxQ"/>
                         <outlet property="circularSlider" destination="yFN-7L-iQI" id="0Pv-mk-8Ir"/>
                         <outlet property="counterPicker" destination="F52-jm-41f" id="IJq-X0-Cob"/>
-                        <outlet property="imgBGCalories" destination="ZYE-Bi-5pG" id="eLx-3p-oes"/>
                         <outlet property="imgBGDashboardSpeed" destination="kVd-Bu-Ywg" id="YCY-rn-gOE"/>
-                        <outlet property="imgBGLogoCalories" destination="rEM-OQ-PcN" id="6ac-8B-NEt"/>
-                        <outlet property="imgBGLogoDashboardSpeed" destination="ecK-mz-rOX" id="x9E-eL-gXB"/>
                         <outlet property="imgBgSetSpeed" destination="KoE-eh-Vi9" id="6HB-8T-58p"/>
                         <outlet property="lblBPMCount" destination="1rN-Ef-PX7" id="Av3-8Q-ztx"/>
                         <outlet property="lblBPMText" destination="gvt-Kw-DV2" id="gem-zo-2bM"/>
                         <outlet property="lblCalorieCount" destination="Iu3-aI-52W" id="r7N-Wm-oep"/>
                         <outlet property="lblCalorieText" destination="95S-d2-nYu" id="SDj-NT-cjx"/>
-                        <outlet property="lblCaloriesPercentage" destination="F17-Wi-tDs" id="hRF-h7-fnd"/>
                         <outlet property="lblCaloriesValueSlider" destination="kWP-EY-nMt" id="Tq5-Fy-QbZ"/>
                         <outlet property="lblCounter" destination="34k-Wz-57I" id="wsI-3c-riC"/>
                         <outlet property="lblCurrentSpeed" destination="jWQ-v8-6f9" id="48r-74-0iF"/>
@@ -997,7 +977,6 @@
                         <outlet property="lblRPMCount" destination="kj0-Wa-hEc" id="Ld7-nt-FcJ"/>
                         <outlet property="lblRPMText" destination="MKM-YP-7NW" id="w4h-Jv-6ZD"/>
                         <outlet property="lblSetCaloriesValue" destination="JyP-yf-cJk" id="cqP-RS-iBl"/>
-                        <outlet property="lblWattCount" destination="Pfy-VN-e5P" id="H99-dc-TGZ"/>
                         <outlet property="multisectorControl" destination="4Wy-dS-tJc" id="BoS-hG-Gno"/>
                         <outlet property="progressBarRoundedFat" destination="yPg-QE-1SS" id="pRv-G7-qNt"/>
                         <outlet property="setSpeedlblDistance" destination="vS9-K2-4bZ" id="qoj-3B-0Ik"/>
@@ -1076,11 +1055,8 @@
         <image name="bpm.png" width="72" height="72"/>
         <image name="cal.png" width="72" height="72"/>
         <image name="calories.png" width="28" height="28"/>
-        <image name="calories_logo.png" width="169" height="73"/>
-        <image name="calories_ring.png" width="460" height="460"/>
         <image name="calories_selected.png" width="28" height="28"/>
         <image name="cycle.png" width="56" height="56"/>
-        <image name="difit_circle.png" width="96" height="96"/>
         <image name="engine.png" width="56" height="56"/>
         <image name="enginebar.png" width="356" height="36"/>
         <image name="flow_ring.png" width="410" height="410"/>

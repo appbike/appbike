@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "REFrostedViewController.h"
 
 @interface ABNavigationVC : UINavigationController
+
+- (void)panGestureRecognized:(UIPanGestureRecognizer *)sender;
 
 @end

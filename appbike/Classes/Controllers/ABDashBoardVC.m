@@ -314,7 +314,7 @@
         
         NSLog(@"iPhone5");
         self.imgBGCalories.frame = CGRectMake(self.sliderDashboardCalories.frame.origin.x+5, self.sliderDashboardCalories.frame.origin.y, 195, 195);
-        [self.sliderDashboardCalories setValue:400];
+        //[self.sliderDashboardCalories setValue:400];
         //self.simpleCSlider = [[DKCircularSlider alloc] initWithFrame:COMPONENTRECT usingMax:99 usingMin:1 withContentImage:[UIImage imageNamed:@"sensitivity"] withTitle:@"" withTarget:nil usingSelector:nil];
         //self.imgSettle.frame = CGRectMake(53,149, 13, 11);
     }
@@ -420,7 +420,7 @@
 
 - (IBAction)showLeftMenu:(id)sender
 {
-    return;
+    //return;
     [self.view endEditing:YES];
     [self.frostedViewController.view endEditing:YES];
     
@@ -897,7 +897,7 @@
     self.imgBGLogoCalories.frame = CGRectMake(self.imgBGLogoCalories.frame.origin.x-10,self.imgBGLogoCalories.frame.origin.y+70, 70, 46);
     self.btnMaxCalories.frame = CGRectMake(self.imgBGLogoCalories.frame.origin.x+self.imgBGLogoCalories.frame.size.width,self.imgBGLogoCalories.frame.origin.y-15, self.btnMaxCalories.frame.size.width, self.btnMaxCalories.frame.size.height);
     
-    [self.sliderDashboardCalories setValue:400];
+    //[self.sliderDashboardCalories setValue:400];
     
     return;
     self.simpleCSlider = [[DKCircularSlider alloc] initWithFrame:iPhone6PlusRect usingMax:99 usingMin:1 withContentImage:[UIImage imageNamed:@"sensitivity"] withTitle:@"" withTarget:nil usingSelector:nil];

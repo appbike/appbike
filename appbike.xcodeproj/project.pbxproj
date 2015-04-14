@@ -387,6 +387,60 @@
 		CFF94FF81ADA9639004FCFED /* difit_circle.png in Resources */ = {isa = PBXBuildFile; fileRef = CFF94FF51ADA9639004FCFED /* difit_circle.png */; };
 		CFF94FF91ADA9639004FCFED /* difit_circle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFF94FF61ADA9639004FCFED /* difit_circle@2x.png */; };
 		CFF94FFA1ADA9639004FCFED /* difit_circle@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFF94FF71ADA9639004FCFED /* difit_circle@3x.png */; };
+		CFF950321ADC3155004FCFED /* bike.png in Resources */ = {isa = PBXBuildFile; fileRef = CFF94FFC1ADC3154004FCFED /* bike.png */; };
+		CFF950331ADC3155004FCFED /* bike@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFF94FFD1ADC3154004FCFED /* bike@2x.png */; };
+		CFF950341ADC3155004FCFED /* bike@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFF94FFE1ADC3154004FCFED /* bike@3x.png */; };
+		CFF950351ADC3155004FCFED /* bike_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = CFF94FFF1ADC3154004FCFED /* bike_selected.png */; };
+		CFF950361ADC3155004FCFED /* bike_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFF950001ADC3154004FCFED /* bike_selected@2x.png */; };
+		CFF950371ADC3155004FCFED /* bike_selected@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFF950011ADC3154004FCFED /* bike_selected@3x.png */; };
+		CFF950381ADC3155004FCFED /* check.png in Resources */ = {isa = PBXBuildFile; fileRef = CFF950021ADC3154004FCFED /* check.png */; };
+		CFF950391ADC3155004FCFED /* check@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFF950031ADC3154004FCFED /* check@2x.png */; };
+		CFF9503A1ADC3155004FCFED /* check@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFF950041ADC3154004FCFED /* check@3x.png */; };
+		CFF9503B1ADC3155004FCFED /* destination.png in Resources */ = {isa = PBXBuildFile; fileRef = CFF950051ADC3154004FCFED /* destination.png */; };
+		CFF9503C1ADC3155004FCFED /* destination@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFF950061ADC3154004FCFED /* destination@2x.png */; };
+		CFF9503D1ADC3155004FCFED /* destination@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFF950071ADC3154004FCFED /* destination@3x.png */; };
+		CFF9503E1ADC3155004FCFED /* destination_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = CFF950081ADC3154004FCFED /* destination_selected.png */; };
+		CFF9503F1ADC3155004FCFED /* destination_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFF950091ADC3154004FCFED /* destination_selected@2x.png */; };
+		CFF950401ADC3155004FCFED /* destination_selected@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFF9500A1ADC3154004FCFED /* destination_selected@3x.png */; };
+		CFF950411ADC3155004FCFED /* diagnostic.png in Resources */ = {isa = PBXBuildFile; fileRef = CFF9500B1ADC3154004FCFED /* diagnostic.png */; };
+		CFF950421ADC3155004FCFED /* diagnostic@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFF9500C1ADC3154004FCFED /* diagnostic@2x.png */; };
+		CFF950431ADC3155004FCFED /* diagnostic@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFF9500D1ADC3154004FCFED /* diagnostic@3x.png */; };
+		CFF950441ADC3155004FCFED /* diagnostic_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = CFF9500E1ADC3154004FCFED /* diagnostic_selected.png */; };
+		CFF950451ADC3155004FCFED /* diagnostic_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFF9500F1ADC3154004FCFED /* diagnostic_selected@2x.png */; };
+		CFF950461ADC3155004FCFED /* diagnostic_selected@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFF950101ADC3154004FCFED /* diagnostic_selected@3x.png */; };
+		CFF950471ADC3155004FCFED /* favourite.png in Resources */ = {isa = PBXBuildFile; fileRef = CFF950111ADC3154004FCFED /* favourite.png */; };
+		CFF950481ADC3155004FCFED /* favourite@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFF950121ADC3154004FCFED /* favourite@2x.png */; };
+		CFF950491ADC3155004FCFED /* favourite@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFF950131ADC3154004FCFED /* favourite@3x.png */; };
+		CFF9504A1ADC3155004FCFED /* favourite_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = CFF950141ADC3154004FCFED /* favourite_selected.png */; };
+		CFF9504B1ADC3155004FCFED /* favourite_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFF950151ADC3154004FCFED /* favourite_selected@2x.png */; };
+		CFF9504C1ADC3155004FCFED /* favourite_selected@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFF950161ADC3154004FCFED /* favourite_selected@3x.png */; };
+		CFF9504D1ADC3155004FCFED /* history.png in Resources */ = {isa = PBXBuildFile; fileRef = CFF950171ADC3154004FCFED /* history.png */; };
+		CFF9504E1ADC3155004FCFED /* history@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFF950181ADC3154004FCFED /* history@2x.png */; };
+		CFF9504F1ADC3155004FCFED /* history@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFF950191ADC3154004FCFED /* history@3x.png */; };
+		CFF950501ADC3155004FCFED /* history_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFF9501A1ADC3154004FCFED /* history_selected@2x.png */; };
+		CFF950511ADC3155004FCFED /* history_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = CFF9501B1ADC3154004FCFED /* history_selected.png */; };
+		CFF950521ADC3155004FCFED /* history_selected@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFF9501C1ADC3154004FCFED /* history_selected@3x.png */; };
+		CFF950531ADC3155004FCFED /* off.png in Resources */ = {isa = PBXBuildFile; fileRef = CFF9501D1ADC3154004FCFED /* off.png */; };
+		CFF950541ADC3155004FCFED /* off@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFF9501E1ADC3154004FCFED /* off@2x.png */; };
+		CFF950551ADC3155004FCFED /* off@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFF9501F1ADC3154004FCFED /* off@3x.png */; };
+		CFF950561ADC3155004FCFED /* on.png in Resources */ = {isa = PBXBuildFile; fileRef = CFF950201ADC3154004FCFED /* on.png */; };
+		CFF950571ADC3155004FCFED /* on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFF950211ADC3154004FCFED /* on@2x.png */; };
+		CFF950581ADC3155004FCFED /* on@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFF950221ADC3154004FCFED /* on@3x.png */; };
+		CFF950591ADC3155004FCFED /* profile.png in Resources */ = {isa = PBXBuildFile; fileRef = CFF950231ADC3154004FCFED /* profile.png */; };
+		CFF9505A1ADC3155004FCFED /* profile@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFF950241ADC3154004FCFED /* profile@2x.png */; };
+		CFF9505B1ADC3155004FCFED /* profile@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFF950251ADC3154004FCFED /* profile@3x.png */; };
+		CFF9505C1ADC3155004FCFED /* profile_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = CFF950261ADC3154004FCFED /* profile_selected.png */; };
+		CFF9505D1ADC3155004FCFED /* profile_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFF950271ADC3154004FCFED /* profile_selected@2x.png */; };
+		CFF9505E1ADC3155004FCFED /* profile_selected@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFF950281ADC3154004FCFED /* profile_selected@3x.png */; };
+		CFF9505F1ADC3155004FCFED /* safety.png in Resources */ = {isa = PBXBuildFile; fileRef = CFF950291ADC3154004FCFED /* safety.png */; };
+		CFF950601ADC3155004FCFED /* safety@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFF9502A1ADC3154004FCFED /* safety@2x.png */; };
+		CFF950611ADC3155004FCFED /* safety@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFF9502B1ADC3154004FCFED /* safety@3x.png */; };
+		CFF950621ADC3155004FCFED /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = CFF9502C1ADC3154004FCFED /* settings.png */; };
+		CFF950631ADC3155004FCFED /* settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFF9502D1ADC3154004FCFED /* settings@2x.png */; };
+		CFF950641ADC3155004FCFED /* settings@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFF9502E1ADC3154004FCFED /* settings@3x.png */; };
+		CFF950651ADC3155004FCFED /* sidebar.png in Resources */ = {isa = PBXBuildFile; fileRef = CFF9502F1ADC3154004FCFED /* sidebar.png */; };
+		CFF950661ADC3155004FCFED /* sidebar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFF950301ADC3154004FCFED /* sidebar@2x.png */; };
+		CFF950671ADC3155004FCFED /* sidebar@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFF950311ADC3154004FCFED /* sidebar@3x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -848,6 +902,60 @@
 		CFF94FF51ADA9639004FCFED /* difit_circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = difit_circle.png; sourceTree = "<group>"; };
 		CFF94FF61ADA9639004FCFED /* difit_circle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "difit_circle@2x.png"; sourceTree = "<group>"; };
 		CFF94FF71ADA9639004FCFED /* difit_circle@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "difit_circle@3x.png"; sourceTree = "<group>"; };
+		CFF94FFC1ADC3154004FCFED /* bike.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bike.png; sourceTree = "<group>"; };
+		CFF94FFD1ADC3154004FCFED /* bike@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bike@2x.png"; sourceTree = "<group>"; };
+		CFF94FFE1ADC3154004FCFED /* bike@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bike@3x.png"; sourceTree = "<group>"; };
+		CFF94FFF1ADC3154004FCFED /* bike_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bike_selected.png; sourceTree = "<group>"; };
+		CFF950001ADC3154004FCFED /* bike_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bike_selected@2x.png"; sourceTree = "<group>"; };
+		CFF950011ADC3154004FCFED /* bike_selected@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bike_selected@3x.png"; sourceTree = "<group>"; };
+		CFF950021ADC3154004FCFED /* check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check.png; sourceTree = "<group>"; };
+		CFF950031ADC3154004FCFED /* check@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "check@2x.png"; sourceTree = "<group>"; };
+		CFF950041ADC3154004FCFED /* check@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "check@3x.png"; sourceTree = "<group>"; };
+		CFF950051ADC3154004FCFED /* destination.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = destination.png; sourceTree = "<group>"; };
+		CFF950061ADC3154004FCFED /* destination@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "destination@2x.png"; sourceTree = "<group>"; };
+		CFF950071ADC3154004FCFED /* destination@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "destination@3x.png"; sourceTree = "<group>"; };
+		CFF950081ADC3154004FCFED /* destination_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = destination_selected.png; sourceTree = "<group>"; };
+		CFF950091ADC3154004FCFED /* destination_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "destination_selected@2x.png"; sourceTree = "<group>"; };
+		CFF9500A1ADC3154004FCFED /* destination_selected@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "destination_selected@3x.png"; sourceTree = "<group>"; };
+		CFF9500B1ADC3154004FCFED /* diagnostic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = diagnostic.png; sourceTree = "<group>"; };
+		CFF9500C1ADC3154004FCFED /* diagnostic@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "diagnostic@2x.png"; sourceTree = "<group>"; };
+		CFF9500D1ADC3154004FCFED /* diagnostic@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "diagnostic@3x.png"; sourceTree = "<group>"; };
+		CFF9500E1ADC3154004FCFED /* diagnostic_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = diagnostic_selected.png; sourceTree = "<group>"; };
+		CFF9500F1ADC3154004FCFED /* diagnostic_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "diagnostic_selected@2x.png"; sourceTree = "<group>"; };
+		CFF950101ADC3154004FCFED /* diagnostic_selected@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "diagnostic_selected@3x.png"; sourceTree = "<group>"; };
+		CFF950111ADC3154004FCFED /* favourite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favourite.png; sourceTree = "<group>"; };
+		CFF950121ADC3154004FCFED /* favourite@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "favourite@2x.png"; sourceTree = "<group>"; };
+		CFF950131ADC3154004FCFED /* favourite@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "favourite@3x.png"; sourceTree = "<group>"; };
+		CFF950141ADC3154004FCFED /* favourite_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favourite_selected.png; sourceTree = "<group>"; };
+		CFF950151ADC3154004FCFED /* favourite_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "favourite_selected@2x.png"; sourceTree = "<group>"; };
+		CFF950161ADC3154004FCFED /* favourite_selected@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "favourite_selected@3x.png"; sourceTree = "<group>"; };
+		CFF950171ADC3154004FCFED /* history.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = history.png; sourceTree = "<group>"; };
+		CFF950181ADC3154004FCFED /* history@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "history@2x.png"; sourceTree = "<group>"; };
+		CFF950191ADC3154004FCFED /* history@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "history@3x.png"; sourceTree = "<group>"; };
+		CFF9501A1ADC3154004FCFED /* history_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "history_selected@2x.png"; sourceTree = "<group>"; };
+		CFF9501B1ADC3154004FCFED /* history_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = history_selected.png; sourceTree = "<group>"; };
+		CFF9501C1ADC3154004FCFED /* history_selected@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "history_selected@3x.png"; sourceTree = "<group>"; };
+		CFF9501D1ADC3154004FCFED /* off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = off.png; sourceTree = "<group>"; };
+		CFF9501E1ADC3154004FCFED /* off@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "off@2x.png"; sourceTree = "<group>"; };
+		CFF9501F1ADC3154004FCFED /* off@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "off@3x.png"; sourceTree = "<group>"; };
+		CFF950201ADC3154004FCFED /* on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = on.png; sourceTree = "<group>"; };
+		CFF950211ADC3154004FCFED /* on@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "on@2x.png"; sourceTree = "<group>"; };
+		CFF950221ADC3154004FCFED /* on@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "on@3x.png"; sourceTree = "<group>"; };
+		CFF950231ADC3154004FCFED /* profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile.png; sourceTree = "<group>"; };
+		CFF950241ADC3154004FCFED /* profile@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "profile@2x.png"; sourceTree = "<group>"; };
+		CFF950251ADC3154004FCFED /* profile@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "profile@3x.png"; sourceTree = "<group>"; };
+		CFF950261ADC3154004FCFED /* profile_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile_selected.png; sourceTree = "<group>"; };
+		CFF950271ADC3154004FCFED /* profile_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "profile_selected@2x.png"; sourceTree = "<group>"; };
+		CFF950281ADC3154004FCFED /* profile_selected@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "profile_selected@3x.png"; sourceTree = "<group>"; };
+		CFF950291ADC3154004FCFED /* safety.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = safety.png; sourceTree = "<group>"; };
+		CFF9502A1ADC3154004FCFED /* safety@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "safety@2x.png"; sourceTree = "<group>"; };
+		CFF9502B1ADC3154004FCFED /* safety@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "safety@3x.png"; sourceTree = "<group>"; };
+		CFF9502C1ADC3154004FCFED /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
+		CFF9502D1ADC3154004FCFED /* settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings@2x.png"; sourceTree = "<group>"; };
+		CFF9502E1ADC3154004FCFED /* settings@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings@3x.png"; sourceTree = "<group>"; };
+		CFF9502F1ADC3154004FCFED /* sidebar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sidebar.png; sourceTree = "<group>"; };
+		CFF950301ADC3154004FCFED /* sidebar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sidebar@2x.png"; sourceTree = "<group>"; };
+		CFF950311ADC3154004FCFED /* sidebar@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sidebar@3x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1439,6 +1547,7 @@
 		CFC183D41ACEE5E500FEFC0A /* ImagesNew */ = {
 			isa = PBXGroup;
 			children = (
+				CFF94FFB1ADC3154004FCFED /* menuicons */,
 				CFBB9F4B1AD80FA9000DDE89 /* Splash */,
 				CFBABC621AD2EFCA008AEA7B /* setspeed */,
 				CFD15D941AD1316800AE6A12 /* Savesession */,
@@ -1812,6 +1921,67 @@
 			name = Images;
 			sourceTree = "<group>";
 		};
+		CFF94FFB1ADC3154004FCFED /* menuicons */ = {
+			isa = PBXGroup;
+			children = (
+				CFF94FFC1ADC3154004FCFED /* bike.png */,
+				CFF94FFD1ADC3154004FCFED /* bike@2x.png */,
+				CFF94FFE1ADC3154004FCFED /* bike@3x.png */,
+				CFF94FFF1ADC3154004FCFED /* bike_selected.png */,
+				CFF950001ADC3154004FCFED /* bike_selected@2x.png */,
+				CFF950011ADC3154004FCFED /* bike_selected@3x.png */,
+				CFF950021ADC3154004FCFED /* check.png */,
+				CFF950031ADC3154004FCFED /* check@2x.png */,
+				CFF950041ADC3154004FCFED /* check@3x.png */,
+				CFF950051ADC3154004FCFED /* destination.png */,
+				CFF950061ADC3154004FCFED /* destination@2x.png */,
+				CFF950071ADC3154004FCFED /* destination@3x.png */,
+				CFF950081ADC3154004FCFED /* destination_selected.png */,
+				CFF950091ADC3154004FCFED /* destination_selected@2x.png */,
+				CFF9500A1ADC3154004FCFED /* destination_selected@3x.png */,
+				CFF9500B1ADC3154004FCFED /* diagnostic.png */,
+				CFF9500C1ADC3154004FCFED /* diagnostic@2x.png */,
+				CFF9500D1ADC3154004FCFED /* diagnostic@3x.png */,
+				CFF9500E1ADC3154004FCFED /* diagnostic_selected.png */,
+				CFF9500F1ADC3154004FCFED /* diagnostic_selected@2x.png */,
+				CFF950101ADC3154004FCFED /* diagnostic_selected@3x.png */,
+				CFF950111ADC3154004FCFED /* favourite.png */,
+				CFF950121ADC3154004FCFED /* favourite@2x.png */,
+				CFF950131ADC3154004FCFED /* favourite@3x.png */,
+				CFF950141ADC3154004FCFED /* favourite_selected.png */,
+				CFF950151ADC3154004FCFED /* favourite_selected@2x.png */,
+				CFF950161ADC3154004FCFED /* favourite_selected@3x.png */,
+				CFF950171ADC3154004FCFED /* history.png */,
+				CFF950181ADC3154004FCFED /* history@2x.png */,
+				CFF950191ADC3154004FCFED /* history@3x.png */,
+				CFF9501A1ADC3154004FCFED /* history_selected@2x.png */,
+				CFF9501B1ADC3154004FCFED /* history_selected.png */,
+				CFF9501C1ADC3154004FCFED /* history_selected@3x.png */,
+				CFF9501D1ADC3154004FCFED /* off.png */,
+				CFF9501E1ADC3154004FCFED /* off@2x.png */,
+				CFF9501F1ADC3154004FCFED /* off@3x.png */,
+				CFF950201ADC3154004FCFED /* on.png */,
+				CFF950211ADC3154004FCFED /* on@2x.png */,
+				CFF950221ADC3154004FCFED /* on@3x.png */,
+				CFF950231ADC3154004FCFED /* profile.png */,
+				CFF950241ADC3154004FCFED /* profile@2x.png */,
+				CFF950251ADC3154004FCFED /* profile@3x.png */,
+				CFF950261ADC3154004FCFED /* profile_selected.png */,
+				CFF950271ADC3154004FCFED /* profile_selected@2x.png */,
+				CFF950281ADC3154004FCFED /* profile_selected@3x.png */,
+				CFF950291ADC3154004FCFED /* safety.png */,
+				CFF9502A1ADC3154004FCFED /* safety@2x.png */,
+				CFF9502B1ADC3154004FCFED /* safety@3x.png */,
+				CFF9502C1ADC3154004FCFED /* settings.png */,
+				CFF9502D1ADC3154004FCFED /* settings@2x.png */,
+				CFF9502E1ADC3154004FCFED /* settings@3x.png */,
+				CFF9502F1ADC3154004FCFED /* sidebar.png */,
+				CFF950301ADC3154004FCFED /* sidebar@2x.png */,
+				CFF950311ADC3154004FCFED /* sidebar@3x.png */,
+			);
+			path = menuicons;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1875,6 +2045,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CFF9503D1ADC3155004FCFED /* destination@3x.png in Resources */,
 				C3DA2C021AB1A24E00DB636D /* script.js in Resources */,
 				CFD15D531ACF1E6500AE6A12 /* pulse.png in Resources */,
 				66E197D71A5FB332003D1A9B /* Images.xcassets in Resources */,
@@ -1882,19 +2053,26 @@
 				CFC184351ACEE5E500FEFC0A /* aasistance_level_1@3x.png in Resources */,
 				CF756F5D1A90A5730084DB8B /* skin.json in Resources */,
 				CFC184341ACEE5E500FEFC0A /* aasistance_level_1@2x.png in Resources */,
+				CFF950561ADC3155004FCFED /* on.png in Resources */,
 				CFC1844C1ACEE5E500FEFC0A /* battery2@2x.png in Resources */,
+				CFF9503A1ADC3155004FCFED /* check@3x.png in Resources */,
 				CFC1846C1ACEE5E500FEFC0A /* icon2@2x.png in Resources */,
+				CFF950521ADC3155004FCFED /* history_selected@3x.png in Resources */,
 				CFC184481ACEE5E500FEFC0A /* battery10@2x.png in Resources */,
 				CFD15D041ACF0F6D00AE6A12 /* bpm.png in Resources */,
 				CFD15CF91ACF0F6D00AE6A12 /* battery1.png in Resources */,
 				CFD15D141ACF0F6E00AE6A12 /* plus.png in Resources */,
+				CFF950351ADC3155004FCFED /* bike_selected.png in Resources */,
 				CF9257F31A923BC700B53F03 /* calorie_transperent.png in Resources */,
 				CFD15D3B1ACF1E6500AE6A12 /* avg_pulse_selected.png in Resources */,
 				CFD15CD41ACF08F000AE6A12 /* aasistance_level_9.png in Resources */,
+				CFF9503C1ADC3155004FCFED /* destination@2x.png in Resources */,
+				CFF950431ADC3155004FCFED /* diagnostic@3x.png in Resources */,
 				CFD15D0B1ACF0F6D00AE6A12 /* icon2_selected.png in Resources */,
 				CFD15D5B1ACF1E6500AE6A12 /* speed@3x.png in Resources */,
 				CFC184711ACEE5E500FEFC0A /* icon3@3x.png in Resources */,
 				CF9257F61A923BC800B53F03 /* dynemic_mode_transperent.png in Resources */,
+				CFF950571ADC3155004FCFED /* on@2x.png in Resources */,
 				CF756F7F1A90BD690084DB8B /* safety_transperent@3x.png in Resources */,
 				CFD15D5A1ACF1E6500AE6A12 /* speed@2x.png in Resources */,
 				CFF94FF41ADA922D004FCFED /* calories_ring@3x.png in Resources */,
@@ -1903,6 +2081,7 @@
 				CFD15D121ACF0F6E00AE6A12 /* menu.png in Resources */,
 				CFC184791ACEE5E500FEFC0A /* menu@3x.png in Resources */,
 				CFD15D051ACF0F6D00AE6A12 /* cal.png in Resources */,
+				CFF950471ADC3155004FCFED /* favourite.png in Resources */,
 				CFC184521ACEE5E500FEFC0A /* battery5@2x.png in Resources */,
 				CFD15D6C1AD03F2C00AE6A12 /* devider.png in Resources */,
 				CFBB9F501AD80FBD000DDE89 /* Default-568h@2x.png in Resources */,
@@ -1913,7 +2092,10 @@
 				CFBB9F481AD80E69000DDE89 /* flow_ring_logo.png in Resources */,
 				CFD15D3C1ACF1E6500AE6A12 /* avg_pulse_selected@2x.png in Resources */,
 				CFF94FF11ADA922D004FCFED /* calories_logo@3x.png in Resources */,
+				CFF9504E1ADC3155004FCFED /* history@2x.png in Resources */,
 				CF26CCD61AD6F1200049E8B8 /* RobotoCondensed-LightItalic.ttf in Resources */,
+				CFF950591ADC3155004FCFED /* profile.png in Resources */,
+				CFF950361ADC3155004FCFED /* bike_selected@2x.png in Resources */,
 				CFBB9F531AD80FBD000DDE89 /* Default@3x.png in Resources */,
 				CFC1847B1ACEE5E500FEFC0A /* menu_middlebar@3x.png in Resources */,
 				CF756F7C1A90BD690084DB8B /* menu_transperent@2x.png in Resources */,
@@ -1928,12 +2110,14 @@
 				CFBB9F551AD82A7B000DDE89 /* noimage.png in Resources */,
 				CF9257FE1A923BC800B53F03 /* kilometer_transperent@3x.png in Resources */,
 				CFC1846F1ACEE5E500FEFC0A /* icon2_selected@3x.png in Resources */,
+				CFF950391ADC3155004FCFED /* check@2x.png in Resources */,
 				CF26CCD51AD6F1200049E8B8 /* RobotoCondensed-Light.ttf in Resources */,
 				CFD15D4B1ACF1E6500AE6A12 /* calories@2x.png in Resources */,
 				CFC1844A1ACEE5E500FEFC0A /* battery1@2x.png in Resources */,
 				CFC1845F1ACEE5E500FEFC0A /* bpm@3x.png in Resources */,
 				04D14AA61A8A744300343D63 /* avtar@3x.png in Resources */,
 				CFD15CD01ACF08F000AE6A12 /* aasistance_level_5.png in Resources */,
+				CFF950321ADC3155004FCFED /* bike.png in Resources */,
 				CF9257F91A923BC800B53F03 /* gear_mode_transperent.png in Resources */,
 				CFD15D0A1ACF0F6D00AE6A12 /* icon1.png in Resources */,
 				CFD15D821AD0EEFE00AE6A12 /* enginebar.png in Resources */,
@@ -1941,9 +2125,13 @@
 				CF756F661A90AB770084DB8B /* dashboard_transperent.png in Resources */,
 				CFC184841ACEE5E500FEFC0A /* start@2x.png in Resources */,
 				CF9257FC1A923BC800B53F03 /* kilometer_transperent.png in Resources */,
+				CFF950331ADC3155004FCFED /* bike@2x.png in Resources */,
+				CFF9505D1ADC3155004FCFED /* profile_selected@2x.png in Resources */,
+				CFF950581ADC3155004FCFED /* on@3x.png in Resources */,
 				CFC1845C1ACEE5E500FEFC0A /* bottombar@2x.png in Resources */,
 				CF756F831A90BD690084DB8B /* utility_transperent@3x.png in Resources */,
 				CFD15D861AD0EEFE00AE6A12 /* me@2x.png in Resources */,
+				CFF9504C1ADC3155004FCFED /* favourite_selected@3x.png in Resources */,
 				CF9257F41A923BC800B53F03 /* calorie_transperent@2x.png in Resources */,
 				CFC1847C1ACEE5E500FEFC0A /* minus@2x.png in Resources */,
 				CFBABC681AD2EFCA008AEA7B /* set_speed_ring@3x.png in Resources */,
@@ -1965,12 +2153,16 @@
 				CF26CCDC1AD7141B0049E8B8 /* max_speed_ring@2x.png in Resources */,
 				CFC184541ACEE5E500FEFC0A /* battery6@2x.png in Resources */,
 				CFD15CF81ACF0F6D00AE6A12 /* battery0.png in Resources */,
+				CFF950501ADC3155004FCFED /* history_selected@2x.png in Resources */,
 				CFC184471ACEE5E500FEFC0A /* battery0@3x.png in Resources */,
+				CFF9504D1ADC3155004FCFED /* history.png in Resources */,
 				CFD15CFD1ACF0F6D00AE6A12 /* battery5.png in Resources */,
 				CF26CCCF1AD6F1200049E8B8 /* Roboto-Regular.ttf in Resources */,
 				CFC184681ACEE5E500FEFC0A /* icon1@2x.png in Resources */,
+				CFF9503F1ADC3155004FCFED /* destination_selected@2x.png in Resources */,
 				CFD15D841AD0EEFE00AE6A12 /* enginebar@3x.png in Resources */,
 				CFD15CFC1ACF0F6D00AE6A12 /* battery4.png in Resources */,
+				CFF950381ADC3155004FCFED /* check.png in Resources */,
 				CFD15D7F1AD0EEFE00AE6A12 /* engine.png in Resources */,
 				CFC184801ACEE5E500FEFC0A /* rpm@2x.png in Resources */,
 				CFD15D111ACF0F6E00AE6A12 /* menu_middlebar.png in Resources */,
@@ -1984,6 +2176,7 @@
 				CFD15D6A1AD03F2C00AE6A12 /* background@2x.png in Resources */,
 				CFD15D0D1ACF0F6D00AE6A12 /* icon3_selected.png in Resources */,
 				CFC184771ACEE5E500FEFC0A /* logo@3x.png in Resources */,
+				CFF950651ADC3155004FCFED /* sidebar.png in Resources */,
 				CF26CCCD1AD6F1200049E8B8 /* Roboto-Medium.ttf in Resources */,
 				C3DA2BF51AB1A24E00DB636D /* logo-1.png in Resources */,
 				CF756F791A90BD690084DB8B /* dashboard_transperent@3x.png in Resources */,
@@ -1995,7 +2188,9 @@
 				CFC184621ACEE5E500FEFC0A /* cycle@2x.png in Resources */,
 				CFC184501ACEE5E500FEFC0A /* battery4@2x.png in Resources */,
 				CFC184581ACEE5E500FEFC0A /* battery8@2x.png in Resources */,
+				CFF9505B1ADC3155004FCFED /* profile@3x.png in Resources */,
 				CFD15D0F1ACF0F6D00AE6A12 /* kilometer.png in Resources */,
+				CFF950371ADC3155004FCFED /* bike_selected@3x.png in Resources */,
 				CFF94FF01ADA922D004FCFED /* calories_logo@2x.png in Resources */,
 				CFD15D581ACF1E6500AE6A12 /* speed_selected@3x.png in Resources */,
 				CFD15D931AD10B9D00AE6A12 /* kmh.json in Resources */,
@@ -2006,6 +2201,7 @@
 				CFC184511ACEE5E500FEFC0A /* battery4@3x.png in Resources */,
 				CFD15DA51AD1316800AE6A12 /* yes_btn@2x.png in Resources */,
 				CFD15D091ACF0F6D00AE6A12 /* icon1_selected.png in Resources */,
+				CFF950341ADC3155004FCFED /* bike@3x.png in Resources */,
 				CFD15D731AD03F2C00AE6A12 /* right@2x.png in Resources */,
 				CF26CCDD1AD7141B0049E8B8 /* max_speed_ring@3x.png in Resources */,
 				CFC1843F1ACEE5E500FEFC0A /* aasistance_level_6@3x.png in Resources */,
@@ -2014,32 +2210,38 @@
 				CF9258001A9335B900B53F03 /* constant.json in Resources */,
 				CFD15CFA1ACF0F6D00AE6A12 /* battery2.png in Resources */,
 				CFDA79AB1A8BCB3F006BF182 /* NewLogo.png in Resources */,
+				CFF9505C1ADC3155004FCFED /* profile_selected.png in Resources */,
 				CF26CCCC1AD6F1200049E8B8 /* Roboto-LightItalic.ttf in Resources */,
 				CFC184731ACEE5E500FEFC0A /* icon3_selected@3x.png in Resources */,
 				CFD15CCC1ACF08F000AE6A12 /* aasistance_level_1.png in Resources */,
 				CFC1843D1ACEE5E500FEFC0A /* aasistance_level_5@3x.png in Resources */,
+				CFF950531ADC3155004FCFED /* off.png in Resources */,
 				CFD15D9F1AD1316800AE6A12 /* button@2x.png in Resources */,
 				CFC184441ACEE5E500FEFC0A /* aasistance_level_9@2x.png in Resources */,
 				CFD15D801AD0EEFE00AE6A12 /* engine@2x.png in Resources */,
 				CFD15D421ACF1E6500AE6A12 /* avg_speed_selected@2x.png in Resources */,
 				CFC184431ACEE5E500FEFC0A /* aasistance_level_8@3x.png in Resources */,
+				CFF950411ADC3155004FCFED /* diagnostic.png in Resources */,
 				CFD15D021ACF0F6D00AE6A12 /* battery10.png in Resources */,
 				04D14AA51A8A744300343D63 /* avtar.png in Resources */,
 				CFD15D6D1AD03F2C00AE6A12 /* devider@2x.png in Resources */,
 				CF756F691A90AB770084DB8B /* safety_transperent.png in Resources */,
 				CF26CCC61AD6F1200049E8B8 /* Roboto-Black.ttf in Resources */,
+				CFF9503E1ADC3155004FCFED /* destination_selected.png in Resources */,
 				CFD15D491ACF1E6500AE6A12 /* calories_selected@3x.png in Resources */,
 				CFD15D741AD03F2C00AE6A12 /* right@3x.png in Resources */,
 				CF26CCC91AD6F1200049E8B8 /* Roboto-BoldItalic.ttf in Resources */,
 				CFC1846E1ACEE5E500FEFC0A /* icon2_selected@2x.png in Resources */,
 				CFC1844E1ACEE5E500FEFC0A /* battery3@2x.png in Resources */,
 				CFC1846A1ACEE5E500FEFC0A /* icon1_selected@2x.png in Resources */,
+				CFF950511ADC3155004FCFED /* history_selected.png in Resources */,
 				CFC184401ACEE5E500FEFC0A /* aasistance_level_7@2x.png in Resources */,
 				CFC184381ACEE5E500FEFC0A /* aasistance_level_3@2x.png in Resources */,
 				CFD15D6B1AD03F2C00AE6A12 /* background@3x.png in Resources */,
 				CFC184571ACEE5E500FEFC0A /* battery7@3x.png in Resources */,
 				CF756F7D1A90BD690084DB8B /* menu_transperent@3x.png in Resources */,
 				CFD15D481ACF1E6500AE6A12 /* calories_selected@2x.png in Resources */,
+				CFF9504A1ADC3155004FCFED /* favourite_selected.png in Resources */,
 				CFD15D3F1ACF1E6500AE6A12 /* avg_pulse@2x.png in Resources */,
 				CFBB9F921ADA4941000DDE89 /* Images.xcassets in Resources */,
 				CFD15D4F1ACF1E6500AE6A12 /* middlebar@3x.png in Resources */,
@@ -2049,16 +2251,19 @@
 				CFD15D831AD0EEFE00AE6A12 /* enginebar@2x.png in Resources */,
 				CFC184551ACEE5E500FEFC0A /* battery6@3x.png in Resources */,
 				CFD15D6F1AD03F2C00AE6A12 /* flow_ring_counter.png in Resources */,
+				CFF950641ADC3155004FCFED /* settings@3x.png in Resources */,
 				CFC184821ACEE5E500FEFC0A /* seperator@2x.png in Resources */,
 				CFECD6901A80D1E70012488E /* flow_tire.png in Resources */,
 				CFD15CD51ACF08F000AE6A12 /* aasistance_level_10.png in Resources */,
 				CFD15D811AD0EEFE00AE6A12 /* engine@3x.png in Resources */,
 				CFD15D071ACF0F6D00AE6A12 /* flow_ring.png in Resources */,
+				CFF950661ADC3155004FCFED /* sidebar@2x.png in Resources */,
 				CFD15D401ACF1E6500AE6A12 /* avg_pulse@3x.png in Resources */,
 				CFD15DA41AD1316800AE6A12 /* yes_btn.png in Resources */,
 				CFC1844F1ACEE5E500FEFC0A /* battery3@3x.png in Resources */,
 				CF9257F51A923BC800B53F03 /* calorie_transperent@3x.png in Resources */,
 				CFC184611ACEE5E500FEFC0A /* cal@3x.png in Resources */,
+				CFF950541ADC3155004FCFED /* off@2x.png in Resources */,
 				CFC184851ACEE5E500FEFC0A /* start@3x.png in Resources */,
 				CF756F6A1A90AB770084DB8B /* social_transperent.png in Resources */,
 				CFD15D4A1ACF1E6500AE6A12 /* calories.png in Resources */,
@@ -2084,28 +2289,36 @@
 				CFD15CCB1ACF08F000AE6A12 /* aasistance_level_0.png in Resources */,
 				CFBB9F8F1AD9715F000DDE89 /* stars@2x.png in Resources */,
 				CFC1843E1ACEE5E500FEFC0A /* aasistance_level_6@2x.png in Resources */,
+				CFF950481ADC3155004FCFED /* favourite@2x.png in Resources */,
 				CF756F7A1A90BD690084DB8B /* fitness_transperent@2x.png in Resources */,
+				CFF950491ADC3155004FCFED /* favourite@3x.png in Resources */,
 				CF756F801A90BD690084DB8B /* social_transperent@2x.png in Resources */,
 				CFC184451ACEE5E500FEFC0A /* aasistance_level_9@3x.png in Resources */,
 				CFD15D461ACF1E6500AE6A12 /* avg_speed@3x.png in Resources */,
 				CFC184641ACEE5E500FEFC0A /* flow_ring@2x.png in Resources */,
 				CF26CCD41AD6F1200049E8B8 /* RobotoCondensed-Italic.ttf in Resources */,
 				CF9257F81A923BC800B53F03 /* dynemic_mode_transperent@3x.png in Resources */,
+				CFF950421ADC3155004FCFED /* diagnostic@2x.png in Resources */,
 				C3DA2BF61AB1A24E00DB636D /* logo-2.png in Resources */,
 				CF756F681A90AB770084DB8B /* menu_transperent.png in Resources */,
+				CFF950631ADC3155004FCFED /* settings@2x.png in Resources */,
 				CFD15CD31ACF08F000AE6A12 /* aasistance_level_8.png in Resources */,
 				CFDA79A91A8BC735006BF182 /* flow_tire_new.png in Resources */,
 				04D14AA71A8A744300343D63 /* avtar@2x.png in Resources */,
+				CFF950461ADC3155004FCFED /* diagnostic_selected@3x.png in Resources */,
+				CFF950401ADC3155004FCFED /* destination_selected@3x.png in Resources */,
 				CFC184721ACEE5E500FEFC0A /* icon3_selected@2x.png in Resources */,
 				CFC184861ACEE5E500FEFC0A /* topbar@2x.png in Resources */,
 				CFC184301ACEE5E500FEFC0A /* aasistance_level_0@2x.png in Resources */,
 				CF756F651A90AB770084DB8B /* avtar_transperent.png in Resources */,
 				CFC184421ACEE5E500FEFC0A /* aasistance_level_8@2x.png in Resources */,
 				CFD15D701AD03F2C00AE6A12 /* flow_ring_counter@2x.png in Resources */,
+				CFF9503B1ADC3155004FCFED /* destination.png in Resources */,
 				CFD15D0E1ACF0F6D00AE6A12 /* icon3.png in Resources */,
 				C3DA2BF71AB1A24E00DB636D /* logo.png in Resources */,
 				CFC1845E1ACEE5E500FEFC0A /* bpm@2x.png in Resources */,
 				CFBB9F521AD80FBD000DDE89 /* Default@2x.png in Resources */,
+				CFF950601ADC3155004FCFED /* safety@2x.png in Resources */,
 				CF756F6B1A90AB770084DB8B /* utility_transperent.png in Resources */,
 				CFD15D4C1ACF1E6500AE6A12 /* calories@3x.png in Resources */,
 				CFC184321ACEE5E500FEFC0A /* aasistance_level_10@2x.png in Resources */,
@@ -2113,6 +2326,7 @@
 				CFD15D571ACF1E6500AE6A12 /* speed_selected@2x.png in Resources */,
 				CFBABC671AD2EFCA008AEA7B /* set_speed_ring@2x.png in Resources */,
 				CFC184371ACEE5E500FEFC0A /* aasistance_level_2@3x.png in Resources */,
+				CFF950611ADC3155004FCFED /* safety@3x.png in Resources */,
 				CF9257F71A923BC800B53F03 /* dynemic_mode_transperent@2x.png in Resources */,
 				CFC1843A1ACEE5E500FEFC0A /* aasistance_level_4@2x.png in Resources */,
 				CFD15D551ACF1E6500AE6A12 /* pulse@3x.png in Resources */,
@@ -2125,19 +2339,25 @@
 				CFD15D161ACF0F6E00AE6A12 /* seperator.png in Resources */,
 				CFD15CFF1ACF0F6D00AE6A12 /* battery7.png in Resources */,
 				CFD15D591ACF1E6500AE6A12 /* speed.png in Resources */,
+				CFF950551ADC3155004FCFED /* off@3x.png in Resources */,
 				CFC184781ACEE5E500FEFC0A /* menu@2x.png in Resources */,
 				CFD15D441ACF1E6500AE6A12 /* avg_speed.png in Resources */,
 				CFD15DA61AD1316800AE6A12 /* yes_btn@3x.png in Resources */,
+				CFF9505A1ADC3155004FCFED /* profile@2x.png in Resources */,
 				CFBB9F8A1AD97087000DDE89 /* goal_ring@3x.png in Resources */,
 				CFC184631ACEE5E500FEFC0A /* cycle@3x.png in Resources */,
 				CFD15D3E1ACF1E6500AE6A12 /* avg_pulse.png in Resources */,
 				CF26CCC81AD6F1200049E8B8 /* Roboto-Bold.ttf in Resources */,
 				CFD15D9E1AD1316800AE6A12 /* button.png in Resources */,
+				CFF9505F1ADC3155004FCFED /* safety.png in Resources */,
+				CFF950441ADC3155004FCFED /* diagnostic_selected.png in Resources */,
 				C3DA2C001AB1A24E00DB636D /* style.css in Resources */,
 				CFD15D101ACF0F6E00AE6A12 /* logo.png in Resources */,
+				CFF950621ADC3155004FCFED /* settings.png in Resources */,
 				CF9257FD1A923BC800B53F03 /* kilometer_transperent@2x.png in Resources */,
 				CFD15D081ACF0F6D00AE6A12 /* header.png in Resources */,
 				CFD15D541ACF1E6500AE6A12 /* pulse@2x.png in Resources */,
+				CFF9504F1ADC3155004FCFED /* history@3x.png in Resources */,
 				CFD15D851AD0EEFE00AE6A12 /* me.png in Resources */,
 				CFC1845A1ACEE5E500FEFC0A /* battery9@2x.png in Resources */,
 				CFC1845D1ACEE5E500FEFC0A /* bottombar@3x.png in Resources */,
@@ -2147,16 +2367,20 @@
 				CFD15D431ACF1E6500AE6A12 /* avg_speed_selected@3x.png in Resources */,
 				CFD15D171ACF0F6E00AE6A12 /* start.png in Resources */,
 				CFC1846D1ACEE5E500FEFC0A /* icon2@3x.png in Resources */,
+				CFF950671ADC3155004FCFED /* sidebar@3x.png in Resources */,
 				CFD15D691AD03F2C00AE6A12 /* background.png in Resources */,
 				CFC1845B1ACEE5E500FEFC0A /* battery9@3x.png in Resources */,
 				CF26CCD31AD6F1200049E8B8 /* RobotoCondensed-BoldItalic.ttf in Resources */,
 				CF26CCD21AD6F1200049E8B8 /* RobotoCondensed-Bold.ttf in Resources */,
+				CFF9505E1ADC3155004FCFED /* profile_selected@3x.png in Resources */,
 				CFBB9F901AD9715F000DDE89 /* stars@3x.png in Resources */,
 				CFD15DA21AD1316800AE6A12 /* no_btn@2x.png in Resources */,
 				CFD15D191ACF0F6E00AE6A12 /* uparrow.png in Resources */,
+				CFF950451ADC3155004FCFED /* diagnostic_selected@2x.png in Resources */,
 				CF26CCD11AD6F1200049E8B8 /* Roboto-ThinItalic.ttf in Resources */,
 				CFC184311ACEE5E500FEFC0A /* aasistance_level_0@3x.png in Resources */,
 				CFD15D911AD10B9D00AE6A12 /* countdown.json in Resources */,
+				CFF9504B1ADC3155004FCFED /* favourite_selected@2x.png in Resources */,
 				CFC184361ACEE5E500FEFC0A /* aasistance_level_2@2x.png in Resources */,
 				CFD15DA01AD1316800AE6A12 /* button@3x.png in Resources */,
 				CFD15D131ACF0F6E00AE6A12 /* minus.png in Resources */,

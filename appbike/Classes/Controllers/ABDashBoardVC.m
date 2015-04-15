@@ -459,9 +459,10 @@
     if(!appDelegate().isSessionStart)
     {
         [self startCounter];
-        int newSessionID = [Session getMaxId];
-        NSDictionary *dictData = @{@"id":[NSString stringWithFormat:@"%d",newSessionID]};
-        [Session addItemToSession:dictData];
+        
+//        int newSessionID = [Session getMaxId];
+//        NSDictionary *dictData = @{@"id":[NSString stringWithFormat:@"%d",newSessionID]};
+//        [Session addItemToSession:dictData];
         
         [btnPressed setTitle:@"STOP" forState:UIControlStateNormal];
     }

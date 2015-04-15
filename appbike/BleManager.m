@@ -7,6 +7,7 @@
 //
 
 #import "BleManager.h"
+#import "Session+Utils.h"
 
 @interface BleManager ()
 
@@ -100,6 +101,25 @@
     self.timer = nil;
     //Set timer for next iteration
     //_timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(sendBroadcastHeaderMessage) userInfo:nil repeats:YES];
+}
+
+- (void)saveSession:(NSDictionary *)finalDictionary
+{
+    NSError *error;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:finalDictionary
+                                                       options:NSJSONWritingPrettyPrinted
+                                                         error:&error];
+    if(error)
+    {
+        NSLog(@"save data error : %@",error.description);
+    }
+    else
+    {
+        int newId = [Session getMaxId] + 1;
+        Session *thisSession = [Session findOrCreateById:[NSString stringWithFormat:@"%d",newId]];
+        
+    }
+    
 }
 
 #pragma mark - messaege header broadcast

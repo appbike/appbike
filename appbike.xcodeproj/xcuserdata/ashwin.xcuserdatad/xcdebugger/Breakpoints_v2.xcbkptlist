@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appbike/Classes/Controllers/ABDashBoardVC.m"
-            timestampString = "450542861.522351"
+            timestampString = "450725607.405224"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "872"
-            endingLineNumber = "872"
+            startingLineNumber = "894"
+            endingLineNumber = "894"
             landmarkName = "-updateUIForiPhone6Plus"
             landmarkType = "5">
          </BreakpointContent>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appbike/Classes/Controllers/ABDashBoardVC.m"
-            timestampString = "450542861.522351"
+            timestampString = "450725607.405224"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "877"
-            endingLineNumber = "877"
+            startingLineNumber = "899"
+            endingLineNumber = "899"
             landmarkName = "-updateUIForiPhone6Plus"
             landmarkType = "5">
          </BreakpointContent>

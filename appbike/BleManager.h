@@ -21,6 +21,7 @@
 @property (nonatomic,assign) id<BleManagerDelegate> delegate;
 
 
+
 -(void)startScanForBleDevices;
 
 -(void)connectToDeviceWithId:(NSString *)deviceId andEnableKeyCode:(NSString*)enableKey;
@@ -28,6 +29,8 @@
 -(void)getHeaderPacket;
 
 - (void)stopSession;
+
+- (void)saveSession;
 
 @end
 

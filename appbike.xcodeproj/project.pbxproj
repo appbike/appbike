@@ -441,6 +441,8 @@
 		CFF950651ADC3155004FCFED /* sidebar.png in Resources */ = {isa = PBXBuildFile; fileRef = CFF9502F1ADC3154004FCFED /* sidebar.png */; };
 		CFF950661ADC3155004FCFED /* sidebar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFF950301ADC3154004FCFED /* sidebar@2x.png */; };
 		CFF950671ADC3155004FCFED /* sidebar@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFF950311ADC3154004FCFED /* sidebar@3x.png */; };
+		CFF9506B1ADE5BE6004FCFED /* ABFavoriteList.m in Sources */ = {isa = PBXBuildFile; fileRef = CFF9506A1ADE5BE6004FCFED /* ABFavoriteList.m */; };
+		CFF9506E1ADE5DFA004FCFED /* Favorite.m in Sources */ = {isa = PBXBuildFile; fileRef = CFF9506D1ADE5DFA004FCFED /* Favorite.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -956,6 +958,10 @@
 		CFF9502F1ADC3154004FCFED /* sidebar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sidebar.png; sourceTree = "<group>"; };
 		CFF950301ADC3154004FCFED /* sidebar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sidebar@2x.png"; sourceTree = "<group>"; };
 		CFF950311ADC3154004FCFED /* sidebar@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sidebar@3x.png"; sourceTree = "<group>"; };
+		CFF950691ADE5BE6004FCFED /* ABFavoriteList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABFavoriteList.h; sourceTree = "<group>"; };
+		CFF9506A1ADE5BE6004FCFED /* ABFavoriteList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABFavoriteList.m; sourceTree = "<group>"; };
+		CFF9506C1ADE5DFA004FCFED /* Favorite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Favorite.h; path = appbike/ABDatabase/NSManageObjects/Favorite.h; sourceTree = "<group>"; };
+		CFF9506D1ADE5DFA004FCFED /* Favorite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Favorite.m; path = appbike/ABDatabase/NSManageObjects/Favorite.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1082,6 +1088,8 @@
 			isa = PBXGroup;
 			children = (
 				66E197941A5F8DB2003D1A9B /* appbike */,
+				CFF9506C1ADE5DFA004FCFED /* Favorite.h */,
+				CFF9506D1ADE5DFA004FCFED /* Favorite.m */,
 				66E197AE1A5F8DB2003D1A9B /* appbikeTests */,
 				66E197931A5F8DB2003D1A9B /* Products */,
 			);
@@ -1157,6 +1165,7 @@
 		66E197C81A5FB332003D1A9B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				CFF950681ADE5B79004FCFED /* FavoriteList */,
 				CFBB9F811AD91D21000DDE89 /* LeftMenu */,
 				CFBB9F6A1AD91AB2000DDE89 /* RootVC */,
 				CFBB9F561AD841A8000DDE89 /* NavigationsVC */,
@@ -1982,6 +1991,15 @@
 			path = menuicons;
 			sourceTree = "<group>";
 		};
+		CFF950681ADE5B79004FCFED /* FavoriteList */ = {
+			isa = PBXGroup;
+			children = (
+				CFF950691ADE5BE6004FCFED /* ABFavoriteList.h */,
+				CFF9506A1ADE5BE6004FCFED /* ABFavoriteList.m */,
+			);
+			name = FavoriteList;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -2418,6 +2436,7 @@
 				CFD15D8B1AD0F18800AE6A12 /* YLProgressBar.m in Sources */,
 				CFD15E461AD14B2500AE6A12 /* NSEntityDescription+MagicalDataImport.m in Sources */,
 				CFD15E521AD14B2500AE6A12 /* NSManagedObjectContext+MagicalRecord.m in Sources */,
+				CFF9506E1ADE5DFA004FCFED /* Favorite.m in Sources */,
 				CFD15E571AD14B2500AE6A12 /* NSPersistentStoreCoordinator+MagicalRecord.m in Sources */,
 				66AF00E91A6A780500342647 /* SPGooglePlacesPlaceDetailQuery.m in Sources */,
 				CFBB9F691AD84616000DDE89 /* ABFindMyBikeVC.m in Sources */,
@@ -2441,6 +2460,7 @@
 				CFD15E501AD14B2500AE6A12 /* NSManagedObjectContext+MagicalChainSave.m in Sources */,
 				66F3D3501A63873E00E87424 /* MBProgressHUD.m in Sources */,
 				CFD15E4D1AD14B2500AE6A12 /* NSManagedObject+MagicalFinders.m in Sources */,
+				CFF9506B1ADE5BE6004FCFED /* ABFavoriteList.m in Sources */,
 				CFD15E5D1AD14B2500AE6A12 /* MagicalRecord+ShorthandSupport.m in Sources */,
 				66F3D3451A63869400E87424 /* ABDashBoardVC.m in Sources */,
 				66AF00DC1A6A77E000342647 /* ABLocationAutoCompleteVC.m in Sources */,

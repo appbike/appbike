@@ -10,6 +10,8 @@
 #import "ABNavBGView.h"
 #import <CoreData/CoreData.h>
 #import "CoreData+MagicalRecord.h"
+#import "Session+Utils.h"
+
 #import "SWRevealViewController.h"
 #import "ABMenuVC.h"
 #import "ABDashBoardVC.h"
@@ -37,6 +39,10 @@ static AppDelegate *myDelegate;
 {
     
     [[GPSLocation sharedManager] start];
+    
+    
+    //=>     Setup MagicalRecord
+    [MagicalRecord setupCoreDataStackWithStoreNamed:@"AppBike.sqlite"];
     
     myDelegate = self;
     UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"AppBike" bundle:nil];

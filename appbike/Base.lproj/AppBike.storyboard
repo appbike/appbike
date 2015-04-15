@@ -28,7 +28,6 @@
             <string>Roboto-Regular</string>
             <string>Roboto-Regular</string>
             <string>Roboto-Regular</string>
-            <string>Roboto-Regular</string>
         </mutableArray>
         <mutableArray key="RobotoCondensed-Bold.ttf">
             <string>RobotoCondensed-Bold</string>
@@ -48,6 +47,11 @@
             <string>RobotoCondensed-Bold</string>
         </mutableArray>
         <mutableArray key="RobotoCondensed-Regular.ttf">
+            <string>RobotoCondensed-Regular</string>
+            <string>RobotoCondensed-Regular</string>
+            <string>RobotoCondensed-Regular</string>
+            <string>RobotoCondensed-Regular</string>
+            <string>RobotoCondensed-Regular</string>
             <string>RobotoCondensed-Regular</string>
             <string>RobotoCondensed-Regular</string>
             <string>RobotoCondensed-Regular</string>
@@ -331,17 +335,6 @@
                                         <color key="textColor" red="0.1647058824" green="0.52156862749999999" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Lf9-DX-dZC">
-                                        <rect key="frame" x="101" y="261" width="112" height="35"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <fontDescription key="fontDescription" name="RobotoCondensed-Bold" family="Roboto Condensed" pointSize="22"/>
-                                        <state key="normal" title="START" backgroundImage="start.png">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="btnStartPressed:" destination="M0w-tV-0Be" eventType="touchUpInside" id="BCh-gk-ss9"/>
-                                        </connections>
-                                    </button>
                                     <view hidden="YES" contentMode="scaleToFill" id="zC3-8a-EJB" userLabel="progressbar">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="41"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
@@ -591,6 +584,17 @@
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Lf9-DX-dZC">
+                                        <rect key="frame" x="101" y="261" width="112" height="35"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <fontDescription key="fontDescription" name="RobotoCondensed-Bold" family="Roboto Condensed" pointSize="22"/>
+                                        <state key="normal" title="START" backgroundImage="start.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnStartPressed:" destination="M0w-tV-0Be" eventType="touchUpInside" id="BCh-gk-ss9"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -677,7 +681,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Yzq-8e-cyc">
-                                <rect key="frame" x="134" y="346" width="28" height="28"/>
+                                <rect key="frame" x="141" y="346" width="28" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <state key="normal" image="uparrow.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -1057,6 +1061,8 @@
                         <outlet property="btnSelectCalories" destination="u3i-gE-zQm" id="cr0-16-yuw"/>
                         <outlet property="btnSelectPulse" destination="IKm-S1-u0J" id="CCC-Mo-c0r"/>
                         <outlet property="btnSelectSpeed" destination="Ie0-dq-2WV" id="S6h-8Z-BxQ"/>
+                        <outlet property="btnStartStop" destination="Lf9-DX-dZC" id="Cij-p4-JLz"/>
+                        <outlet property="btnUpDown" destination="Yzq-8e-cyc" id="I1t-uS-WNJ"/>
                         <outlet property="circularSlider" destination="yFN-7L-iQI" id="0Pv-mk-8Ir"/>
                         <outlet property="counterPicker" destination="F52-jm-41f" id="IJq-X0-Cob"/>
                         <outlet property="imgBGCalories" destination="ZYE-Bi-5pG" id="eLx-3p-oes"/>
@@ -1094,6 +1100,7 @@
                         <outlet property="statusBarView" destination="kvm-V0-La4" id="duG-4M-b6O"/>
                         <outlet property="viewCalories" destination="IrP-ve-XmR" id="xbG-da-tOg"/>
                         <outlet property="viewCountdown" destination="H6v-Hd-Yqc" id="its-Pc-y0L"/>
+                        <outlet property="viewEngineMode" destination="hN9-CH-2s3" id="KQw-Vc-fW5"/>
                         <outlet property="viewGoalCalories" destination="geH-rp-piT" id="lWU-ao-4xM"/>
                         <outlet property="viewMinMaxSpeed" destination="ABn-aW-ho1" id="wg4-Op-qwL"/>
                         <outlet property="viewNormalSpeed" destination="q25-nO-nFs" id="44u-tD-KOl"/>
@@ -1102,18 +1109,19 @@
                         <outlet property="viewSelectionMenu" destination="FKo-WK-MDc" id="Pha-53-PYr"/>
                         <outlet property="viewSetCalories" destination="Vwh-yw-SFP" id="7ih-Cx-Pkb"/>
                         <outlet property="viewSetSpeed" destination="2lY-l8-Ucc" id="BKc-J1-pAt"/>
+                        <outlet property="viewSpeedStart" destination="DX2-n9-gpI" id="zfh-bU-fap"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="92q-5v-uvS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="765" y="-41"/>
         </scene>
-        <!--View Controller-->
+        <!--Favorite List-->
         <scene sceneID="XbU-Lg-YYK">
             <objects>
-                <viewController id="52R-uJ-JhG" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ABFavoriteList" id="52R-uJ-JhG" customClass="ABFavoriteList" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Lf4-zg-WXb">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" id="ctw-8Y-IR7" customClass="ABBatteryInformation">
@@ -1122,35 +1130,113 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" id="4hz-wN-tby">
-                                <rect key="frame" x="0.0" y="50" width="320" height="454"/>
+                                <rect key="frame" x="0.0" y="50" width="320" height="518"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Favorites" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lhD-Mo-1Ao">
+                                        <rect key="frame" x="71" y="16" width="170" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="RobotoCondensed-Regular" family="Roboto Condensed" pointSize="19"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ceX-1W-40h">
+                                        <rect key="frame" x="40" y="40" width="233" height="2"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current destination : " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7XM-bB-zCF">
+                                        <rect key="frame" x="54" y="45" width="109" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="RobotoCondensed-Regular" family="Roboto Condensed" pointSize="13"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Milano Tortona" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="JK9-KA-Rdt">
+                                        <rect key="frame" x="165" y="45" width="109" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="RobotoCondensed-Regular" family="Roboto Condensed" pointSize="13"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="6vr-lt-2RA">
+                                        <rect key="frame" x="40" y="74" width="242" height="347"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <prototypes>
+                                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="zBw-zz-dAV">
+                                                <rect key="frame" x="0.0" y="0.0" width="242" height="44"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zBw-zz-dAV" id="kcP-77-gG5">
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </tableViewCellContentView>
+                                            </tableViewCell>
+                                        </prototypes>
+                                    </tableView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="V6C-nj-faQ">
+                                        <rect key="frame" x="40" y="429" width="242" height="35"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="RobotoCondensed-Regular" family="Roboto Condensed" pointSize="15"/>
+                                        <state key="normal" title="Set the current destination as Home">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="p1o-E6-2dE">
+                                        <rect key="frame" x="39" y="472" width="242" height="38"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="RobotoCondensed-Regular" family="Roboto Condensed" pointSize="15"/>
+                                        <state key="normal" title="Set the current destination as Favorite">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <button opaque="NO" tag="1102" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="uYp-9L-7UO">
-                                <rect key="frame" x="10" y="60" width="64" height="55"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
-                                <inset key="titleEdgeInsets" minX="-22" minY="30" maxX="0.0" maxY="0.0"/>
-                                <inset key="imageEdgeInsets" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <state key="normal" title="Calories" image="avg_pulse.png"/>
-                                <state key="selected" title="Avg Pulse" image="avg_pulse_selected.png">
-                                    <color key="titleColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <state key="highlighted" title="Avg Pulse" image="avg_pulse_selected.png">
-                                    <color key="titleColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="selectMenuItemPressed:" destination="M0w-tV-0Be" eventType="touchUpInside" id="QYd-7Y-17r"/>
-                                </connections>
-                            </button>
                         </subviews>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aRr-r7-yzB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1163" y="-18"/>
+        </scene>
+        <!--History ListVC-->
+        <scene sceneID="g3m-c8-efa">
+            <objects>
+                <viewController storyboardIdentifier="ABHistoryListVC" id="4uc-ju-qrU" customClass="ABHistoryListVC" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Kua-hg-x5b">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" id="3TC-uh-gG0" customClass="ABBatteryInformation">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ldk-vr-fIr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1551" y="14"/>
+        </scene>
+        <!--DiagnosticVC-->
+        <scene sceneID="Gxq-bk-KgZ">
+            <objects>
+                <viewController storyboardIdentifier="ABDiagnosticVC" id="tfD-A5-C1G" customClass="ABDiagnosticVC" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="a3j-4J-jYL">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XA3-YF-cta" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1912" y="-7"/>
         </scene>
     </scenes>
     <resources>

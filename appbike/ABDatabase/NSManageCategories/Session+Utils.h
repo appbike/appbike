@@ -10,4 +10,14 @@
 
 @interface Session (Utils)
 
++ (Session *)findOrCreateById:(NSString *)cartId;
++ (Session *)getSessionWithId:(NSString *)cartId;
++ (void)addItemToSession:(NSDictionary *)data;
++ (NSArray *)getAllSessionItems;
++ (BOOL)removeAllSessionItems;
++ (int)getMaxId;
++ (float)getGrandTotal;
+- (void)removeItemFromSession;
+-(void)updateQuantityWithId:(NSString *)cartId :(NSString *)quantity;
+
 @end

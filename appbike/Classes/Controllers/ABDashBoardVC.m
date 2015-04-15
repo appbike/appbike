@@ -19,6 +19,7 @@
 #import <AddressBook/AddressBook.h>
 #import "UICircularSlider.h"
 #import "GPSLocation.h"
+#import "Session+Utils.h"
 
 #import "BleManager.h"
 
@@ -69,6 +70,11 @@
 @property (unsafe_unretained, nonatomic) IBOutlet UICircularSlider *sliderDashboardSpeed;
 @property (strong, nonatomic) IBOutlet UIImageView *imgBGDashboardSpeed;
 @property (strong, nonatomic) IBOutlet UIImageView *imgBGLogoDashboardSpeed;
+@property (strong, nonatomic) IBOutlet UIButton *btnStartStop;
+@property (strong, nonatomic) IBOutlet UIButton *btnUpDown;
+
+@property (strong, nonatomic) IBOutlet UIView  *viewEngineMode;
+@property (strong, nonatomic) IBOutlet UIView  *viewSpeedStart;
 
 @property (strong, nonatomic) IBOutlet UILabel  *lblRPMCount;
 @property (strong, nonatomic) IBOutlet UILabel  *lblRPMText;
@@ -309,11 +315,28 @@
         [self updateUIForiPhone6Plus];
        
     }
+    else if(IS_IPHONE_5)
+    {
+        self.imgBGCalories.frame = CGRectMake(self.sliderDashboardCalories.frame.origin.x+5, self.sliderDashboardCalories.frame.origin.y, 195, 195);
+    }
     else
     {
+        //self.btnStartStop.frame =
+        self.assistantLevelView.frame = CGRectMake(self.assistantLevelView.frame.origin.x, self.assistantLevelView.frame.origin.y+20, self.assistantLevelView.frame.size.width, self.assistantLevelView.frame.size.height - 20);
+        self.viewEngineMode.frame = CGRectMake(self.viewEngineMode.frame.origin.x, self.viewEngineMode.frame.origin.y+20, self.viewEngineMode.frame.size.width, self.viewEngineMode.frame.size.height);
+        
+        self.viewNormalSpeed.frame = CGRectMake(self.viewNormalSpeed.frame.origin.x, self.viewNormalSpeed.frame.origin.y+5, self.viewNormalSpeed.frame.size.width, self.viewNormalSpeed.frame.size.height);
+       
+         self.viewSpeedStart.frame = CGRectMake(self.viewSpeedStart.frame.origin.x, self.viewSpeedStart.frame.origin.y, self.viewSpeedStart.frame.size.width, self.viewSpeedStart.frame.size.height+45);
+        
+        self.btnStartStop.frame = CGRectMake(101,278,112,35);
+        
+         self.btnUpDown.frame = CGRectMake(self.btnUpDown.frame.origin.x, self.btnUpDown.frame.origin.y+35, self.btnUpDown.frame.size.width, self.btnUpDown.frame.size.height);
         
         NSLog(@"iPhone5");
         self.imgBGCalories.frame = CGRectMake(self.sliderDashboardCalories.frame.origin.x+5, self.sliderDashboardCalories.frame.origin.y, 195, 195);
+        
+        
         //[self.sliderDashboardCalories setValue:400];
         //self.simpleCSlider = [[DKCircularSlider alloc] initWithFrame:COMPONENTRECT usingMax:99 usingMin:1 withContentImage:[UIImage imageNamed:@"sensitivity"] withTitle:@"" withTarget:nil usingSelector:nil];
         //self.imgSettle.frame = CGRectMake(53,149, 13, 11);
@@ -436,6 +459,10 @@
     if(!appDelegate().isSessionStart)
     {
         [self startCounter];
+        int newSessionID = [Session getMaxId];
+        NSDictionary *dictData = @{@"id":[NSString stringWithFormat:@"%d",newSessionID]};
+        [Session addItemToSession:dictData];
+        
         [btnPressed setTitle:@"STOP" forState:UIControlStateNormal];
     }
     else

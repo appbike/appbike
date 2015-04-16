@@ -100,36 +100,6 @@
     [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
 }
 
-//+ (float)getGrandTotal
-//{
-//    NSManagedObjectContext *context = [NSManagedObjectContext MR_contextForCurrentThread];
-//    NSArray *arrAllRecord = [Session MR_findAllInContext:context];
-//    
-//    float total = 0.0;
-//    for (int i = 0; i < arrAllRecord.count; i ++)
-//    {
-//        Session *cart = (Session *)[arrAllRecord objectAtIndex:i];
-//        Items *item = [Items getItemWithId:cart.c_item_id];
-//        
-//        if ([item.i_item_type_count intValue] > 0)
-//        {
-//            DebugLog(@"Sub id is %@", cart.c_item_subtype_id);
-//            ItemSubType *subItem = [ItemSubType getItemWithId:cart.c_item_subtype_id];
-//            total = total + ([cart.c_quantity integerValue] * [subItem.s_price floatValue]);
-//            
-//        }
-//        else
-//        {
-//            DebugLog(@"item id is %@", cart.c_item_id);
-//            total = total + ([cart.c_quantity integerValue] * [item.i_price floatValue]);
-//            
-//            
-//        }
-//        
-//        
-//    }
-//    return total;
-//}
 
 + (NSArray *)getAllSessionItems
 {

@@ -94,7 +94,8 @@
     
 }
 
-//New method added for stop current session
+
+//New method added for stop current session - Added by Phase2
 - (void)stopSession
 {
     [self.timer invalidate];
@@ -103,6 +104,7 @@
     //_timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(sendBroadcastHeaderMessage) userInfo:nil repeats:YES];
 }
 
+//New method added - Phase 2
 - (void)saveSession:(NSDictionary *)finalDictionary
 {
     NSError *error;

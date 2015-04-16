@@ -960,8 +960,8 @@
 		CFF950311ADC3154004FCFED /* sidebar@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sidebar@3x.png"; sourceTree = "<group>"; };
 		CFF950691ADE5BE6004FCFED /* ABFavoriteList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABFavoriteList.h; sourceTree = "<group>"; };
 		CFF9506A1ADE5BE6004FCFED /* ABFavoriteList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABFavoriteList.m; sourceTree = "<group>"; };
-		CFF9506C1ADE5DFA004FCFED /* Favorite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Favorite.h; path = appbike/ABDatabase/NSManageObjects/Favorite.h; sourceTree = "<group>"; };
-		CFF9506D1ADE5DFA004FCFED /* Favorite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Favorite.m; path = appbike/ABDatabase/NSManageObjects/Favorite.m; sourceTree = "<group>"; };
+		CFF9506C1ADE5DFA004FCFED /* Favorite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Favorite.h; path = ABDatabase/NSManageObjects/Favorite.h; sourceTree = "<group>"; };
+		CFF9506D1ADE5DFA004FCFED /* Favorite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Favorite.m; path = ABDatabase/NSManageObjects/Favorite.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1088,8 +1088,6 @@
 			isa = PBXGroup;
 			children = (
 				66E197941A5F8DB2003D1A9B /* appbike */,
-				CFF9506C1ADE5DFA004FCFED /* Favorite.h */,
-				CFF9506D1ADE5DFA004FCFED /* Favorite.m */,
 				66E197AE1A5F8DB2003D1A9B /* appbikeTests */,
 				66E197931A5F8DB2003D1A9B /* Products */,
 			);
@@ -1392,6 +1390,8 @@
 		CFBABC4E1AD2E76B008AEA7B /* NSManageObjects */ = {
 			isa = PBXGroup;
 			children = (
+				CFF9506C1ADE5DFA004FCFED /* Favorite.h */,
+				CFF9506D1ADE5DFA004FCFED /* Favorite.m */,
 				CFBABC4F1AD2E79F008AEA7B /* Session.h */,
 				CFBABC501AD2E79F008AEA7B /* Session.m */,
 			);

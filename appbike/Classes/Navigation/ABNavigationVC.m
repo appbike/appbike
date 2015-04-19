@@ -17,7 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    //[self.view addGestureRecognizer:[[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panGestureRecognized:)]];
+    [self.view addGestureRecognizer:[[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panGestureRecognized:)]];
 }
 
 #pragma mark -
@@ -44,7 +44,7 @@
     
     // Present the view controller
     //
-//    [self.frostedViewController tapGestureRecognized:sender];
+    //[self.frostedViewController tapGestureRecognized:sender];
    
 }
 

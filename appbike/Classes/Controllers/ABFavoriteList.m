@@ -7,9 +7,12 @@
 //
 
 #import "ABFavoriteList.h"
+#import "ABBatteryInformation.h"
 
 @interface ABFavoriteList ()
-
+{
+    IBOutlet ABBatteryInformation *statusBarView;
+}
 @end
 
 @implementation ABFavoriteList
@@ -17,7 +20,23 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    //Battery Info initialize
+    statusBarView = [[ABBatteryInformation alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 50)];
+    [statusBarView setBatteryLevel];
+    [self.view addSubview:statusBarView];
 }
+
+- (IBAction)showLeftMenu:(id)sender
+{
+    //return;
+    [self.view endEditing:YES];
+    [self.frostedViewController.view endEditing:YES];
+    
+    // Present the view controller
+    //
+    [self.frostedViewController presentMenuViewController];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

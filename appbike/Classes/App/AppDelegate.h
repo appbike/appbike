@@ -11,7 +11,7 @@
 #import <MessageUI/MessageUI.h>
 #import "SWRevealViewController.h"
 #import "BleManager.h"
-
+#import "ABDashBoardVC.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate,SwrevealDegate,CLLocationManagerDelegate,UIAlertViewDelegate,MFMailComposeViewControllerDelegate>
 
@@ -32,10 +32,14 @@
 @property (nonatomic, strong) NSString *strLog;
 @property (nonatomic, strong) NSDictionary *dictSkinData;
 @property (nonatomic, strong) NSDictionary *dictConstantData;
+
+//Phase 2
 @property (nonatomic, strong) NSDictionary *dictCounterData;
 @property (nonatomic, strong) NSDictionary *dictDashboardData;
 @property (nonatomic, strong) NSDictionary *dictKMHData;
 @property (nonatomic, strong) NSDictionary *dictCaloriesData;
+@property (nonatomic, strong) ABDashBoardVC *dashboardVC;
+
 
 @property (nonatomic) long iRemainingKM;
 @property (nonatomic) int totalCalory;

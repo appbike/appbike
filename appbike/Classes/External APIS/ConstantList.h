@@ -116,6 +116,8 @@ typedef enum {
 
 #define LocationUpdateNotification @"LocationDidUpdate"
 
+#define MenuItemNotification @"MenuItemNotification"
+
 
 #define gearMode1 @"Auto"
 #define gearMode2 @"Auto"

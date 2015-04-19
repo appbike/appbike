@@ -31,7 +31,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" id="jte-Pt-IQP">
-                                <rect key="frame" x="0.0" y="200" width="319" height="276.99999909301602"/>
+                                <rect key="frame" x="0.0" y="200" width="318.99999770769261" height="277"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <view hidden="YES" contentMode="scaleToFill" id="r4s-PW-k1w">
@@ -175,7 +175,7 @@
                                             <color key="titleColor" red="0.1647058824" green="0.52156862749999999" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
-                                        <state key="selected" title="SOCIAL" image="D8215D67-2C23-4B5B-84C6-E5A880A7EB14">
+                                        <state key="selected" title="SOCIAL" image="A4B87CEB-2461-474E-9CA3-CB0FC1D16F05">
                                             <color key="titleColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <state key="highlighted" title="SOCIAL" image="menu_social_icon_selected">
@@ -193,7 +193,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button hidden="YES" opaque="NO" tag="2" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="roa-Q2-jyU">
-                                        <rect key="frame" x="205" y="8" width="60" height="60"/>
+                                        <rect key="frame" x="205" y="8" width="59.999999480987" height="60"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <state key="normal" backgroundImage="menu_map_icon">
@@ -261,7 +261,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button hidden="YES" opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="cgH-Nf-nuB">
-                                        <rect key="frame" x="205" y="102" width="60" height="60"/>
+                                        <rect key="frame" x="205" y="102" width="59.999999480987" height="60"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <state key="normal" image="menu_utility_icon">
@@ -279,14 +279,14 @@
                                         </connections>
                                     </button>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UTILITY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="byZ-Nr-Lzd">
-                                        <rect key="frame" x="195" y="161" width="80" height="20"/>
+                                        <rect key="frame" x="194.99999770769261" y="161" width="80" height="20"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" red="0.1647058824" green="0.52156862749999999" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button hidden="YES" opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="rXb-DZ-jY7">
-                                        <rect key="frame" x="36" y="189" width="60" height="59.999999781449638"/>
+                                        <rect key="frame" x="36" y="189" width="60" height="60"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <state key="normal" image="menu_safety_icon">
@@ -311,14 +311,14 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button hidden="YES" opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="KzY-eO-UOn">
-                                        <rect key="frame" x="203" y="190" width="59" height="59.999999093016022"/>
+                                        <rect key="frame" x="203" y="190" width="58.9999977076926" height="60"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <state key="normal" image="menu_social_icon">
                                             <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
-                                        <state key="selected" title="SOCIAL" image="83E2A3AD-0DE3-453D-9F7E-079A6B8FD7E1">
+                                        <state key="selected" title="SOCIAL" image="EB0982BC-04C9-46D5-95AD-4868C6AD2D24">
                                             <color key="titleColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <state key="highlighted" title="SOCIAL" image="menu_social_icon_selected">
@@ -329,7 +329,7 @@
                                         </connections>
                                     </button>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SOCIAL" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zi2-cb-uuE">
-                                        <rect key="frame" x="193" y="249" width="80" height="20"/>
+                                        <rect key="frame" x="192.99999770769261" y="249" width="80" height="20"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" red="0.1647058824" green="0.52156862749999999" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -480,7 +480,7 @@
                                             <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
-                                        <state key="selected" title="SOCIAL" image="CAFC743E-A803-4AD1-981D-8F7F3D4D5A43">
+                                        <state key="selected" title="SOCIAL" image="F67E1F70-833A-456F-BBF1-ED9CEA32ABD3">
                                             <color key="titleColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <state key="highlighted" title="SOCIAL" image="menu_social_icon_selected">
@@ -1195,7 +1195,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="83E2A3AD-0DE3-453D-9F7E-079A6B8FD7E1" width="60" height="60">
+        <image name="A4B87CEB-2461-474E-9CA3-CB0FC1D16F05" width="60" height="60">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOzxYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBMU
 GR4fJSYsLzU4VSRudWxs1QkKCwwNDg8QERJWTlNTaXplViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBz
@@ -1211,7 +1211,7 @@ lwGaAaEBqQG2AbsBvQG/AcQBzAHPAdQB3AHfAfEB9AH5AAAAAAAAAgEAAAAAAAAAPwAAAAAAAAAAAAAA
 AAAAAfs
 </mutableData>
         </image>
-        <image name="CAFC743E-A803-4AD1-981D-8F7F3D4D5A43" width="60" height="60">
+        <image name="EB0982BC-04C9-46D5-95AD-4868C6AD2D24" width="60" height="60">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOzxYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBMU
 GR4fJSYsLzU4VSRudWxs1QkKCwwNDg8QERJWTlNTaXplViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBz
@@ -1227,7 +1227,7 @@ lwGaAaEBqQG2AbsBvQG/AcQBzAHPAdQB3AHfAfEB9AH5AAAAAAAAAgEAAAAAAAAAPwAAAAAAAAAAAAAA
 AAAAAfs
 </mutableData>
         </image>
-        <image name="D8215D67-2C23-4B5B-84C6-E5A880A7EB14" width="60" height="60">
+        <image name="F67E1F70-833A-456F-BBF1-ED9CEA32ABD3" width="60" height="60">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOzxYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBMU
 GR4fJSYsLzU4VSRudWxs1QkKCwwNDg8QERJWTlNTaXplViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBz
@@ -1248,7 +1248,7 @@ AAAAAfs
         <image name="avtar_transperent.png" width="370" height="370"/>
         <image name="dashboard_calories" width="40" height="40"/>
         <image name="flow_tire.png" width="480" height="516"/>
-        <image name="kilometer" width="40" height="40"/>
+        <image name="kilometer" width="72" height="72"/>
         <image name="map_auto" width="90" height="28"/>
         <image name="map_city" width="90" height="28"/>
         <image name="map_clock" width="20" height="20"/>
@@ -1269,7 +1269,7 @@ AAAAAfs
         <image name="menu_utility_icon" width="60" height="60"/>
         <image name="menu_utility_icon_selected" width="60" height="60"/>
         <image name="middle_bar" width="1080" height="77"/>
-        <image name="uparrow" width="40" height="51"/>
+        <image name="uparrow" width="56" height="56"/>
         <image name="userPicture" width="100" height="100"/>
         <image name="￼assistance_level_1" width="185" height="57"/>
         <image name="￼assistance_minus" width="45" height="45"/>

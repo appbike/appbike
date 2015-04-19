@@ -20,5 +20,7 @@
 @property (nonatomic, retain) NSNumber * s_km;
 @property (nonatomic, retain) NSNumber * s_avgkm;
 @property (nonatomic, retain) NSNumber * s_visible;
+@property (nonatomic, retain) NSString * s_startlocation;
+@property (nonatomic, retain) NSString * s_endlocation;
 
 @end

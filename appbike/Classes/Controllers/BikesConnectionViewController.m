@@ -355,7 +355,7 @@
         
         UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"AppBike" bundle:nil];
         
-        ABDashBoardVC *viewController = (ABDashBoardVC *)[storyBoard instantiateViewControllerWithIdentifier:@"DashBoardViewController"];
+        ABDashBoardVC *viewController = (ABDashBoardVC *)[storyBoard instantiateViewControllerWithIdentifier:@"ABDashBoardVC"];
         
         
         self.bleManager.delegate = nil;

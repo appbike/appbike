@@ -19,6 +19,17 @@
     // Do any additional setup after loading the view.
 }
 
+- (IBAction)showLeftMenu:(id)sender
+{
+    //return;
+    [self.view endEditing:YES];
+    [self.frostedViewController.view endEditing:YES];
+    
+    // Present the view controller
+    //
+    [self.frostedViewController presentMenuViewController];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

@@ -41,4 +41,5 @@
 - (void)refreshBackgroundImage;
 - (void)tapGestureRecognized:(UITapGestureRecognizer *)recognizer;
 
+
 @end

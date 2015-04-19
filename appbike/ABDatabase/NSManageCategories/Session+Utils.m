@@ -52,23 +52,44 @@
     if (!cart)
     {
         cart = [Session MR_createInContext:context];
-        cart.s_id = [NSString stringWithFormat:@"%d",[self getMaxId]];
-        cart.s_start = [NSDate date];
-        
-    }else
-    {
-        cart.s_id = cart.s_id;
+        cart.s_id = [NSNumber numberWithInt:[self getMaxId]];
+        //cart.s_start = [NSDate date];
+        cart.s_start = [data objectForKey:@"start"];
         cart.s_end = [NSDate date];
         cart.s_json = [data objectForKey:@"json"];
         cart.s_cal = [NSNumber numberWithInt:[[data objectForKey:@"cal"] integerValue]];
         cart.s_km = [NSNumber numberWithInt:[[data objectForKey:@"km"] integerValue]];
         cart.s_avgkm = [NSNumber numberWithInt:[[data objectForKey:@"avgkm"] integerValue]];
         cart.s_visible = [NSNumber numberWithInt:1];
+        cart.s_startlocation = @"Milano";
+        cart.s_endlocation = @"Como";
+        
+    }else
+    {
+        cart.s_id = cart.s_id;
+        cart.s_start = [data objectForKey:@"start"];
+        cart.s_end = [NSDate date];
+        cart.s_json = [data objectForKey:@"json"];
+        cart.s_cal = [NSNumber numberWithInt:[[data objectForKey:@"cal"] integerValue]];
+        cart.s_km = [NSNumber numberWithInt:[[data objectForKey:@"km"] integerValue]];
+        cart.s_avgkm = [NSNumber numberWithInt:[[data objectForKey:@"avgkm"] integerValue]];
+        cart.s_visible = [NSNumber numberWithInt:1];
+        cart.s_startlocation = @"Milano";
+        cart.s_endlocation = @"Como";
         
         
     }
     
-    [context MR_saveToPersistentStoreAndWait];
+    [context MR_saveOnlySelfWithCompletion:^(BOOL contextDidSave, NSError *error) {
+        if(contextDidSave)
+        {
+            NSLog(@"Saved success");
+        }
+        if(error)
+        {
+            NSLog(@"Error : %@",error.description);
+        }
+    }];
     
 }
 

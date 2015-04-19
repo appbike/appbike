@@ -7,17 +7,65 @@
 //
 
 #import "ABHistoryListVC.h"
+#import "ABHistoryCell.h"
+#import "ABBatteryInformation.h"
 
 @interface ABHistoryListVC ()
+{
+    IBOutlet ABBatteryInformation *statusBarView;
+}
 
+@property (nonatomic, strong) NSMutableArray *arrSession;
+@property (nonatomic, strong) IBOutlet UITableView *tblHistory;
 @end
 
 @implementation ABHistoryListVC
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    //Battery Info initialize
+    statusBarView = [[ABBatteryInformation alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 50)];
+    [statusBarView setBatteryLevel];
+    [self.view addSubview:statusBarView];
 }
+
+- (IBAction)showLeftMenu:(id)sender
+{
+    //return;
+    [self.view endEditing:YES];
+    [self.frostedViewController.view endEditing:YES];
+    
+    // Present the view controller
+    //
+    [self.frostedViewController presentMenuViewController];
+}
+
+
+#pragma mark -
+#pragma mark UITableViewDataSource
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 10;
+    return [self.arrSession count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *cellIdentifier = @"ABHistoryCell";
+    ABHistoryCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    if (!cell)
+    {
+        cell = [[ABHistoryCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+    }
+    
+   cell.lblDate.text = @"TEXT";
+    
+    return cell;
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

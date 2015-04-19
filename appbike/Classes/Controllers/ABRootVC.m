@@ -7,7 +7,8 @@
 //
 
 #import "ABRootVC.h"
-
+#import "AppDelegate.h"
+#import "ABDashBoardVC.h"
 @interface ABRootVC ()
 
 @end
@@ -17,6 +18,9 @@
 - (void)awakeFromNib
 {
     self.contentViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"DashBoardNav"];
+    
+    //appDelegate().dashboardVC = (ABDashBoardVC *)self.contentViewController;
+    //self.navigationController.
     self.menuViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"LeftMenu"];
     
     

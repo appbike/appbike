@@ -9,14 +9,16 @@
         <attribute name="s_avgkm" optional="YES" attributeType="Integer 32" defaultValueString="0.0" syncable="YES"/>
         <attribute name="s_cal" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="s_end" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="s_endlocation" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="s_id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="s_json" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="s_km" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="s_start" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="s_startlocation" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="s_visible" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Session" positionX="-63" positionY="-18" width="128" height="165"/>
         <element name="Favorite" positionX="-63" positionY="45" width="128" height="88"/>
+        <element name="Session" positionX="-63" positionY="-18" width="128" height="195"/>
     </elements>
 </model>

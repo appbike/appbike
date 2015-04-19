@@ -37,12 +37,14 @@
 @property (strong, readwrite, nonatomic) UIView *containerView;
 @property (assign, readwrite, nonatomic) CGPoint containerOrigin;
 
+
 @end
 
 @interface REFrostedViewController ()
 
 @property (assign, readwrite, nonatomic) BOOL visible;
 @property (assign, readwrite, nonatomic) CGSize calculatedMenuViewSize;
+
 
 @end
 

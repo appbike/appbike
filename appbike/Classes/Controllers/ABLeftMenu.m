@@ -10,6 +10,11 @@
 #import "ABNavigationVC.h"
 #import "ABDashBoardVC.h"
 #import "ABNavigationVC.h"
+#import "ABHistoryListVC.h"
+#import "ABFindMyBikeVC.h"
+#import "ABFavoriteList.h"
+#import "ABDiagnosticVC.h"
+#import "AppDelegate.h"
 
 @interface ABLeftMenu ()<UITableViewDataSource,UITableViewDelegate>
 
@@ -31,6 +36,103 @@
     
     [self.tableView reloadData];
     
+}
+
+- (IBAction)btnMenuItemSelected:(id)sender
+{
+    
+    UIButton *btnPressed = (UIButton *)sender;
+    NSNumber *tag = [NSNumber numberWithInteger:btnPressed.tag] ;
+    
+   // [[NSNotificationCenter defaultCenter] postNotificationName:MenuItemNotification object:tag];
+    
+////     ABNavigationVC *navigationController = [self.storyboard instantiateViewControllerWithIdentifier:@"DashBoardNav"];
+////    self.frostedViewController.contentViewController = navigationController;
+//    [self.frostedViewController hideMenuViewController];
+    
+    ABNavigationVC *navigationController = [self.storyboard instantiateViewControllerWithIdentifier:@"DashBoardNav"];
+   
+    
+    int mTag = [tag intValue];
+    switch (mTag) {
+        case 101:
+        {
+            //Engine Off
+           // ABNavigationVC *navigationController = [self.storyboard instantiateViewControllerWithIdentifier:@"DashBoardNav"];
+            //self.frostedViewController.contentViewController = navigationController;
+            //[self.frostedViewController hideMenuViewController];
+            
+            ABDashBoardVC *secondViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"ABDashBoardVC"];
+            secondViewController.isDisplayDestination = NO;
+            navigationController.viewControllers = @[secondViewController];
+            self.frostedViewController.contentViewController = navigationController;
+            
+        }
+            break;
+        case 102:
+        {
+            //Destination
+            ABDashBoardVC *secondViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"ABDashBoardVC"];
+            secondViewController.isDisplayDestination = YES;
+            navigationController.viewControllers = @[secondViewController];
+            
+//            appDelegate().dashboardVC.isDisplayDestination = YES;
+  //          navigationController.viewControllers = @[appDelegate().dashboardVC];
+            self.frostedViewController.contentViewController = navigationController;
+    //        [appDelegate().dashboardVC showDestination];
+            //[self.frostedViewController hideMenuViewController];
+           // [[NSNotificationCenter defaultCenter] postNotificationName:MenuItemNotification object:tag];
+        }
+            break;
+        case 103:
+        {
+            //Favorite
+            ABFavoriteList *secondViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"ABFavoriteList"];
+            navigationController.viewControllers = @[secondViewController];
+            
+            self.frostedViewController.contentViewController = navigationController;
+        }
+            break;
+        case 104:
+        {
+            //History
+            
+            ABHistoryListVC *secondViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"ABHistoryListVC"];
+            navigationController.viewControllers = @[secondViewController];
+            
+            self.frostedViewController.contentViewController = navigationController;
+            
+            
+        }
+            break;
+        case 105:
+        {
+            //Profile
+        }
+            break;
+        case 106:
+        {
+            //Diagnostics
+            ABDiagnosticVC *secondViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"ABDiagnosticVC"];
+            navigationController.viewControllers = @[secondViewController];
+            
+            self.frostedViewController.contentViewController = navigationController;
+        }
+            break;
+        case 107:
+        {
+            //Where is my bike
+            ABFindMyBikeVC *secondViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"ABFindMyBikeVC"];
+            navigationController.viewControllers = @[secondViewController];
+            
+            self.frostedViewController.contentViewController = navigationController;
+        }
+            break;
+        default:
+            break;
+    }
+
+    [self.frostedViewController hideMenuViewController];
 }
 
 #pragma mark -

@@ -117,11 +117,13 @@
     }
     else
     {
-        int newId = [Session getMaxId] + 1;
+        int newId = [Session getMaxId];
         Session *thisSession = [Session findOrCreateById:[NSString stringWithFormat:@"%d",newId]];
         
     }
     
+    NSString *strJson = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+
 }
 
 #pragma mark - messaege header broadcast

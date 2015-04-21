@@ -10,13 +10,71 @@
 
 @interface ABDiagnosticVC ()
 
+@property (nonatomic,strong) IBOutlet UIImageView *imgBike;
+@property (nonatomic,strong) IBOutlet UIButton *btn1;
+@property (nonatomic,strong) IBOutlet UIButton *btn2;
+@property (nonatomic,strong) IBOutlet UIButton *btn3;
+@property (nonatomic,strong) IBOutlet UIButton *btn4;
+@property (nonatomic,strong) IBOutlet UILabel *lblTitle;
+@property (nonatomic,strong) IBOutlet UITextView *tvDescription;
+
 @end
 
 @implementation ABDiagnosticVC
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+}
+
+- (IBAction)displayPartDetail:(id)sender
+{
+    UIButton *btnPressed = (UIButton *)sender;
+    self.imgBike.image = [UIImage imageNamed:[NSString stringWithFormat:@"bike_selected%d.png",btnPressed.tag]];
+    switch (btnPressed.tag)
+    {
+        case 1:
+        {
+            self.btn1.selected = YES;
+            self.btn2.selected = NO;
+            self.btn3.selected = NO;
+            self.btn4.selected = NO;
+            self.lblTitle.text = self.btn1.titleLabel.text;
+            
+        }
+            break;
+        case 2:
+        {
+            self.btn1.selected = NO;
+            self.btn2.selected = YES;
+            self.btn3.selected = NO;
+            self.btn4.selected = NO;
+            self.lblTitle.text = self.btn2.titleLabel.text;
+        }
+            break;
+        case 3:
+        {
+            self.btn1.selected = NO;
+            self.btn2.selected = NO;
+            self.btn3.selected = YES;
+            self.btn4.selected = NO;
+            self.lblTitle.text = self.btn3.titleLabel.text;
+        }
+            break;
+        case 4:
+        {
+            self.btn1.selected = NO;
+            self.btn2.selected = NO;
+            self.btn3.selected = NO;
+            self.btn4.selected = YES;
+            self.lblTitle.text = self.btn4.titleLabel.text;
+        }
+            break;
+            
+        default:
+            break;
+    }
 }
 
 - (IBAction)showLeftMenu:(id)sender

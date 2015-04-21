@@ -17,6 +17,8 @@
 
 @property (nonatomic, strong) NSMutableArray *arrSession;
 @property (nonatomic, strong) IBOutlet UITableView *tblHistory;
+@property (nonatomic, strong) IBOutlet UIView *viewDetail;
+
 @end
 
 @implementation ABHistoryListVC
@@ -30,6 +32,45 @@
     [statusBarView setBatteryLevel];
     [self.view addSubview:statusBarView];
 }
+
+- (IBAction)selectFilter:(id)sender
+{
+    self.viewDetail.hidden = YES;
+    
+    UIButton *btnPressed = (UIButton *)sender;
+    switch (btnPressed.tag)
+    {
+        case 101:
+        {
+            //All
+        }
+        break;
+        case 102:
+        {
+            //Last Week
+        }
+        break;
+        case 103:
+        {
+            //This Week
+        }
+        break;
+        default:
+            break;
+    }
+    btnPressed.selected = !btnPressed.selected;
+}
+
+- (IBAction)backToHistoryList:(id)sender
+{
+    //Back to history list
+    self.viewDetail.hidden = YES;
+}
+- (IBAction)deleteThisHistory:(id)sender
+{
+    NSLog(@"Delete History");
+}
+
 
 - (IBAction)showLeftMenu:(id)sender
 {
@@ -61,11 +102,29 @@
         cell = [[ABHistoryCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
     
-   cell.lblDate.text = @"TEXT";
+    //cell.lblDate.text = @"TEXT";
+    cell.btnDelete.tag = indexPath.row;
+    cell.btnShare.tag = indexPath.row;
     
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self.tblHistory deselectRowAtIndexPath:indexPath animated:YES];
+    self.viewDetail.hidden = NO;
+}
+
+- (IBAction)deleteFromCell:(id)sender
+{
+    UIButton *btnPressed = (UIButton *)sender;
+    NSLog(@"Delete : %d",btnPressed.tag);
+}
+- (IBAction)shareFromCell:(id)sender
+{
+    UIButton *btnPressed = (UIButton *)sender;
+    NSLog(@"Share : %d",btnPressed.tag);
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

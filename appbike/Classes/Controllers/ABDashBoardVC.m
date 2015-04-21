@@ -78,6 +78,7 @@
 @property (strong, nonatomic) IBOutlet UIImageView *imgBGLogoDashboardSpeed;
 @property (strong, nonatomic) IBOutlet UIButton *btnStartStop;
 @property (strong, nonatomic) IBOutlet UIButton *btnUpDown;
+@property (strong, nonatomic) IBOutlet UILabel *lblKMHText;
 
 @property (strong, nonatomic) IBOutlet UIView  *viewEngineMode;
 @property (strong, nonatomic) IBOutlet UIView  *viewSpeedStart;
@@ -93,6 +94,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *btnSelectSpeed;
 @property (strong, nonatomic) IBOutlet UIButton *btnSelectAvgSpeed;
 @property (strong, nonatomic) IBOutlet UIButton *btnSelectCalories;
+@property (strong, nonatomic) IBOutlet UIButton *btnBackground;
 
 @property (strong, nonatomic) IBOutlet UIView  *viewSetSpeed;
 @property (weak, nonatomic) IBOutlet SAMultisectorControl *multisectorControl;
@@ -265,6 +267,13 @@
     }
 }
 
+- (IBAction)btnBackgroundTouch:(id)sender
+{
+    self.btnBackground.hidden = YES;
+    self.viewSelectionMenu.hidden = YES;
+}
+
+
 //------------------------------------------------------------------
 
 #pragma mark
@@ -285,6 +294,8 @@
     //[self registerForNotifications];
     [self loadDashboardData];
     [self setupMultiSelectorControl]; //For Set speed range
+    
+    [self.assistantLevelView UpdateCurrentAssitanceLevel];
     
     self.sliderDashboardSpeed.minimumValue = 0;
     self.sliderDashboardSpeed.maximumValue = 100;
@@ -532,6 +543,16 @@
     [self.frostedViewController presentMenuViewController];
 }
 
+- (IBAction)btnUpArrowForMap:(id)sender
+{
+    [UIView animateWithDuration:1.0 delay:0.0 options:UIViewAnimationOptionTransitionCurlUp animations:
+     ^{
+         self.viewProgress.hidden = NO;
+         self.viewMapMain.hidden = NO;
+    }completion:nil];
+
+    
+}
 - (IBAction)btnStartPressed:(id)sender
 {
     UIButton *btnPressed = (UIButton *)sender;
@@ -540,6 +561,7 @@
     {
         [self startCounter];
         
+        self.lblKMHText.hidden = NO;
         self.dtStartSession = [NSDate date];
 //        int newSessionID = [Session getMaxId];
 //        NSDictionary *dictData = @{@"id":[NSString stringWithFormat:@"%d",newSessionID]};
@@ -550,6 +572,7 @@
     }
     else
     {
+        self.lblKMHText.hidden = YES;
         counterTime = [[appDelegate().dictCounterData objectForKeyedSubscript:@"value"] intValue];
         //Display Session save message here
         [self.bleManager stopSession];
@@ -576,6 +599,7 @@
     //Display selection menu
     self.viewGoalCalories.hidden = YES;
     self.viewSelectionMenu.hidden = NO;
+    self.btnBackground.hidden = NO;
 }
 
 - (IBAction)hideSelectionMenu:(id)sender
@@ -713,7 +737,7 @@
     else
     {
         self.bgMinMaxSpeed.image = [UIImage imageNamed:@"set_speed_ring.png"];
-        self.lblMinMaxSpeedValue.textColor = [UIColor blackColor];
+        self.lblMinMaxSpeedValue.textColor = [UIColor colorWithRed:29/255.0f green:188/255.0 blue:88/255.0f alpha:1.0];
     }
     minValue = sector3.startValue;
     maxValue = sector3.endValue;

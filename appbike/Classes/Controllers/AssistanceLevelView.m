@@ -7,6 +7,7 @@
 //
 
 #import "AssistanceLevelView.h"
+#import "AppDelegate.h"
 
 @interface AssistanceLevelView ()
 
@@ -27,7 +28,7 @@
     self = [super initWithCoder:aDecoder];
     if (self)
     {
-        count = 1;
+        count = appDelegate().assitantLevelCount;
     }
     return self;
 }
@@ -55,6 +56,7 @@
             count--;
         }
     }
+    appDelegate().assitantLevelCount = count;
     NSString *strImage = [NSString stringWithFormat:@"aasistance_level_%d",count];
     NSLog(@"Image name is  :%@",strImage);
     
@@ -62,5 +64,14 @@
     [self.imgRate setImage:[UIImage imageNamed:strImage]];
 }
 
+- (void)UpdateCurrentAssitanceLevel
+{
+    count = appDelegate().assitantLevelCount;
+    NSString *strImage = [NSString stringWithFormat:@"aasistance_level_%d",count];
+    NSLog(@"Image name is  :%@",strImage);
+    
+    // [self.imgRate setImage:[UIImage imageNamed:[NSString stringWithFormat:@"￼aasistance_level_%ld.png",(long)count]]];
+    [self.imgRate setImage:[UIImage imageNamed:strImage]];
+}
 
 @end

@@ -41,6 +41,7 @@ static AppDelegate *myDelegate;
     [[GPSLocation sharedManager] start];
     
     
+    self.assitantLevelCount = 1;
     //=>     Setup MagicalRecord
     [MagicalRecord setupCoreDataStackWithStoreNamed:@"AppBike.sqlite"];
     

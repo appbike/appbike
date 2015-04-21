@@ -15,5 +15,7 @@
 
 -(IBAction)btnPlusMinusClicked:(id)sender;
 
+- (void)UpdateCurrentAssitanceLevel;
+
 
 @end

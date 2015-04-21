@@ -129,6 +129,7 @@
             <string>RobotoCondensed-Regular</string>
             <string>RobotoCondensed-Regular</string>
             <string>RobotoCondensed-Regular</string>
+            <string>RobotoCondensed-Regular</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -333,7 +334,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" id="DX2-n9-gpI" userLabel="SpeedStart">
-                                <rect key="frame" x="0.0" y="50" width="320" height="324"/>
+                                <rect key="frame" x="0.0" y="50" width="320" height="320"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="mMI-Yi-wav" userLabel="kilometer">
@@ -355,7 +356,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Adb-2e-xuG" userLabel="rpm">
-                                        <rect key="frame" x="10" y="236" width="36" height="36"/>
+                                        <rect key="frame" x="10" y="232" width="36" height="36"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <state key="normal" image="rpm.png"/>
                                         <connections>
@@ -363,7 +364,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="YOp-HD-PDP" userLabel="bpm">
-                                        <rect key="frame" x="268" y="236" width="36" height="36"/>
+                                        <rect key="frame" x="268" y="232" width="36" height="36"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                         <state key="normal" image="bpm.png"/>
                                         <connections>
@@ -392,14 +393,14 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="rpm" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" id="MKM-YP-7NW">
-                                        <rect key="frame" x="8" y="304" width="42" height="21"/>
+                                        <rect key="frame" x="8" y="294" width="42" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="13"/>
                                         <color key="textColor" red="0.28627450980000002" green="0.37647058820000001" blue="0.42745098040000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="bpm" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" id="gvt-Kw-DV2">
-                                        <rect key="frame" x="265" y="304" width="42" height="21"/>
+                                        <rect key="frame" x="265" y="294" width="42" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                         <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="13"/>
                                         <color key="textColor" red="0.28627450980000002" green="0.37647058820000001" blue="0.42745098040000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -413,14 +414,14 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" id="kj0-Wa-hEc">
-                                        <rect key="frame" x="8" y="275" width="42" height="31"/>
+                                        <rect key="frame" x="8" y="265" width="42" height="31"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="26"/>
                                         <color key="textColor" red="0.1647058824" green="0.52156862749999999" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" id="1rN-Ef-PX7">
-                                        <rect key="frame" x="265" y="276" width="42" height="31"/>
+                                        <rect key="frame" x="265" y="266" width="42" height="31"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                         <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="26"/>
                                         <color key="textColor" red="0.1647058824" green="0.52156862749999999" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -515,7 +516,7 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view contentMode="scaleToFill" id="q25-nO-nFs" userLabel="Normal Speed Slider">
-                                        <rect key="frame" x="55" y="46" width="205" height="205"/>
+                                        <rect key="frame" x="55" y="44" width="205" height="205"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flow_ring.png" id="kVd-Bu-Ywg">
@@ -538,7 +539,7 @@
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="km/h" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="l4P-qb-edI">
+                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="km/h" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="l4P-qb-edI">
                                                 <rect key="frame" x="43" y="126" width="118" height="47"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" name="RobotoCondensed-Bold" family="Roboto Condensed" pointSize="22"/>
@@ -549,7 +550,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view hidden="YES" contentMode="scaleToFill" id="ABn-aW-ho1" userLabel="SpeedSlider Min-Max">
-                                        <rect key="frame" x="52" y="43" width="210" height="210"/>
+                                        <rect key="frame" x="52" y="41" width="210" height="210"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="set_speed_ring.png" id="4fa-Mf-hcd">
@@ -566,7 +567,7 @@
                                                 <rect key="frame" x="47" y="82" width="118" height="47"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" name="RobotoCondensed-Bold" family="Roboto Condensed" pointSize="53"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <color key="textColor" red="0.1137254902" green="0.73725490199999999" blue="0.34509803919999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="km/h" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Mw2-zU-Kck">
@@ -580,7 +581,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view hidden="YES" contentMode="scaleToFill" id="IrP-ve-XmR" userLabel="Calories Slider">
-                                        <rect key="frame" x="57" y="60" width="205" height="205"/>
+                                        <rect key="frame" x="57" y="58" width="205" height="205"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calories_ring.png" id="ZYE-Bi-5pG">
@@ -630,7 +631,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view hidden="YES" contentMode="scaleToFill" id="geH-rp-piT" userLabel="Calories Goal">
-                                        <rect key="frame" x="57" y="50" width="205" height="215"/>
+                                        <rect key="frame" x="57" y="48" width="205" height="215"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="goal_ring.png" id="lh0-Zn-VE1">
@@ -676,7 +677,7 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Lf9-DX-dZC">
-                                        <rect key="frame" x="101" y="269" width="112" height="35"/>
+                                        <rect key="frame" x="101" y="265" width="112" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <fontDescription key="fontDescription" name="RobotoCondensed-Bold" family="Roboto Condensed" pointSize="22"/>
                                         <state key="normal" title="START" backgroundImage="start.png">
@@ -686,12 +687,22 @@
                                             <action selector="btnStartPressed:" destination="M0w-tV-0Be" eventType="touchUpInside" id="BCh-gk-ss9"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Yzq-8e-cyc">
+                                        <rect key="frame" x="146" y="297" width="28" height="28"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <state key="normal" image="uparrow.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnUpArrowForMap:" destination="M0w-tV-0Be" eventType="touchUpInside" id="cEP-nI-JG2"/>
+                                        </connections>
+                                    </button>
                                     <view hidden="YES" contentMode="scaleToFill" id="oGu-HD-2ia" userLabel="viewMapMain">
-                                        <rect key="frame" x="0.0" y="44" width="320" height="280"/>
+                                        <rect key="frame" x="0.0" y="44" width="320" height="276"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" id="oel-R7-jBq">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="280"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="276"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="map_speed.png" id="qf7-4N-Cpm">
@@ -846,7 +857,7 @@
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </view>
                                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" id="Ize-Lg-go6">
-                                                <rect key="frame" x="0.0" y="136" width="320" height="142"/>
+                                                <rect key="frame" x="0.0" y="136" width="320" height="138"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             </mapView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="tZM-bv-zvM">
@@ -896,7 +907,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
                                     <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="iSw-i0-PV4">
-                                        <rect key="frame" x="247" y="12" width="66" height="66"/>
+                                        <rect key="frame" x="247" y="4" width="66" height="66"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="plus.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -906,7 +917,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="DZ2-S5-qtY">
-                                        <rect key="frame" x="5" y="13" width="66" height="66"/>
+                                        <rect key="frame" x="5" y="5" width="66" height="66"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="minus.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -916,9 +927,16 @@
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="aasistance_level_0.png" id="2dI-hg-QfS">
-                                        <rect key="frame" x="73" y="16" width="168" height="58"/>
+                                        <rect key="frame" x="73" y="8" width="168" height="58"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                     </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Assistance Level" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0IL-EY-vWF">
+                                        <rect key="frame" x="93" y="68" width="135" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="RobotoCondensed-Regular" family="Roboto Condensed" pointSize="17"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.13725490196078433" green="0.18431372549019609" blue="0.2627450980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
@@ -973,12 +991,16 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Yzq-8e-cyc">
-                                <rect key="frame" x="141" y="346" width="28" height="28"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <state key="normal" image="uparrow.png">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="8A2-OL-UgI" userLabel="btnBackground">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="500"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <state key="normal">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="btnBackgroundTouch:" destination="M0w-tV-0Be" eventType="touchUpInside" id="Lxf-ez-Tvv"/>
+                                </connections>
                             </button>
                             <view hidden="YES" contentMode="scaleToFill" id="FKo-WK-MDc" userLabel="Selection Menu">
                                 <rect key="frame" x="0.0" y="160" width="320" height="55"/>
@@ -1324,7 +1346,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <navigationItem key="navigationItem" title="Piagio Bike" id="Rhx-Vb-Am3">
+                    <navigationItem key="navigationItem" title="Piaggio Bike" id="Rhx-Vb-Am3">
                         <barButtonItem key="leftBarButtonItem" title="Item" style="plain" id="qxR-qV-hLJ">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="GaZ-q6-5Ab">
                                 <rect key="frame" x="38" y="8" width="28" height="28"/>
@@ -1364,6 +1386,7 @@
                     <connections>
                         <outlet property="assistantLevelView" destination="p3H-id-Ay2" id="Ghu-Zf-pFg"/>
                         <outlet property="bgMinMaxSpeed" destination="4fa-Mf-hcd" id="345-iN-Bxl"/>
+                        <outlet property="btnBackground" destination="8A2-OL-UgI" id="bMw-aY-zRG"/>
                         <outlet property="btnMaxCalories" destination="0A0-xp-jFb" id="AIk-ni-yOK"/>
                         <outlet property="btnSelectAvgPulse" destination="S5l-ty-gtX" id="Qpl-1f-6gh"/>
                         <outlet property="btnSelectAvgSpeed" destination="xOL-Wc-XkG" id="gX7-aJ-RZ6"/>
@@ -1391,6 +1414,7 @@
                         <outlet property="lblEngineCount" destination="Vg6-OX-Lce" id="MRy-Em-qYa"/>
                         <outlet property="lblEngineText" destination="54c-c6-vBd" id="gAB-3e-zuO"/>
                         <outlet property="lblGoalCalories" destination="hcn-23-nlb" id="iW4-Rz-Gly"/>
+                        <outlet property="lblKMHText" destination="l4P-qb-edI" id="LBj-OE-IG9"/>
                         <outlet property="lblKiloMeterText" destination="qCD-Tf-dm3" id="cjX-jM-Lfq"/>
                         <outlet property="lblKilometerCount" destination="SoM-XX-hxH" id="x3q-ge-8l6"/>
                         <outlet property="lblMeCount" destination="kYO-Ik-C5Z" id="Sz6-uO-2qX"/>
@@ -1524,7 +1548,7 @@
                         </subviews>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <navigationItem key="navigationItem" title="Piagio Bike" id="Qph-xC-lVU">
+                    <navigationItem key="navigationItem" title="Piaggio Bike" id="Qph-xC-lVU">
                         <barButtonItem key="leftBarButtonItem" style="plain" id="e7r-7q-e1n">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="M71-ih-r5P">
                                 <rect key="frame" x="16" y="-6" width="28" height="28"/>
@@ -1646,7 +1670,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Piagio Bike" id="L8j-Wz-Ebe">
+                    <navigationItem key="navigationItem" title="Piaggio Bike" id="L8j-Wz-Ebe">
                         <barButtonItem key="leftBarButtonItem" style="plain" id="gAf-vd-xz0">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Avm-z5-FbO">
                                 <rect key="frame" x="16" y="2" width="28" height="28"/>
@@ -2055,7 +2079,7 @@
                         <color key="backgroundColor" red="0.90980392160000001" green="0.92549019610000005" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <navigationItem key="navigationItem" title="Piagio Bike" id="eUf-tC-SMs">
+                    <navigationItem key="navigationItem" title="Piaggio Bike" id="eUf-tC-SMs">
                         <barButtonItem key="leftBarButtonItem" style="plain" id="X0A-4K-Ju3">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Di9-gF-Aq6">
                                 <rect key="frame" x="16" y="-6" width="28" height="28"/>
@@ -2223,7 +2247,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.90980392160000001" green="0.92549019610000005" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Piagio Bike" id="oBU-ev-dIZ">
+                    <navigationItem key="navigationItem" title="Piaggio Bike" id="oBU-ev-dIZ">
                         <barButtonItem key="leftBarButtonItem" style="plain" id="79f-nP-wa6">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="tAY-nU-XAj">
                                 <rect key="frame" x="16" y="-6" width="28" height="28"/>

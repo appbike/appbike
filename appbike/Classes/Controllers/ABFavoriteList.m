@@ -7,12 +7,17 @@
 //
 
 #import "ABFavoriteList.h"
+#import "ABFavoriteCell.h"
 #import "ABBatteryInformation.h"
 
 @interface ABFavoriteList ()
 {
     IBOutlet ABBatteryInformation *statusBarView;
 }
+
+@property (nonatomic, strong) IBOutlet UITableView *tblFavorite;
+@property (nonatomic, strong) NSMutableArray *arrFavorites;
+
 @end
 
 @implementation ABFavoriteList
@@ -35,6 +40,42 @@
     // Present the view controller
     //
     [self.frostedViewController presentMenuViewController];
+}
+
+
+
+#pragma mark -
+#pragma mark UITableView Datasource
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)sectionIndex
+{
+    return 3;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *cellIdentifier = @"ABFavoriteList";
+    
+    ABFavoriteCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    
+    if (cell == nil) {
+        cell = [[ABFavoriteCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+    }
+    
+    cell.imageView.image = [UIImage imageNamed:@""];
+    cell.lblTitle.text = @"My Favorite";
+    
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self.tblFavorite deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 

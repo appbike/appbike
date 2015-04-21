@@ -3,6 +3,8 @@
     <entity name="Favorite" representedClassName="Favorite" syncable="YES">
         <attribute name="f_id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="f_ishome" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="f_latitude" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="f_longitude" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="f_title" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="Session" representedClassName="Session" syncable="YES">
@@ -18,7 +20,7 @@
         <attribute name="s_visible" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Favorite" positionX="-63" positionY="45" width="128" height="88"/>
+        <element name="Favorite" positionX="-63" positionY="45" width="128" height="120"/>
         <element name="Session" positionX="-63" positionY="-18" width="128" height="195"/>
     </elements>
 </model>

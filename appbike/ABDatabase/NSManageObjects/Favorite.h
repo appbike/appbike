@@ -15,5 +15,7 @@
 @property (nonatomic, retain) NSNumber * f_id;
 @property (nonatomic, retain) NSString * f_title;
 @property (nonatomic, retain) NSString * f_ishome;
+@property (nonatomic, retain) NSString * f_latitude;
+@property (nonatomic, retain) NSString * f_longitude;
 
 @end

@@ -513,6 +513,8 @@
 		CFE87F971AE5837D00E4478F /* lock.png in Resources */ = {isa = PBXBuildFile; fileRef = CFE87F6A1AE5837D00E4478F /* lock.png */; };
 		CFE87F981AE5837D00E4478F /* lock@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFE87F6B1AE5837D00E4478F /* lock@2x.png */; };
 		CFE87F991AE5837D00E4478F /* lock@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFE87F6C1AE5837D00E4478F /* lock@3x.png */; };
+		CFE87F9C1AE6583700E4478F /* Favorite+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = CFE87F9B1AE6583700E4478F /* Favorite+Utils.m */; };
+		CFE87F9F1AE65A1800E4478F /* ABFavoriteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CFE87F9E1AE65A1800E4478F /* ABFavoriteCell.m */; };
 		CFECD6901A80D1E70012488E /* flow_tire.png in Resources */ = {isa = PBXBuildFile; fileRef = CFECD68E1A80D1E70012488E /* flow_tire.png */; };
 		CFECD6911A80D1E70012488E /* mask_circular.png in Resources */ = {isa = PBXBuildFile; fileRef = CFECD68F1A80D1E70012488E /* mask_circular.png */; };
 		CFF94FEF1ADA922D004FCFED /* calories_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = CFF94FE91ADA922D004FCFED /* calories_logo.png */; };
@@ -1169,6 +1171,10 @@
 		CFE87F6A1AE5837D00E4478F /* lock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lock.png; sourceTree = "<group>"; };
 		CFE87F6B1AE5837D00E4478F /* lock@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lock@2x.png"; sourceTree = "<group>"; };
 		CFE87F6C1AE5837D00E4478F /* lock@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lock@3x.png"; sourceTree = "<group>"; };
+		CFE87F9A1AE6583700E4478F /* Favorite+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Favorite+Utils.h"; path = "ABDatabase/NSManageCategories/Favorite+Utils.h"; sourceTree = "<group>"; };
+		CFE87F9B1AE6583700E4478F /* Favorite+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Favorite+Utils.m"; path = "ABDatabase/NSManageCategories/Favorite+Utils.m"; sourceTree = "<group>"; };
+		CFE87F9D1AE65A1800E4478F /* ABFavoriteCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABFavoriteCell.h; sourceTree = "<group>"; };
+		CFE87F9E1AE65A1800E4478F /* ABFavoriteCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABFavoriteCell.m; sourceTree = "<group>"; };
 		CFECD68E1A80D1E70012488E /* flow_tire.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flow_tire.png; sourceTree = "<group>"; };
 		CFECD68F1A80D1E70012488E /* mask_circular.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mask_circular.png; sourceTree = "<group>"; };
 		CFF94FE91ADA922D004FCFED /* calories_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calories_logo.png; sourceTree = "<group>"; };
@@ -1680,6 +1686,8 @@
 			children = (
 				CFBABC531AD2E808008AEA7B /* Session+Utils.h */,
 				CFBABC541AD2E808008AEA7B /* Session+Utils.m */,
+				CFE87F9A1AE6583700E4478F /* Favorite+Utils.h */,
+				CFE87F9B1AE6583700E4478F /* Favorite+Utils.m */,
 			);
 			name = NSManageCategories;
 			sourceTree = "<group>";
@@ -2451,6 +2459,8 @@
 			children = (
 				CFF950691ADE5BE6004FCFED /* ABFavoriteList.h */,
 				CFF9506A1ADE5BE6004FCFED /* ABFavoriteList.m */,
+				CFE87F9D1AE65A1800E4478F /* ABFavoriteCell.h */,
+				CFE87F9E1AE65A1800E4478F /* ABFavoriteCell.m */,
 			);
 			name = FavoriteList;
 			sourceTree = "<group>";
@@ -3025,6 +3035,7 @@
 				CFBB9F5A1AD84240000DDE89 /* ABNavigationVC.m in Sources */,
 				CFD15D8B1AD0F18800AE6A12 /* YLProgressBar.m in Sources */,
 				CFD15E461AD14B2500AE6A12 /* NSEntityDescription+MagicalDataImport.m in Sources */,
+				CFE87F9F1AE65A1800E4478F /* ABFavoriteCell.m in Sources */,
 				CFD15E521AD14B2500AE6A12 /* NSManagedObjectContext+MagicalRecord.m in Sources */,
 				CFF9506E1ADE5DFA004FCFED /* Favorite.m in Sources */,
 				CFD15E571AD14B2500AE6A12 /* NSPersistentStoreCoordinator+MagicalRecord.m in Sources */,
@@ -3093,6 +3104,7 @@
 				CFBB9F651AD845EB000DDE89 /* ABDiagnosticVC.m in Sources */,
 				CFBB9F6D1AD91AC9000DDE89 /* ABRootVC.m in Sources */,
 				CFBB9F7D1AD91AF7000DDE89 /* REFrostedViewController.m in Sources */,
+				CFE87F9C1AE6583700E4478F /* Favorite+Utils.m in Sources */,
 				66E197D61A5FB332003D1A9B /* DKRepeatableButton.m in Sources */,
 				CFD15E481AD14B2500AE6A12 /* NSObject+MagicalDataImport.m in Sources */,
 			);

@@ -19,5 +19,7 @@
 @dynamic s_km;
 @dynamic s_avgkm;
 @dynamic s_visible;
+@dynamic s_startlocation;
+@dynamic s_endlocation;
 
 @end

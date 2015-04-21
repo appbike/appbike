@@ -14,5 +14,7 @@
 @dynamic f_id;
 @dynamic f_title;
 @dynamic f_ishome;
+@dynamic f_latitude;
+@dynamic f_longitude;
 
 @end

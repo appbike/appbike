@@ -403,7 +403,7 @@
     else if(IS_IPHONE_6_PLUS)
     {
         [self updateUIForiPhone6Plus];
-        self.btnStartStop.frame = CGRectMake(self.btnStartStop.frame.origin.x, self.btnStartStop.frame.origin.y-40, self.btnStartStop.frame.size.width, self.btnStartStop.frame.size.height);
+        self.btnStartStop.frame = CGRectMake(self.btnStartStop.frame.origin.x, self.btnStartStop.frame.origin.y-20, self.btnStartStop.frame.size.width, self.btnStartStop.frame.size.height);
          yAxis = 40;
        
     }

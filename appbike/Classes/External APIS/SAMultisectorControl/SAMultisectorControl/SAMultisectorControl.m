@@ -87,6 +87,7 @@ typedef struct{
     self.maxCircleMarkerRadius = 50.0; //50.0
     self.numbersAfterPoint = 0;
     self.imgProfile = [UIImage imageNamed:@"noimage.png"];
+    //self.imgProfile = [UIImage imageNamed:@"loc_user.png"];
     self.imgViewProfile = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
     self.imgViewProfile.image = self.imgProfile;
     [self addSubview:self.imgViewProfile];

@@ -19,5 +19,8 @@
 + (float)getGrandTotal;
 - (void)removeItemFromSession;
 -(void)updateQuantityWithId:(NSString *)cartId :(NSString *)quantity;
++ (NSArray *)findThisWeek;
++ (NSArray *)findLastWeek;
+
 
 @end

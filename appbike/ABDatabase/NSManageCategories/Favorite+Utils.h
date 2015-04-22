@@ -17,5 +17,7 @@
 + (BOOL)removeAllFavoriteItems;
 + (int)getMaxId;
 - (void)removeItemFromFavorite;
++ (NSArray *)getHomeFavorite;
++ (NSArray *)getOtherFavorite;
 
 @end

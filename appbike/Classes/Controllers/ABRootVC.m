@@ -17,11 +17,15 @@
 
 - (void)awakeFromNib
 {
+    
+
     self.contentViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"DashBoardNav"];
     
     //appDelegate().dashboardVC = (ABDashBoardVC *)self.contentViewController;
     //self.navigationController.
     self.menuViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"LeftMenu"];
+
+    //[self.frostedViewController setMenuViewSize:CGSizeMake(125, self.menuViewController.view.frame.size.height)];
     
     
     self.liveBlur=NO;

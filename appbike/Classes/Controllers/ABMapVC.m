@@ -573,6 +573,7 @@
 //-(void)didUpdateToLocations:(NSArray *)locations
 - (void)updateMyLocation:(NSNotification*) notify
 {
+    
     NSLog(@"<<<<<< MAP didUpdateLocations >>>>>>");
     //CLLocation *newLocation = [locations firstObject];
      CLLocation *newLocation = (CLLocation *)notify.object;

@@ -8,6 +8,7 @@
 
 #import "ABFavoriteList.h"
 #import "ABFavoriteCell.h"
+#import "Favorite+Utils.h"
 #import "ABBatteryInformation.h"
 
 @interface ABFavoriteList ()
@@ -29,6 +30,8 @@
     statusBarView = [[ABBatteryInformation alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 50)];
     [statusBarView setBatteryLevel];
     [self.view addSubview:statusBarView];
+    self.arrFavorites = [NSMutableArray arrayWithArray:[Favorite getOtherFavorite]];
+    [self.tblFavorite reloadData];
 }
 
 - (IBAction)showLeftMenu:(id)sender
@@ -42,7 +45,18 @@
     [self.frostedViewController presentMenuViewController];
 }
 
-
+- (IBAction)setCurrentDestinationAsFavorite:(id)sender
+{
+    UIButton *btnPressed = (UIButton *)sender;
+    if(btnPressed.tag == 101)
+    {
+        //Home
+    }
+    else
+    {
+        //other
+    }
+}
 
 #pragma mark -
 #pragma mark UITableView Datasource
@@ -54,7 +68,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)sectionIndex
 {
-    return 3;
+    return self.arrFavorites.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -68,7 +82,9 @@
     }
     
     cell.imageView.image = [UIImage imageNamed:@""];
-    cell.lblTitle.text = @"My Favorite";
+    
+    Favorite *thisFavorite = [self.arrFavorites objectAtIndex:indexPath.row];
+    cell.lblTitle.text = thisFavorite.f_title;
     
     return cell;
 }

@@ -83,8 +83,11 @@
 @property (strong, nonatomic) IBOutlet UIView  *viewEngineMode;
 @property (strong, nonatomic) IBOutlet UIView  *viewSpeedStart;
 
+@property (strong, nonatomic) IBOutlet UIButton *btnRPM;
 @property (strong, nonatomic) IBOutlet UILabel  *lblRPMCount;
 @property (strong, nonatomic) IBOutlet UILabel  *lblRPMText;
+
+@property (strong, nonatomic) IBOutlet UIButton *btnBPM;
 @property (strong, nonatomic) IBOutlet UILabel  *lblBPMCount;
 @property (strong, nonatomic) IBOutlet UILabel  *lblBPMText;
 
@@ -167,6 +170,12 @@
 @property (strong, nonatomic) IBOutlet UILabel *lblMapAvgSpeedValue;
 @property (strong, nonatomic) IBOutlet UILabel *lblMapCalValue;
 @property (strong, nonatomic) IBOutlet UILabel *lblMapMaxCalValue;
+@property (strong, nonatomic) IBOutlet UIButton *btnMapStart;
+
+@property (strong, nonatomic) IBOutlet UIView  *viewBatteryAlert;
+@property (strong, nonatomic) IBOutlet UILabel *lblAlertPercentage;
+@property (strong, nonatomic) IBOutlet UILabel *lblAlertKM;
+@property (strong, nonatomic) IBOutlet UILabel *lblAlertMsg;
 
 //####
 @property (weak, nonatomic) IBOutlet UIButton *btnAssistantlLevel;
@@ -297,7 +306,7 @@
     
     
     indexLoc = 0;
-    //[self registerForNotifications];
+    [self registerForNotifications];
     [self loadDashboardData];
     [self setupMultiSelectorControl]; //For Set speed range
     
@@ -369,6 +378,7 @@
     
     [self.view addSubview:self.viewCountdown];
     [self.view addSubview:self.viewSaveSession];
+    [self.view addSubview:self.viewBatteryAlert];
     
     counterTime = [[appDelegate().dictCounterData objectForKeyedSubscript:@"value"] intValue];
     
@@ -381,20 +391,31 @@
     
     
     NSLog(@"Screen height : %f and width : %f",[[UIScreen mainScreen]bounds].size.height,[[UIScreen mainScreen]bounds].size.width);
+    int yAxis = 0;
     if(IS_IPHONE_6)
     {
         [self updateUIForiPhone6];
+        self.btnStartStop.frame = CGRectMake(self.btnStartStop.frame.origin.x, self.btnStartStop.frame.origin.y-20, self.btnStartStop.frame.size.width, self.btnStartStop.frame.size.height);
+        yAxis = 30;
+        
     
     }
     else if(IS_IPHONE_6_PLUS)
     {
         [self updateUIForiPhone6Plus];
+        self.btnStartStop.frame = CGRectMake(self.btnStartStop.frame.origin.x, self.btnStartStop.frame.origin.y-40, self.btnStartStop.frame.size.width, self.btnStartStop.frame.size.height);
+         yAxis = 40;
        
     }
     else if(IS_IPHONE_5)
     {
         NSLog(@"iPhone5");
         self.imgBGCalories.frame = CGRectMake(self.sliderDashboardCalories.frame.origin.x+5, self.sliderDashboardCalories.frame.origin.y, 195, 195);
+        
+        self.btnStartStop.frame = CGRectMake(101,300,112,35);
+        
+        
+        yAxis = 30;
     }
     else
     {
@@ -402,13 +423,20 @@
         self.assistantLevelView.frame = CGRectMake(self.assistantLevelView.frame.origin.x, self.assistantLevelView.frame.origin.y+20, self.assistantLevelView.frame.size.width, self.assistantLevelView.frame.size.height - 20);
         self.viewEngineMode.frame = CGRectMake(self.viewEngineMode.frame.origin.x, self.viewEngineMode.frame.origin.y+20, self.viewEngineMode.frame.size.width, self.viewEngineMode.frame.size.height);
         
+         yAxis = 30;
+        
+        
+        
+        
 //        self.viewNormalSpeed.frame = CGRectMake(self.viewNormalSpeed.frame.origin.x, self.viewNormalSpeed.frame.origin.y, self.viewNormalSpeed.frame.size.width, self.viewNormalSpeed.frame.size.height);
        
+        // self.viewSpeedStart.frame = CGRectMake(self.viewSpeedStart.frame.origin.x, self.viewSpeedStart.frame.origin.y, self.viewSpeedStart.frame.size.width, self.viewSpeedStart.frame.size.height+45);
+        
          self.viewSpeedStart.frame = CGRectMake(self.viewSpeedStart.frame.origin.x, self.viewSpeedStart.frame.origin.y, self.viewSpeedStart.frame.size.width, self.viewSpeedStart.frame.size.height+45);
         
-        self.btnStartStop.frame = CGRectMake(101,283,112,35);
+        self.btnStartStop.frame = CGRectMake(101,278,112,35); //283
         
-         self.btnUpDown.frame = CGRectMake(self.btnUpDown.frame.origin.x, self.btnUpDown.frame.origin.y+35, self.btnUpDown.frame.size.width, self.btnUpDown.frame.size.height);
+         self.btnUpDown.frame = CGRectMake(self.btnUpDown.frame.origin.x, self.btnUpDown.frame.origin.y-6, self.btnUpDown.frame.size.width, self.btnUpDown.frame.size.height);
         
         self.viewSetSpeed.frame = CGRectMake(self.viewSetSpeed.frame.origin.x, self.viewSetSpeed.frame.origin.y, self.viewSetSpeed.frame.size.width, self.viewSetSpeed.frame.size.height+45);
         
@@ -417,8 +445,18 @@
         
         self.imgBGCalories.frame = CGRectMake(self.sliderDashboardCalories.frame.origin.x+5, self.sliderDashboardCalories.frame.origin.y, 195, 195);
         
+        
+        
     }
   
+    self.lblBPMCount.frame = CGRectMake(self.lblBPMCount.frame.origin.x, self.lblBPMCount.frame.origin.y-yAxis, self.lblBPMCount.frame.size.width, self.lblBPMCount.frame.size.height);
+    self.lblBPMText.frame = CGRectMake(self.lblBPMText.frame.origin.x, self.lblBPMText.frame.origin.y-yAxis, self.lblBPMText.frame.size.width, self.lblBPMText.frame.size.height);
+    self.btnBPM.frame = CGRectMake(self.btnBPM.frame.origin.x, self.btnBPM.frame.origin.y-yAxis, self.btnBPM.frame.size.width, self.btnBPM.frame.size.height);
+    
+    self.lblRPMCount.frame = CGRectMake(self.lblRPMCount.frame.origin.x, self.lblRPMCount.frame.origin.y-yAxis, self.lblRPMCount.frame.size.width, self.lblRPMCount.frame.size.height);
+    self.lblRPMText.frame = CGRectMake(self.lblRPMText.frame.origin.x, self.lblRPMText.frame.origin.y-yAxis, self.lblRPMText.frame.size.width, self.lblRPMText.frame.size.height);
+    self.btnRPM.frame = CGRectMake(self.btnRPM.frame.origin.x, self.btnRPM.frame.origin.y-yAxis, self.btnRPM.frame.size.width, self.btnRPM.frame.size.height);
+    
     
     self.bleManager = [[BleManager alloc] init];
     
@@ -578,6 +616,7 @@
             
             
             [btnPressed setTitle:@"STOP" forState:UIControlStateNormal];
+            [self.btnMapStart setTitle:@"STOP" forState:UIControlStateNormal];
         }
         else
         {
@@ -589,6 +628,7 @@
             appDelegate().isSessionStart = NO;
             self.viewProgress.hidden = YES;
             [btnPressed setTitle:@"Start" forState:UIControlStateNormal];
+            [self.btnMapStart setTitle:@"Start" forState:UIControlStateNormal];
             self.viewSaveSession.hidden = NO;
         }
         
@@ -817,6 +857,7 @@
     self.lblGoalCalories.text = [NSString stringWithFormat:@"%d",(int)self.sliderSetCalories.value+1];
 
 }
+
 - (IBAction)CaloriesSet:(id)sender
 {
     NSLog(@"We have new updated calory value : %f",self.sliderSetCalories.value+1);
@@ -1227,6 +1268,8 @@
   //   didUpdateLocations:(NSArray *)locations
 - (void)updateMyLocation:(NSNotification*) notify
 {
+    NSLog(@"We have current location");
+    appDelegate().currentLocation =  (CLLocation *)notify.object;
     return; ///No need for now
     NSLog(@"Dashboard didUpdateLocations");
     CLLocation *newLocation = (CLLocation *)notify.object;
@@ -1399,6 +1442,7 @@
                 [self checkIfCaloriesGoalAchieve:[cal intValue]];
                 float totalPer = ([cal floatValue] / self.sliderSetCalories.maximumValue) * 100;
                 self.lblCaloriesPercentage.text = [NSString stringWithFormat:@"%.0f%%",totalPer];
+                
             }
             break;
             default:
@@ -1433,11 +1477,42 @@
         self.lblWattCount.text = voltage;
 
         self.dictJsonSession = dictionary;
+        
+        [self checkLowBettaryAlert:[[dictionary objectForKey:@"Autonomy"] intValue]];
+        
+        
+        //Map value change
+        self.lblMapRPMValue.text = [NSString stringWithFormat:@"%d",[[dictionary objectForKey:@"Autonomy"] intValue]];
+        self.lblMapBPMValue.text = [NSString stringWithFormat:@"%d",[[dictionary objectForKey:@"HB"] intValue]];
+
+        self.lblMapKMValue.text = [NSString stringWithFormat:@"%d",[[dictionary objectForKey:@"AutonomyDistance"] intValue] ];
+        [self.lblMapAvgSpeedValue setText:[km stringValue]];
+        
+        //float totalPer = ([cal floatValue] / self.sliderSetCalories.maximumValue) * 100;
+        self.lblMapCalValue.text = [NSString stringWithFormat:@"%d",[cal intValue]];
+        self.lblMapMaxCalValue.text = [NSString stringWithFormat:@"%.0f cal",self.sliderSetCalories.maximumValue];
+        
+        self.lblAlertPercentage.text = [NSString stringWithFormat:@"%dkm",[[dictionary objectForKey:@"AutonomyDistance"] intValue]];
+        
     }
 
 }
 
+#pragma mark - Low Battery
+- (IBAction)btnIgnore:(id)sender
+{
+    self.viewBatteryAlert.hidden = YES;
+}
 
+- (void)checkLowBettaryAlert:(int)betteryLevel
+{
+    if(betteryLevel <= 25)
+    {
+        self.viewBatteryAlert.hidden = NO;
+        self.lblAlertKM.text = [NSString stringWithFormat:@"%d%%",betteryLevel];
+        self.lblAlertMsg.text = [NSString stringWithFormat:@"You can't back home with %d%%.",betteryLevel];
+    }
+}
 - (NSString *)convertDictToString:(NSDictionary *)finalDictionary
 {
     NSError *error;

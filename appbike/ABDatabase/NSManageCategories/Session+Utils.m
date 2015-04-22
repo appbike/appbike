@@ -135,5 +135,33 @@
     return [Session MR_truncateAll];
 }
 
++ (NSArray *)findThisWeek
+{
+    NSDate *endDate = [NSDate date];
+    NSDate *now = [NSDate date];
+    NSDate *startDate = [now dateByAddingTimeInterval:-7*24*60*60];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(s_end >= %@) AND (s_start <= %@)", startDate, endDate];
+    
+    NSManagedObjectContext *context = [NSManagedObjectContext MR_contextForCurrentThread];
+    
+    NSArray *arrThisWeek = [Session MR_findAllWithPredicate:predicate inContext:context];
+    
+    return arrThisWeek;
+}
+
++ (NSArray *)findLastWeek
+{
+    NSDate *sevendayago = [NSDate date];
+    NSDate *endDate = [sevendayago dateByAddingTimeInterval:-7*24*60*60];
+    NSDate *now = [NSDate date];
+    NSDate *startDate = [now dateByAddingTimeInterval:-14*24*60*60];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(s_end >= %@) AND (s_start <= %@)", startDate, endDate];
+    
+    NSManagedObjectContext *context = [NSManagedObjectContext MR_contextForCurrentThread];
+    
+    NSArray *arrThisWeek = [Session MR_findAllWithPredicate:predicate inContext:context];
+    
+    return arrThisWeek;
+}
 
 @end

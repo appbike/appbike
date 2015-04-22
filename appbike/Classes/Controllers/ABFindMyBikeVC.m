@@ -8,6 +8,10 @@
 
 #import "ABFindMyBikeVC.h"
 #import <MapKit/MapKit.h>
+#import "MapView.h"
+#import "Place.h"
+#import "AppDelegate.h"
+
 
 @interface ABFindMyBikeVC ()
 
@@ -15,7 +19,10 @@
 @property (nonatomic,strong) IBOutlet UILabel *lblBetterLifeKm;
 @property (nonatomic,strong) IBOutlet UILabel *lblDistanceValue;
 @property (nonatomic,strong) IBOutlet UILabel *lblUpdatedDate;
-@property (nonatomic,strong) IBOutlet MKMapView *mapView;
+//@property (nonatomic,strong) IBOutlet MKMapView *mapView;
+@property (nonatomic,strong) IBOutlet MapView *mapView;
+
+
 
 @end
 
@@ -25,7 +32,21 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    
+    self.mapView = [[MapView alloc] initWithFrame:
+                         CGRectMake(self.mapView.frame.origin.x, self.mapView.frame.origin.y, self.mapView.frame.size.width, self.mapView.frame.size.height)];
+    
+    [self.view addSubview:self.mapView];
+    
     [self getMyBikeLocation];
+}
+
+- (void)updateMyLocation:(NSNotification*) notify
+{
+    
+    NSLog(@"Dashboard didUpdateLocations");
+    CLLocation *newLocation = (CLLocation *)notify.object;
 }
 
 - (void)getMyBikeLocation
@@ -67,6 +88,34 @@
          self.lblBetterLifeKm.text = [NSString stringWithFormat:@"%.0f km",batDistance];
          
          
+         Place* home = [[Place alloc] init];
+         home.name = @"User";
+         home.description = @"User Location";
+         if(appDelegate().currentLocation)
+         {
+             home.latitude = appDelegate().currentLocation.coordinate.latitude;
+             home.longitude = appDelegate().currentLocation.coordinate.longitude;
+         }
+         else
+         {
+             //For simulator
+             home.latitude = 44.016523;
+             home.longitude = 10.133232;
+
+         }
+         
+         
+         double bikeLatitude = [[[result objectForKey:@"location"] objectForKey:@"latitude"] doubleValue];
+         double bikeLongitude = [[[result objectForKey:@"location"] objectForKey:@"longitude"] doubleValue];
+         
+         Place* office = [[Place alloc] init];
+         office.name = @"Bike";
+         office.description = @"Bike Location";
+         office.latitude = bikeLatitude;
+         office.longitude = bikeLongitude;
+         
+         
+         [self.mapView showRouteFrom:home to:office];
                  
          
      }];

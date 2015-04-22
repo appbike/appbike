@@ -161,6 +161,12 @@
 @property (strong, nonatomic) IBOutlet UIView  *viewMapTopHalf;
 @property (strong, nonatomic) IBOutlet MKMapView  *viewMap;
 @property (strong, nonatomic) IBOutlet UIButton *btnShowDashboard;
+@property (strong, nonatomic) IBOutlet UILabel *lblMapBPMValue;
+@property (strong, nonatomic) IBOutlet UILabel *lblMapRPMValue;
+@property (strong, nonatomic) IBOutlet UILabel *lblMapKMValue;
+@property (strong, nonatomic) IBOutlet UILabel *lblMapAvgSpeedValue;
+@property (strong, nonatomic) IBOutlet UILabel *lblMapCalValue;
+@property (strong, nonatomic) IBOutlet UILabel *lblMapMaxCalValue;
 
 //####
 @property (weak, nonatomic) IBOutlet UIButton *btnAssistantlLevel;
@@ -557,41 +563,64 @@
 {
     UIButton *btnPressed = (UIButton *)sender;
     
-    if(!appDelegate().isSessionStart)
+    if(appDelegate().strToAddress)
     {
-        [self startCounter];
+
+        if(!appDelegate().isSessionStart)
+        {
+            [self startCounter];
+            
+            self.lblKMHText.hidden = NO;
+            self.dtStartSession = [NSDate date];
+    //        int newSessionID = [Session getMaxId];
+    //        NSDictionary *dictData = @{@"id":[NSString stringWithFormat:@"%d",newSessionID]};
+    //        [Session addItemToSession:dictData];
+            
+            
+            [btnPressed setTitle:@"STOP" forState:UIControlStateNormal];
+        }
+        else
+        {
+            self.lblKMHText.hidden = YES;
+            counterTime = [[appDelegate().dictCounterData objectForKeyedSubscript:@"value"] intValue];
+            //Display Session save message here
+            [self.bleManager stopSession];
+            
+            appDelegate().isSessionStart = NO;
+            self.viewProgress.hidden = YES;
+            [btnPressed setTitle:@"Start" forState:UIControlStateNormal];
+            self.viewSaveSession.hidden = NO;
+        }
         
-        self.lblKMHText.hidden = NO;
-        self.dtStartSession = [NSDate date];
-//        int newSessionID = [Session getMaxId];
-//        NSDictionary *dictData = @{@"id":[NSString stringWithFormat:@"%d",newSessionID]};
-//        [Session addItemToSession:dictData];
+        NSArray *arrSessions = [NSArray arrayWithArray:[Session getAllSessionItems]];
         
-        
-        [btnPressed setTitle:@"STOP" forState:UIControlStateNormal];
+        if(arrSessions.count > 0)
+        {
+            Session *thisSession = [arrSessions lastObject];
+            NSLog(@"Session : %@",[thisSession description]);
+        }
+        NSLog(@"All Array : %@",[arrSessions description]);
     }
     else
     {
-        self.lblKMHText.hidden = YES;
-        counterTime = [[appDelegate().dictCounterData objectForKeyedSubscript:@"value"] intValue];
-        //Display Session save message here
-        [self.bleManager stopSession];
-        
-        appDelegate().isSessionStart = NO;
-        self.viewProgress.hidden = YES;
-        [btnPressed setTitle:@"Start" forState:UIControlStateNormal];
-        self.viewSaveSession.hidden = NO;
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"AppBike"
+                                                            message:@"Please select destination before start session"
+                                                           delegate:self
+                                                  cancelButtonTitle:@"Cancel"
+                                                  otherButtonTitles:@"Ok",nil];
+        alertView.tag = 1001;
+        [alertView show];
     }
     
-    NSArray *arrSessions = [NSArray arrayWithArray:[Session getAllSessionItems]];
-    
-    if(arrSessions.count > 0)
+}
+
+#pragma mark Alert Delegate
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if(buttonIndex==1 && alertView.tag == 1001)
     {
-        Session *thisSession = [arrSessions lastObject];
-        NSLog(@"Session : %@",[thisSession description]);
+        self.viewDestination.hidden = NO;
     }
-    NSLog(@"All Array : %@",[arrSessions description]);
-    
 }
 
 - (IBAction)displaySelectionMenu:(id)sender

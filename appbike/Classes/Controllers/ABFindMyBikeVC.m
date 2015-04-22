@@ -7,6 +7,7 @@
 //
 
 #import "ABFindMyBikeVC.h"
+#import <MapKit/MapKit.h>
 
 @interface ABFindMyBikeVC ()
 
@@ -14,6 +15,7 @@
 @property (nonatomic,strong) IBOutlet UILabel *lblBetterLifeKm;
 @property (nonatomic,strong) IBOutlet UILabel *lblDistanceValue;
 @property (nonatomic,strong) IBOutlet UILabel *lblUpdatedDate;
+@property (nonatomic,strong) IBOutlet MKMapView *mapView;
 
 @end
 
@@ -63,6 +65,9 @@
          float batDistance = [[[result objectForKey:@"battery"] objectForKey:@"distance"] floatValue];
          batDistance = batDistance/1000.0f;
          self.lblBetterLifeKm.text = [NSString stringWithFormat:@"%.0f km",batDistance];
+         
+         
+                 
          
      }];
     

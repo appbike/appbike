@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appbike/Classes/Controllers/ABDashBoardVC.m"
-            timestampString = "451331460.201237"
+            timestampString = "451334485.162504"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1007"
-            endingLineNumber = "1007"
+            startingLineNumber = "1030"
+            endingLineNumber = "1030"
             landmarkName = "-updateUIForiPhone6Plus"
             landmarkType = "5">
          </BreakpointContent>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appbike/Classes/Controllers/ABDashBoardVC.m"
-            timestampString = "451331460.201237"
+            timestampString = "451334485.162504"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1012"
-            endingLineNumber = "1012"
+            startingLineNumber = "1035"
+            endingLineNumber = "1035"
             landmarkName = "-updateUIForiPhone6Plus"
             landmarkType = "5">
          </BreakpointContent>
@@ -90,27 +90,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appbike/Classes/Controllers/ABDashBoardVC.m"
-            timestampString = "451326413.82447"
+            timestampString = "451334485.162504"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "572"
-            endingLineNumber = "572"
-            landmarkName = "-btnStartPressed:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "appbike/Classes/Controllers/ABDashBoardVC.m"
-            timestampString = "451326413.82447"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "897"
-            endingLineNumber = "897"
+            startingLineNumber = "920"
+            endingLineNumber = "920"
             landmarkName = "-btnSaveSession:"
             landmarkType = "5">
          </BreakpointContent>
@@ -186,11 +170,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appbike/Classes/Controllers/ABFindMyBikeVC.m"
-            timestampString = "451251560.883989"
+            timestampString = "451333276.25013"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
             landmarkName = "-getMyBikeLocation"
             landmarkType = "5">
          </BreakpointContent>

@@ -72,13 +72,27 @@
         case 102:
         {
             //Destination
-            ABDashBoardVC *secondViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"ABDashBoardVC"];
-            secondViewController.isDisplayDestination = YES;
-            navigationController.viewControllers = @[secondViewController];
             
-//            appDelegate().dashboardVC.isDisplayDestination = YES;
-  //          navigationController.viewControllers = @[appDelegate().dashboardVC];
-            self.frostedViewController.contentViewController = navigationController;
+            if(appDelegate().isSessionStart)
+            {
+                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"AppBike"
+                                                                    message:@"Please stop current session before set new destination"
+                                                                   delegate:nil
+                                                          cancelButtonTitle:@"Cancel"
+                                                          otherButtonTitles:@"Ok",nil];
+                //alertView.tag = 1001;
+                [alertView show];
+            }
+            else
+            {
+                ABDashBoardVC *secondViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"ABDashBoardVC"];
+                secondViewController.isDisplayDestination = YES;
+                navigationController.viewControllers = @[secondViewController];
+                
+    //            appDelegate().dashboardVC.isDisplayDestination = YES;
+      //          navigationController.viewControllers = @[appDelegate().dashboardVC];
+                self.frostedViewController.contentViewController = navigationController;
+            }
     //        [appDelegate().dashboardVC showDestination];
             //[self.frostedViewController hideMenuViewController];
            // [[NSNotificationCenter defaultCenter] postNotificationName:MenuItemNotification object:tag];

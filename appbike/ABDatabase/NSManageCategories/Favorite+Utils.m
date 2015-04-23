@@ -11,6 +11,17 @@
 
 @implementation Favorite (Utils)
 
+
++ (Favorite *)getFavoriteWithTitle:(NSString *)sessionId
+{
+    NSManagedObjectContext *context = [NSManagedObjectContext MR_contextForCurrentThread];
+    //NSManagedObjectContext *context = [NSManagedObjectContext MR_context]
+    
+    Favorite *cart = [Favorite MR_findFirstByAttribute:@"f_title" withValue:sessionId inContext:context];
+    
+    return cart;
+}
+
 + (Favorite *)getFavoriteWithId:(NSString *)sessionId
 {
     NSManagedObjectContext *context = [NSManagedObjectContext MR_contextForCurrentThread];
@@ -70,7 +81,7 @@
 {
     NSManagedObjectContext *context = [NSManagedObjectContext MR_contextForCurrentThread];
     
-    Favorite *cart = [Favorite getFavoriteWithId:[data objectForKey:@"id"]];
+    Favorite *cart = [Favorite getFavoriteWithTitle:[data objectForKey:@"title"]];
     if (!cart)
     {
         cart = [Favorite MR_createInContext:context];
@@ -79,41 +90,75 @@
         cart.f_ishome = [data objectForKey:@"ishome"];
         cart.f_latitude = [data objectForKey:@"latitude"];
         cart.f_longitude = [data objectForKey:@"longitude"];
-        NSString *isHome = [data objectForKey:@"ishome"];
         
-        if([isHome isEqualToString:@"yes"])
-        {
-            NSArray *arrHome = [Favorite getHomeFavorite];
-            if(arrHome.count > 0)
-            {
-                Favorite *thisHome = (Favorite *) [arrHome firstObject];
-                thisHome.f_ishome = @"no";
-                [thisHome saveWithCompletion:^(BOOL saved) {
-                    if (saved)
-                    {
-                        NSLog(@"Saved successfully");
-                    }
-                }];
-            }
-        }
         cart.f_title = [data objectForKey:@"title"];
+        
+        
 
     }else
     {
        
-        cart.f_id = [NSNumber numberWithInt:[self getMaxId]];
+        cart.f_id = cart.f_id;
         //cart.s_start = [NSDate date];
         cart.f_ishome = [data objectForKey:@"ishome"];
         cart.f_title = [data objectForKey:@"title"];
         cart.f_latitude = [data objectForKey:@"latitude"];
         cart.f_longitude = [data objectForKey:@"longitude"];
-        
+     
+//        NSString *isHome = [data objectForKey:@"ishome"];
+//        if([isHome isEqualToString:@"yes"])
+//        {
+//            NSArray *arrHome = [Favorite getHomeFavorite];
+//            if(arrHome.count > 0)
+//            {
+//                Favorite *thisHome = (Favorite *) [arrHome firstObject];
+//                thisHome.f_ishome = @"no";
+//                thisHome.f_title = thisHome.f_title;
+//                thisHome.f_latitude = thisHome.f_latitude;
+//                thisHome.f_longitude = thisHome.f_longitude;
+//                thisHome.f_id = thisHome.f_id;
+//                [thisHome saveWithCompletion:^(BOOL saved) {
+//                    if (saved)
+//                    {
+//                        NSLog(@"Saved successfully");
+//                    }
+//                }];
+//            }
+//        }
     }
     
     [context MR_saveOnlySelfWithCompletion:^(BOOL contextDidSave, NSError *error) {
         if(contextDidSave)
         {
             NSLog(@"Saved success");
+            
+            NSString *isHome = [data objectForKey:@"ishome"];
+            if([isHome isEqualToString:@"yes"])
+            {
+                NSArray *arrHome = [Favorite getHomeFavorite];
+                if(arrHome.count > 0)
+                {
+                    for(int i=0; i < arrHome.count; i++)
+                    {
+                        Favorite *thisHome = (Favorite *) [arrHome objectAtIndex:i];
+                        if(![thisHome.f_title isEqualToString:[data objectForKey:@"title"]])
+                        {
+                            thisHome.f_ishome = @"no";
+                            thisHome.f_title = thisHome.f_title;
+                            thisHome.f_latitude = thisHome.f_latitude;
+                            thisHome.f_longitude = thisHome.f_longitude;
+                            thisHome.f_id = thisHome.f_id;
+                            [thisHome saveWithCompletion:^(BOOL saved) {
+                                if (saved)
+                                {
+                                    NSLog(@"Saved successfully");
+                                }
+                            }];
+                        }
+                    }
+                }
+            }
+
         }
         if(error)
         {

@@ -8,6 +8,7 @@
 
 #import "ABFindMyBikeVC.h"
 #import <MapKit/MapKit.h>
+#import <CoreLocation/CoreLocation.h>
 #import "MapView.h"
 #import "Place.h"
 #import "AppDelegate.h"
@@ -33,6 +34,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    
+    
+    NSDateFormatter *format = [[NSDateFormatter alloc] init];
+    [format setDateFormat:@"dd.MM.yyyy HH:mm"];
+    NSString *dateString = [format stringFromDate:[NSDate date]];
+    self.lblUpdatedDate.text = dateString;
     
     self.mapView = [[MapView alloc] initWithFrame:
                          CGRectMake(self.mapView.frame.origin.x, self.mapView.frame.origin.y, self.mapView.frame.size.width, self.mapView.frame.size.height)];
@@ -91,7 +98,9 @@
          Place* home = [[Place alloc] init];
          home.name = @"User";
          home.description = @"User Location";
-         if(appDelegate().currentLocation)
+         //if(appDelegate().currentLocation)
+#warning Remove above comment and following if (NO) that is for testing purpose because we can't draw in Asian countries in map
+         if(NO)
          {
              home.latitude = appDelegate().currentLocation.coordinate.latitude;
              home.longitude = appDelegate().currentLocation.coordinate.longitude;
@@ -115,8 +124,25 @@
          office.longitude = bikeLongitude;
          
          
+         CLLocation *homeLocation = [[CLLocation alloc] initWithLatitude:home.latitude longitude:home.longitude];
+
+         CLLocation *bikeLocation = [[CLLocation alloc] initWithLatitude:office.latitude longitude:office.longitude];
+         
+         //CLLocationCoordinate2D homeLocation = CLLocationCoordinate2DMake(home.latitude, home.longitude);
+         
+         // CLLocationCoordinate2D bikeLocation = CLLocationCoordinate2DMake(office.latitude, office.longitude);
+         
+         CLLocationDistance distanceChange = [homeLocation getDistanceFrom:bikeLocation];
+         
+         double distance = distanceChange / 1000;
+         self.lblDistanceValue.text = [NSString stringWithFormat:@"%.2f",distance];
+         
          [self.mapView showRouteFrom:home to:office];
-                 
+        
+         NSDateFormatter *format = [[NSDateFormatter alloc] init];
+         [format setDateFormat:@"dd.MM.yyyy HH:mm"];
+         NSString *dateString = [format stringFromDate:[NSDate date]];
+         self.lblUpdatedDate.text = dateString;
          
      }];
     

@@ -132,10 +132,19 @@
 	[mapView addAnnotation:from];
 	[mapView addAnnotation:to];
 	
-	routes = [[self calculateRoutesFrom:from.coordinate to:to.coordinate] retain];
+    @try {
+        routes = [[self calculateRoutesFrom:from.coordinate to:to.coordinate] retain];
+        
+        [self updateRouteView];
+        [self centerMap];
+    }
+    @catch (NSException *exception) {
+        NSLog(@"Exception");
+    }
+    @finally {
+      
+    }
 	
-	[self updateRouteView];
-	[self centerMap];
 }
 
 -(void) updateRouteView {

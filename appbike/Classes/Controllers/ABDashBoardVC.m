@@ -617,6 +617,7 @@
             
             [btnPressed setTitle:@"STOP" forState:UIControlStateNormal];
             [self.btnMapStart setTitle:@"STOP" forState:UIControlStateNormal];
+            [self.btnStartStop setTitle:@"STOP" forState:UIControlStateNormal];
         }
         else
         {
@@ -627,8 +628,9 @@
             
             appDelegate().isSessionStart = NO;
             self.viewProgress.hidden = YES;
-            [btnPressed setTitle:@"Start" forState:UIControlStateNormal];
-            [self.btnMapStart setTitle:@"Start" forState:UIControlStateNormal];
+            [btnPressed setTitle:@"START" forState:UIControlStateNormal];
+            [self.btnMapStart setTitle:@"START" forState:UIControlStateNormal];
+            [self.btnStartStop setTitle:@"START" forState:UIControlStateNormal];
             self.viewSaveSession.hidden = NO;
         }
         
@@ -945,7 +947,7 @@
                                    @"km" : self.lblKilometerCount.text,
                                    @"json" : finalJson,
                                    @"start" : self.dtStartSession,
-                                   @"avgkm" : @"0"
+                                   @"avgkm" : self.lblKilometerCount.text
                                    };
         [Session addItemToSession:dictData];
     }
@@ -955,8 +957,11 @@
         
     }
     
-    self.viewSaveSession.hidden = YES;
+    appDelegate().strFromAddress = nil;
     
+    self.viewSaveSession.hidden = YES;
+    appDelegate().strToAddress = nil;
+    appDelegate().toLocation = nil;
     
     NSArray *arrSessions = [NSArray arrayWithArray:[Session getAllSessionItems]];
     
@@ -972,7 +977,7 @@
 - (void)addProgressbar
 {
     [self initRoundedFatProgressBar:self.progressBarRoundedFat];
-    [self setProgress:0.43 animated:YES];
+    [self setProgress:0.0 animated:YES];
 }
 
 #pragma mark YLViewController Private Methods

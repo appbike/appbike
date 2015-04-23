@@ -8,6 +8,7 @@
 
 #import "CoreData+MagicalRecord.h"
 #import "Session+Utils.h"
+#import "AppDelegate.h"
 
 @implementation Session (Utils)
 
@@ -61,8 +62,8 @@
         cart.s_km = [NSNumber numberWithInt:[[data objectForKey:@"km"] integerValue]];
         cart.s_avgkm = [NSNumber numberWithInt:[[data objectForKey:@"avgkm"] integerValue]];
         cart.s_visible = [NSNumber numberWithInt:1];
-        cart.s_startlocation = @"Milano";
-        cart.s_endlocation = @"Como";
+        cart.s_startlocation = appDelegate().strFromAddress;
+        cart.s_endlocation = appDelegate().strToAddress;
         
     }else
     {

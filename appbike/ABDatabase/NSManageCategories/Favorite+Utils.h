@@ -12,6 +12,7 @@
 
 + (Favorite *)findOrCreateById:(NSString *)cartId;
 + (Favorite *)getFavoriteWithId:(NSString *)cartId;
++ (Favorite *)getFavoriteWithTitle:(NSString *)sessionId;
 + (void)addItemToFavorite:(NSDictionary *)data;
 + (NSArray *)getAllFavoriteItems;
 + (BOOL)removeAllFavoriteItems;

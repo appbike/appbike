@@ -184,6 +184,8 @@
 
     [headerPacket setObject:[NSNumber numberWithUnsignedInteger:arc4random()%100] forKey:@"GearBox"];
     
+    [headerPacket setObject:[NSNumber numberWithUnsignedInteger:arc4random()%1000] forKey:@"ActivityDurationSeconds"];
+    
     return headerPacket;
     
 }

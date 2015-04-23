@@ -10,6 +10,7 @@
 #import "ABFavoriteCell.h"
 #import "Favorite+Utils.h"
 #import "ABBatteryInformation.h"
+#import "AppDelegate.h"
 
 @interface ABFavoriteList ()
 {
@@ -18,7 +19,9 @@
 
 @property (nonatomic, strong) IBOutlet UITableView *tblFavorite;
 @property (nonatomic, strong) NSMutableArray *arrFavorites;
-
+@property (nonatomic, strong) IBOutlet UILabel *lblToAddress;
+@property (nonatomic, strong) IBOutlet UILabel *lblHomeAddress;
+@property (nonatomic, strong) IBOutlet UITextField *txtAddress;
 @end
 
 @implementation ABFavoriteList
@@ -30,10 +33,34 @@
     statusBarView = [[ABBatteryInformation alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 50)];
     [statusBarView setBatteryLevel];
     [self.view addSubview:statusBarView];
+    
+    if(!appDelegate().strToAddress)
+    {
+        self.lblToAddress.text = @"Not Selected";
+    }
+    else
+    {
+        self.lblToAddress.text = appDelegate().strToAddress;
+    }
+    
+    [self reloadFavoriteData];
+}
+
+- (void)reloadFavoriteData
+{
+    NSMutableArray *arrHome = [NSMutableArray arrayWithArray:[Favorite getHomeFavorite]];
+    if(arrHome.count > 0)
+    {
+        Favorite *homeFavorite = [arrHome firstObject];
+        self.lblHomeAddress.text = homeFavorite.f_title;
+    }
+    else
+    {
+        self.lblHomeAddress.text = @"Not Added";
+    }
     self.arrFavorites = [NSMutableArray arrayWithArray:[Favorite getOtherFavorite]];
     [self.tblFavorite reloadData];
 }
-
 - (IBAction)showLeftMenu:(id)sender
 {
     //return;
@@ -47,14 +74,47 @@
 
 - (IBAction)setCurrentDestinationAsFavorite:(id)sender
 {
-    UIButton *btnPressed = (UIButton *)sender;
-    if(btnPressed.tag == 101)
+    
+    if(!appDelegate().strToAddress)
     {
-        //Home
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"AppBike"
+                                                            message:@"Please select destination from left menu first."
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"Cancel"
+                                                  otherButtonTitles:@"Ok",nil];
+        alertView.tag = 1001;
+        [alertView show];
     }
     else
     {
-        //other
+        UIButton *btnPressed = (UIButton *)sender;
+        NSDictionary *dictParam;
+        
+        if(btnPressed.tag == 101)
+        {
+            //Home
+            dictParam = @{@"ishome" : @"yes",
+                          @"latitude" : [NSString stringWithFormat:@"%f",appDelegate().toLocation.coordinate.latitude],
+                          @"longitude" : [NSString stringWithFormat:@"%f",appDelegate().toLocation.coordinate.longitude],
+                          @"title" : self.lblToAddress.text,
+                          };
+        }
+        else
+        {
+            //other
+            dictParam = @{@"ishome" : @"no",
+                          @"latitude" : [NSString stringWithFormat:@"%f",appDelegate().toLocation.coordinate.latitude],
+                          @"longitude" : [NSString stringWithFormat:@"%f",appDelegate().toLocation.coordinate.longitude],
+                          @"title" : self.lblToAddress.text,
+                          };
+        }
+        
+        [Favorite addItemToFavorite:dictParam];
+        [self reloadFavoriteData];
+        if(btnPressed.tag == 101)
+        {
+            self.lblHomeAddress.text = self.lblToAddress.text;
+        }
     }
 }
 
@@ -73,7 +133,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *cellIdentifier = @"ABFavoriteList";
+    static NSString *cellIdentifier = @"ABFavoriteCell";
     
     ABFavoriteCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
@@ -81,11 +141,12 @@
         cell = [[ABFavoriteCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
     
-    cell.imageView.image = [UIImage imageNamed:@""];
+    cell.imageView.image = [UIImage imageNamed:@"star.png"];
     
     Favorite *thisFavorite = [self.arrFavorites objectAtIndex:indexPath.row];
+    NSLog(@"Title : %@",thisFavorite.f_title);
     cell.lblTitle.text = thisFavorite.f_title;
-    
+    cell.backgroundColor = [UIColor clearColor];
     return cell;
 }
 

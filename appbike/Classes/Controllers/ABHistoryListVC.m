@@ -15,6 +15,7 @@
 {
     IBOutlet ABBatteryInformation *statusBarView;
     int currentSelectedRow;
+    float totalDistance, totalMin, totalCal;
 }
 
 @property (nonatomic, strong) NSMutableArray *arrSession;
@@ -29,6 +30,10 @@
 @property (nonatomic, strong) IBOutlet UILabel *lblRPMValue;
 @property (nonatomic, strong) IBOutlet UILabel *lblCalValue;
 @property (nonatomic, strong) IBOutlet UILabel *lblDistanceValue;
+
+@property (nonatomic, strong) IBOutlet UIButton *btnTotalDistance;
+@property (nonatomic, strong) IBOutlet UIButton *btnTotalMins;
+@property (nonatomic, strong) IBOutlet UIButton *btnTotalCal;
 
 @end
 
@@ -88,6 +93,8 @@
 - (IBAction)deleteThisHistory:(id)sender
 {
     NSLog(@"Delete History");
+    [self deleteHistoryAtIndex:currentSelectedRow];
+    self.viewDetail.hidden = YES;
 }
 
 
@@ -129,15 +136,33 @@
     
     cell.lblDate.text = dateString;
     
-    [cell.btnKM setTitle:[NSString stringWithFormat:@"%@",thisSession.s_km] forState:UIControlStateNormal];
+    NSDictionary *jsonDict = [self stringToJsonDiction:thisSession.s_json];
     
-    [cell.btnCal setTitle:[NSString stringWithFormat:@"%@",thisSession.s_cal] forState:UIControlStateNormal];
     
-    [cell.btnMin setTitle:[NSString stringWithFormat:@"%@",thisSession.s_avgkm] forState:UIControlStateNormal];
+    int seconds = [[jsonDict objectForKey:@"ActivityDurationSeconds"] intValue];
+    int min = seconds / 60;
+    
+    totalDistance += [[jsonDict objectForKey:@"Distance"] intValue];
+    totalCal += [[jsonDict objectForKey:@"Calories"] intValue];
+    totalMin += min;
+    
+    [cell.btnKM setTitle:[NSString stringWithFormat:@"%@ km",[jsonDict objectForKey:@"Distance"]] forState:UIControlStateNormal];
+    
+    [cell.btnCal setTitle:[NSString stringWithFormat:@"%@",[NSString stringWithFormat:@"%@ cal",[jsonDict objectForKey:@"Calories"]]] forState:UIControlStateNormal];
+    
+    [cell.btnMin setTitle:[NSString stringWithFormat:@"%d",min] forState:UIControlStateNormal];
     
     //cell.lblDate.text = @"TEXT";
     cell.btnDelete.tag = indexPath.row;
     cell.btnShare.tag = indexPath.row;
+    
+    if(indexPath.row == (self.arrSession.count-1))
+    {
+        //self.lblTotalCal.text = [NSString stringWithFormat:@""]
+        [self.btnTotalCal setTitle:[NSString stringWithFormat:@"%.0f",totalCal] forState:UIControlStateNormal];
+        [self.btnTotalDistance setTitle:[NSString stringWithFormat:@"%.0f",totalDistance] forState:UIControlStateNormal];
+        [self.btnTotalMins setTitle:[NSString stringWithFormat:@"%.0f",totalMin] forState:UIControlStateNormal];
+    }
     
     return cell;
 }
@@ -155,17 +180,78 @@
     self.lblDateDetail.text = dateString;
     self.lblFromValue.text = thisSession.s_startlocation;
     self.lblToValue.text = thisSession.s_endlocation;
-    self.lblCalValue.text = [NSString stringWithFormat:@"%@ cal",thisSession.s_cal];
-    self.lblAvgSpeedValue.text = [NSString stringWithFormat:@"%@ cal",thisSession.s_avgkm];
     
+   // self.lblAvgSpeedValue.text = [NSString stringWithFormat:@"%@ km",thisSession.s_avgkm];
+    
+    NSDictionary *jsonDict = [self stringToJsonDiction:thisSession.s_json];
+    
+    
+    self.lblCalValue.text =  [NSString stringWithFormat:@"%@ cal",[jsonDict objectForKey:@"Calories"]];
+    self.lblDistanceValue.text = [NSString stringWithFormat:@"%@ km",[jsonDict objectForKey:@"Distance"]];
+    self.lblAvgSpeedValue.text = [NSString stringWithFormat:@"%@ km/h",[jsonDict objectForKey:@"AvgSpeed"]];
+    self.lblBPMValue.text = [NSString stringWithFormat:@"%@ bpm",[jsonDict objectForKey:@"HB"]];
+    self.lblRPMValue.text = [NSString stringWithFormat:@"%@ rpm",[jsonDict objectForKey:@"Dsb"]];
+    int seconds = [[jsonDict objectForKey:@"ActivityDurationSeconds"] intValue];
+    int min = seconds / 60;
+    
+    self.lblMinValue.text = [NSString stringWithFormat:@"%d min",min];
+//    {
+//        Autonomy = 84;
+//        AutonomyDistance = 71;
+//        AvgSpeed = 62;
+//        Calories = 75;
+//        Current = 80;
+//        Distance = 95;
+//        DistanceSession = 62;
+//        Dsb = 71;
+//        Energy = 10;
+//        Errors = 73;
+//        Frequency = 64;
+//        GearBox = 73;
+//        HB = 46;
+//        Life = 85;
+//        Light = 10;
+//        M2M = 48;
+//        Soc = 61;
+//        Speed = 67;
+//        Torque = 7;
+//        Voltage = 34;
+//    }
+
+    NSLog(@"Jsond Dict : %@",jsonDict);
     
     self.viewDetail.hidden = NO;
+    
+    currentSelectedRow = indexPath.row;
+}
+
+- (NSDictionary *)stringToJsonDiction:(NSString *)jsonString
+{
+    NSData *webData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
+    
+    NSError *error;
+    NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:webData options:0 error:&error];
+    return jsonDict;
 }
 
 - (IBAction)deleteFromCell:(id)sender
 {
     UIButton *btnPressed = (UIButton *)sender;
     NSLog(@"Delete : %d",btnPressed.tag);
+    [self deleteHistoryAtIndex:btnPressed.tag];
+    
+
+}
+
+- (void)deleteHistoryAtIndex:(int)index
+{
+    totalCal = 0;
+    totalDistance = 0;
+    totalMin = 0;
+    Session *thisSession = [self.arrSession objectAtIndex:index];
+    [thisSession removeItemFromSession];
+    [self.arrSession removeObjectAtIndex:index];
+    [self.tblHistory reloadData];
 }
 - (IBAction)shareFromCell:(id)sender
 {

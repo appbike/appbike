@@ -1556,44 +1556,52 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current destination : " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7XM-bB-zCF">
-                                        <rect key="frame" x="54" y="31" width="109" height="21"/>
+                                        <rect key="frame" x="54" y="35" width="109" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
                                         <fontDescription key="fontDescription" name="RobotoCondensed-Regular" family="Roboto Condensed" pointSize="13"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Milano Tortona" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="JK9-KA-Rdt">
-                                        <rect key="frame" x="165" y="31" width="109" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Milano Tortona" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" id="JK9-KA-Rdt">
+                                        <rect key="frame" x="165" y="31" width="140" height="33"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
                                         <fontDescription key="fontDescription" name="RobotoCondensed-Regular" family="Roboto Condensed" pointSize="13"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="6vr-lt-2RA">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" id="6vr-lt-2RA">
                                         <rect key="frame" x="40" y="130" width="242" height="231"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <prototypes>
-                                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ABFavoriteCell" rowHeight="60" id="zBw-zz-dAV" customClass="ABFavoriteCell">
+                                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="0.0" reuseIdentifier="ABFavoriteCell" rowHeight="60" id="zBw-zz-dAV" customClass="ABFavoriteCell">
                                                 <rect key="frame" x="0.0" y="0.0" width="242" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zBw-zz-dAV" id="kcP-77-gG5">
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star.png" id="cGz-Z9-J7q">
-                                                            <rect key="frame" x="8" y="16" width="28" height="28"/>
-                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="cGz-Z9-J7q">
+                                                            <rect key="frame" x="5" y="16" width="28" height="28"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Milano Loreto" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" id="RlW-Ze-RQP">
-                                                            <rect key="frame" x="39" y="19" width="195" height="21"/>
+                                                            <rect key="frame" x="53" y="19" width="184" height="21"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                             <fontDescription key="fontDescription" name="RobotoCondensed-Regular" family="Roboto Condensed" pointSize="18"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 </tableViewCellContentView>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                <connections>
+                                                    <outlet property="imgIcon" destination="cGz-Z9-J7q" id="DUg-od-q7j"/>
+                                                    <outlet property="lblTitle" destination="RlW-Ze-RQP" id="Pdp-f1-f0c"/>
+                                                </connections>
                                             </tableViewCell>
                                         </prototypes>
                                         <connections>
@@ -1601,33 +1609,49 @@
                                             <outlet property="delegate" destination="52R-uJ-JhG" id="eJx-jR-QAb"/>
                                         </connections>
                                     </tableView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="V6C-nj-faQ">
+                                    <button opaque="NO" tag="101" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="V6C-nj-faQ">
                                         <rect key="frame" x="40" y="371" width="242" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <color key="backgroundColor" red="0.1450980392" green="0.52941176469999995" blue="0.84705882349999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="RobotoCondensed-Regular" family="Roboto Condensed" pointSize="15"/>
                                         <state key="normal" title="Set the current destination as Home">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="setCurrentDestinationAsFavorite:" destination="52R-uJ-JhG" eventType="touchUpInside" id="7RH-o7-YW4"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="p1o-E6-2dE">
+                                    <button opaque="NO" tag="102" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="p1o-E6-2dE">
                                         <rect key="frame" x="39" y="409" width="242" height="38"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <color key="backgroundColor" red="0.1450980392" green="0.52941176469999995" blue="0.84705882349999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="RobotoCondensed-Regular" family="Roboto Condensed" pointSize="15"/>
                                         <state key="normal" title="Set the current destination as Favorite">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="setCurrentDestinationAsFavorite:" destination="52R-uJ-JhG" eventType="touchUpInside" id="P2d-b8-hoC"/>
+                                        </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home.png" id="CaQ-tx-JI6">
-                                        <rect key="frame" x="43" y="69" width="28" height="28"/>
+                                        <rect key="frame" x="54" y="69" width="28" height="28"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Milano Loreto" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" id="gf2-yP-rZA">
-                                        <rect key="frame" x="78" y="72" width="195" height="21"/>
+                                        <rect key="frame" x="89" y="72" width="195" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
                                         <fontDescription key="fontDescription" name="RobotoCondensed-Regular" family="Roboto Condensed" pointSize="18"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Milano Tortona" borderStyle="roundedRect" minimumFontSize="17" id="ODU-V7-JO1">
+                                        <rect key="frame" x="9" y="8" width="176" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
                                 </subviews>
                                 <color key="backgroundColor" red="0.1843137255" green="0.24313725489999999" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
@@ -1649,8 +1673,11 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="lblHomeAddress" destination="gf2-yP-rZA" id="LKZ-27-zdZ"/>
+                        <outlet property="lblToAddress" destination="JK9-KA-Rdt" id="8Gi-R0-ww7"/>
                         <outlet property="statusBarView" destination="ctw-8Y-IR7" id="wwe-Q8-kXI"/>
                         <outlet property="tblFavorite" destination="6vr-lt-2RA" id="QLc-U5-p1A"/>
+                        <outlet property="txtAddress" destination="ODU-V7-JO1" id="xnY-gb-1pP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aRr-r7-yzB" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2186,6 +2213,18 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="btnTotalCal" destination="fQa-fX-G46" id="g7I-bb-NjV"/>
+                        <outlet property="btnTotalDistance" destination="Ibc-e9-orQ" id="l3T-yX-ACI"/>
+                        <outlet property="btnTotalMins" destination="cnH-TW-62a" id="fg9-eG-c74"/>
+                        <outlet property="lblAvgSpeedValue" destination="Jc7-jE-nFt" id="wcD-C7-7u9"/>
+                        <outlet property="lblBPMValue" destination="0rs-Vc-ae7" id="la2-Ck-so9"/>
+                        <outlet property="lblCalValue" destination="gHB-kL-nXl" id="Ysq-Yn-iIe"/>
+                        <outlet property="lblDateDetail" destination="vNx-tB-clE" id="ueA-Wm-KK5"/>
+                        <outlet property="lblDistanceValue" destination="duC-6a-16Q" id="cA2-4k-o5T"/>
+                        <outlet property="lblFromValue" destination="xgV-LS-Bno" id="tEX-4k-XOt"/>
+                        <outlet property="lblMinValue" destination="eE1-gN-BjN" id="jdh-We-oNj"/>
+                        <outlet property="lblRPMValue" destination="C5z-n6-hIE" id="Af1-fz-rbj"/>
+                        <outlet property="lblToValue" destination="A8C-HK-MS4" id="ANf-kW-gB0"/>
                         <outlet property="statusBarView" destination="3TC-uh-gG0" id="jXL-3Q-AM6"/>
                         <outlet property="tblHistory" destination="n6A-bI-29c" id="VTC-Ya-d2f"/>
                         <outlet property="viewDetail" destination="8sM-gK-cxM" id="rwb-bP-dUx"/>
@@ -2474,7 +2513,6 @@
         <image name="sidebar.png" width="100" height="546"/>
         <image name="speed.png" width="28" height="28"/>
         <image name="speed_selected.png" width="28" height="28"/>
-        <image name="star.png" width="56" height="56"/>
         <image name="stars.png" width="300" height="146"/>
         <image name="start.png" width="225" height="70"/>
         <image name="uparrow.png" width="56" height="56"/>

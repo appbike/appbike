@@ -28,9 +28,10 @@
     //[self.frostedViewController setMenuViewSize:CGSizeMake(125, self.menuViewController.view.frame.size.height)];
     
     
-    self.liveBlur=NO;
-    // self.blurTintColor=[UIColor blackColor];
-    self.backgroundFadeAmount=0.1;
+    self.panGestureEnabled = NO;
+    self.liveBlur= NO;
+     //self.blurTintColor=[UIColor clearColor];
+    self.backgroundFadeAmount= 0.1;
     
     // self.blurSaturationDeltaFactor=0.5;
     

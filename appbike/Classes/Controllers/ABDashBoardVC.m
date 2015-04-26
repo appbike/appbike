@@ -26,6 +26,7 @@
 #import "ABFavoriteList.h"
 #import "ABFindMyBikeVC.h"
 #import "ABNavigationVC.h"
+#import "ABFBLoginVC.h"
 
 #import "BleManager.h"
 
@@ -40,6 +41,7 @@
     int indexLoc;
     int counterTime;
     int minValue,maxValue; //For set speed
+    MKRoute *routeDetails;
 }
 
 
@@ -71,6 +73,8 @@
 @property (strong, nonatomic) IBOutlet UILabel  *lblDynamicMode;
 
 //Phase2
+
+@property (strong, nonatomic) IBOutlet UIButton *btnTopCycle;
 
 @property (strong, nonatomic) IBOutlet UIView  *viewNormalSpeed;
 @property (unsafe_unretained, nonatomic) IBOutlet UICircularSlider *sliderDashboardSpeed;
@@ -291,6 +295,25 @@
 
 //------------------------------------------------------------------
 
+- (void) loadUserProfileImage
+{
+    //[self.btnUserImg setUserInteractionEnabled:NO];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSData *imgData = [NSData dataWithContentsOfURL:[NSURL URLWithString:[[NSUserDefaults standardUserDefaults] valueForKey:kFBUserProfileImgURL]]];
+        NSString *fbUserName=[[NSUserDefaults standardUserDefaults] valueForKey:kFBUserName];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            //  [self.btnUserName setTitle:fbUserName forState:UIControlStateNormal];
+            // [self.btnUserImg setBackgroundImage:[UIImage imageWithData:imgData] forState:UIControlStateNormal];
+            appDelegate().userProfileImage = imgData;
+            
+            [self dismissViewControllerAnimated:YES completion:^{
+                
+            }];
+        });
+    });
+}
+
+
 #pragma mark
 #pragma mark View Life Cycle Methods
 
@@ -304,7 +327,7 @@
     [nc addObserver:self selector:@selector(leftMenuPressed:)
                name:MenuItemNotification object:nil];
     
-    
+  
     indexLoc = 0;
     [self registerForNotifications];
     [self loadDashboardData];
@@ -384,10 +407,10 @@
     
     [self.counterPicker selectRow:(counterTime-1) inComponent:0 animated:NO];
     //setup custom location mangaer
-   // [GPSLocation sharedManager].delegate = self;
+    [GPSLocation sharedManager].delegate = self;
     
-    //[[GPSLocation sharedManager] stop];
-    //[[GPSLocation sharedManager] start];
+    [[GPSLocation sharedManager] stop];
+    [[GPSLocation sharedManager] start];
     
     
     NSLog(@"Screen height : %f and width : %f",[[UIScreen mainScreen]bounds].size.height,[[UIScreen mainScreen]bounds].size.width);
@@ -421,7 +444,7 @@
     {
         
         self.assistantLevelView.frame = CGRectMake(self.assistantLevelView.frame.origin.x, self.assistantLevelView.frame.origin.y+20, self.assistantLevelView.frame.size.width, self.assistantLevelView.frame.size.height - 20);
-        self.viewEngineMode.frame = CGRectMake(self.viewEngineMode.frame.origin.x, self.viewEngineMode.frame.origin.y+20, self.viewEngineMode.frame.size.width, self.viewEngineMode.frame.size.height);
+        self.viewEngineMode.frame = CGRectMake(self.viewEngineMode.frame.origin.x, self.viewEngineMode.frame.origin.y+30, self.viewEngineMode.frame.size.width, self.viewEngineMode.frame.size.height);
         
          yAxis = 30;
         
@@ -434,16 +457,18 @@
         
          self.viewSpeedStart.frame = CGRectMake(self.viewSpeedStart.frame.origin.x, self.viewSpeedStart.frame.origin.y, self.viewSpeedStart.frame.size.width, self.viewSpeedStart.frame.size.height+45);
         
-        self.btnStartStop.frame = CGRectMake(101,278,112,35); //283
+        self.btnStartStop.frame = CGRectMake(101,280,112,35); //283
         
-         self.btnUpDown.frame = CGRectMake(self.btnUpDown.frame.origin.x, self.btnUpDown.frame.origin.y-6, self.btnUpDown.frame.size.width, self.btnUpDown.frame.size.height);
+         self.btnUpDown.frame = CGRectMake(self.btnUpDown.frame.origin.x, self.btnUpDown.frame.origin.y, self.btnUpDown.frame.size.width, self.btnUpDown.frame.size.height);
         
         self.viewSetSpeed.frame = CGRectMake(self.viewSetSpeed.frame.origin.x, self.viewSetSpeed.frame.origin.y, self.viewSetSpeed.frame.size.width, self.viewSetSpeed.frame.size.height+45);
         
-        self.viewSetCalories.frame = CGRectMake(self.viewSetCalories.frame.origin.x, self.viewSetCalories.frame.origin.y, self.viewSetCalories.frame.size.width, self.viewSetCalories.frame.size.height+55);
+        self.viewSetCalories.frame = CGRectMake(self.viewSetCalories.frame.origin.x, self.viewSetCalories.frame.origin.y, self.viewSetCalories.frame.size.width, self.viewSetCalories.frame.size.height+35);
         
         
-        self.imgBGCalories.frame = CGRectMake(self.sliderDashboardCalories.frame.origin.x+5, self.sliderDashboardCalories.frame.origin.y, 195, 195);
+        self.viewCalories.frame = CGRectMake(self.viewCalories.frame.origin.x, self.viewCalories.frame.origin.y-20, self.viewCalories.frame.size.width, self.viewCalories.frame.size.height);
+       // self.imgBGCalories.frame = CGRectMake(self.sliderDashboardCalories.frame.origin.x+5, self.sliderDashboardCalories.frame.origin.y-10, 195, 195);
+         self.imgBGCalories.frame = CGRectMake(self.sliderDashboardCalories.frame.origin.x+5, self.sliderDashboardCalories.frame.origin.y-10, 200, 200);
         
         
         
@@ -565,8 +590,26 @@
     [super viewWillAppear:animated];
     
 }
--(void)viewDidAppear:(BOOL)animated{
+-(void)viewDidAppear:(BOOL)animated
+{
 
+    //Uncoment this after testing complete
+//    if (![[NSUserDefaults standardUserDefaults] boolForKey:kIsLoginWithFB])
+//    {
+//        UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"AppBike" bundle:nil];
+//        
+//        ABFBLoginVC *loginVC =  (ABFBLoginVC *)[storyBoard instantiateViewControllerWithIdentifier:@"ABFBLoginVC"];
+//        
+//        [self.navigationController presentViewController:loginVC animated:YES completion:^{
+//            
+//        }];
+//    }
+//    else
+//    {
+//        [self loadUserProfileImage];
+//    }
+    
+    
     appDelegate().dashboardVC = self;
     [super viewDidAppear:animated];
     
@@ -606,6 +649,12 @@
 
         if(!appDelegate().isSessionStart)
         {
+            
+            if(!appDelegate().strFromAddress)
+            {
+                
+                [[GPSLocation sharedManager] start];
+            }
             [self startCounter];
             
             self.lblKMHText.hidden = NO;
@@ -618,6 +667,7 @@
             [btnPressed setTitle:@"STOP" forState:UIControlStateNormal];
             [self.btnMapStart setTitle:@"STOP" forState:UIControlStateNormal];
             [self.btnStartStop setTitle:@"STOP" forState:UIControlStateNormal];
+            self.btnTopCycle.selected = YES;
         }
         else
         {
@@ -632,6 +682,7 @@
             [self.btnMapStart setTitle:@"START" forState:UIControlStateNormal];
             [self.btnStartStop setTitle:@"START" forState:UIControlStateNormal];
             self.viewSaveSession.hidden = NO;
+            self.btnTopCycle.selected = NO;
         }
         
         NSArray *arrSessions = [NSArray arrayWithArray:[Session getAllSessionItems]];
@@ -688,10 +739,24 @@
         {
             //Pulse
             //self.currentSelectedSensorType = SelectedSensorTypePulse;
+            
             self.currentSelectedSensorType = SelectedSensorTypeSpeedNormal;
             self.viewMinMaxSpeed.hidden = YES;
             self.viewNormalSpeed.hidden = NO;
             self.viewCalories.hidden = YES;
+            
+            UIButton *btn1 = (UIButton *)[self.view viewWithTag:1102];
+            btn1.selected = NO;
+            
+            UIButton *btn2 = (UIButton *)[self.view viewWithTag:1103];
+            btn2.selected = NO;
+            
+            UIButton *btn3 = (UIButton *)[self.view viewWithTag:1104];
+            btn3.selected = NO;
+            
+            UIButton *btn4 = (UIButton *)[self.view viewWithTag:1105];
+            btn4.selected = NO;
+            
         }
         break;
         case 1102:
@@ -702,6 +767,19 @@
             self.viewMinMaxSpeed.hidden = YES;
             self.viewNormalSpeed.hidden = NO;
             self.viewCalories.hidden = YES;
+            
+            UIButton *btn1 = (UIButton *)[self.view viewWithTag:1101];
+            btn1.selected = NO;
+            
+            UIButton *btn2 = (UIButton *)[self.view viewWithTag:1103];
+            btn2.selected = NO;
+            
+            UIButton *btn3 = (UIButton *)[self.view viewWithTag:1104];
+            btn3.selected = NO;
+            
+            UIButton *btn4 = (UIButton *)[self.view viewWithTag:1105];
+            btn4.selected = NO;
+
         }
         break;
         case 1103:
@@ -709,6 +787,20 @@
             //Speed
             self.currentSelectedSensorType = SelectedSensorTypeSpeedMinMax;
             self.viewSetSpeed.hidden = NO;
+            
+            
+            UIButton *btn1 = (UIButton *)[self.view viewWithTag:1102];
+            btn1.selected = NO;
+            
+            UIButton *btn2 = (UIButton *)[self.view viewWithTag:1101];
+            btn2.selected = NO;
+            
+            UIButton *btn3 = (UIButton *)[self.view viewWithTag:1104];
+            btn3.selected = NO;
+            
+            UIButton *btn4 = (UIButton *)[self.view viewWithTag:1105];
+            btn4.selected = NO;
+
         }
         break;
         case 1104:
@@ -719,6 +811,19 @@
             self.viewNormalSpeed.hidden = NO;
             self.viewCalories.hidden = YES;
             
+            UIButton *btn1 = (UIButton *)[self.view viewWithTag:1102];
+            btn1.selected = NO;
+            
+            UIButton *btn2 = (UIButton *)[self.view viewWithTag:1103];
+            btn2.selected = NO;
+            
+            UIButton *btn3 = (UIButton *)[self.view viewWithTag:1101];
+            btn3.selected = NO;
+            
+            UIButton *btn4 = (UIButton *)[self.view viewWithTag:1105];
+            btn4.selected = NO;
+
+            
         }
         break;
         case 1105:
@@ -727,12 +832,26 @@
             self.currentSelectedSensorType = SelectedSensorTypeCalories;
             //Check if calories values already set if not then display that view
             self.viewSetCalories.hidden = NO;
+            
+            UIButton *btn1 = (UIButton *)[self.view viewWithTag:1102];
+            btn1.selected = NO;
+            
+            UIButton *btn2 = (UIButton *)[self.view viewWithTag:1103];
+            btn2.selected = NO;
+            
+            UIButton *btn3 = (UIButton *)[self.view viewWithTag:1104];
+            btn3.selected = NO;
+            
+            UIButton *btn4 = (UIButton *)[self.view viewWithTag:1101];
+            btn4.selected = NO;
+
         }
         break;
         default:
             break;
     }
     
+    btnPressed.selected = !btnPressed.selected;
     [self hideSelectionMenu:nil];
 }
 
@@ -1491,7 +1610,9 @@
         self.lblMapBPMValue.text = [NSString stringWithFormat:@"%d",[[dictionary objectForKey:@"HB"] intValue]];
 
         self.lblMapKMValue.text = [NSString stringWithFormat:@"%d",[[dictionary objectForKey:@"AutonomyDistance"] intValue] ];
-        [self.lblMapAvgSpeedValue setText:[km stringValue]];
+        
+        
+        [self.lblMapAvgSpeedValue setText:speed];
         
         //float totalPer = ([cal floatValue] / self.sliderSetCalories.maximumValue) * 100;
         self.lblMapCalValue.text = [NSString stringWithFormat:@"%d",[cal intValue]];
@@ -1499,6 +1620,7 @@
         
         self.lblAlertPercentage.text = [NSString stringWithFormat:@"%dkm",[[dictionary objectForKey:@"AutonomyDistance"] intValue]];
         
+        self.btnTopCycle.selected = !self.btnTopCycle.selected;
     }
 
 }
@@ -1597,14 +1719,54 @@
 //    self.viewDestination.hidden = YES;
 //    self.viewMapMain.hidden = NO;
     [self displayMap];
+    
 }
+
 
 - (void)displayMap
 {
     self.viewDestination.hidden = YES;
     self.viewProgress.hidden  = NO;
     self.viewMapMain.hidden = NO;
+    
+    
+    self.viewMap.mapType = MKMapTypeStandard;
+    self.viewMap.pitchEnabled = YES;
+    self.viewMap.showsBuildings = YES;
+    self.viewMap.showsPointsOfInterest = YES;
+    self.viewMap.zoomEnabled = YES;
+    self.viewMap.scrollEnabled = YES;
+    self.viewMap.zoomEnabled = YES;
+    self.viewMap.delegate = self;
+    self.viewMap.showsUserLocation = NO;
+    
+    MKPlacemark *placemark = [[MKPlacemark alloc] initWithCoordinate:appDelegate().fromLocation.coordinate addressDictionary:nil];
+    
+     [self.viewMap removeAnnotations:self.viewMap.annotations];
+    [self.viewMap addAnnotation:placemark];
+    
+    [self.viewMap setCenterCoordinate:self.viewMap.userLocation.location.coordinate animated:YES];
+    self.viewMap.userTrackingMode = MKUserTrackingModeFollow;
+    //self.mapView.camera = mapCamera;
+    
+    float spanX = 0.58;
+    float spanY = 0.58;
+    MKCoordinateRegion region;
+    region.center.latitude = self.locationManager.location.coordinate.latitude;
+    region.center.longitude = self.locationManager.location.coordinate.longitude;
+    region.span = MKCoordinateSpanMake(spanX, spanY);
+    [self.viewMap setRegion:region animated:YES];
+    
+    if(appDelegate().strToAddress)
+    {
+        MKPlacemark *placemarkDest = [[MKPlacemark alloc] initWithCoordinate:appDelegate().toLocation.coordinate addressDictionary:nil];
+       
+        [self.viewMap addAnnotation:placemarkDest];
+        
+        [self createRoute];
+    }
 }
+
 - (void) searchDisplayControllerDidEndSearch:(UISearchDisplayController *)controller
 {
     NSLog(@"End search");
@@ -1749,6 +1911,106 @@
     BOOL boolToReturn = shouldBeginEditing;
     shouldBeginEditing = YES;
     return boolToReturn;
+}
+
+#pragma mark - Map View Drawing and Route
+//Create route  - This method draw route from address to To address
+
+- (void)createRoute
+{
+   
+    MKDirectionsRequest *directionsRequest = [[MKDirectionsRequest alloc] init];
+    directionsRequest.requestsAlternateRoutes=YES;
+    
+    MKPlacemark *placemark = [[MKPlacemark alloc] initWithCoordinate:appDelegate().fromLocation.coordinate addressDictionary:nil];
+    MKPlacemark *placemarkDest = [[MKPlacemark alloc] initWithCoordinate:appDelegate().toLocation.coordinate addressDictionary:nil];
+    
+    //placemark.coordinate
+    [directionsRequest setSource:[[MKMapItem alloc] initWithPlacemark:placemark]];
+    [directionsRequest setDestination:[[MKMapItem alloc] initWithPlacemark:placemarkDest]];
+    
+    [self.viewMap addAnnotation:placemark];
+    
+    directionsRequest.transportType = MKDirectionsTransportTypeAutomobile;
+    MKDirections *directions = [[MKDirections alloc] initWithRequest:directionsRequest];
+    [directions calculateDirectionsWithCompletionHandler:^(MKDirectionsResponse *response, NSError *error) {
+        if (error)
+        {
+            NSLog(@"Error %@", error.description);
+           // isInProgress = NO;
+            //self.lblToAddress.text = appDelegate().strToAddress;
+        }
+        else
+        {
+            routeDetails = response.routes.lastObject;
+            [self.viewMap addOverlay:routeDetails.polyline];
+            
+            for (int i = 0; i < routeDetails.steps.count; i++)
+            {
+                MKRouteStep *step = [routeDetails.steps objectAtIndex:i];
+                NSString *newStep = step.instructions;
+                NSLog(@"Steps : %@",newStep);
+            }
+        }
+    }];
+    
+    [self.locationManager startUpdatingLocation];
+}
+
+- (CLLocationCoordinate2D)coordinateWithLocation:(NSDictionary*)location
+{
+    double latitude = [[location objectForKey:@"lat"] doubleValue];
+    double longitude = [[location objectForKey:@"lng"] doubleValue];
+    
+    return CLLocationCoordinate2DMake(latitude, longitude);
+}
+
+
+- (void)addAnnotation:(CLPlacemark *)placemark
+{
+    MKPointAnnotation *point = [[MKPointAnnotation alloc] init];
+    point.coordinate = CLLocationCoordinate2DMake(placemark.location.coordinate.latitude, placemark.location.coordinate.longitude);
+    point.title = [placemark.addressDictionary objectForKey:@"Street"];
+    point.subtitle = [placemark.addressDictionary objectForKey:@"City"];
+    [self.viewMap addAnnotation:point];
+}
+
+
+#pragma mark Map View Delegates
+
+- (MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id <MKOverlay>)overlay
+{
+    MKPolylineView *polylineView = [[MKPolylineView alloc] initWithPolyline:overlay];
+    polylineView.strokeColor = [appDelegate() toUIColor:[appDelegate().dictSkinData objectForKey:@"mapLinePathColor"]];
+    
+    //polylineView.strokeColor = [UIColor colorWithRed:204/255. green:45/255. blue:70/255. alpha:1.0];
+    polylineView.lineWidth = 10.0;
+    
+    return polylineView;
+}
+
+-(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
+{
+    // If it's the user location, just return nil.
+    if ([annotation isKindOfClass:[MKUserLocation class]])
+        return nil;
+    // Handle any custom annotations.
+    if ([annotation isKindOfClass:[MKPointAnnotation class]])
+    {
+        // Try to dequeue an existing pin view first.
+        MKPinAnnotationView *pinView = (MKPinAnnotationView*)[self.viewMap dequeueReusableAnnotationViewWithIdentifier:@"CustomPinAnnotationView"];
+        if (!pinView)
+        {
+            // If an existing pin view was not available, create one.
+            pinView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"CustomPinAnnotationView"];
+            pinView.canShowCallout = YES;
+        } else
+        {
+            pinView.annotation = annotation;
+        }
+        return pinView;
+    }
+    return nil;
 }
 
 

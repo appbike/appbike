@@ -9,8 +9,8 @@
 #import "BikesConnectionViewController.h"
 #import "BleManager.h"
 #import "ABDashBoardVC.h"
-#import  "AppDelegate.h"
-
+#import "AppDelegate.h"
+#import "ABRootVC.h"
 
 @interface BikesConnectionViewController () <UIWebViewDelegate, BleManagerDelegate, BleDeviceViewDelegate>
 
@@ -355,6 +355,7 @@
         
         UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"AppBike" bundle:nil];
         
+        ABRootVC  *nav = (ABRootVC *)[storyBoard instantiateViewControllerWithIdentifier:@"ABRootVC"];
         ABDashBoardVC *viewController = (ABDashBoardVC *)[storyBoard instantiateViewControllerWithIdentifier:@"ABDashBoardVC"];
         
         
@@ -363,15 +364,17 @@
         self.bleManager.delegate = viewController;
         
         
-        UINavigationController *navigationController = [[UINavigationController alloc] init];
+        //UINavigationController *navigationController = [[UINavigationController alloc] init];
+//        
+//        SWRevealViewController *menuSlider = [[AppDelegate sharedInstance] menuSlider];
+//        
+//        [menuSlider setFrontViewController:navigationController];
         
-        SWRevealViewController *menuSlider = [[AppDelegate sharedInstance] menuSlider];
+       // [[[AppDelegate sharedInstance] window] setRootViewController:menuSlider];
+        [[[AppDelegate sharedInstance] window] setRootViewController:nav];
+        [[[AppDelegate sharedInstance] window] makeKeyAndVisible];
         
-        [menuSlider setFrontViewController:navigationController];
-        
-        [[[AppDelegate sharedInstance] window] setRootViewController:menuSlider];
-        
-        [navigationController pushViewController:viewController animated:YES];
+        //[navigationController pushViewController:viewController animated:YES];
         
     }
     

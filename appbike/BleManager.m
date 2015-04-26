@@ -8,6 +8,7 @@
 
 #import "BleManager.h"
 #import "Session+Utils.h"
+#import "GPSLocation.h"
 
 @interface BleManager ()
 
@@ -140,10 +141,23 @@
 +(NSMutableDictionary*)generateHeaderPacket{
     NSMutableDictionary *headerPacket = [[NSMutableDictionary alloc] init];
     
-    NSInteger speed = arc4random() % 100;
+   // NSInteger speed = arc4random() % 100;
     //NSInteger power = arc4random() % 100;
 
-    [headerPacket setObject:[NSNumber numberWithUnsignedInteger:speed] forKey:@"Speed"];
+    //[headerPacket setObject:[NSNumber numberWithUnsignedInteger:speed] forKey:@"Speed"];
+    
+    //We need to take speed parameter from GPS
+    CLLocation *newLocation = [GPSLocation sharedManager].currentLocation;
+    int speedCalc = 0;
+    if(newLocation.speed > 1)
+    {
+        speedCalc = newLocation.speed * 3.6f;
+       
+    }
+    
+//#warning remove following comment for GPS data
+    //Remove following comment for GPS data
+    [headerPacket setObject:[NSNumber numberWithInt:speedCalc] forKey:@"Speed"];
     
     [headerPacket setObject:[NSNumber numberWithUnsignedInteger:arc4random()%100] forKey:@"Distance"];
     

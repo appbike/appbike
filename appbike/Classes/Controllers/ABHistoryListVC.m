@@ -10,12 +10,15 @@
 #import "ABHistoryCell.h"
 #import "ABBatteryInformation.h"
 #import "Session+Utils.h"
+#import <FacebookSDK/FacebookSDK.h>
+
 
 @interface ABHistoryListVC ()
 {
     IBOutlet ABBatteryInformation *statusBarView;
     int currentSelectedRow;
     float totalDistance, totalMin, totalCal;
+    BOOL m_postingInProgress;
 }
 
 @property (nonatomic, strong) NSMutableArray *arrSession;
@@ -50,6 +53,8 @@
     
     self.arrSession = [NSMutableArray arrayWithArray:[Session getAllSessionItems]];
     [self.tblHistory reloadData];
+    
+    //[self postWithText:@"Hello" ImageName:@"logo.png" URL:@"" Caption:@"AppBike" Name:@"AppBike" andDescription:@"Description"];
 }
 
 - (IBAction)selectFilter:(id)sender
@@ -64,24 +69,50 @@
         {
             //All
             self.arrSession = [NSMutableArray arrayWithArray:[Session getAllSessionItems]];
+            
+            
+            UIButton *btn1 = (UIButton *)[self.view viewWithTag:102];
+            btn1.selected = NO;
+            UIButton *btn2 = (UIButton *)[self.view viewWithTag:103];
+            btn2.selected = NO;
+
+            UIButton *btn3 = (UIButton *)[self.view viewWithTag:101];
+            btn3.selected = YES;
+            
         }
         break;
         case 102:
         {
             //Last Week
             self.arrSession = [NSMutableArray arrayWithArray:[Session findLastWeek]];
+            
+            UIButton *btn1 = (UIButton *)[self.view viewWithTag:101];
+            btn1.selected = NO;
+            UIButton *btn2 = (UIButton *)[self.view viewWithTag:103];
+            btn2.selected = NO;
+            
+            UIButton *btn3 = (UIButton *)[self.view viewWithTag:102];
+            btn3.selected = YES;
         }
         break;
         case 103:
         {
             //This Week
             self.arrSession = [NSMutableArray arrayWithArray:[Session findThisWeek]];
+            
+            UIButton *btn1 = (UIButton *)[self.view viewWithTag:102];
+            btn1.selected = NO;
+            UIButton *btn2 = (UIButton *)[self.view viewWithTag:101];
+            btn2.selected = NO;
+            
+            UIButton *btn3 = (UIButton *)[self.view viewWithTag:103];
+            btn3.selected = YES;
         }
         break;
         default:
             break;
     }
-    btnPressed.selected = !btnPressed.selected;
+    //btnPressed.selected = !btnPressed.selected;
     [self.tblHistory reloadData];
 }
 
@@ -89,6 +120,11 @@
 {
     //Back to history list
     self.viewDetail.hidden = YES;
+}
+
+- (IBAction)shareThisHistory:(id)sender
+{
+    [self shareThisAtIndex:currentSelectedRow];
 }
 - (IBAction)deleteThisHistory:(id)sender
 {
@@ -253,12 +289,102 @@
     [self.arrSession removeObjectAtIndex:index];
     [self.tblHistory reloadData];
 }
+
+
 - (IBAction)shareFromCell:(id)sender
 {
     UIButton *btnPressed = (UIButton *)sender;
     NSLog(@"Share : %d",btnPressed.tag);
+    
+    [self shareThisAtIndex:btnPressed.tag];
+   
+    
 }
 
+- (void)shareThisAtIndex:(int)index
+{
+    Session *thisSession = [self.arrSession objectAtIndex:index];
+    NSString *strMessage = [NSString stringWithFormat:@"My App Bike Static is : %@",thisSession.s_json];
+    [self postWithText:strMessage ImageName:@"logo.png" URL:@"" Caption:@"AppBike" Name:@"AppBike" andDescription:@"Description"];
+}
+
+-(void) postWithText: (NSString*) message
+           ImageName: (NSString*) image
+                 URL: (NSString*) url
+             Caption: (NSString*) caption
+                Name: (NSString*) name
+      andDescription: (NSString*) description
+{
+    
+//    NSMutableDictionary* params = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
+//                                   url, @"link",
+//                                   name, @"name",
+//                                   caption, @"caption",
+//                                   description, @"description",
+//                                   message, @"message",
+//                                   UIImagePNGRepresentation([UIImage imageNamed: image]), @"picture",
+//                                   nil];
+    
+    NSMutableDictionary* params = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
+                                  
+                                   name, @"name",
+                                   caption, @"caption",
+                                   description, @"description",
+                                   message, @"message",
+                                   nil];
+    
+    if ([FBSession.activeSession.permissions indexOfObject:@"publish_actions"] == NSNotFound)
+    {
+        // No permissions found in session, ask for it
+        [FBSession.activeSession requestNewPublishPermissions: [NSArray arrayWithObject:@"publish_actions"]
+                                              defaultAudience: FBSessionDefaultAudienceEveryone
+                                            completionHandler: ^(FBSession *session, NSError *error)
+         {
+             if (!error)
+             {
+                 // If permissions granted and not already posting then publish the story
+                 if (!m_postingInProgress)
+                 {
+                     [self postToWall: params];
+                 }
+             }
+         }];
+    }
+    else
+    {
+        // If permissions present and not already posting then publish the story
+        if (!m_postingInProgress)
+        {
+            [self postToWall: params];
+        }
+    }
+}
+
+-(void) postToWall: (NSMutableDictionary*) params
+{
+    m_postingInProgress = YES; //for not allowing multiple hits
+    
+    [FBRequestConnection startWithGraphPath:@"me/feed"
+                                 parameters:params
+                                 HTTPMethod:@"POST"
+                          completionHandler:^(FBRequestConnection *connection,
+                                              id result,
+                                              NSError *error)
+     {
+         if (error)
+         {
+             //showing an alert for failure
+             UIAlertView *alertView = [[UIAlertView alloc]
+                                       initWithTitle:@"Post Failed"
+                                       message:error.localizedDescription
+                                       delegate:nil
+                                       cancelButtonTitle:@"OK"
+                                       otherButtonTitles:nil];
+             [alertView show];
+         }
+         m_postingInProgress = NO;
+     }];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

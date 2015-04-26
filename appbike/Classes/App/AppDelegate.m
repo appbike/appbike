@@ -46,10 +46,10 @@ static AppDelegate *myDelegate;
     [MagicalRecord setupCoreDataStackWithStoreNamed:@"AppBike.sqlite"];
     
     myDelegate = self;
-    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"AppBike" bundle:nil];
+    //UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"AppBike" bundle:nil];
     
     
-    ABDashBoardVC *viewController = (ABDashBoardVC *)[storyBoard instantiateViewControllerWithIdentifier:@"ABDashBoardVC"];
+   // ABDashBoardVC *viewController = (ABDashBoardVC *)[storyBoard instantiateViewControllerWithIdentifier:@"ABDashBoardVC"];
 //    ABMenuVC *menuViewVC = (ABMenuVC *)[storyBoard instantiateViewControllerWithIdentifier:@"MenuViewController"];
 //    menuViewVC.delegate = self;
     
@@ -62,13 +62,20 @@ static AppDelegate *myDelegate;
     //Push Ble devices view controller to: read user licence, discover ble e bikes and connect with it
     
 //    BikesConnectionViewController *bikesConnectionViewController = [[BikesConnectionViewController alloc] init];
-//        
+//
 //    UINavigationController *navigationController = [[UINavigationController alloc] init];
 //    [navigationController.navigationBar setTranslucent:NO];
 //    [navigationController pushViewController:bikesConnectionViewController animated:YES];
 //    
 //    self.menuSlider = [[SWRevealViewController alloc]initWithRearViewController:menuViewVC frontViewController:navigationController];
-//    
+    
+    
+//
+    
+    // ############ Finally Uncomment this following code
+    
+//    BikesConnectionViewController *bikesConnectionViewController = [[BikesConnectionViewController alloc] init];
+//
 //    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 //    self.window.rootViewController = bikesConnectionViewController;
 //    self.window.backgroundColor = [UIColor whiteColor];

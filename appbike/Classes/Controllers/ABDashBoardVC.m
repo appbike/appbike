@@ -83,6 +83,8 @@
 @property (strong, nonatomic) IBOutlet UIButton *btnStartStop;
 @property (strong, nonatomic) IBOutlet UIButton *btnUpDown;
 @property (strong, nonatomic) IBOutlet UILabel *lblKMHText;
+@property (strong, nonatomic) IBOutlet UIButton *btnCaloriesMenu;
+
 
 @property (strong, nonatomic) IBOutlet UIView  *viewEngineMode;
 @property (strong, nonatomic) IBOutlet UIView  *viewSpeedStart;
@@ -102,6 +104,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *btnSelectAvgSpeed;
 @property (strong, nonatomic) IBOutlet UIButton *btnSelectCalories;
 @property (strong, nonatomic) IBOutlet UIButton *btnBackground;
+
 
 @property (strong, nonatomic) IBOutlet UIView  *viewSetSpeed;
 @property (weak, nonatomic) IBOutlet SAMultisectorControl *multisectorControl;
@@ -128,6 +131,7 @@
 
 @property (strong, nonatomic) IBOutlet UIView  *viewGoalCalories;
 @property (strong, nonatomic) IBOutlet UILabel *lblGoalCalories;
+@property (strong, nonatomic) IBOutlet UIImageView *bgGoalImage;
 
 @property (strong, nonatomic) IBOutlet UIView  *viewProgress;
 @property (strong, nonatomic) IBOutlet UILabel *lblEngineText;
@@ -419,6 +423,7 @@
     {
         [self updateUIForiPhone6];
         self.btnStartStop.frame = CGRectMake(self.btnStartStop.frame.origin.x, self.btnStartStop.frame.origin.y-20, self.btnStartStop.frame.size.width, self.btnStartStop.frame.size.height);
+        self.viewSetCalories.frame = CGRectMake(self.viewSetCalories.frame.origin.x, self.viewSetCalories.frame.origin.y, self.viewSetCalories.frame.size.width, self.viewSetCalories.frame.size.height-12);
         yAxis = 30;
         
     
@@ -427,6 +432,8 @@
     {
         [self updateUIForiPhone6Plus];
         self.btnStartStop.frame = CGRectMake(self.btnStartStop.frame.origin.x, self.btnStartStop.frame.origin.y-20, self.btnStartStop.frame.size.width, self.btnStartStop.frame.size.height);
+        
+        self.viewSetCalories.frame = CGRectMake(self.viewSetCalories.frame.origin.x, self.viewSetCalories.frame.origin.y, self.viewSetCalories.frame.size.width, self.viewSetCalories.frame.size.height-17);
          yAxis = 40;
        
     }
@@ -435,7 +442,7 @@
         NSLog(@"iPhone5");
         self.imgBGCalories.frame = CGRectMake(self.sliderDashboardCalories.frame.origin.x+5, self.sliderDashboardCalories.frame.origin.y, 195, 195);
         
-        self.btnStartStop.frame = CGRectMake(101,300,112,35);
+        self.btnStartStop.frame = CGRectMake(101,315,112,35);
         
         
         yAxis = 30;
@@ -444,6 +451,10 @@
     {
         
         self.assistantLevelView.frame = CGRectMake(self.assistantLevelView.frame.origin.x, self.assistantLevelView.frame.origin.y+20, self.assistantLevelView.frame.size.width, self.assistantLevelView.frame.size.height - 20);
+        
+        self.assistantLevelView.imgRate.frame = CGRectMake(self.assistantLevelView.imgRate.frame.origin.x, self.assistantLevelView.imgRate.frame.origin.y+20, self.assistantLevelView.imgRate.frame.size.width, self.assistantLevelView.imgRate.frame.size.height - 20);
+        
+        
         self.viewEngineMode.frame = CGRectMake(self.viewEngineMode.frame.origin.x, self.viewEngineMode.frame.origin.y+30, self.viewEngineMode.frame.size.width, self.viewEngineMode.frame.size.height);
         
          yAxis = 30;
@@ -457,7 +468,7 @@
         
          self.viewSpeedStart.frame = CGRectMake(self.viewSpeedStart.frame.origin.x, self.viewSpeedStart.frame.origin.y, self.viewSpeedStart.frame.size.width, self.viewSpeedStart.frame.size.height+45);
         
-        self.btnStartStop.frame = CGRectMake(101,280,112,35); //283
+        self.btnStartStop.frame = CGRectMake(101,283,112,35); //283
         
          self.btnUpDown.frame = CGRectMake(self.btnUpDown.frame.origin.x, self.btnUpDown.frame.origin.y, self.btnUpDown.frame.size.width, self.btnUpDown.frame.size.height);
         
@@ -609,6 +620,8 @@
 //        [self loadUserProfileImage];
 //    }
     
+//    if(IS_IPHONE_6)
+
     
     appDelegate().dashboardVC = self;
     [super viewDidAppear:animated];
@@ -644,6 +657,9 @@
 {
     UIButton *btnPressed = (UIButton *)sender;
     
+    //self.viewGoalCalories.hidden = NO;
+//    [self.bleManager getHeaderPacket]; // Testing purpose only
+//    return;
     if(appDelegate().strToAddress)
     {
 
@@ -663,6 +679,8 @@
     //        NSDictionary *dictData = @{@"id":[NSString stringWithFormat:@"%d",newSessionID]};
     //        [Session addItemToSession:dictData];
             
+            
+            appDelegate().fromLocation = [GPSLocation sharedManager].currentLocation;
             
             [btnPressed setTitle:@"STOP" forState:UIControlStateNormal];
             [self.btnMapStart setTitle:@"STOP" forState:UIControlStateNormal];
@@ -696,6 +714,8 @@
     }
     else
     {
+        [[GPSLocation sharedManager] start];
+        
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"AppBike"
                                                             message:@"Please select destination before start session"
                                                            delegate:self
@@ -733,6 +753,9 @@
 - (IBAction)selectMenuItemPressed:(id)sender
 {
     UIButton *btnPressed = (UIButton *)sender;
+    
+    self.btnCaloriesMenu.selected= NO;
+    self.lblCalorieText.text = @"cal";
     switch (btnPressed.tag)
     {
         case 1101:
@@ -844,6 +867,10 @@
             
             UIButton *btn4 = (UIButton *)[self.view viewWithTag:1101];
             btn4.selected = NO;
+            
+            self.btnCaloriesMenu.selected= YES;
+            
+            self.lblCalorieText.text = @"Km/h";
 
         }
         break;
@@ -929,6 +956,8 @@
         self.bgMinMaxSpeed.image = [UIImage imageNamed:@"set_speed_ring.png"];
         self.lblMinMaxSpeedValue.textColor = [UIColor colorWithRed:29/255.0f green:188/255.0 blue:88/255.0f alpha:1.0];
     }
+    
+    
     minValue = sector3.startValue;
     maxValue = sector3.endValue;
     
@@ -1177,6 +1206,19 @@
     self.imgBGLogoCalories.frame = CGRectMake(self.imgBGLogoCalories.frame.origin.x-12,self.imgBGLogoCalories.frame.origin.y+55, 70, 46);
     self.btnMaxCalories.frame = CGRectMake(self.imgBGLogoCalories.frame.origin.x+self.imgBGLogoCalories.frame.size.width,self.imgBGLogoCalories.frame.origin.y-8, self.btnMaxCalories.frame.size.width, self.btnMaxCalories.frame.size.height);
     
+      self.viewCalories.frame = CGRectMake(self.viewCalories.frame.origin.x, self.viewCalories.frame.origin.y-50, self.viewCalories.frame.size.width, self.viewCalories.frame.size.height);
+  
+//      self.viewGoalCalories.frame = CGRectMake(self.viewGoalCalories.frame.origin.x-40, self.viewGoalCalories.frame.origin.y-40, self.viewGoalCalories.frame.size.width+80, self.viewGoalCalories.frame.size.height+80);
+    
+    self.viewGoalCalories.frame = CGRectMake(self.viewGoalCalories.frame.origin.x-40, self.viewGoalCalories.frame.origin.y-40, 280, 280);
+    self.bgGoalImage.frame = CGRectMake(self.bgGoalImage.frame.origin.x-50, self.sliderDashboardSpeed.frame.origin.y, 300, 300);
+    //self.bgGoalImage.frame = CGRectMake(self.bgGoalImage.frame.origin.x, self.bgGoalImage.frame.origin.y, self.bgGoalImage.frame.size.width+50, self.bgGoalImage.frame.size.height+50);
+    
+    NSLog(@"Assistant level frame : x : %f, y : %d, width : %f, height : %f",self.assistantLevelView.frame.origin.x, self.viewGoalCalories.frame.origin.y, self.assistantLevelView.frame.size.width, self.assistantLevelView.frame.size.height);
+    self.assistantLevelView.frame = CGRectMake(self.assistantLevelView.frame.origin.x, self.view.frame.size.height - self.assistantLevelView.frame.size.height, self.assistantLevelView.frame.size.width, self.assistantLevelView.frame.size.height);
+    
+  
+    
    //[self.sliderDashboardCalories setValue:400];
 }
 
@@ -1226,6 +1268,12 @@
     self.sliderDashboardCalories.frame = CGRectMake(self.sliderDashboardCalories.frame.origin.x-40, self.sliderDashboardCalories.frame.origin.y-12, 290, 290);
     self.imgBGLogoCalories.frame = CGRectMake(self.imgBGLogoCalories.frame.origin.x-10,self.imgBGLogoCalories.frame.origin.y+70, 70, 46);
     self.btnMaxCalories.frame = CGRectMake(self.imgBGLogoCalories.frame.origin.x+self.imgBGLogoCalories.frame.size.width,self.imgBGLogoCalories.frame.origin.y-15, self.btnMaxCalories.frame.size.width, self.btnMaxCalories.frame.size.height);
+    
+    
+    self.viewCalories.frame = CGRectMake(self.viewCalories.frame.origin.x, self.viewCalories.frame.origin.y-50, self.viewCalories.frame.size.width, self.viewCalories.frame.size.height);
+
+    self.viewGoalCalories.frame = CGRectMake(self.viewGoalCalories.frame.origin.x-40, self.viewGoalCalories.frame.origin.y-40, 280, 280);
+    self.bgGoalImage.frame = CGRectMake(self.bgGoalImage.frame.origin.x-50, self.sliderDashboardSpeed.frame.origin.y, 300, 300);
     
     //[self.sliderDashboardCalories setValue:400];
 }
@@ -1507,13 +1555,23 @@
         NSDictionary *dictionary = (NSDictionary*)[notification object];
         
         
-        NSInteger actualCalories = [self.lblCalorieCount.text integerValue];
+        NSInteger actualCalories = [self.lblCaloriesValueSlider.text integerValue];
         
         actualCalories++;
         
         NSNumber *cal = [NSNumber numberWithInteger:actualCalories++];
         
-        [self.lblCalorieCount setText:[cal stringValue]];
+        if(self.btnCaloriesMenu.selected)
+        {
+            //Avg Speed
+            float avgSpeed = [[dictionary objectForKey:@"AvgSpeed"] floatValue];
+            
+            [self.lblCalorieCount setText:[NSString stringWithFormat:@"%.0f",avgSpeed]];
+        }
+        else
+        {
+            [self.lblCalorieCount setText:[cal stringValue]];
+        }
         
         [self.lblCaloriesValueSlider setText:[cal stringValue]];
         [self.sliderDashboardCalories setValue:[cal floatValue]]; //update calories
@@ -1523,11 +1581,16 @@
         [self.lblCurrentSpeed setText:speed];
         
     
-        NSInteger actualKm = [self.lblKilometerCount.text integerValue];
+//        NSInteger actualKm = [self.lblKilometerCount.text integerValue];
+//        
+//        actualKm++;
+        float actualKm = [self.lblKilometerCount.text floatValue];
         
-        actualKm++;
+        actualKm+=0.1;
+
         
-        NSNumber *km = [NSNumber numberWithInteger:actualKm];
+        //NSNumber *km = [NSNumber numberWithInteger:actualKm];
+        
         
         [self.simpleCSlider movehandleToValue:[speed intValue]];
         
@@ -1576,13 +1639,14 @@
       
 
         
-        //Better Parameters
+        //Battery Parameters
         NSDictionary *dictParam = @{@"Autonomy" : [dictionary objectForKey:@"Autonomy"],
                                     @"AutonomyDistance" : [dictionary objectForKey:@"AutonomyDistance"]};
         
         [statusBarView setBatteryLevel:dictionary];
         
-        [self.lblKilometerCount setText:[km stringValue]];
+        //[self.lblKilometerCount setText:[km stringValue]];
+        [self.lblKilometerCount setText:[NSString stringWithFormat:@"%.1f",actualKm]];
         
         self.lblRPMCount.text = [NSString stringWithFormat:@"%d",[[dictionary objectForKey:@"Autonomy"] intValue]];
         self.lblBPMCount.text = [NSString stringWithFormat:@"%d",[[dictionary objectForKey:@"HB"] intValue]];
@@ -1602,6 +1666,7 @@
 
         self.dictJsonSession = dictionary;
         
+//#warning TESTING - Remove
         [self checkLowBettaryAlert:[[dictionary objectForKey:@"Autonomy"] intValue]];
         
         
@@ -1921,6 +1986,13 @@
    
     MKDirectionsRequest *directionsRequest = [[MKDirectionsRequest alloc] init];
     directionsRequest.requestsAlternateRoutes=YES;
+    
+#warning TODO : From address issue while drawin map from to to location
+    appDelegate().fromLocation = [GPSLocation sharedManager].currentLocation;
+    
+    NSLog(@"From Location : lat : %f, long : %f",appDelegate().fromLocation.coordinate.latitude,appDelegate().fromLocation.coordinate.longitude);
+    
+    NSLog(@"Destination Location : lat : %f, long : %f",appDelegate().toLocation.coordinate.latitude,appDelegate().toLocation.coordinate.longitude);
     
     MKPlacemark *placemark = [[MKPlacemark alloc] initWithCoordinate:appDelegate().fromLocation.coordinate addressDictionary:nil];
     MKPlacemark *placemarkDest = [[MKPlacemark alloc] initWithCoordinate:appDelegate().toLocation.coordinate addressDictionary:nil];

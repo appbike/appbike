@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx xmlns="http://www.topografix.com/GPX/1/1" creator="GPSies http://www.gpsies.com - NewYorkCity" version="1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">
+  <metadata>
+    <name>NewYorkCity</name>
+    <link href="http://www.gpsies.com/">
+      <text>NewYorkCity on GPSies.com</text>
+    </link>
+    <time>2015-04-27T17:00:22Z</time>
+  </metadata>
+  <wpt lat="40.73059910" lon="-73.9865812">
+    <ele>21.000000</ele>
+    <name>New York City</name>
+    <desc>10003 New York City&#xD;
+United States</desc>
+    <sym>Generic</sym>
+  </wpt>
+</gpx>
+

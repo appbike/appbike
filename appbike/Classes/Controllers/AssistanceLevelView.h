@@ -13,6 +13,11 @@
 @property (nonatomic, strong) IBOutlet UIButton *btnTop;
 @property (nonatomic, strong) IBOutlet UIImageView *imgBottomView;
 
+@property (nonatomic, strong) IBOutlet UIButton *btnPlus;
+@property (nonatomic, strong) IBOutlet UIButton *btnMinus;
+@property (nonatomic, strong) IBOutlet UILabel *lblAssistanceLevel;
+@property (nonatomic, strong) IBOutlet UIImageView *imgRate;
+
 -(IBAction)btnPlusMinusClicked:(id)sender;
 
 - (void)UpdateCurrentAssitanceLevel;

@@ -11,10 +11,7 @@
 
 @interface AssistanceLevelView ()
 
-@property (nonatomic, strong) IBOutlet UIButton *btnPlus;
-@property (nonatomic, strong) IBOutlet UIButton *btnMinus;
-@property (nonatomic, strong) IBOutlet UILabel *lblAssistanceLevel;
-@property (nonatomic, strong) IBOutlet UIImageView *imgRate;
+
 
 @end
 
@@ -28,7 +25,10 @@
     self = [super initWithCoder:aDecoder];
     if (self)
     {
-        count = appDelegate().assitantLevelCount;
+        
+             count = appDelegate().assitantLevelCount;
+        
+       
     }
     return self;
 }
@@ -66,6 +66,7 @@
 
 - (void)UpdateCurrentAssitanceLevel
 {
+   
     count = appDelegate().assitantLevelCount;
     NSString *strImage = [NSString stringWithFormat:@"aasistance_level_%d",count];
     NSLog(@"Image name is  :%@",strImage);

@@ -357,10 +357,11 @@
                                             <action selector="displaySelectionMenu:" destination="M0w-tV-0Be" eventType="touchUpInside" id="WkD-zQ-hFQ"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="azO-E3-llc" userLabel="Calories">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="azO-E3-llc" userLabel="Calories">
                                         <rect key="frame" x="10" y="43" width="36" height="36"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="cal.png"/>
+                                        <state key="selected" image="speed_selected"/>
                                         <connections>
                                             <action selector="displaySelectionMenu:" destination="M0w-tV-0Be" eventType="touchUpInside" id="QxD-z3-00e"/>
                                         </connections>
@@ -515,7 +516,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0LL-Z5-kSx">
-                                                <rect key="frame" x="0.0" y="40" width="320" height="1"/>
+                                                <rect key="frame" x="0.0" y="36.000000096857548" width="320" height="1"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
@@ -587,6 +588,10 @@
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="white_bg_logo.png" id="xd5-S8-weC">
+                                                <rect key="frame" x="62" y="180" width="85" height="33"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
@@ -617,21 +622,21 @@
                                                 </state>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kWP-EY-nMt">
-                                                <rect key="frame" x="43" y="41" width="118" height="47"/>
+                                                <rect key="frame" x="45" y="41" width="118" height="47"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" name="RobotoCondensed-Bold" family="Roboto Condensed" pointSize="53"/>
                                                 <color key="textColor" red="0.28627450980000002" green="0.37647058820000001" blue="0.42745098040000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="cal" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="n51-aE-NND">
-                                                <rect key="frame" x="43" y="92" width="118" height="47"/>
+                                                <rect key="frame" x="48" y="92" width="118" height="47"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" name="RobotoCondensed-Bold" family="Roboto Condensed" pointSize="22"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="F17-Wi-tDs">
-                                                <rect key="frame" x="43" y="127" width="118" height="47"/>
+                                                <rect key="frame" x="48" y="125" width="118" height="47"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" name="RobotoCondensed-Bold" family="Roboto Condensed" pointSize="30"/>
                                                 <color key="textColor" red="0.28627450980000002" green="0.37647058820000001" blue="0.42745098040000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -924,7 +929,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
                                 <subviews>
                                     <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="iSw-i0-PV4">
-                                        <rect key="frame" x="247" y="4" width="60" height="60"/>
+                                        <rect key="frame" x="247" y="21" width="60" height="60"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="plus.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -934,7 +939,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="DZ2-S5-qtY">
-                                        <rect key="frame" x="5" y="5" width="60" height="60"/>
+                                        <rect key="frame" x="5" y="21" width="60" height="60"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="minus.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -944,12 +949,12 @@
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="aasistance_level_0.png" id="2dI-hg-QfS">
-                                        <rect key="frame" x="73" y="4" width="168" height="58"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                        <rect key="frame" x="73" y="11" width="168" height="58"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Assistance Level" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0IL-EY-vWF">
                                         <rect key="frame" x="93" y="68" width="135" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <fontDescription key="fontDescription" name="RobotoCondensed-Regular" family="Roboto Condensed" pointSize="17"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -1357,7 +1362,7 @@
                                         <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <pickerView userInteractionEnabled="NO" contentMode="scaleToFill" id="F52-jm-41f">
+                                    <pickerView contentMode="scaleToFill" id="F52-jm-41f">
                                         <rect key="frame" x="0.0" y="348" width="276" height="155"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1436,9 +1441,11 @@
                     </navigationItem>
                     <connections>
                         <outlet property="assistantLevelView" destination="p3H-id-Ay2" id="Ghu-Zf-pFg"/>
+                        <outlet property="bgGoalImage" destination="lh0-Zn-VE1" id="hzJ-al-eZm"/>
                         <outlet property="bgMinMaxSpeed" destination="4fa-Mf-hcd" id="345-iN-Bxl"/>
                         <outlet property="btnBPM" destination="YOp-HD-PDP" id="3ye-4f-6bs"/>
                         <outlet property="btnBackground" destination="8A2-OL-UgI" id="bMw-aY-zRG"/>
+                        <outlet property="btnCaloriesMenu" destination="azO-E3-llc" id="Jqi-Mw-A1N"/>
                         <outlet property="btnMapStart" destination="5iX-K6-wqk" id="ajB-ge-a7H"/>
                         <outlet property="btnMaxCalories" destination="0A0-xp-jFb" id="AIk-ni-yOK"/>
                         <outlet property="btnRPM" destination="Adb-2e-xuG" id="eN6-SX-JH6"/>
@@ -2549,10 +2556,12 @@
         <image name="set_speed_ring.png" width="410" height="410"/>
         <image name="sidebar.png" width="100" height="546"/>
         <image name="speed.png" width="28" height="28"/>
+        <image name="speed_selected" width="28" height="28"/>
         <image name="speed_selected.png" width="28" height="28"/>
         <image name="stars.png" width="300" height="146"/>
         <image name="start.png" width="225" height="70"/>
         <image name="uparrow.png" width="56" height="56"/>
+        <image name="white_bg_logo.png" width="169" height="65"/>
         <image name="yes_btn.png" width="140" height="62"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

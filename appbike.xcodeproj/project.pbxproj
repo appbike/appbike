@@ -88,6 +88,10 @@
 		CF6E22BA1AEAA1A1007E829C /* login_with_FB@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CF6E22B71AEAA1A1007E829C /* login_with_FB@2x.png */; };
 		CF6E22BB1AEAA1A1007E829C /* login_with_FB@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = CF6E22B81AEAA1A1007E829C /* login_with_FB@3x.png */; };
 		CF6E22BF1AEB850C007E829C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CF6E22C11AEB850C007E829C /* Localizable.strings */; };
+		CF6E22C51AEE86AB007E829C /* Newyorkcity.gpx in Resources */ = {isa = PBXBuildFile; fileRef = CF6E22C41AEE86AB007E829C /* Newyorkcity.gpx */; };
+		CF6E22C91AEEB92B007E829C /* white_bg_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = CF6E22C61AEEB92B007E829C /* white_bg_logo.png */; };
+		CF6E22CA1AEEB92B007E829C /* white_bg_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CF6E22C71AEEB92B007E829C /* white_bg_logo@2x.png */; };
+		CF6E22CB1AEEB92B007E829C /* white_bg_logo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = CF6E22C81AEEB92B007E829C /* white_bg_logo@3x.png */; };
 		CF756F5D1A90A5730084DB8B /* skin.json in Resources */ = {isa = PBXBuildFile; fileRef = CF756F5C1A90A5730084DB8B /* skin.json */; };
 		CF756F651A90AB770084DB8B /* avtar_transperent.png in Resources */ = {isa = PBXBuildFile; fileRef = CF756F5E1A90AB770084DB8B /* avtar_transperent.png */; };
 		CF756F661A90AB770084DB8B /* dashboard_transperent.png in Resources */ = {isa = PBXBuildFile; fileRef = CF756F5F1A90AB770084DB8B /* dashboard_transperent.png */; };
@@ -719,6 +723,10 @@
 		CF6E22B81AEAA1A1007E829C /* login_with_FB@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login_with_FB@3x.png"; sourceTree = "<group>"; };
 		CF6E22C01AEB850C007E829C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		CF6E22C31AEB8528007E829C /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		CF6E22C41AEE86AB007E829C /* Newyorkcity.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Newyorkcity.gpx; sourceTree = "<group>"; };
+		CF6E22C61AEEB92B007E829C /* white_bg_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = white_bg_logo.png; sourceTree = "<group>"; };
+		CF6E22C71AEEB92B007E829C /* white_bg_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "white_bg_logo@2x.png"; sourceTree = "<group>"; };
+		CF6E22C81AEEB92B007E829C /* white_bg_logo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "white_bg_logo@3x.png"; sourceTree = "<group>"; };
 		CF756F5C1A90A5730084DB8B /* skin.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = skin.json; sourceTree = "<group>"; };
 		CF756F5E1A90AB770084DB8B /* avtar_transperent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = avtar_transperent.png; sourceTree = "<group>"; };
 		CF756F5F1A90AB770084DB8B /* dashboard_transperent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dashboard_transperent.png; sourceTree = "<group>"; };
@@ -1423,6 +1431,7 @@
 		66E197891A5F8DB1003D1A9B = {
 			isa = PBXGroup;
 			children = (
+				CF6E22C41AEE86AB007E829C /* Newyorkcity.gpx */,
 				66E197941A5F8DB2003D1A9B /* appbike */,
 				66E197AE1A5F8DB2003D1A9B /* appbikeTests */,
 				66E197931A5F8DB2003D1A9B /* Products */,
@@ -1810,6 +1819,9 @@
 		CFBABC621AD2EFCA008AEA7B /* setspeed */ = {
 			isa = PBXGroup;
 			children = (
+				CF6E22C61AEEB92B007E829C /* white_bg_logo.png */,
+				CF6E22C71AEEB92B007E829C /* white_bg_logo@2x.png */,
+				CF6E22C81AEEB92B007E829C /* white_bg_logo@3x.png */,
 				CFF94FF51ADA9639004FCFED /* difit_circle.png */,
 				CFF94FF61ADA9639004FCFED /* difit_circle@2x.png */,
 				CFF94FF71ADA9639004FCFED /* difit_circle@3x.png */,
@@ -2661,6 +2673,7 @@
 				CFF9503A1ADC3155004FCFED /* check@3x.png in Resources */,
 				CFC1846C1ACEE5E500FEFC0A /* icon2@2x.png in Resources */,
 				CFF950521ADC3155004FCFED /* history_selected@3x.png in Resources */,
+				CF6E22C51AEE86AB007E829C /* Newyorkcity.gpx in Resources */,
 				CFC184481ACEE5E500FEFC0A /* battery10@2x.png in Resources */,
 				CFD15D041ACF0F6D00AE6A12 /* bpm.png in Resources */,
 				CFD15CF91ACF0F6D00AE6A12 /* battery1.png in Resources */,
@@ -2821,6 +2834,7 @@
 				CFD15D111ACF0F6E00AE6A12 /* menu_middlebar.png in Resources */,
 				CFE87F701AE5837D00E4478F /* loc_battery0.png in Resources */,
 				CFE87F311AE56E0700E4478F /* bike_selected2@2x.png in Resources */,
+				CF6E22CA1AEEB92B007E829C /* white_bg_logo@2x.png in Resources */,
 				CFBABC5E1AD2EF46008AEA7B /* LICENSE in Resources */,
 				CFE87F8F1AE5837D00E4478F /* loc_battery9@2x.png in Resources */,
 				CFE87EE31AE2996E00E4478F /* history_delete@3x.png in Resources */,
@@ -2863,6 +2877,7 @@
 				CFE87F171AE55F2A00E4478F /* history_speed.png in Resources */,
 				CFF9505B1ADC3155004FCFED /* profile@3x.png in Resources */,
 				CFD15D0F1ACF0F6D00AE6A12 /* kilometer.png in Resources */,
+				CF6E22C91AEEB92B007E829C /* white_bg_logo.png in Resources */,
 				CFE87F2E1AE56E0700E4478F /* bike_selected1@2x.png in Resources */,
 				CF246C481AE8283700413525 /* home@3x.png in Resources */,
 				CFE87F761AE5837D00E4478F /* loc_battery10@3x.png in Resources */,
@@ -2871,6 +2886,7 @@
 				CFE87F7B1AE5837D00E4478F /* loc_battery2@3x.png in Resources */,
 				CFF94FF01ADA922D004FCFED /* calories_logo@2x.png in Resources */,
 				CFE87EF21AE2996E00E4478F /* history_min@3x.png in Resources */,
+				CF6E22CB1AEEB92B007E829C /* white_bg_logo@3x.png in Resources */,
 				CFD15D581ACF1E6500AE6A12 /* speed_selected@3x.png in Resources */,
 				CFD15D931AD10B9D00AE6A12 /* kmh.json in Resources */,
 				CFECD6911A80D1E70012488E /* mask_circular.png in Resources */,
@@ -3389,8 +3405,8 @@
 				);
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Gianluca Cagiano (CZFLGG72K4)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Gianluca Cagiano (CZFLGG72K4)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Rajendra Patel (6RPS4EMRP8)";
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3403,7 +3419,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-licucore";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "79ca4666-4023-4227-90cc-7f330b1aac1e";
+				PROVISIONING_PROFILE = "e992b3e6-7272-4bd5-9b3a-b938918f4ff3";
 				SDKROOT = iphoneos;
 				VALID_ARCHS = "arm64 armv7 armv7s armv6";
 			};
@@ -3418,8 +3434,8 @@
 				);
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Gianluca Cagiano (CZFLGG72K4)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Gianluca Cagiano (CZFLGG72K4)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Rajendra Patel (6RPS4EMRP8)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/paresh/Documents/FacebookSDK,
@@ -3431,7 +3447,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-licucore";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "79ca4666-4023-4227-90cc-7f330b1aac1e";
+				PROVISIONING_PROFILE = "e992b3e6-7272-4bd5-9b3a-b938918f4ff3";
 				SDKROOT = iphoneos;
 				VALID_ARCHS = "arm64 armv7 armv7s armv6";
 			};

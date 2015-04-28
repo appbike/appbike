@@ -605,20 +605,20 @@
 {
 
     //Uncoment this after testing complete
-//    if (![[NSUserDefaults standardUserDefaults] boolForKey:kIsLoginWithFB])
-//    {
-//        UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"AppBike" bundle:nil];
-//        
-//        ABFBLoginVC *loginVC =  (ABFBLoginVC *)[storyBoard instantiateViewControllerWithIdentifier:@"ABFBLoginVC"];
-//        
-//        [self.navigationController presentViewController:loginVC animated:YES completion:^{
-//            
-//        }];
-//    }
-//    else
-//    {
-//        [self loadUserProfileImage];
-//    }
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:kIsLoginWithFB])
+    {
+        UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"AppBike" bundle:nil];
+        
+        ABFBLoginVC *loginVC =  (ABFBLoginVC *)[storyBoard instantiateViewControllerWithIdentifier:@"ABFBLoginVC"];
+        
+        [self.navigationController presentViewController:loginVC animated:YES completion:^{
+            
+        }];
+    }
+    else
+    {
+        [self loadUserProfileImage];
+    }
     
 //    if(IS_IPHONE_6)
 
@@ -1091,11 +1091,11 @@
         
         NSString *finalJson = [self convertDictToString:self.dictJsonSession];
         NSDictionary *dictData = @{@"id":[NSString stringWithFormat:@"%d",newSessionID],
-                                   @"cal" : self.lblCalorieCount.text,
-                                   @"km" : self.lblKilometerCount.text,
+                                   @"cal" : self.lblCalorieCount.text ? self.lblCalorieCount.text : @"0",
+                                   @"km" : self.lblKilometerCount.text ? self.lblKilometerCount.text : @"0",
                                    @"json" : finalJson,
-                                   @"start" : self.dtStartSession,
-                                   @"avgkm" : self.lblKilometerCount.text
+                                   @"start" : self.dtStartSession ? self.dtStartSession : [NSDate date],
+                                   @"avgkm" : self.lblKilometerCount.text ? self.lblKilometerCount.text : @"0"
                                    };
         [Session addItemToSession:dictData];
     }
@@ -2053,7 +2053,8 @@
 - (MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id <MKOverlay>)overlay
 {
     MKPolylineView *polylineView = [[MKPolylineView alloc] initWithPolyline:overlay];
-    polylineView.strokeColor = [appDelegate() toUIColor:[appDelegate().dictSkinData objectForKey:@"mapLinePathColor"]];
+    polylineView.strokeColor = [UIColor colorWithRed:42.0/255.0 green:133.0/255.0 blue:202/255.0 alpha:1.0];
+    //[appDelegate() toUIColor:[appDelegate().dictSkinData objectForKey:@"mapLinePathColor"]];
     
     //polylineView.strokeColor = [UIColor colorWithRed:204/255. green:45/255. blue:70/255. alpha:1.0];
     polylineView.lineWidth = 10.0;

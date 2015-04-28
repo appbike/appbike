@@ -174,10 +174,11 @@ static GPSLocation *sharedManager;
     
     self.currentLocation = newLocation;
     
-    //appDelegate().currentLocation = newLocation;
+    appDelegate().currentLocation = newLocation;
     if(appDelegate().strFromAddress == nil)
     {
         CLGeocoder * geoCoder = [[CLGeocoder alloc] init];
+        appDelegate().fromLocation = newLocation;
         [geoCoder reverseGeocodeLocation:newLocation completionHandler:^(NSArray *placemarks, NSError *error) {
             for (CLPlacemark * placemark in placemarks)
             {

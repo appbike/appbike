@@ -128,8 +128,11 @@ typedef struct{
 #pragma mark - Events manipulator
 
 - (BOOL) beginTrackingWithTouch:(UITouch *)touch withEvent:(UIEvent *)event{
+    
+    [super beginTrackingWithTouch:touch withEvent:event];
     CGPoint touchPoint = [touch locationInView:self];
     
+    NSLog(@"Total sectors : %d",sectorsArray.count);
     for(NSUInteger i = 0; i < sectorsArray.count; i++)
     {
         SAMultisectorSector *sector = sectorsArray[i];
@@ -153,8 +156,16 @@ typedef struct{
     }
     return NO;
 }
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
+    
+    NSLog(@"we are in SA");
+    return YES;
+}
 
 - (BOOL) continueTrackingWithTouch:(UITouch *)touch withEvent:(UIEvent *)event{
+    
+    [super continueTrackingWithTouch:touch withEvent:event];
+    NSLog(@"Continue....");
     CGPoint touchPoint = [touch locationInView:self];
     CGPoint ceter = [self multiselectCenter];
     SAPolarCoordinate polar = decartToPolar(ceter, touchPoint);
@@ -213,6 +224,7 @@ typedef struct{
 }
 
 - (void) endTrackingWithTouch:(UITouch *)touch withEvent:(UIEvent *)event{
+     [super endTrackingWithTouch:touch withEvent:event];
     trackingSector = nil;
     trackingSectorStartMarker = NO;
 }
@@ -225,9 +237,11 @@ typedef struct{
 {
     SAPolarCoordinate polar = decartToPolar(circleCenter, touchPoint);
     if(polar.radius >= (self.sectorsRadius / 2)) {
+        NSLog(@"touch in circle : NO");
             return NO;
     }
     else {
+         NSLog(@"touch in circle : YES");
         return YES;
     }
 }
@@ -250,7 +264,7 @@ typedef struct{
         //{
             if(!self.isDisplayCurrentValue)
             {
-                NSLog(@"bound width : %f and height : %f",self.bounds.size.width,self.bounds.size.height);
+                //NSLog(@"bound width : %f and height : %f",self.bounds.size.width,self.bounds.size.height);
                 
                 self.imgViewProfile.hidden = YES;
                 [self drawSector_Setting:sector atPosition:i+1];

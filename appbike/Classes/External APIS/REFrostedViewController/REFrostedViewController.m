@@ -226,6 +226,32 @@
 	[self hideMenuViewControllerWithCompletionHandler:nil];
 }
 
+//- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
+//    
+//    if (touch.view.tag == 9999) {
+//        return NO;
+//    }
+//    return NO;
+//}
+
+//- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
+//{
+//    NSLog(@"HELLO GESTURE");
+//    return YES;
+//}
+
+//- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+//{
+//    NSLog(@"touche moved in frosted");
+//    [super touchesMoved:touches withEvent:event];
+//}
+//
+//- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+//{
+//     NSLog(@"touche began in frosted");
+//    [super touchesBegan:touches withEvent:event];
+//}
+
 - (void)panGestureRecognized:(UIPanGestureRecognizer *)recognizer
 {
     if ([self.delegate conformsToProtocol:@protocol(REFrostedViewControllerDelegate)] && [self.delegate respondsToSelector:@selector(frostedViewController:didRecognizePanGesture:)])

@@ -73,13 +73,13 @@ static AppDelegate *myDelegate;
 //
     
     // ############ Finally Uncomment this following code
-//    
-//    BikesConnectionViewController *bikesConnectionViewController = [[BikesConnectionViewController alloc] init];
-//
-//    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-//    self.window.rootViewController = bikesConnectionViewController;
-//    self.window.backgroundColor = [UIColor whiteColor];
-//    [self.window makeKeyAndVisible];
+    
+    BikesConnectionViewController *bikesConnectionViewController = [[BikesConnectionViewController alloc] init];
+
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.rootViewController = bikesConnectionViewController;
+    self.window.backgroundColor = [UIColor whiteColor];
+    [self.window makeKeyAndVisible];
     
 /// ### #### Uncomment above
     

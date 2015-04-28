@@ -457,7 +457,7 @@
                                                 <rect key="frame" x="80" y="14" width="178" height="18"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                             </imageView>
-                                            <view contentMode="scaleToFill" id="yPg-QE-1SS" customClass="YLProgressBar">
+                                            <view userInteractionEnabled="NO" contentMode="scaleToFill" id="yPg-QE-1SS" customClass="YLProgressBar">
                                                 <rect key="frame" x="83" y="16" width="173" height="14"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1120,7 +1120,7 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
-                            <view hidden="YES" contentMode="scaleToFill" id="2lY-l8-Ucc" userLabel="SetSpeed View">
+                            <view hidden="YES" tag="9999" contentMode="scaleToFill" id="2lY-l8-Ucc" userLabel="SetSpeed View">
                                 <rect key="frame" x="0.0" y="50" width="320" height="324"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
@@ -1155,7 +1155,7 @@
                                             <action selector="skipOrSetSpeed:" destination="M0w-tV-0Be" eventType="touchUpInside" id="n9J-d1-qjV"/>
                                         </connections>
                                     </button>
-                                    <view contentMode="scaleToFill" id="4Wy-dS-tJc" customClass="SAMultisectorControl">
+                                    <view opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="4Wy-dS-tJc" customClass="SAMultisectorControl">
                                         <rect key="frame" x="50" y="49" width="220" height="220"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <subviews>
@@ -1177,7 +1177,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view hidden="YES" contentMode="scaleToFill" id="os8-sf-ibF">
                                         <rect key="frame" x="143" y="243" width="30" height="30"/>
@@ -1191,7 +1191,7 @@
                                         <color key="backgroundColor" red="0.90980392160000001" green="0.92549019610000005" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" red="0.90980392156862744" green="0.92549019607843142" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.90980392160000001" green="0.92549019610000005" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" id="Vwh-yw-SFP" userLabel="SetCalories View">
                                 <rect key="frame" x="0.0" y="50" width="320" height="324"/>
@@ -2416,6 +2416,18 @@
                                     <action selector="displayPartDetail:" destination="tfD-A5-C1G" eventType="touchUpInside" id="wLS-7t-qGi"/>
                                 </connections>
                             </button>
+                            <view hidden="YES" contentMode="scaleToFill" id="cbi-eI-qxc">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" id="fiP-yF-Wus" customClass="SAMultisectorControl">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.90980392160000001" green="0.92549019610000005" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
@@ -2440,6 +2452,7 @@
                         <outlet property="btn4" destination="rHx-u6-c6M" id="OTS-3E-iVk"/>
                         <outlet property="imgBike" destination="8xn-qr-T5V" id="ATr-M6-de7"/>
                         <outlet property="lblTitle" destination="cZP-T4-gyA" id="ULp-fM-ttm"/>
+                        <outlet property="multisectorControl" destination="fiP-yF-Wus" id="OdF-fm-v0B"/>
                         <outlet property="tvDescription" destination="GeM-Fb-lj7" id="WcH-en-xcS"/>
                     </connections>
                 </viewController>

@@ -7,7 +7,8 @@
 //
 
 #import "ABDiagnosticVC.h"
-
+#import "SAMultisectorControl.h"
+#import "AppDelegate.h"
 @interface ABDiagnosticVC ()
 
 @property (nonatomic,strong) IBOutlet UIImageView *imgBike;
@@ -17,15 +18,68 @@
 @property (nonatomic,strong) IBOutlet UIButton *btn4;
 @property (nonatomic,strong) IBOutlet UILabel *lblTitle;
 @property (nonatomic,strong) IBOutlet UITextView *tvDescription;
+@property (weak, nonatomic) IBOutlet SAMultisectorControl *multisectorControl;
 
 @end
 
 @implementation ABDiagnosticVC
 
+
+- (void)setupMultiSelectorControl
+{
+    
+    [self.multisectorControl removeAllSectors];
+    
+    [self.multisectorControl addTarget:self action:@selector(multisectorValueChanged:) forControlEvents:UIControlEventValueChanged];
+    
+    
+    UIColor *greenColor = [UIColor colorWithRed:42.0/255.0 green:133.0/255.0 blue:202/255.0 alpha:1.0];
+    
+    
+    SAMultisectorSector *sector3 = [SAMultisectorSector sectorWithColor:greenColor maxValue:100.0];
+    
+    sector3.tag = 2;
+    
+    sector3.startValue = [[appDelegate().dictKMHData objectForKey:@"min"] doubleValue];
+    sector3.endValue = [[appDelegate().dictKMHData objectForKey:@"max"] doubleValue];;
+    sector3.currValue = 50.0;
+    
+   // minValue = sector3.startValue;
+    //maxValue = sector3.endValue;
+    
+    
+    //self.setSpeedlblDistance.text = [NSString stringWithFormat:@"%.0f / %.0f",sector3.startValue,sector3.endValue];
+    
+    //[self.multisectorControl addSubview:self.imgBgSetSpeed];
+    [self.multisectorControl addSector:sector3];
+}
+
+- (void)multisectorValueChanged:(id)sender
+{
+    [self updateDataView];
+}
+
+- (void)updateDataView
+{
+    for(SAMultisectorSector *sector in self.multisectorControl.sectors){
+        
+        NSString *startValue = [NSString stringWithFormat:@"%.0f", sector.startValue];
+        NSString *endValue = [NSString stringWithFormat:@"%.0f", sector.endValue];
+        
+       // minValue = sector.startValue;
+        //maxValue = sector.endValue;
+        //self.setSpeedlblDistance.text = [NSString stringWithFormat:@"%@ / %@",startValue,endValue];
+        
+        //[self.multisectorControl sendSubviewToBack:self.imgBgSetSpeed];
+    }
+}
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+   // [self setupMultiSelectorControl];
 }
 
 - (IBAction)displayPartDetail:(id)sender

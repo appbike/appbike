@@ -23,13 +23,13 @@
 #pragma mark -
 #pragma mark Gesture recognizer
 
-- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
-    
-    if (touch.view.tag == 9999) {
-        return YES;
-    }
-    return YES;
-}
+//- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
+//    
+//    if (touch.view.tag == 9999) {
+//        return YES;
+//    }
+//    return YES;
+//}
 
 - (void)panGestureRecognized:(UIPanGestureRecognizer *)sender
 {

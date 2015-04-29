@@ -115,6 +115,10 @@
         //self.thumbImage.frame = thumbTouchRect;
         self.profileImageView = [[UIImageView alloc] initWithFrame:thumbTouchRect];
         self.profileImageView.transform = CGAffineTransformMakeRotation(3.14);
+        self.profileImageView.layer.cornerRadius = 9.0;
+        self.profileImageView.layer.masksToBounds = YES;
+        self.profileImageView.layer.borderColor = [UIColor colorWithRed:23/255.0 green:138/255.0 blue:230/255.0 alpha:1].CGColor;
+        self.profileImageView.layer.borderWidth = 3.0;
         self.profileImageView.image = self.thumbImage;
         [self addSubview:self.profileImageView];
     }

@@ -787,6 +787,7 @@
         {
             pinView.annotation = annotation;
         }
+        pinView.image = [UIImage imageNamed:@"loc_user.png"];
         return pinView;
     }
     return nil;

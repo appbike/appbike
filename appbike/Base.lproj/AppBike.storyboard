@@ -135,6 +135,8 @@
             <string>RobotoCondensed-Regular</string>
             <string>RobotoCondensed-Regular</string>
             <string>RobotoCondensed-Regular</string>
+            <string>RobotoCondensed-Regular</string>
+            <string>RobotoCondensed-Regular</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -1288,6 +1290,39 @@
                                             <action selector="btnSaveSession:" destination="M0w-tV-0Be" eventType="touchUpInside" id="AmD-7o-Q72"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="KiM-Tm-Uqm">
+                                        <rect key="frame" x="103" y="194" width="114" height="39"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="RobotoCondensed-Regular" family="Roboto Condensed" pointSize="30"/>
+                                        <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <inset key="imageEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <state key="normal" title="Share" image="facebook.png">
+                                            <color key="titleColor" red="0.1843137255" green="0.24313725489999999" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" tag="2201" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="1lH-Z2-iAW">
+                                        <rect key="frame" x="76" y="265" width="80" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="YES" backgroundImage="button.png">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnSharePressed:" destination="M0w-tV-0Be" eventType="touchUpInside" id="SfD-uH-56k"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="2202" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="xDn-EW-04B">
+                                        <rect key="frame" x="190" y="265" width="80" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="NO" backgroundImage="button.png">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnSharePressed:" destination="M0w-tV-0Be" eventType="touchUpInside" id="PKw-Ox-1lE"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.71764705882352942" green="0.80000000000000004" blue="0.95686274509803915" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
@@ -1741,6 +1776,17 @@
                                 <rect key="frame" x="0.0" y="242" width="320" height="326"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="zDc-z0-PL9">
+                                <rect key="frame" x="59" y="269" width="114" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="RobotoCondensed-Regular" family="Roboto Condensed" pointSize="30"/>
+                                <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <inset key="imageEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="Share" image="facebook.png">
+                                    <color key="titleColor" red="0.1843137255" green="0.24313725489999999" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="teo-c2-8JS">
                                 <rect key="frame" x="0.0" y="242" width="320" height="2"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -2492,6 +2538,7 @@
         <image name="bike_selected.png" width="36" height="36"/>
         <image name="bike_selected1.png" width="630" height="395"/>
         <image name="bpm.png" width="72" height="72"/>
+        <image name="button.png" width="140" height="62"/>
         <image name="cal.png" width="72" height="72"/>
         <image name="calories.png" width="28" height="28"/>
         <image name="calories_logo.png" width="169" height="76"/>
@@ -2508,6 +2555,7 @@
         <image name="downarrow.png" width="56" height="56"/>
         <image name="engine.png" width="56" height="56"/>
         <image name="enginebar.png" width="356" height="36"/>
+        <image name="facebook.png" width="28" height="28"/>
         <image name="favourite.png" width="36" height="36"/>
         <image name="favourite_selected.png" width="36" height="36"/>
         <image name="flow_ring.png" width="410" height="410"/>

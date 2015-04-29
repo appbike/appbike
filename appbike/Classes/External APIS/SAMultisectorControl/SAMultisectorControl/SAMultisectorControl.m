@@ -86,10 +86,24 @@ typedef struct{
     self.minCircleMarkerRadius = 10.0; //10.0
     self.maxCircleMarkerRadius = 50.0; //50.0
     self.numbersAfterPoint = 0;
-    self.imgProfile = [UIImage imageNamed:@"noimage.png"];
+    
+    if(appDelegate().userProfileImage)
+    {
+         self.imgProfile = [UIImage imageWithData:appDelegate().userProfileImage];
+    }
+    else
+    {
+        self.imgProfile = [UIImage imageNamed:@"noimage.png"];
+    }
     //self.imgProfile = [UIImage imageNamed:@"loc_user.png"];
     self.imgViewProfile = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
     self.imgViewProfile.image = self.imgProfile;
+    
+    self.imgViewProfile.layer.cornerRadius = 9.0;
+    self.imgViewProfile.layer.masksToBounds = YES;
+    self.imgViewProfile.layer.borderColor = [UIColor colorWithRed:23/255.0 green:138/255.0 blue:230/255.0 alpha:1].CGColor;
+    self.imgViewProfile.layer.borderWidth = 3.0;
+    
     [self addSubview:self.imgViewProfile];
 }
 

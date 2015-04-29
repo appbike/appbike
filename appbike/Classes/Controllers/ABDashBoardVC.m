@@ -42,6 +42,7 @@
     int counterTime;
     int minValue,maxValue; //For set speed
     MKRoute *routeDetails;
+    BOOL m_postingInProgress;
 }
 
 
@@ -309,10 +310,16 @@
             //  [self.btnUserName setTitle:fbUserName forState:UIControlStateNormal];
             // [self.btnUserImg setBackgroundImage:[UIImage imageWithData:imgData] forState:UIControlStateNormal];
             appDelegate().userProfileImage = imgData;
+            self.sliderDashboardSpeed.thumbImage = [UIImage imageWithData:imgData];
+            [self.sliderDashboardSpeed addProfileImage];
             
-            [self dismissViewControllerAnimated:YES completion:^{
+            self.sliderDashboardCalories.thumbImage = [UIImage imageWithData:imgData];
+            [self.sliderDashboardCalories addProfileImage];
+            
+            [self.sliderDashboardMinMax setProfileImage:[UIImage imageWithData:imgData]];
+           // [self dismissViewControllerAnimated:YES completion:^{
                 
-            }];
+            //}];
         });
     });
 }
@@ -618,7 +625,11 @@
     else
     {
         [self loadUserProfileImage];
+        
+       
     }
+    
+    
     
 //    if(IS_IPHONE_6)
 
@@ -1079,7 +1090,137 @@
     return 10;
 }
 
-#pragma mark - Save Session View Methods
+#pragma mark - Save Session & Share session View Methods
+
+-(void) postWithText: (NSString*) message
+           ImageName: (NSString*) image
+                 URL: (NSString*) url
+             Caption: (NSString*) caption
+                Name: (NSString*) name
+      andDescription: (NSString*) description
+{
+    
+    //    NSMutableDictionary* params = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
+    //                                   url, @"link",
+    //                                   name, @"name",
+    //                                   caption, @"caption",
+    //                                   description, @"description",
+    //                                   message, @"message",
+    //                                   UIImagePNGRepresentation([UIImage imageNamed: image]), @"picture",
+    //                                   nil];
+    
+    NSMutableDictionary* params = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
+                                   
+                                   name, @"name",
+                                   caption, @"caption",
+                                   description, @"description",
+                                   message, @"message",
+                                   nil];
+    
+    if ([FBSession.activeSession.permissions indexOfObject:@"publish_actions"] == NSNotFound)
+    {
+        // No permissions found in session, ask for it
+        [FBSession.activeSession requestNewPublishPermissions: [NSArray arrayWithObject:@"publish_actions"]
+                                              defaultAudience: FBSessionDefaultAudienceEveryone
+                                            completionHandler: ^(FBSession *session, NSError *error)
+         {
+             if (!error)
+             {
+                 // If permissions granted and not already posting then publish the story
+                 if (!m_postingInProgress)
+                 {
+                     [self postToWall: params];
+                 }
+             }
+         }];
+    }
+    else
+    {
+        // If permissions present and not already posting then publish the story
+        if (!m_postingInProgress)
+        {
+            [self postToWall: params];
+        }
+    }
+}
+
+-(void) postToWall: (NSMutableDictionary*) params
+{
+    m_postingInProgress = YES; //for not allowing multiple hits
+    
+    [FBRequestConnection startWithGraphPath:@"me/feed"
+                                 parameters:params
+                                 HTTPMethod:@"POST"
+                          completionHandler:^(FBRequestConnection *connection,
+                                              id result,
+                                              NSError *error)
+     {
+         if (error)
+         {
+             
+             UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"AppBike" bundle:nil];
+             
+             ABFBLoginVC *loginVC =  (ABFBLoginVC *)[storyBoard instantiateViewControllerWithIdentifier:@"ABFBLoginVC"];
+             
+             [self.navigationController presentViewController:loginVC animated:YES completion:^{
+                 
+             }];
+             
+//             //showing an alert for failure
+//             UIAlertView *alertView = [[UIAlertView alloc]
+//                                       initWithTitle:@"Post Failed"
+//                                       message:error.localizedDescription
+//                                       delegate:nil
+//                                       cancelButtonTitle:@"OK"
+//                                       otherButtonTitles:nil];
+//             [alertView show];
+             
+         }
+         else
+         {
+             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Shared Sucessfull"
+                                                                              message:@"We post your statistics on facebook."
+                                                                              delegate:nil
+                                                              cancelButtonTitle:@"OK"
+                                                                              otherButtonTitles:nil];
+                                                    [alertView show];
+             
+             appDelegate().strFromAddress = nil;
+             
+             self.viewSaveSession.hidden = YES;
+             appDelegate().strToAddress = nil;
+             appDelegate().toLocation = nil;
+             
+         }
+         m_postingInProgress = NO;
+         
+     }];
+}
+
+
+
+- (IBAction)btnSharePressed:(id)sender
+{
+    UIButton *btnPressed = (UIButton *)sender;
+    if(btnPressed.tag == 2201)
+    {
+        NSString *finalJson = [self convertDictToString:self.dictJsonSession];
+        
+        NSString *strMessage = [NSString stringWithFormat:@"Check out my statistics : %@",finalJson];
+        [self postWithText:strMessage ImageName:@"logo.png" URL:@"" Caption:@"AppBike" Name:@"AppBike" andDescription:@"Description"];
+    }
+    else
+    {
+        //No
+        // What to Do here? :)
+        appDelegate().strFromAddress = nil;
+        
+        self.viewSaveSession.hidden = YES;
+        appDelegate().strToAddress = nil;
+        appDelegate().toLocation = nil;
+        
+    }
+}
 - (IBAction)btnSaveSession:(id)sender
 {
     UIButton *btnPressed = (UIButton *)sender;
@@ -1111,14 +1252,14 @@
     appDelegate().strToAddress = nil;
     appDelegate().toLocation = nil;
     
-    NSArray *arrSessions = [NSArray arrayWithArray:[Session getAllSessionItems]];
-    
-    if(arrSessions.count > 0)
-    {
-        Session *thisSession = [arrSessions lastObject];
-        NSLog(@"Session : %@",[thisSession description]);
-    }
-    NSLog(@"All Array : %@",[arrSessions description]);
+//    NSArray *arrSessions = [NSArray arrayWithArray:[Session getAllSessionItems]];
+//    
+//    if(arrSessions.count > 0)
+//    {
+//        Session *thisSession = [arrSessions lastObject];
+//        NSLog(@"Session : %@",[thisSession description]);
+//    }
+    //NSLog(@"All Array : %@",[arrSessions description]);
 }
 
 #pragma mark - Progress bar methods

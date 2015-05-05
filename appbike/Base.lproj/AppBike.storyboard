@@ -367,6 +367,10 @@
                                             <action selector="displaySelectionMenu:" destination="M0w-tV-0Be" eventType="touchUpInside" id="QxD-z3-00e"/>
                                         </connections>
                                     </button>
+                                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="goldmadle.png" id="HcM-el-Tvp">
+                                        <rect key="frame" x="-6" y="45" width="70" height="70"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Adb-2e-xuG" userLabel="rpm">
                                         <rect key="frame" x="10" y="232" width="36" height="36"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -517,7 +521,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0LL-Z5-kSx">
-                                                <rect key="frame" x="0.0" y="36.000000096857548" width="320" height="1"/>
+                                                <rect key="frame" x="0.0" y="36.000000204186179" width="320" height="1"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
@@ -1132,7 +1136,7 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" tag="1201" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Che-5S-rZ3">
+                                    <button hidden="YES" opaque="NO" tag="1201" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Che-5S-rZ3">
                                         <rect key="frame" x="31" y="278" width="112" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="RobotoCondensed-Bold" family="Roboto Condensed" pointSize="15"/>
@@ -1213,7 +1217,7 @@
                                             <action selector="ColoriesValueChange:" destination="M0w-tV-0Be" eventType="valueChanged" id="sdy-P1-cWb"/>
                                         </connections>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="XNK-jN-cqg">
+                                    <button opaque="NO" tag="4401" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="XNK-jN-cqg">
                                         <rect key="frame" x="181" y="282" width="112" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="RobotoCondensed-Bold" family="Roboto Condensed" pointSize="15"/>
@@ -1225,7 +1229,7 @@
                                             <action selector="CaloriesSet:" destination="M0w-tV-0Be" eventType="touchUpInside" id="opO-Ze-363"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="NVH-BN-Ka0">
+                                    <button hidden="YES" opaque="NO" tag="4402" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="NVH-BN-Ka0">
                                         <rect key="frame" x="42" y="282" width="112" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="RobotoCondensed-Bold" family="Roboto Condensed" pointSize="15"/>
@@ -1489,11 +1493,15 @@
                         <outlet property="btnSelectPulse" destination="IKm-S1-u0J" id="CCC-Mo-c0r"/>
                         <outlet property="btnSelectSpeed" destination="Ie0-dq-2WV" id="S6h-8Z-BxQ"/>
                         <outlet property="btnShowDashboard" destination="tZM-bv-zvM" id="tOv-Tr-plg"/>
+                        <outlet property="btnSkipCalories" destination="NVH-BN-Ka0" id="3RG-6y-cYA"/>
+                        <outlet property="btnSkipSpeed" destination="Che-5S-rZ3" id="6KS-H2-z5W"/>
                         <outlet property="btnStartStop" destination="Lf9-DX-dZC" id="Cij-p4-JLz"/>
                         <outlet property="btnTopCycle" destination="EGk-Jx-P78" id="pwP-xZ-eJL"/>
                         <outlet property="btnUpDown" destination="Yzq-8e-cyc" id="I1t-uS-WNJ"/>
                         <outlet property="circularSlider" destination="yFN-7L-iQI" id="0Pv-mk-8Ir"/>
                         <outlet property="counterPicker" destination="F52-jm-41f" id="IJq-X0-Cob"/>
+                        <outlet property="goalStarMain" destination="nqx-9i-FVg" id="q2g-xb-uWh"/>
+                        <outlet property="goalStarSub" destination="HcM-el-Tvp" id="CeY-32-Lem"/>
                         <outlet property="imgBGCalories" destination="ZYE-Bi-5pG" id="eLx-3p-oes"/>
                         <outlet property="imgBGDashboardSpeed" destination="kVd-Bu-Ywg" id="YCY-rn-gOE"/>
                         <outlet property="imgBGLogoCalories" destination="rEM-OQ-PcN" id="6ac-8B-NEt"/>
@@ -1875,6 +1883,29 @@
                                     <action selector="showLeftMenu:" destination="K09-Qc-xCo" eventType="touchUpInside" id="UKR-3q-Jjn"/>
                                 </connections>
                             </button>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="bcf-zq-F3e">
+                            <view key="customView" contentMode="scaleToFill" id="1d6-WN-F4Z">
+                                <rect key="frame" x="0.0" y="0.0" width="71" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="zF5-rT-4dL">
+                                        <rect key="frame" x="5" y="0.0" width="30" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="lock.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="FRK-c2-cQd">
+                                        <rect key="frame" x="40" y="0.0" width="28" height="28"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="logo.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -2550,6 +2581,7 @@
         <image name="flow_ring_counter.png" width="318" height="318"/>
         <image name="flow_ring_logo.png" width="101" height="61"/>
         <image name="goal_ring.png" width="412" height="412"/>
+        <image name="goldmadle.png" width="83" height="83"/>
         <image name="history.png" width="36" height="36"/>
         <image name="history_cadence.png" width="56" height="56"/>
         <image name="history_cal.png" width="28" height="28"/>
@@ -2575,6 +2607,7 @@
         <image name="kilometer.png" width="72" height="72"/>
         <image name="loc_battery4.png" width="190" height="69"/>
         <image name="loc_refresh.png" width="21" height="21"/>
+        <image name="lock.png" width="56" height="56"/>
         <image name="login_with_FB.png" width="180" height="44"/>
         <image name="logo.png" width="38" height="43"/>
         <image name="map_bpm.png" width="56" height="56"/>

@@ -112,6 +112,15 @@
 @property (strong, nonatomic) IBOutlet UILabel *setSpeedlblDistance;
 @property (strong, nonatomic) IBOutlet UIImageView *imgBgSetSpeed;
 
+
+@property (strong, nonatomic) IBOutlet UIImageView *goalStarMain;
+@property (strong, nonatomic) IBOutlet UIImageView *goalStarSub;
+
+@property (strong, nonatomic) IBOutlet UIButton *btnSkipCalories;
+@property (strong, nonatomic) IBOutlet UIButton *btnSkipSpeed;
+@property (nonatomic) BOOL isSetCalories;
+@property (nonatomic) BOOL isMinMaxSpeed;
+
 //Variable for Min Max Speed Slider on Dashboard
 
 @property (weak, nonatomic) IBOutlet SAMultisectorControl *sliderDashboardMinMax;
@@ -414,9 +423,19 @@
     [self.view addSubview:self.viewSaveSession];
     [self.view addSubview:self.viewBatteryAlert];
     
+    
     counterTime = [[appDelegate().dictCounterData objectForKeyedSubscript:@"value"] intValue];
     
+
     [self.counterPicker selectRow:(counterTime-1) inComponent:0 animated:NO];
+    
+    NSString *strSavedCountr = [[NSUserDefaults standardUserDefaults] objectForKey:kCounterKey];
+    if(strSavedCountr)
+    {
+        counterTime = [strSavedCountr intValue];
+        [self.counterPicker selectRow:(counterTime-1) inComponent:0 animated:NO];
+    }
+    
     //setup custom location mangaer
     [GPSLocation sharedManager].delegate = self;
     
@@ -664,13 +683,61 @@
 
     
 }
+
+- (void)stopAnimationGoal
+{
+    [UIView animateWithDuration:0.12
+                          delay:0.0
+                        options:UIViewAnimationOptionCurveEaseInOut |
+     UIViewAnimationOptionBeginFromCurrentState
+                     animations:^{
+                        self.goalStarMain.alpha = 1.0f;
+                        self.viewGoalCalories.hidden = YES;
+                         self.goalStarSub.alpha = 1.0;
+                         self.goalStarSub.hidden = YES;
+                     }
+                     completion:^(BOOL finished){
+                         // Do nothing
+                     }];
+}
+
+- (void)startAnimationGoal
+{
+    self.viewGoalCalories.hidden = NO;
+    self.goalStarSub.hidden = NO;
+    self.goalStarMain.alpha = 1.0f;
+    self.goalStarSub.alpha = 1.0;
+    [UIView animateWithDuration:0.2
+                          delay:0.0
+                        options:UIViewAnimationOptionCurveEaseInOut |
+     UIViewAnimationOptionRepeat |
+     UIViewAnimationOptionAutoreverse |
+     UIViewAnimationOptionAllowUserInteraction
+                     animations:^{
+                         self.goalStarMain.alpha = 0.0f;
+                         self.goalStarSub.alpha = 0.0f;
+                     }
+                     completion:^(BOOL finished){
+                         // Do nothing
+                         
+                     }];
+    
+    [self performSelector:@selector(stopAnimationGoal) withObject:nil afterDelay:3.0f];
+}
 - (IBAction)btnStartPressed:(id)sender
 {
     UIButton *btnPressed = (UIButton *)sender;
     
+    
+//    self.viewGoalCalories.layer.opacity = 0.0f;
+//    [UIView transitionWithView:self.viewGoalCalories
+//                      duration:0.7f
+//                       options:UIViewAnimationOptionCurveEaseInOut
+//                    animations:^{ self.viewGoalCalories.layer.opacity = 1.0f; }
+//                    completion:NULL];
     //self.viewGoalCalories.hidden = NO;
 //    [self.bleManager getHeaderPacket]; // Testing purpose only
-//    return;
+   // return;
     if(appDelegate().strToAddress)
     {
 
@@ -980,9 +1047,16 @@
 - (IBAction)skipOrSetSpeed:(id)sender
 {
     UIButton *btnPressed = (UIButton *) sender;
+    self.viewNormalSpeed.hidden = YES;
+    self.viewCalories.hidden = YES;
+     self.viewMinMaxSpeed.hidden = NO;
     if(btnPressed.tag == 1201)
     {
         //Skip
+        self.viewMinMaxSpeed.hidden = YES;
+        self.viewCalories.hidden = YES;
+        self.viewNormalSpeed.hidden = NO;
+     
     }
     else
     {
@@ -1005,9 +1079,10 @@
 
     }
     self.viewSetSpeed.hidden = YES;
-    self.viewMinMaxSpeed.hidden = NO;
-    self.viewNormalSpeed.hidden = YES;
-    self.viewCalories.hidden = YES;
+   
+    
+    self.btnSkipSpeed.hidden = NO;
+    self.isMinMaxSpeed = YES;
 }
 
 #pragma mark - Set Calories View Method
@@ -1021,12 +1096,29 @@
 
 - (IBAction)CaloriesSet:(id)sender
 {
-    NSLog(@"We have new updated calory value : %f",self.sliderSetCalories.value+1);
-    self.viewSetCalories.hidden = YES;
+    
+
     self.viewNormalSpeed.hidden = YES;
     self.viewMinMaxSpeed.hidden = YES;
     self.viewCalories.hidden = NO;
-    
+   
+
+    UIButton *btnPressed = (UIButton *) sender;
+    if(btnPressed.tag == 4401)
+    {
+        //Set
+    }
+    else
+    {
+        //Skip
+        self.viewMinMaxSpeed.hidden = YES;
+        self.viewCalories.hidden = YES;
+        self.viewNormalSpeed.hidden = NO;
+    }
+    NSLog(@"We have new updated calory value : %f",self.sliderSetCalories.value+1);
+    self.viewSetCalories.hidden = YES;
+    self.btnSkipCalories.hidden = NO;
+    self.isSetCalories = YES;
 }
 
 - (IBAction)hideGoalView:(id)sender
@@ -1053,6 +1145,12 @@
     {
         
         self.viewCountdown.hidden = YES;
+        int index = [self.counterPicker selectedRowInComponent:0];
+        index = index + 1 ;
+        NSLog(@"Final value to save :%d",index);
+        [[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithFormat:@"%d",index] forKey:kCounterKey];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
         [self.bleManager getHeaderPacket]; //Uncomment this
         self.viewProgress.hidden = NO;
         [self addProgressbar];
@@ -1084,6 +1182,13 @@
     return 1;
 }
 
+
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
+{
+    NSLog(@"Did select row in picker");
+    int value = row + 1;
+    NSLog(@"Save this value : %d",value);
+}
 // number Of Rows In Component
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
@@ -1251,6 +1356,22 @@
     self.viewSaveSession.hidden = YES;
     appDelegate().strToAddress = nil;
     appDelegate().toLocation = nil;
+    
+    self.lblCalorieCount.text = @"0";
+    self.lblKilometerCount.text = @"0";
+    self.lblRPMCount.text = @"0";
+    self.lblBPMCount.text = @"0";
+    self.lblKmOrHour.text = @"0";
+    
+    self.viewMinMaxSpeed.hidden = YES;
+    self.viewCalories.hidden = YES;
+    self.viewNormalSpeed.hidden = NO;
+    
+    
+    self.btnSkipSpeed.hidden = YES;
+    self.btnSkipCalories.hidden = YES;
+    self.isSetCalories = NO;
+    self.isMinMaxSpeed = NO;
     
 //    NSArray *arrSessions = [NSArray arrayWithArray:[Session getAllSessionItems]];
 //    
@@ -1684,6 +1805,7 @@
         if(goalCalories == cal)
         {
             self.viewGoalCalories.hidden = NO;
+            [self startAnimationGoal];
         }
     }
 }

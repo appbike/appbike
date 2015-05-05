@@ -546,6 +546,9 @@
 		CFE87FA71AE7EA6200E4478F /* Place.m in Sources */ = {isa = PBXBuildFile; fileRef = CFE87FA31AE7EA6200E4478F /* Place.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		CFE87FA81AE7EA6200E4478F /* PlaceMark.m in Sources */ = {isa = PBXBuildFile; fileRef = CFE87FA51AE7EA6200E4478F /* PlaceMark.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		CFE87FB41AE7F05F00E4478F /* RegexKitLite1.m in Sources */ = {isa = PBXBuildFile; fileRef = CFE87FB31AE7F05F00E4478F /* RegexKitLite1.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CFEBA3A81AF928C10083E41A /* goldmadle.png in Resources */ = {isa = PBXBuildFile; fileRef = CFEBA3A51AF928C10083E41A /* goldmadle.png */; };
+		CFEBA3A91AF928C10083E41A /* goldmadle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFEBA3A61AF928C10083E41A /* goldmadle@2x.png */; };
+		CFEBA3AA1AF928C10083E41A /* goldmadle@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFEBA3A71AF928C10083E41A /* goldmadle@3x.png */; };
 		CFECD6901A80D1E70012488E /* flow_tire.png in Resources */ = {isa = PBXBuildFile; fileRef = CFECD68E1A80D1E70012488E /* flow_tire.png */; };
 		CFECD6911A80D1E70012488E /* mask_circular.png in Resources */ = {isa = PBXBuildFile; fileRef = CFECD68F1A80D1E70012488E /* mask_circular.png */; };
 		CFF94FEF1ADA922D004FCFED /* calories_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = CFF94FE91ADA922D004FCFED /* calories_logo.png */; };
@@ -1243,6 +1246,9 @@
 		CFE87FA51AE7EA6200E4478F /* PlaceMark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceMark.m; sourceTree = "<group>"; };
 		CFE87FB21AE7F05F00E4478F /* RegexKitLite1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegexKitLite1.h; sourceTree = "<group>"; };
 		CFE87FB31AE7F05F00E4478F /* RegexKitLite1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegexKitLite1.m; sourceTree = "<group>"; };
+		CFEBA3A51AF928C10083E41A /* goldmadle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = goldmadle.png; sourceTree = "<group>"; };
+		CFEBA3A61AF928C10083E41A /* goldmadle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "goldmadle@2x.png"; sourceTree = "<group>"; };
+		CFEBA3A71AF928C10083E41A /* goldmadle@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "goldmadle@3x.png"; sourceTree = "<group>"; };
 		CFECD68E1A80D1E70012488E /* flow_tire.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flow_tire.png; sourceTree = "<group>"; };
 		CFECD68F1A80D1E70012488E /* mask_circular.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mask_circular.png; sourceTree = "<group>"; };
 		CFF94FE91ADA922D004FCFED /* calories_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calories_logo.png; sourceTree = "<group>"; };
@@ -1982,6 +1988,9 @@
 		CFC183D51ACEE5E500FEFC0A /* Dashboard */ = {
 			isa = PBXGroup;
 			children = (
+				CFEBA3A51AF928C10083E41A /* goldmadle.png */,
+				CFEBA3A61AF928C10083E41A /* goldmadle@2x.png */,
+				CFEBA3A71AF928C10083E41A /* goldmadle@3x.png */,
 				CF6E22B01AEAA155007E829C /* cycle_disable.png */,
 				CF6E22B11AEAA155007E829C /* cycle_disable@2x.png */,
 				CF6E22B21AEAA155007E829C /* cycle_disable@3x.png */,
@@ -2703,6 +2712,7 @@
 				CFE87F741AE5837D00E4478F /* loc_battery10.png in Resources */,
 				CFE87EB01AE27DA600E4478F /* map_rpm.png in Resources */,
 				CFC184711ACEE5E500FEFC0A /* icon3@3x.png in Resources */,
+				CFEBA3A91AF928C10083E41A /* goldmadle@2x.png in Resources */,
 				CFE87EA51AE27DA600E4478F /* map_bpm@2x.png in Resources */,
 				CF9257F61A923BC800B53F03 /* dynemic_mode_transperent.png in Resources */,
 				CFF950571ADC3155004FCFED /* on@2x.png in Resources */,
@@ -3013,6 +3023,7 @@
 				CFE87F111AE55F2A00E4478F /* history_cadence.png in Resources */,
 				CFE87EB71AE27DA700E4478F /* map_speed@2x.png in Resources */,
 				CFBB9F8E1AD9715F000DDE89 /* stars.png in Resources */,
+				CFEBA3A81AF928C10083E41A /* goldmadle.png in Resources */,
 				CF26CCD01AD6F1200049E8B8 /* Roboto-Thin.ttf in Resources */,
 				CFE87EE81AE2996E00E4478F /* history_flag@2x.png in Resources */,
 				CFF94FF81ADA9639004FCFED /* difit_circle.png in Resources */,
@@ -3133,6 +3144,7 @@
 				CFC1845A1ACEE5E500FEFC0A /* battery9@2x.png in Resources */,
 				CFC1845D1ACEE5E500FEFC0A /* bottombar@3x.png in Resources */,
 				CFE87F811AE5837D00E4478F /* loc_battery4@3x.png in Resources */,
+				CFEBA3AA1AF928C10083E41A /* goldmadle@3x.png in Resources */,
 				CFD15CD21ACF08F000AE6A12 /* aasistance_level_7.png in Resources */,
 				CFBB9F891AD97087000DDE89 /* goal_ring@2x.png in Resources */,
 				CFBB9F491AD80E69000DDE89 /* flow_ring_logo@2x.png in Resources */,

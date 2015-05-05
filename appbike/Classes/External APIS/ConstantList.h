@@ -64,6 +64,10 @@ typedef enum {
 #define klongitude @"longitude"
 #define KprofilePic @"profilepic"
 
+#define kCounterKey @"CounterKey"
+//#define kCaloryMax @"CaloryMax"
+
+
 #define UDSetObject(value, key) [[NSUserDefaults standardUserDefaults] setObject:value forKey:(key)];[[NSUserDefaults standardUserDefaults] synchronize]
 
 #define IS_IPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? YES : NO)

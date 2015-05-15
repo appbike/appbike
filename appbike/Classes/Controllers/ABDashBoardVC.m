@@ -76,6 +76,10 @@
 //Phase2
 
 @property (strong, nonatomic) IBOutlet UIButton *btnTopCycle;
+@property (strong, nonatomic) IBOutlet UIButton *btnShare;
+@property (strong, nonatomic) IBOutlet UIButton *btnShareYes;
+@property (strong, nonatomic) IBOutlet UIButton *btnShareNo;
+
 
 @property (strong, nonatomic) IBOutlet UIView  *viewNormalSpeed;
 @property (unsafe_unretained, nonatomic) IBOutlet UICircularSlider *sliderDashboardSpeed;
@@ -767,18 +771,10 @@
         }
         else
         {
-            self.lblKMHText.hidden = YES;
-            counterTime = [[appDelegate().dictCounterData objectForKeyedSubscript:@"value"] intValue];
-            //Display Session save message here
-            [self.bleManager stopSession];
+            //[btnPressed setTitle:@"START" forState:UIControlStateNormal];
             
-            appDelegate().isSessionStart = NO;
-            self.viewProgress.hidden = YES;
-            [btnPressed setTitle:@"START" forState:UIControlStateNormal];
-            [self.btnMapStart setTitle:@"START" forState:UIControlStateNormal];
-            [self.btnStartStop setTitle:@"START" forState:UIControlStateNormal];
             self.viewSaveSession.hidden = NO;
-            self.btnTopCycle.selected = NO;
+            
         }
         
         NSArray *arrSessions = [NSArray arrayWithArray:[Session getAllSessionItems]];
@@ -1107,6 +1103,10 @@
     if(btnPressed.tag == 4401)
     {
         //Set
+        
+        [self.sliderDashboardCalories setMaximumValue:self.sliderSetCalories.value+1];
+        
+        [self.btnMaxCalories setTitle:[NSString stringWithFormat:@"%.0f",self.sliderSetCalories.value+1] forState:UIControlStateNormal];
     }
     else
     {
@@ -1325,32 +1325,10 @@
         appDelegate().toLocation = nil;
         
     }
-}
-- (IBAction)btnSaveSession:(id)sender
-{
-    UIButton *btnPressed = (UIButton *)sender;
-    if(btnPressed.tag == 1301)
-    {
-        //Yes save session
-        
-        int newSessionID = [Session getMaxId];
-        
-        NSString *finalJson = [self convertDictToString:self.dictJsonSession];
-        NSDictionary *dictData = @{@"id":[NSString stringWithFormat:@"%d",newSessionID],
-                                   @"cal" : self.lblCalorieCount.text ? self.lblCalorieCount.text : @"0",
-                                   @"km" : self.lblKilometerCount.text ? self.lblKilometerCount.text : @"0",
-                                   @"json" : finalJson,
-                                   @"start" : self.dtStartSession ? self.dtStartSession : [NSDate date],
-                                   @"avgkm" : self.lblKilometerCount.text ? self.lblKilometerCount.text : @"0"
-                                   };
-        [Session addItemToSession:dictData];
-    }
-    else
-    {
-        //No need to save session in db
-        
-    }
     
+    self.btnShare.hidden = YES;
+    self.btnShareYes.hidden = YES;
+    self.btnShareNo.hidden = YES;
     appDelegate().strFromAddress = nil;
     
     self.viewSaveSession.hidden = YES;
@@ -1368,19 +1346,78 @@
     self.viewNormalSpeed.hidden = NO;
     
     
-    self.btnSkipSpeed.hidden = YES;
-    self.btnSkipCalories.hidden = YES;
+    //self.btnSkipSpeed.hidden = YES;
+    //self.btnSkipCalories.hidden = YES;
     self.isSetCalories = NO;
     self.isMinMaxSpeed = NO;
+}
+- (IBAction)btnSaveSession:(id)sender
+{
+    UIButton *btnPressed = (UIButton *)sender;
+    if(btnPressed.tag == 1301)
+    {
+        
+        self.lblKMHText.hidden = YES;
+        counterTime = [[appDelegate().dictCounterData objectForKeyedSubscript:@"value"] intValue];
+        //Display Session save message here
+        [self.bleManager stopSession];
+        
+        appDelegate().isSessionStart = NO;
+        self.viewProgress.hidden = YES;
+        
+        [self.btnMapStart setTitle:@"START" forState:UIControlStateNormal];
+        [self.btnStartStop setTitle:@"START" forState:UIControlStateNormal];
+        
+        self.btnTopCycle.selected = NO;
+        
+        //Yes save session
+        
+        int newSessionID = [Session getMaxId];
+        
+        NSString *finalJson = [self convertDictToString:self.dictJsonSession];
+        NSDictionary *dictData = @{@"id":[NSString stringWithFormat:@"%d",newSessionID],
+                                   @"cal" : self.lblCalorieCount.text ? self.lblCalorieCount.text : @"0",
+                                   @"km" : self.lblKilometerCount.text ? self.lblKilometerCount.text : @"0",
+                                   @"json" : finalJson,
+                                   @"start" : self.dtStartSession ? self.dtStartSession : [NSDate date],
+                                   @"avgkm" : self.lblKilometerCount.text ? self.lblKilometerCount.text : @"0"
+                                   };
+        [Session addItemToSession:dictData];
+        
+        self.btnShare.hidden = NO;
+        self.btnShareYes.hidden = NO;
+        self.btnShareNo.hidden = NO;
+        appDelegate().strFromAddress = nil;
+        
+       // self.viewSaveSession.hidden = YES;
+        appDelegate().strToAddress = nil;
+        appDelegate().toLocation = nil;
+        
+        self.lblCalorieCount.text = @"0";
+        self.lblKilometerCount.text = @"0";
+        self.lblRPMCount.text = @"0";
+        self.lblBPMCount.text = @"0";
+        self.lblKmOrHour.text = @"0";
+        
+        self.viewMinMaxSpeed.hidden = YES;
+        self.viewCalories.hidden = YES;
+        self.viewNormalSpeed.hidden = NO;
+        
+        
+        //self.btnSkipSpeed.hidden = YES;
+        //self.btnSkipCalories.hidden = YES;
+        self.isSetCalories = NO;
+        self.isMinMaxSpeed = NO;
+        
+       
+    }
+    else
+    {
+        //No need to save session in db
+        self.viewSaveSession.hidden = YES;
+        
+    }
     
-//    NSArray *arrSessions = [NSArray arrayWithArray:[Session getAllSessionItems]];
-//    
-//    if(arrSessions.count > 0)
-//    {
-//        Session *thisSession = [arrSessions lastObject];
-//        NSLog(@"Session : %@",[thisSession description]);
-//    }
-    //NSLog(@"All Array : %@",[arrSessions description]);
 }
 
 #pragma mark - Progress bar methods

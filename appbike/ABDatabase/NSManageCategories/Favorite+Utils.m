@@ -127,11 +127,11 @@
 //        }
     }
     
-    [context MR_saveOnlySelfWithCompletion:^(BOOL contextDidSave, NSError *error) {
+    
+    [context MR_saveToPersistentStoreWithCompletion:^(BOOL contextDidSave, NSError *error) {
         if(contextDidSave)
         {
             NSLog(@"Saved success");
-            
             NSString *isHome = [data objectForKey:@"ishome"];
             if([isHome isEqualToString:@"yes"])
             {
@@ -164,7 +164,47 @@
         {
             NSLog(@"Error : %@",error.description);
         }
+        
     }];
+    
+//    [context MR_saveOnlySelfWithCompletion:^(BOOL contextDidSave, NSError *error) {
+//        if(contextDidSave)
+//        {
+//            NSLog(@"Saved success");
+//            
+//            NSString *isHome = [data objectForKey:@"ishome"];
+//            if([isHome isEqualToString:@"yes"])
+//            {
+//                NSArray *arrHome = [Favorite getHomeFavorite];
+//                if(arrHome.count > 0)
+//                {
+//                    for(int i=0; i < arrHome.count; i++)
+//                    {
+//                        Favorite *thisHome = (Favorite *) [arrHome objectAtIndex:i];
+//                        if(![thisHome.f_title isEqualToString:[data objectForKey:@"title"]])
+//                        {
+//                            thisHome.f_ishome = @"no";
+//                            thisHome.f_title = thisHome.f_title;
+//                            thisHome.f_latitude = thisHome.f_latitude;
+//                            thisHome.f_longitude = thisHome.f_longitude;
+//                            thisHome.f_id = thisHome.f_id;
+//                            [thisHome saveWithCompletion:^(BOOL saved) {
+//                                if (saved)
+//                                {
+//                                    NSLog(@"Saved successfully");
+//                                }
+//                            }];
+//                        }
+//                    }
+//                }
+//            }
+//
+//        }
+//        if(error)
+//        {
+//            NSLog(@"Error : %@",error.description);
+//        }
+//    }];
     
 }
 

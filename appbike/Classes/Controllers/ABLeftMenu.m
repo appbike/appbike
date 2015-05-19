@@ -15,11 +15,13 @@
 #import "ABFavoriteList.h"
 #import "ABDiagnosticVC.h"
 #import "AppDelegate.h"
+#import "ABLeftMenuCell.h"
 
 @interface ABLeftMenu ()<UITableViewDataSource,UITableViewDelegate>
 
 @property (nonatomic,strong)IBOutlet UITableView *tableView;
 
+@property (nonatomic, strong) NSMutableArray *arrMenu;
 
 @end
 
@@ -28,6 +30,25 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.arrMenu = [[NSMutableArray alloc] init];
+    
+    NSDictionary *dictDashboard = @{@"title" : @"Dashboard", @"image" : @"dashboard_menu.png"};
+    NSDictionary *dictDashboard1 = @{@"title" : @"Destination", @"image" : @"destination.png"};
+    NSDictionary *dictDashboard2 = @{@"title" : @"Favourite", @"image" : @"favourite.png"};
+    NSDictionary *dictDashboard3 = @{@"title" : @"History", @"image" : @"history.png"};
+    NSDictionary *dictDashboard4 = @{@"title" : @"Profil", @"image" : @"profile.png"};
+    NSDictionary *dictDashboard5 = @{@"title" : @"Diagnostics", @"image" : @"diagnostic.png"};
+    NSDictionary *dictDashboard6 = @{@"title" : @"Where is my bike", @"image" : @"bike.png"};
+    
+    [self.arrMenu addObject:dictDashboard];
+    [self.arrMenu addObject:dictDashboard1];
+    [self.arrMenu addObject:dictDashboard2];
+    [self.arrMenu addObject:dictDashboard3];
+    [self.arrMenu addObject:dictDashboard4];
+    [self.arrMenu addObject:dictDashboard5];
+    [self.arrMenu addObject:dictDashboard6];
+    
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -162,63 +183,47 @@
 #pragma mark -
 #pragma mark UITableView Delegate
 
-- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    cell.backgroundColor = [UIColor clearColor];
-    cell.textLabel.textColor = [UIColor whiteColor];
-    cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:17];
-}
+//- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    cell.backgroundColor = [UIColor clearColor];
+//    cell.textLabel.textColor = [UIColor whiteColor];
+//    cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:17];
+//}
 
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)sectionIndex
-{
-    if (sectionIndex == 0)
-        return nil;
-    
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 34)];
-    view.backgroundColor = [UIColor colorWithRed:167/255.0f green:167/255.0f blue:167/255.0f alpha:0.6f];
-    
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 8, 0, 0)];
-    label.text = @"Friends Online";
-    label.font = [UIFont systemFontOfSize:15];
-    label.textColor = [UIColor blackColor];
-    label.backgroundColor = [UIColor clearColor];
-    [label sizeToFit];
-    [view addSubview:label];
-    
-    return view;
-}
+//- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)sectionIndex
+//{
+//    if (sectionIndex == 0)
+//        return nil;
+//    
+//    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 34)];
+//    view.backgroundColor = [UIColor colorWithRed:167/255.0f green:167/255.0f blue:167/255.0f alpha:0.6f];
+//    
+//    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 8, 0, 0)];
+//    label.text = @"Friends Online";
+//    label.font = [UIFont systemFontOfSize:15];
+//    label.textColor = [UIColor blackColor];
+//    label.backgroundColor = [UIColor clearColor];
+//    [label sizeToFit];
+//    [view addSubview:label];
+//    
+//    return view;
+//}
 
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)sectionIndex
-{
-    if (sectionIndex == 0)
-        return 0;
-    
-    return 34;
-}
+//- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)sectionIndex
+//{
+//    if (sectionIndex == 0)
+//        return 0;
+//    
+//    return 34;
+//}
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    ABNavigationVC *navigationController = [self.storyboard instantiateViewControllerWithIdentifier:@"DashBoardNav"];
-    
-    if (indexPath.section == 0 && indexPath.row == 0) {
-        ABDashBoardVC *homeViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"DashBoardViewController"];
-        navigationController.viewControllers = @[homeViewController];
-    } else {
-//        DEMOSecondViewController *secondViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"secondController"];
-//        navigationController.viewControllers = @[secondViewController];
-    }
-    
-    self.frostedViewController.contentViewController = navigationController;
-    [self.frostedViewController hideMenuViewController];
-}
 
 #pragma mark -
 #pragma mark UITableView Datasource
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 54;
+    return 62;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -228,29 +233,143 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)sectionIndex
 {
-    return 3;
+    return self.arrMenu.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *cellIdentifier = @"Cell";
+    static NSString *cellIdentifier = @"ABLeftMenuCell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    ABLeftMenuCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+        cell = [[ABLeftMenuCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
     
+
+    NSDictionary *dictData = [self.arrMenu objectAtIndex:indexPath.row];
     
-    NSArray *titles = @[@"Engine Off", @"Destination", @"Favorites",@"History",@"Profile",@"Diagnostic",@"Where is my bike"];
-    cell.textLabel.text = titles[indexPath.row];
-    
-    cell.imageView.image=[UIImage imageNamed:@"Camera.png"];
-    
-    cell.textLabel.textColor=[UIColor whiteColor];
+    cell.lblMenu.text = [dictData objectForKey:@"title"];
+    cell.imgMenu.image = [UIImage imageNamed:[dictData objectForKey:@"image"]];
+    cell.imgMenu.frame = CGRectMake(cell.imgMenu.frame.origin.x, cell.imgMenu.frame.origin.y, 28, 28);
+//    NSArray *titles = @[@"Engine Off", @"Destination", @"Favorites",@"History",@"Profile",@"Diagnostic",@"Where is my bike"];
+//    cell.textLabel.text = titles[indexPath.row];
+//    
+//    cell.imageView.image=[UIImage imageNamed:@"Camera.png"];
+//    
+//    cell.textLabel.textColor=[UIColor whiteColor];
     
     return cell;
 }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    ABNavigationVC *navigationController = [self.storyboard instantiateViewControllerWithIdentifier:@"DashBoardNav"];
+    
+
+    switch (indexPath.row)
+    {
+      
+        case 0:
+        {
+            //Favorite
+            ABDashBoardVC *secondViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"ABDashBoardVC"];
+            secondViewController.isDisplayDestination = NO;
+            navigationController.viewControllers = @[secondViewController];
+            self.frostedViewController.contentViewController = navigationController;
+        }
+            break;
+        case 1:
+        {
+            //Destination
+            
+            if(appDelegate().isSessionStart)
+            {
+                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"AppBike"
+                                                                    message:@"Please stop current session before set new destination"
+                                                                   delegate:nil
+                                                          cancelButtonTitle:@"Cancel"
+                                                          otherButtonTitles:@"Ok",nil];
+                //alertView.tag = 1001;
+                [alertView show];
+            }
+            else
+            {
+                ABDashBoardVC *secondViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"ABDashBoardVC"];
+                secondViewController.isDisplayDestination = YES;
+                navigationController.viewControllers = @[secondViewController];
+                
+                //            appDelegate().dashboardVC.isDisplayDestination = YES;
+                //          navigationController.viewControllers = @[appDelegate().dashboardVC];
+                self.frostedViewController.contentViewController = navigationController;
+            }
+            //        [appDelegate().dashboardVC showDestination];
+            //[self.frostedViewController hideMenuViewController];
+            // [[NSNotificationCenter defaultCenter] postNotificationName:MenuItemNotification object:tag];
+        }
+            break;
+        case 2:
+        {
+            //Favorite
+            ABFavoriteList *secondViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"ABFavoriteList"];
+            navigationController.viewControllers = @[secondViewController];
+            
+            self.frostedViewController.contentViewController = navigationController;
+        }
+            break;
+        case 3:
+        {
+            //History
+            
+            ABHistoryListVC *secondViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"ABHistoryListVC"];
+            navigationController.viewControllers = @[secondViewController];
+            
+            self.frostedViewController.contentViewController = navigationController;
+            
+            
+        }
+            break;
+        case 4:
+        {
+            //Profile
+        }
+            break;
+        case 5:
+        {
+            //Diagnostics
+            ABDiagnosticVC *secondViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"ABDiagnosticVC"];
+            navigationController.viewControllers = @[secondViewController];
+            
+            self.frostedViewController.contentViewController = navigationController;
+        }
+            break;
+        case 6:
+        {
+            //Where is my bike
+            ABFindMyBikeVC *secondViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"ABFindMyBikeVC"];
+            navigationController.viewControllers = @[secondViewController];
+            
+            self.frostedViewController.contentViewController = navigationController;
+        }
+            break;
+            
+        case 7:
+        {
+            //Dashboard
+            ABDashBoardVC *secondViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"ABDashBoardVC"];
+            secondViewController.isDisplayDestination = NO;
+            navigationController.viewControllers = @[secondViewController];
+            self.frostedViewController.contentViewController = navigationController;
+        }
+            break;
+        default:
+            break;
+    }
+    
+    [self.frostedViewController hideMenuViewController];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

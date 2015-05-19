@@ -80,6 +80,7 @@
 		CF26CCDB1AD7141B0049E8B8 /* max_speed_ring.png in Resources */ = {isa = PBXBuildFile; fileRef = CF26CCD81AD7141B0049E8B8 /* max_speed_ring.png */; };
 		CF26CCDC1AD7141B0049E8B8 /* max_speed_ring@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CF26CCD91AD7141B0049E8B8 /* max_speed_ring@2x.png */; };
 		CF26CCDD1AD7141B0049E8B8 /* max_speed_ring@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = CF26CCDA1AD7141B0049E8B8 /* max_speed_ring@3x.png */; };
+		CF4934BA1B0B13C7007C7340 /* ABLeftMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CF4934B91B0B13C7007C7340 /* ABLeftMenuCell.m */; };
 		CF6554E11B05069500C85362 /* dashboard_menu.png in Resources */ = {isa = PBXBuildFile; fileRef = CF6554DE1B05069500C85362 /* dashboard_menu.png */; };
 		CF6554E21B05069500C85362 /* dashboard_menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CF6554DF1B05069500C85362 /* dashboard_menu@2x.png */; };
 		CF6554E31B05069500C85362 /* dashboard_menu@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = CF6554E01B05069500C85362 /* dashboard_menu@3x.png */; };
@@ -722,6 +723,8 @@
 		CF26CCD81AD7141B0049E8B8 /* max_speed_ring.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = max_speed_ring.png; sourceTree = "<group>"; };
 		CF26CCD91AD7141B0049E8B8 /* max_speed_ring@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "max_speed_ring@2x.png"; sourceTree = "<group>"; };
 		CF26CCDA1AD7141B0049E8B8 /* max_speed_ring@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "max_speed_ring@3x.png"; sourceTree = "<group>"; };
+		CF4934B81B0B13C7007C7340 /* ABLeftMenuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABLeftMenuCell.h; sourceTree = "<group>"; };
+		CF4934B91B0B13C7007C7340 /* ABLeftMenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABLeftMenuCell.m; sourceTree = "<group>"; };
 		CF6554DE1B05069500C85362 /* dashboard_menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dashboard_menu.png; sourceTree = "<group>"; };
 		CF6554DF1B05069500C85362 /* dashboard_menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dashboard_menu@2x.png"; sourceTree = "<group>"; };
 		CF6554E01B05069500C85362 /* dashboard_menu@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dashboard_menu@3x.png"; sourceTree = "<group>"; };
@@ -1967,6 +1970,8 @@
 			children = (
 				CFBB9F821AD91D35000DDE89 /* ABLeftMenu.h */,
 				CFBB9F831AD91D35000DDE89 /* ABLeftMenu.m */,
+				CF4934B81B0B13C7007C7340 /* ABLeftMenuCell.h */,
+				CF4934B91B0B13C7007C7340 /* ABLeftMenuCell.m */,
 			);
 			name = LeftMenu;
 			sourceTree = "<group>";
@@ -3277,6 +3282,7 @@
 				66AF00E81A6A780500342647 /* SPGooglePlacesAutocompleteUtilities.m in Sources */,
 				CFBB9F611AD845AD000DDE89 /* ABHistoryDetailVC.m in Sources */,
 				CFE87FB41AE7F05F00E4478F /* RegexKitLite1.m in Sources */,
+				CF4934BA1B0B13C7007C7340 /* ABLeftMenuCell.m in Sources */,
 				C362D0211AB07C8100A1D392 /* BleManager.m in Sources */,
 				66F3D3511A63873E00E87424 /* SWRevealViewController.m in Sources */,
 				CFD15E5E1AD14B2500AE6A12 /* MagicalRecord.m in Sources */,

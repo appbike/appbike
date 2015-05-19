@@ -18,7 +18,9 @@
 #import "ABLeftMenuCell.h"
 
 @interface ABLeftMenu ()<UITableViewDataSource,UITableViewDelegate>
-
+{
+    int lastIndex;
+}
 @property (nonatomic,strong)IBOutlet UITableView *tableView;
 
 @property (nonatomic, strong) NSMutableArray *arrMenu;
@@ -27,19 +29,22 @@
 
 @implementation ABLeftMenu
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
+    
+    lastIndex = 0;
     // Do any additional setup after loading the view.
     
     self.arrMenu = [[NSMutableArray alloc] init];
     
-    NSDictionary *dictDashboard = @{@"title" : @"Dashboard", @"image" : @"dashboard_menu.png"};
-    NSDictionary *dictDashboard1 = @{@"title" : @"Destination", @"image" : @"destination.png"};
-    NSDictionary *dictDashboard2 = @{@"title" : @"Favourite", @"image" : @"favourite.png"};
-    NSDictionary *dictDashboard3 = @{@"title" : @"History", @"image" : @"history.png"};
-    NSDictionary *dictDashboard4 = @{@"title" : @"Profil", @"image" : @"profile.png"};
-    NSDictionary *dictDashboard5 = @{@"title" : @"Diagnostics", @"image" : @"diagnostic.png"};
-    NSDictionary *dictDashboard6 = @{@"title" : @"Where is my bike", @"image" : @"bike.png"};
+    NSDictionary *dictDashboard = @{@"title" : @"Dashboard", @"image" : @"dashboard_menu.png",@"selected_image" : @"dashboard_menu_selected.png"};
+    NSDictionary *dictDashboard1 = @{@"title" : @"Destination", @"image" : @"destination.png",@"selected_image" : @"destination_selected.png"};
+    NSDictionary *dictDashboard2 = @{@"title" : @"Favourite", @"image" : @"favourite.png",@"selected_image" : @"favourite_selected.png"};
+    NSDictionary *dictDashboard3 = @{@"title" : @"History", @"image" : @"history.png",@"selected_image" : @"history_selected.png"};
+    NSDictionary *dictDashboard4 = @{@"title" : @"Profile", @"image" : @"profile.png",@"selected_image" : @"profile_selected.png"};
+    NSDictionary *dictDashboard5 = @{@"title" : @"Diagnostics", @"image" : @"diagnostic.png",@"selected_image" : @"diagnostic_selected.png"};
+    NSDictionary *dictDashboard6 = @{@"title" : @"Where is my bike", @"image" : @"bike.png",@"selected_image" : @"bike_selected.png"};
     
     [self.arrMenu addObject:dictDashboard];
     [self.arrMenu addObject:dictDashboard1];
@@ -223,7 +228,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 62;
+    return 81;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -251,7 +256,12 @@
     
     cell.lblMenu.text = [dictData objectForKey:@"title"];
     cell.imgMenu.image = [UIImage imageNamed:[dictData objectForKey:@"image"]];
-    cell.imgMenu.frame = CGRectMake(cell.imgMenu.frame.origin.x, cell.imgMenu.frame.origin.y, 28, 28);
+    cell.imgMenu.frame = CGRectMake(cell.imgMenu.frame.origin.x, cell.imgMenu.frame.origin.y, 40, 40);
+    
+    if(indexPath.row == lastIndex )
+    {
+        cell.imgMenu.image = [UIImage imageNamed:[dictData objectForKey:@"selected_image"]];
+    }
 //    NSArray *titles = @[@"Engine Off", @"Destination", @"Favorites",@"History",@"Profile",@"Diagnostic",@"Where is my bike"];
 //    cell.textLabel.text = titles[indexPath.row];
 //    
@@ -264,10 +274,23 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
+    NSIndexPath *lastIndexPath = [NSIndexPath indexPathForRow:lastIndex inSection:0];
+    ABLeftMenuCell *Lastcell = (ABLeftMenuCell*)[tableView cellForRowAtIndexPath:lastIndexPath];
+    NSDictionary *dictData1 = [self.arrMenu objectAtIndex:lastIndex];
+    Lastcell.imgMenu.image =  [UIImage imageNamed:[dictData1 objectForKey:@"image"]];
+    
+    lastIndex = indexPath.row;
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     ABNavigationVC *navigationController = [self.storyboard instantiateViewControllerWithIdentifier:@"DashBoardNav"];
     
-
+    NSDictionary *dictData = [self.arrMenu objectAtIndex:indexPath.row];
+    
+    ABLeftMenuCell *cell = (ABLeftMenuCell*)[tableView cellForRowAtIndexPath:indexPath];
+    
+    cell.imgMenu.image =  [UIImage imageNamed:[dictData objectForKey:@"selected_image"]];
+    
+    
     switch (indexPath.row)
     {
       

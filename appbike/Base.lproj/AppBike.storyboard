@@ -301,23 +301,23 @@
                                     <action selector="btnMenuItemSelected:" destination="pJg-pf-QsO" eventType="touchUpInside" id="1am-Z3-btN"/>
                                 </connections>
                             </button>
-                            <tableView opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="62" sectionHeaderHeight="22" sectionFooterHeight="22" id="yvb-yO-gJx">
+                            <tableView opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="81" sectionHeaderHeight="22" sectionFooterHeight="22" id="yvb-yO-gJx">
                                 <rect key="frame" x="0.0" y="43" width="125" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ABLeftMenuCell" rowHeight="62" id="RpF-G5-hs1" customClass="ABLeftMenuCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ABLeftMenuCell" rowHeight="81" id="RpF-G5-hs1" customClass="ABLeftMenuCell">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RpF-G5-hs1" id="Wyn-Pr-1CE">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="A8z-gp-YqP">
-                                                    <rect key="frame" x="38" y="5" width="30" height="30"/>
+                                                    <rect key="frame" x="38" y="5" width="40" height="40"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dashboard" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="eW7-Xx-6z2">
-                                                    <rect key="frame" x="0.0" y="34" width="100" height="21"/>
+                                                    <rect key="frame" x="5" y="44" width="100" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="RobotoCondensed-Regular" family="Roboto Condensed" pointSize="13"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1549,6 +1549,7 @@
                         <outlet property="btnSelectPulse" destination="IKm-S1-u0J" id="CCC-Mo-c0r"/>
                         <outlet property="btnSelectSpeed" destination="Ie0-dq-2WV" id="S6h-8Z-BxQ"/>
                         <outlet property="btnShare" destination="KiM-Tm-Uqm" id="TAT-oj-TMS"/>
+                        <outlet property="btnShareNo" destination="xDn-EW-04B" id="vi3-CB-Lo2"/>
                         <outlet property="btnShareYes" destination="1lH-Z2-iAW" id="Cya-aZ-7jG"/>
                         <outlet property="btnShowDashboard" destination="tZM-bv-zvM" id="tOv-Tr-plg"/>
                         <outlet property="btnSkipCalories" destination="NVH-BN-Ka0" id="3RG-6y-cYA"/>
@@ -2614,7 +2615,7 @@
         <image name="avg_speed.png" width="28" height="28"/>
         <image name="avg_speed_selected.png" width="28" height="28"/>
         <image name="battery_a3.png" width="230" height="83"/>
-        <image name="bike.png" width="36" height="36"/>
+        <image name="bike.png" width="72" height="72"/>
         <image name="bike_selected.png" width="36" height="36"/>
         <image name="bike_selected1.png" width="630" height="395"/>
         <image name="bpm.png" width="72" height="72"/>
@@ -2627,24 +2628,24 @@
         <image name="cloud_bg.png" width="640" height="456"/>
         <image name="cycle.png" width="56" height="56"/>
         <image name="cycle_disable.png" width="56" height="56"/>
-        <image name="dashboard_menu.png" width="36" height="36"/>
-        <image name="destination.png" width="36" height="36"/>
-        <image name="destination_selected.png" width="36" height="36"/>
-        <image name="diagnostic.png" width="36" height="36"/>
-        <image name="diagnostic_selected.png" width="36" height="36"/>
+        <image name="dashboard_menu.png" width="72" height="72"/>
+        <image name="destination.png" width="72" height="72"/>
+        <image name="destination_selected.png" width="72" height="72"/>
+        <image name="diagnostic.png" width="72" height="72"/>
+        <image name="diagnostic_selected.png" width="72" height="72"/>
         <image name="difit_circle.png" width="96" height="96"/>
         <image name="downarrow.png" width="56" height="56"/>
         <image name="engine.png" width="56" height="56"/>
         <image name="enginebar.png" width="356" height="36"/>
         <image name="facebook.png" width="28" height="28"/>
-        <image name="favourite.png" width="36" height="36"/>
-        <image name="favourite_selected.png" width="36" height="36"/>
+        <image name="favourite.png" width="72" height="72"/>
+        <image name="favourite_selected.png" width="72" height="72"/>
         <image name="flow_ring.png" width="410" height="410"/>
         <image name="flow_ring_counter.png" width="318" height="318"/>
         <image name="flow_ring_logo.png" width="101" height="61"/>
         <image name="goal_ring.png" width="412" height="412"/>
         <image name="goldmadle.png" width="83" height="83"/>
-        <image name="history.png" width="36" height="36"/>
+        <image name="history.png" width="72" height="72"/>
         <image name="history_cadence.png" width="56" height="56"/>
         <image name="history_cal.png" width="28" height="28"/>
         <image name="history_cal_white.png" width="28" height="28"/>
@@ -2656,7 +2657,7 @@
         <image name="history_min_white.png" width="28" height="28"/>
         <image name="history_pulse.png" width="56" height="56"/>
         <image name="history_refresh.png" width="22" height="22"/>
-        <image name="history_selected.png" width="36" height="36"/>
+        <image name="history_selected.png" width="72" height="72"/>
         <image name="history_share.png" width="22" height="22"/>
         <image name="history_speed.png" width="56" height="56"/>
         <image name="home.png" width="56" height="56"/>

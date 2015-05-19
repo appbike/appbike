@@ -1815,6 +1815,14 @@
         self.isSetCalories = NO;
         self.isMinMaxSpeed = NO;
         
+        
+        NSString *strCTime = [[NSUserDefaults standardUserDefaults] objectForKey:kCounterKey];
+        if(strCTime == nil)
+        {
+            strCTime = @"5";
+        }
+        
+        counterTime = [strCTime intValue];
        
     }
     else

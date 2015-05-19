@@ -401,6 +401,10 @@
                                             <action selector="displaySelectionMenu:" destination="M0w-tV-0Be" eventType="touchUpInside" id="WkD-zQ-hFQ"/>
                                         </connections>
                                     </button>
+                                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="goldmadle.png" id="nji-kH-cxg">
+                                        <rect key="frame" x="253" y="45" width="70" height="70"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                     <button opaque="NO" tag="5501" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="azO-E3-llc" userLabel="Calories">
                                         <rect key="frame" x="10" y="43" width="36" height="36"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -422,6 +426,10 @@
                                             <action selector="displaySelectionMenu:" destination="M0w-tV-0Be" eventType="touchUpInside" id="H3s-ee-UxE"/>
                                         </connections>
                                     </button>
+                                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="goldmadle.png" id="DKT-cm-B78">
+                                        <rect key="frame" x="-6" y="234" width="70" height="70"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    </imageView>
                                     <button opaque="NO" tag="5503" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="YOp-HD-PDP" userLabel="bpm">
                                         <rect key="frame" x="268" y="232" width="36" height="36"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
@@ -430,6 +438,10 @@
                                             <action selector="displaySelectionMenu:" destination="M0w-tV-0Be" eventType="touchUpInside" id="otG-VR-ajl"/>
                                         </connections>
                                     </button>
+                                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="goldmadle.png" id="Xbo-yS-lEm">
+                                        <rect key="frame" x="252" y="234" width="70" height="70"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                                    </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" id="SoM-XX-hxH">
                                         <rect key="frame" x="268" y="82" width="42" height="31"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
@@ -1548,6 +1560,9 @@
                         <outlet property="counterPicker" destination="F52-jm-41f" id="IJq-X0-Cob"/>
                         <outlet property="goalStarMain" destination="nqx-9i-FVg" id="q2g-xb-uWh"/>
                         <outlet property="goalStarSub" destination="HcM-el-Tvp" id="CeY-32-Lem"/>
+                        <outlet property="goalStarSub1" destination="nji-kH-cxg" id="RWu-B5-xmF"/>
+                        <outlet property="goalStarSub2" destination="Xbo-yS-lEm" id="E28-tA-hil"/>
+                        <outlet property="goalStarSub3" destination="DKT-cm-B78" id="Uc5-ol-ddh"/>
                         <outlet property="imgBGCalories" destination="ZYE-Bi-5pG" id="eLx-3p-oes"/>
                         <outlet property="imgBGDashboardSpeed" destination="kVd-Bu-Ywg" id="YCY-rn-gOE"/>
                         <outlet property="imgBGLogoCalories" destination="rEM-OQ-PcN" id="6ac-8B-NEt"/>

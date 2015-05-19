@@ -122,6 +122,9 @@
 
 @property (strong, nonatomic) IBOutlet UIImageView *goalStarMain;
 @property (strong, nonatomic) IBOutlet UIImageView *goalStarSub;
+@property (strong, nonatomic) IBOutlet UIImageView *goalStarSub1;
+@property (strong, nonatomic) IBOutlet UIImageView *goalStarSub2;
+@property (strong, nonatomic) IBOutlet UIImageView *goalStarSub3;
 
 @property (strong, nonatomic) IBOutlet UIButton *btnSkipCalories;
 @property (strong, nonatomic) IBOutlet UIButton *btnSkipSpeed;
@@ -816,6 +819,10 @@
 
 - (void)stopAnimationGoal
 {
+    NSString *strTopLeft = [self.dictUpdatedDashboardData valueForKey:@"topLeft"];
+    NSString *strTopRight = [self.dictUpdatedDashboardData valueForKey:@"topRight"];
+    NSString *strBottomRight = [self.dictUpdatedDashboardData valueForKey:@"bottomRight"];
+    NSString *strBottomLeft = [self.dictUpdatedDashboardData valueForKey:@"bottomLeft"];
     [UIView animateWithDuration:0.12
                           delay:0.0
                         options:UIViewAnimationOptionCurveEaseInOut |
@@ -823,8 +830,27 @@
                      animations:^{
                         self.goalStarMain.alpha = 1.0f;
                         self.viewGoalCalories.hidden = YES;
-                         self.goalStarSub.alpha = 1.0;
-                         self.goalStarSub.hidden = YES;
+                         if([strTopLeft isEqualToString:@"cal"])
+                         {
+                             self.goalStarSub.alpha = 1.0;
+                             self.goalStarSub.hidden = YES;
+                         }
+                         if([strTopRight isEqualToString:@"cal"])
+                         {
+                             self.goalStarSub1.alpha = 1.0;
+                             self.goalStarSub1.hidden = YES;
+                         }
+                         if([strBottomRight isEqualToString:@"cal"])
+                         {
+                             self.goalStarSub2.alpha = 1.0;
+                             self.goalStarSub2.hidden = YES;
+                         }
+                         if([strBottomLeft isEqualToString:@"cal"])
+                         {
+                             self.goalStarSub3.alpha = 1.0;
+                             self.goalStarSub3.hidden = YES;
+                         }
+                         
                      }
                      completion:^(BOOL finished){
                          // Do nothing
@@ -834,7 +860,31 @@
 - (void)startAnimationGoal
 {
     self.viewGoalCalories.hidden = NO;
-    self.goalStarSub.hidden = NO;
+    
+    NSString *strTopLeft = [self.dictUpdatedDashboardData valueForKey:@"topLeft"];
+    if([strTopLeft isEqualToString:@"cal"])
+    {
+            self.goalStarSub.hidden = NO;
+    }
+    
+    NSString *strTopRight = [self.dictUpdatedDashboardData valueForKey:@"topRight"];
+    if([strTopLeft isEqualToString:@"cal"])
+    {
+        self.goalStarSub1.hidden = NO;
+    }
+   
+    NSString *strBottomRight = [self.dictUpdatedDashboardData valueForKey:@"bottomRight"];
+    if([strBottomRight isEqualToString:@"cal"])
+    {
+        self.goalStarSub2.hidden = NO;
+    }
+    NSString *strBottomLeft = [self.dictUpdatedDashboardData valueForKey:@"bottomLeft"];
+    if([strBottomLeft isEqualToString:@"cal"])
+    {
+        self.goalStarSub3.hidden = NO;
+    }
+
+    
     self.goalStarMain.alpha = 1.0f;
     self.goalStarSub.alpha = 1.0;
     [UIView animateWithDuration:0.2
@@ -845,7 +895,24 @@
      UIViewAnimationOptionAllowUserInteraction
                      animations:^{
                          self.goalStarMain.alpha = 0.0f;
-                         self.goalStarSub.alpha = 0.0f;
+                         
+                         if([strTopLeft isEqualToString:@"cal"])
+                         {
+                             self.goalStarSub.alpha = 0.0f;
+                         }
+                         if([strTopRight isEqualToString:@"cal"])
+                         {
+                             self.goalStarSub1.alpha = 0.0f;
+                         }
+                         if([strBottomRight isEqualToString:@"cal"])
+                         {
+                             self.goalStarSub2.alpha = 0.0f;
+                         }
+                         if([strBottomLeft isEqualToString:@"cal"])
+                         {
+                             self.goalStarSub3.alpha = 0.0f;
+                         }
+                         
                      }
                      completion:^(BOOL finished){
                          // Do nothing
@@ -1129,13 +1196,13 @@
                 break;
                 case 5503:
                 {
-                    [self.dictUpdatedDashboardData setObject:@"cal" forKey:@"bottomLeft"];
+                    [self.dictUpdatedDashboardData setObject:@"cal" forKey:@"bottomRight"];
                     [self.btnBPM setImage:[UIImage imageNamed:@"cal.png"] forState:UIControlStateNormal];
                 }
                 break;
                 case 5504:
                 {
-                    [self.dictUpdatedDashboardData setObject:@"cal" forKey:@"bottomRight"];
+                    [self.dictUpdatedDashboardData setObject:@"cal" forKey:@"bottomLeft"];
                     [self.btnRPM setImage:[UIImage imageNamed:@"cal.png"] forState:UIControlStateNormal];
                 }
                 break;

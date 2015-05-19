@@ -2,7 +2,7 @@
 //  main.m
 //  appbike
 //
-//  Created by Paresh on 1/9/15.
+//  Created by Ashwin  on 1/9/15.
 //  Copyright (c) 2015 Zaptech Solutions. All rights reserved.
 //
 

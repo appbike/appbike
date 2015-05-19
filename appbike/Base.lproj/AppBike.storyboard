@@ -172,24 +172,6 @@
                                     <outlet property="delegate" destination="pJg-pf-QsO" id="yfv-AU-61I"/>
                                 </connections>
                             </scrollView>
-                            <tableView hidden="YES" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="yvb-yO-gJx">
-                                <rect key="frame" x="1000" y="0.0" width="125" height="568"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="RpF-G5-hs1">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RpF-G5-hs1" id="Wyn-Pr-1CE">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="pJg-pf-QsO" id="THU-5V-c5v"/>
-                                    <outlet property="delegate" destination="pJg-pf-QsO" id="LId-ji-srf"/>
-                                </connections>
-                            </tableView>
                             <button opaque="NO" tag="101" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="sK6-Jh-CwQ">
                                 <rect key="frame" x="0.0" y="0.0" width="100" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
@@ -318,6 +300,24 @@
                                     <action selector="btnMenuItemSelected:" destination="pJg-pf-QsO" eventType="touchUpInside" id="1am-Z3-btN"/>
                                 </connections>
                             </button>
+                            <tableView hidden="YES" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="yvb-yO-gJx">
+                                <rect key="frame" x="0.0" y="43" width="125" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="RpF-G5-hs1">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RpF-G5-hs1" id="Wyn-Pr-1CE">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="pJg-pf-QsO" id="THU-5V-c5v"/>
+                                    <outlet property="delegate" destination="pJg-pf-QsO" id="LId-ji-srf"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -372,7 +372,7 @@
                                 <rect key="frame" x="0.0" y="50" width="320" height="320"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="mMI-Yi-wav" userLabel="kilometer">
+                                    <button opaque="NO" tag="5502" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="mMI-Yi-wav" userLabel="kilometer">
                                         <rect key="frame" x="269" y="43" width="36" height="36"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="kilometer.png">
@@ -382,11 +382,11 @@
                                             <action selector="displaySelectionMenu:" destination="M0w-tV-0Be" eventType="touchUpInside" id="WkD-zQ-hFQ"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="azO-E3-llc" userLabel="Calories">
+                                    <button opaque="NO" tag="5501" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="azO-E3-llc" userLabel="Calories">
                                         <rect key="frame" x="10" y="43" width="36" height="36"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="cal.png"/>
-                                        <state key="selected" image="speed_selected"/>
+                                        <state key="selected" image="cal.png"/>
                                         <connections>
                                             <action selector="displaySelectionMenu:" destination="M0w-tV-0Be" eventType="touchUpInside" id="QxD-z3-00e"/>
                                         </connections>
@@ -395,7 +395,7 @@
                                         <rect key="frame" x="-6" y="45" width="70" height="70"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Adb-2e-xuG" userLabel="rpm">
+                                    <button opaque="NO" tag="5504" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Adb-2e-xuG" userLabel="rpm">
                                         <rect key="frame" x="10" y="232" width="36" height="36"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <state key="normal" image="rpm.png"/>
@@ -403,7 +403,7 @@
                                             <action selector="displaySelectionMenu:" destination="M0w-tV-0Be" eventType="touchUpInside" id="H3s-ee-UxE"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="YOp-HD-PDP" userLabel="bpm">
+                                    <button opaque="NO" tag="5503" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="YOp-HD-PDP" userLabel="bpm">
                                         <rect key="frame" x="268" y="232" width="36" height="36"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                         <state key="normal" image="bpm.png"/>
@@ -545,7 +545,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0LL-Z5-kSx">
-                                                <rect key="frame" x="0.0" y="36" width="320" height="1"/>
+                                                <rect key="frame" x="0.0" y="36.000000096857548" width="320" height="1"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
@@ -1309,7 +1309,7 @@
                                         <rect key="frame" x="169" y="119" width="70" height="31"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="RobotoCondensed-Regular" family="Roboto Condensed" pointSize="15"/>
-                                        <state key="normal" title="NO" backgroundImage="no_btn.png">
+                                        <state key="normal" title="SKIP" backgroundImage="no_btn.png">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -1508,6 +1508,7 @@
                         <outlet property="btnBPM" destination="YOp-HD-PDP" id="3ye-4f-6bs"/>
                         <outlet property="btnBackground" destination="8A2-OL-UgI" id="bMw-aY-zRG"/>
                         <outlet property="btnCaloriesMenu" destination="azO-E3-llc" id="Jqi-Mw-A1N"/>
+                        <outlet property="btnKMMenu" destination="mMI-Yi-wav" id="xNW-w7-Q0B"/>
                         <outlet property="btnMapStart" destination="5iX-K6-wqk" id="ajB-ge-a7H"/>
                         <outlet property="btnMaxCalories" destination="0A0-xp-jFb" id="AIk-ni-yOK"/>
                         <outlet property="btnRPM" destination="Adb-2e-xuG" id="eN6-SX-JH6"/>
@@ -2665,7 +2666,6 @@
         <image name="set_speed_ring.png" width="410" height="410"/>
         <image name="sidebar.png" width="100" height="546"/>
         <image name="speed.png" width="28" height="28"/>
-        <image name="speed_selected" width="28" height="28"/>
         <image name="speed_selected.png" width="28" height="28"/>
         <image name="stars.png" width="300" height="146"/>
         <image name="start.png" width="225" height="70"/>

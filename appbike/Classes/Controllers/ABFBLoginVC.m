@@ -42,16 +42,17 @@
 
 - (IBAction)btnFBLogin:(id)sender
 {
+    //public_stream
     if (![[NSUserDefaults standardUserDefaults] boolForKey:kIsLoginWithFB])
     {
-        [FBSession openActiveSessionWithPublishPermissions:@[@"public_profile,publish_actions,publish_stream"] defaultAudience:FBSessionDefaultAudienceEveryone allowLoginUI:YES completionHandler:^(FBSession *session, FBSessionState status, NSError *error) {
+        [FBSession openActiveSessionWithPublishPermissions:@[@"public_profile,publish_actions"] defaultAudience:FBSessionDefaultAudienceEveryone allowLoginUI:YES completionHandler:^(FBSession *session, FBSessionState status, NSError *error) {
             [FBSession setActiveSession:session];
             [self sessionStateChanged:session state:status error:error];
         }];
     }
     else
     {
-        [FBSession openActiveSessionWithPublishPermissions:@[@"public_profile,publish_actions,publish_stream"] defaultAudience:FBSessionDefaultAudienceEveryone allowLoginUI:YES completionHandler:^(FBSession *session, FBSessionState status, NSError *error) {
+        [FBSession openActiveSessionWithPublishPermissions:@[@"public_profile,publish_actions"] defaultAudience:FBSessionDefaultAudienceEveryone allowLoginUI:YES completionHandler:^(FBSession *session, FBSessionState status, NSError *error) {
             [FBSession setActiveSession:session];
             [self sessionStateChanged:session state:status error:error];
         }];

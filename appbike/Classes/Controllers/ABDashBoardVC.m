@@ -91,6 +91,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *lblKMHText;
 @property (strong, nonatomic) IBOutlet UIButton *btnCaloriesMenu;
 @property (strong, nonatomic) IBOutlet UIButton *btnKMMenu;
+@property (strong, nonatomic) IBOutlet UIButton *btnCenterMenu;
 
 
 

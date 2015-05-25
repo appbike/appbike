@@ -297,9 +297,10 @@
         case 0:
         {
             //Favorite
-            ABDashBoardVC *secondViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"ABDashBoardVC"];
-            secondViewController.isDisplayDestination = NO;
-            navigationController.viewControllers = @[secondViewController];
+            //ABDashBoardVC *secondViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"ABDashBoardVC"];
+            //secondViewController.isDisplayDestination = NO;
+            appDelegate().dashboardVC.isDisplayDestination = NO;
+            navigationController.viewControllers = @[appDelegate().dashboardVC];
             self.frostedViewController.contentViewController = navigationController;
         }
             break;

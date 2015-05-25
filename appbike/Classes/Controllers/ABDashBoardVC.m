@@ -1083,19 +1083,19 @@
                 case 5502:
                 {
                     [self.dictUpdatedDashboardData setObject:@"rpm" forKey:@"topRight"];
-                    [self.btnKMMenu setImage:[UIImage imageNamed:@"bpm.png"] forState:UIControlStateNormal];
+                    [self.btnKMMenu setImage:[UIImage imageNamed:@"rpm.png"] forState:UIControlStateNormal];
                 }
                     break;
                 case 5503:
                 {
                     [self.dictUpdatedDashboardData setObject:@"rpm" forKey:@"bottomRight"];
-                    [self.btnBPM setImage:[UIImage imageNamed:@"bpm.png"] forState:UIControlStateNormal];
+                    [self.btnBPM setImage:[UIImage imageNamed:@"rpm.png"] forState:UIControlStateNormal];
                 }
                     break;
                 case 5504:
                 {
                     [self.dictUpdatedDashboardData setObject:@"rpm" forKey:@"bottomLeft"];
-                    [self.btnRPM setImage:[UIImage imageNamed:@"bpm.png"] forState:UIControlStateNormal];
+                    [self.btnRPM setImage:[UIImage imageNamed:@"rpm.png"] forState:UIControlStateNormal];
                 }
                     break;
                 default:
@@ -1467,7 +1467,11 @@
         //[self.sliderDashboardMinMax addSubview:self.bgMinMaxSpeed];
         [self updateCurrentValueAndCheckMinMax:50];
         NSLog(@"Here is min and max value : %d and %d",minValue,maxValue);
-        
+        NSDictionary *countValue = @{@"max" : [NSString stringWithFormat:@"%d",maxValue],
+                                     @"min" : [NSString stringWithFormat:@"%d",minValue],
+                                     @"enable" : @"0",
+                                     };
+        [self saveJsonFile:@"kmh.json" withDictionary:countValue];
 
     }
     self.viewSetSpeed.hidden = YES;
@@ -1503,6 +1507,9 @@
         [self.sliderDashboardCalories setMaximumValue:self.sliderSetCalories.value+1];
         
         [self.btnMaxCalories setTitle:[NSString stringWithFormat:@"%.0f",self.sliderSetCalories.value+1] forState:UIControlStateNormal];
+        
+        NSDictionary *countValue = @{@"max" : [NSString stringWithFormat:@"%.0f",self.sliderSetCalories.value+1] };
+        [self saveJsonFile:@"calories.json" withDictionary:countValue];
     }
     else
     {
@@ -1535,6 +1542,18 @@
     [_timer fire];
 }
 
+- (void)saveJsonFile:(NSString *)strZone withDictionary:(NSDictionary *)dictZone
+{
+    NSString *filepath = [[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"%@",strZone] ofType:@""];
+    
+    
+    //[[countValue JSONRepresentation] writeToFile:filepath atomically:YES encoding:NSUTF8StringEncoding error:NULL];
+    
+    NSData* jsonData = [NSJSONSerialization dataWithJSONObject:dictZone
+                                                       options:NSJSONWritingPrettyPrinted error:NULL];
+    [jsonData writeToFile:filepath atomically:YES];
+
+}
 - (void)updateCounter
 {
     if (counterTime < 1)

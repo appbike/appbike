@@ -1545,7 +1545,11 @@
 
 - (void)saveJsonFile:(NSString *)strZone withDictionary:(NSDictionary *)dictZone
 {
-    NSString *filepath = [[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"%@",strZone] ofType:@""];
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *filepath = [NSString stringWithFormat:@"%@/%@", documentsDirectory, strZone];
+    
+    //NSString *filepath = [[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"%@",strZone] ofType:@""];
     
     
     //[[countValue JSONRepresentation] writeToFile:filepath atomically:YES encoding:NSUTF8StringEncoding error:NULL];

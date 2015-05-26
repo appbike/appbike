@@ -100,12 +100,82 @@ static AppDelegate *myDelegate;
     appDelegate().strLog = @"";
     self.incrementIndex = 0;
     
-    self.dictSkinData = [self dictionaryWithContentsOfJSONString:@"skin.json"];
-    self.dictConstantData = [self dictionaryWithContentsOfJSONString:@"constant.json"];
-    self.dictCaloriesData = [self dictionaryWithContentsOfJSONString:@"calories.json"];
-    self.dictDashboardData = [self dictionaryWithContentsOfJSONString:@"dashboard.json"];
-    self.dictKMHData = [self dictionaryWithContentsOfJSONString:@"kmh.json"];
-    self.dictCounterData = [self dictionaryWithContentsOfJSONString:@"countdown.json"];
+    self.dictSkinData = [self dictionaryLocalContentsOfJSONString:@"skin.json"];
+    self.dictConstantData = [self dictionaryLocalContentsOfJSONString:@"constant.json"];
+    //self.dictCaloriesData = [self dictionaryWithContentsOfJSONString:@"calories.json"];
+    //self.dictDashboardData = [self dictionaryWithContentsOfJSONString:@"dashboard.json"];
+    //self.dictKMHData = [self dictionaryWithContentsOfJSONString:@"kmh.json"];
+    //self.dictCounterData = [self dictionaryWithContentsOfJSONString:@"countdown.json"];
+    
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    //NSString *filePath = [NSString stringWithFormat:@"%@/%@", documentsDirectory, @"myData.json"];
+   // NSLog(@"filePath %@", filePath);
+    
+    //Calories
+    NSString *filepath = [NSString stringWithFormat:@"%@/%@", documentsDirectory, @"calories.json"];
+    
+    BOOL fileExists = [[NSFileManager defaultManager] fileExistsAtPath:filepath];
+    if(fileExists)
+    {
+        self.dictCaloriesData = [self dictionaryWithContentsOfJSONString:@"calories.json"];
+    }
+    else
+    {
+        self.dictCaloriesData = @{@"max" : @"500" };
+        [self saveJsonFile:@"calories.json" withDictionary:self.dictCaloriesData];
+    }
+    
+    
+    //Dashboard
+    NSString *filepathDashboard = [[NSBundle mainBundle] pathForResource:@"dashboard.json" ofType:@""];
+    
+    BOOL fileExistsDashboard = [[NSFileManager defaultManager] fileExistsAtPath:filepathDashboard];
+    if(fileExistsDashboard)
+    {
+        self.dictDashboardData = [self dictionaryWithContentsOfJSONString:@"dashboard.json"];
+    }
+    else
+    {
+        self.dictDashboardData = @{@"topLeft": @"cal",
+                                   @"topRight" : @"km",
+                                   @"main" : @"kmh",
+                                   @"bottomLeft" : @"rpm",
+                                   @"bottomRight" : @"bpm" };
+        [self saveJsonFile:@"dashboard.json" withDictionary:self.dictDashboardData];
+    }
+    
+    //KMH
+    NSString *filepathKMH = [[NSBundle mainBundle] pathForResource:@"kmh.json" ofType:@""];
+    
+    BOOL fileExistsKMH = [[NSFileManager defaultManager] fileExistsAtPath:filepathKMH];
+    if(fileExistsKMH)
+    {
+        self.dictKMHData = [self dictionaryWithContentsOfJSONString:@"kmh.json"];
+    }
+    else
+    {
+        self.dictKMHData = @{@"min": @"20",
+                             @"max" : @"70",
+                             @"enable" : @"0" };
+        
+        [self saveJsonFile:@"kmh.json" withDictionary:self.dictKMHData];
+    }
+
+    //Countdown
+    NSString *filepathCount = [[NSBundle mainBundle] pathForResource:@"countdown.json" ofType:@""];
+    
+    BOOL fileExistsCount = [[NSFileManager defaultManager] fileExistsAtPath:filepathCount];
+    if(fileExistsCount)
+    {
+        self.dictCounterData = [self dictionaryWithContentsOfJSONString:@"countdown.json"];
+    }
+    else
+    {
+        self.dictCounterData = @{ @"value": @"5" };
+        [self saveJsonFile:@"countdown.json" withDictionary:self.dictCounterData];
+    }
     
     [self initializeLocationManager];
     
@@ -335,8 +405,9 @@ static AppDelegate *myDelegate;
     return [UIColor colorWithRed:((c & 0xff0000) >> 16)/255.0 green:((c & 0xff00) >> 8)/255.0 blue:(c & 0xff)/255.0 alpha:1.0];
 }
 
--(NSDictionary*)dictionaryWithContentsOfJSONString:(NSString*)fileLocation
+-(NSDictionary*)dictionaryLocalContentsOfJSONString:(NSString*)fileLocation
 {
+    
     NSString *filePath = [[NSBundle mainBundle] pathForResource:[fileLocation stringByDeletingPathExtension] ofType:[fileLocation pathExtension]];
     NSData* data = [NSData dataWithContentsOfFile:filePath];
     __autoreleasing NSError* error = nil;
@@ -347,6 +418,42 @@ static AppDelegate *myDelegate;
     // might be an NSArray as well!
     if (error != nil) return nil;
     return result;
+}
+-(NSDictionary*)dictionaryWithContentsOfJSONString:(NSString*)fileLocation
+{
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    
+    NSString *filePath = [NSString stringWithFormat:@"%@/%@", documentsDirectory, fileLocation];
+    
+   // NSString *filePath = [[NSBundle mainBundle] pathForResource:[fileLocation stringByDeletingPathExtension] ofType:[fileLocation pathExtension]];
+    NSData* data = [NSData dataWithContentsOfFile:filePath];
+    __autoreleasing NSError* error = nil;
+    id result = [NSJSONSerialization JSONObjectWithData:data
+                                                options:kNilOptions error:&error];
+    // Be careful here. You add this as a category to NSDictionary
+    // but you get an id back, which means that result
+    // might be an NSArray as well!
+    if (error != nil) return nil;
+    return result;
+}
+- (void)saveJsonFile:(NSString *)strZone withDictionary:(NSDictionary *)dictZone
+{
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *filepath = [NSString stringWithFormat:@"%@/%@", documentsDirectory, strZone];
+  
+    //NSString *filepath = [[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"%@",strZone] ofType:@""];
+    
+    
+    //[[countValue JSONRepresentation] writeToFile:filepath atomically:YES encoding:NSUTF8StringEncoding error:NULL];
+    
+    NSData* jsonData = [NSJSONSerialization dataWithJSONObject:dictZone
+                                                       options:NSJSONWritingPrettyPrinted error:NULL];
+    [jsonData writeToFile:filepath atomically:YES];
+    
 }
 #pragma mark - Convenience Constructors
 

@@ -177,7 +177,7 @@
 
 @property (strong, nonatomic) NSDictionary *dictJsonSession;
 @property (strong, nonatomic) NSDate *dtStartSession;
-
+@property (strong, nonatomic) IBOutlet UILabel *lblStopSaveSession;
 
 //Destination
 @property (strong, nonatomic) IBOutlet UIView  *viewDestination;
@@ -1787,73 +1787,137 @@
     if(btnPressed.tag == 1301)
     {
         
-        self.lblKMHText.hidden = YES;
-        counterTime = [[appDelegate().dictCounterData objectForKeyedSubscript:@"value"] intValue];
-        //Display Session save message here
-        [self.bleManager stopSession];
-        
-        appDelegate().isSessionStart = NO;
-        self.viewProgress.hidden = YES;
-        
-        [self.btnMapStart setTitle:@"START" forState:UIControlStateNormal];
-        [self.btnStartStop setTitle:@"START" forState:UIControlStateNormal];
-        
-        self.btnTopCycle.selected = NO;
-        
-        //Yes save session
-        
-        int newSessionID = [Session getMaxId];
-        
-        NSString *finalJson = [self convertDictToString:self.dictJsonSession];
-        NSDictionary *dictData = @{@"id":[NSString stringWithFormat:@"%d",newSessionID],
-                                   @"cal" : self.lblCalorieCount.text ? self.lblCalorieCount.text : @"0",
-                                   @"km" : self.lblKilometerCount.text ? self.lblKilometerCount.text : @"0",
-                                   @"json" : finalJson,
-                                   @"start" : self.dtStartSession ? self.dtStartSession : [NSDate date],
-                                   @"avgkm" : self.lblKilometerCount.text ? self.lblKilometerCount.text : @"0"
-                                   };
-        [Session addItemToSession:dictData];
-        
-        self.btnShare.hidden = NO;
-        self.btnShareYes.hidden = NO;
-        self.btnShareNo.hidden = NO;
-        appDelegate().strFromAddress = nil;
-        
-       // self.viewSaveSession.hidden = YES;
-        appDelegate().strToAddress = nil;
-        appDelegate().toLocation = nil;
-        
-        self.lblCalorieCount.text = @"0";
-        self.lblKilometerCount.text = @"0";
-        self.lblRPMCount.text = @"0";
-        self.lblBPMCount.text = @"0";
-        self.lblKmOrHour.text = @"0";
-        
-        self.viewMinMaxSpeed.hidden = YES;
-        self.viewCalories.hidden = YES;
-        self.viewNormalSpeed.hidden = NO;
-        
-        
-        //self.btnSkipSpeed.hidden = YES;
-        //self.btnSkipCalories.hidden = YES;
-        self.isSetCalories = NO;
-        self.isMinMaxSpeed = NO;
-        
-        
-        NSString *strCTime = [[NSUserDefaults standardUserDefaults] objectForKey:kCounterKey];
-        if(strCTime == nil)
+        if(![self.lblStopSaveSession.text isEqualToString:@"Stop Session?"])
         {
-            strCTime = @"5";
+           
+            
+            //Yes save session
+            
+            int newSessionID = [Session getMaxId];
+            
+            NSString *finalJson = [self convertDictToString:self.dictJsonSession];
+            NSDictionary *dictData = @{@"id":[NSString stringWithFormat:@"%d",newSessionID],
+                                       @"cal" : self.lblCalorieCount.text ? self.lblCalorieCount.text : @"0",
+                                       @"km" : self.lblKilometerCount.text ? self.lblKilometerCount.text : @"0",
+                                       @"json" : finalJson,
+                                       @"start" : self.dtStartSession ? self.dtStartSession : [NSDate date],
+                                       @"avgkm" : self.lblKilometerCount.text ? self.lblKilometerCount.text : @"0"
+                                       };
+            [Session addItemToSession:dictData];
+            
+            self.btnShare.hidden = NO;
+            self.btnShareYes.hidden = NO;
+            self.btnShareNo.hidden = NO;
+            appDelegate().strFromAddress = nil;
+            
+           // self.viewSaveSession.hidden = YES;
+            appDelegate().strToAddress = nil;
+            appDelegate().toLocation = nil;
+            
+            self.lblCalorieCount.text = @"0";
+            self.lblKilometerCount.text = @"0";
+            self.lblRPMCount.text = @"0";
+            self.lblBPMCount.text = @"0";
+            self.lblKmOrHour.text = @"0";
+            
+            self.viewMinMaxSpeed.hidden = YES;
+            self.viewCalories.hidden = YES;
+            self.viewNormalSpeed.hidden = NO;
+            
+            
+            //self.btnSkipSpeed.hidden = YES;
+            //self.btnSkipCalories.hidden = YES;
+            self.isSetCalories = NO;
+            self.isMinMaxSpeed = NO;
+            
+            
+            NSString *strCTime = [[NSUserDefaults standardUserDefaults] objectForKey:kCounterKey];
+            if(strCTime == nil)
+            {
+                strCTime = @"5";
+            }
+            
+            counterTime = [strCTime intValue];
+            
         }
-        
-        counterTime = [strCTime intValue];
+        else
+        {
+            self.lblStopSaveSession.text = @"Save Session?";
+            
+            self.lblKMHText.hidden = YES;
+            counterTime = [[appDelegate().dictCounterData objectForKeyedSubscript:@"value"] intValue];
+            //Display Session save message here
+            [self.bleManager stopSession];
+            
+            appDelegate().isSessionStart = NO;
+            self.viewProgress.hidden = YES;
+            
+            [self.btnMapStart setTitle:@"START" forState:UIControlStateNormal];
+            [self.btnStartStop setTitle:@"START" forState:UIControlStateNormal];
+            
+            self.btnTopCycle.selected = NO;
+        }
        
     }
     else
     {
         //No need to save session in db
-        self.viewSaveSession.hidden = YES;
-        
+        if([self.lblStopSaveSession.text isEqualToString:@"Stop Session?"])
+        {
+            self.viewSaveSession.hidden = YES;
+        }
+        else
+        {
+            //Not Save but reset session
+            self.viewSaveSession.hidden = YES;
+            
+            self.lblStopSaveSession.text = @"Stop Session?";
+            self.lblKMHText.hidden = YES;
+            counterTime = [[appDelegate().dictCounterData objectForKeyedSubscript:@"value"] intValue];
+            //Display Session save message here
+            [self.bleManager stopSession];
+            
+            appDelegate().isSessionStart = NO;
+            self.viewProgress.hidden = YES;
+            
+            [self.btnMapStart setTitle:@"START" forState:UIControlStateNormal];
+            [self.btnStartStop setTitle:@"START" forState:UIControlStateNormal];
+            
+            self.btnTopCycle.selected = NO;
+            //self.btnShare.hidden = NO;
+            //self.btnShareYes.hidden = NO;
+            //self.btnShareNo.hidden = NO;
+            appDelegate().strFromAddress = nil;
+            
+            // self.viewSaveSession.hidden = YES;
+            appDelegate().strToAddress = nil;
+            appDelegate().toLocation = nil;
+            
+            self.lblCalorieCount.text = @"0";
+            self.lblKilometerCount.text = @"0";
+            self.lblRPMCount.text = @"0";
+            self.lblBPMCount.text = @"0";
+            self.lblKmOrHour.text = @"0";
+            
+            self.viewMinMaxSpeed.hidden = YES;
+            self.viewCalories.hidden = YES;
+            self.viewNormalSpeed.hidden = NO;
+            
+            
+            //self.btnSkipSpeed.hidden = YES;
+            //self.btnSkipCalories.hidden = YES;
+            self.isSetCalories = NO;
+            self.isMinMaxSpeed = NO;
+            
+            
+            NSString *strCTime = [[NSUserDefaults standardUserDefaults] objectForKey:kCounterKey];
+            if(strCTime == nil)
+            {
+                strCTime = @"5";
+            }
+            
+            counterTime = [strCTime intValue];
+        }
     }
     
 }

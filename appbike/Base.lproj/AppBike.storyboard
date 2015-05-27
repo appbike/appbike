@@ -576,7 +576,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0LL-Z5-kSx">
-                                                <rect key="frame" x="0.0" y="36.000000204186179" width="320" height="1"/>
+                                                <rect key="frame" x="0.0" y="36" width="320" height="1"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
@@ -1328,7 +1328,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Save Session" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" id="ffb-au-JVN">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stop Session?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" id="ffb-au-JVN">
                                         <rect key="frame" x="50" y="50" width="220" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="RobotoCondensed-Regular" family="Roboto Condensed" pointSize="32"/>
@@ -1609,6 +1609,7 @@
                         <outlet property="lblRPMCount" destination="kj0-Wa-hEc" id="Ld7-nt-FcJ"/>
                         <outlet property="lblRPMText" destination="MKM-YP-7NW" id="w4h-Jv-6ZD"/>
                         <outlet property="lblSetCaloriesValue" destination="JyP-yf-cJk" id="cqP-RS-iBl"/>
+                        <outlet property="lblStopSaveSession" destination="ffb-au-JVN" id="5Oz-hl-fPC"/>
                         <outlet property="lblWattCount" destination="Pfy-VN-e5P" id="H99-dc-TGZ"/>
                         <outlet property="multisectorControl" destination="4Wy-dS-tJc" id="BoS-hG-Gno"/>
                         <outlet property="pieChartLeft" destination="d0X-4K-ohp" id="x43-h1-msJ"/>

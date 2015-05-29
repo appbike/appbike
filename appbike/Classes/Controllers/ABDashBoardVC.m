@@ -1028,6 +1028,7 @@
     self.lblBPMText.text = [self.dictUpdatedDashboardData objectForKey:@"bottomRight"];
     self.lblRPMText.text = [self.dictUpdatedDashboardData objectForKey:@"bottomLeft"];
     
+    [self saveJsonFile:@"dashboard.json" withDictionary:self.dictUpdatedDashboardData];
 }
 - (void)updateDashboardData:(int)tag
 {
@@ -1571,14 +1572,10 @@
         [[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithFormat:@"%d",index] forKey:kCounterKey];
         [[NSUserDefaults standardUserDefaults] synchronize];
         
-        NSString *filepath = [[NSBundle mainBundle] pathForResource:@"countdown.json" ofType:@""];
-        NSDictionary *countValue = @{@"value" : [NSString stringWithFormat:@"%d",index] };
+        NSDictionary *dictcounter = @{ @"value": [NSString stringWithFormat:@"%d",index] };
         
-        //[[countValue JSONRepresentation] writeToFile:filepath atomically:YES encoding:NSUTF8StringEncoding error:NULL];
+        [self saveJsonFile:@"countdown.json" withDictionary:dictcounter];
         
-        NSData* jsonData = [NSJSONSerialization dataWithJSONObject:countValue
-                                                           options:NSJSONWritingPrettyPrinted error:NULL];
-        [jsonData writeToFile:filepath atomically:YES];
         
         
         [self.bleManager getHeaderPacket]; //Uncomment this

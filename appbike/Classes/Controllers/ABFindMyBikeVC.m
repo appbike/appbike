@@ -22,6 +22,7 @@
 @property (nonatomic,strong) IBOutlet UILabel *lblUpdatedDate;
 //@property (nonatomic,strong) IBOutlet MKMapView *mapView;
 @property (nonatomic,strong) IBOutlet MapView *mapView;
+@property (nonatomic,strong) IBOutlet UIButton *btnLock;
 
 
 
@@ -94,6 +95,16 @@
          batDistance = batDistance/1000.0f;
          self.lblBetterLifeKm.text = [NSString stringWithFormat:@"%.0f km",batDistance];
          
+         int iAlaramWarning = [[[result objectForKey:@"alarm"] objectForKey:@"warning"] intValue];
+         
+         if(iAlaramWarning == 1)
+         {
+             self.btnLock.selected = YES;
+         }
+         else
+         {
+             self.btnLock.selected = NO;
+         }
          
          Place* home = [[Place alloc] init];
          home.name = @"User";

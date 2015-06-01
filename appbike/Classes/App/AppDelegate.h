@@ -38,6 +38,8 @@
 @property (nonatomic, strong) NSDictionary *dictDashboardData;
 @property (nonatomic, strong) NSDictionary *dictKMHData;
 @property (nonatomic, strong) NSDictionary *dictCaloriesData;
+
+@property (nonatomic, strong) NSDictionary *dictCurrentSessionData;
 @property (nonatomic, strong) ABDashBoardVC *dashboardVC;
 @property (nonatomic) int assitantLevelCount;
 

@@ -11,7 +11,7 @@
 #import "ABBatteryInformation.h"
 #import "Session+Utils.h"
 #import <FacebookSDK/FacebookSDK.h>
-
+#import "AppDelegate.h"
 
 @interface ABHistoryListVC ()
 {
@@ -37,6 +37,7 @@
 @property (nonatomic, strong) IBOutlet UIButton *btnTotalDistance;
 @property (nonatomic, strong) IBOutlet UIButton *btnTotalMins;
 @property (nonatomic, strong) IBOutlet UIButton *btnTotalCal;
+@property (strong, nonatomic) NSTimer *timer;
 
 @end
 
@@ -55,6 +56,51 @@
     [self.tblHistory reloadData];
     
     //[self postWithText:@"Hello" ImageName:@"logo.png" URL:@"" Caption:@"AppBike" Name:@"AppBike" andDescription:@"Description"];
+    
+//    if(self.arrSession > 0)
+//    {
+//        NSArray *allFav = [NSArray arrayWithArray:[Session getAllSessionItems]];
+//        NSMutableDictionary *jsonDictionary = [NSMutableDictionary dictionaryWithObject:(NSArray *)allFav forKey:@"objects"];
+//        [self saveJsonFile:@"mapping.json" withDictionary:jsonDictionary];
+//        
+//    }
+
+    if(appDelegate().isSessionStart)
+    {
+        if(_timer)
+            [_timer invalidate];
+        
+        _timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateBetteryData) userInfo:nil repeats:YES];
+        [_timer fire];
+    }
+    
+}
+
+- (void)saveJsonFile:(NSString *)strZone withDictionary:(NSDictionary *)dictZone
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *filepath = [NSString stringWithFormat:@"%@/%@", documentsDirectory, strZone];
+    
+    //NSString *filepath = [[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"%@",strZone] ofType:@""];
+    
+    
+    //[[countValue JSONRepresentation] writeToFile:filepath atomically:YES encoding:NSUTF8StringEncoding error:NULL];
+    
+    NSData* jsonData = [NSJSONSerialization dataWithJSONObject:dictZone
+                                                       options:NSJSONWritingPrettyPrinted error:NULL];
+    [jsonData writeToFile:filepath atomically:YES];
+    
+}
+
+- (void)updateBetteryData
+{
+    
+    NSLog(@"Updating bettery data");
+    NSDictionary *dictParam = @{@"Autonomy" : [appDelegate().dictCurrentSessionData objectForKey:@"Autonomy"],
+                                @"AutonomyDistance" : [appDelegate().dictCurrentSessionData objectForKey:@"AutonomyDistance"]};
+    
+    [statusBarView setBatteryLevel:appDelegate().dictCurrentSessionData];
 }
 
 - (IBAction)selectFilter:(id)sender
@@ -284,6 +330,10 @@
     totalCal = 0;
     totalDistance = 0;
     totalMin = 0;
+    
+    [self.btnTotalCal setTitle:[NSString stringWithFormat:@"%.0f",totalCal] forState:UIControlStateNormal];
+    [self.btnTotalDistance setTitle:[NSString stringWithFormat:@"%.0f",totalDistance] forState:UIControlStateNormal];
+    [self.btnTotalMins setTitle:[NSString stringWithFormat:@"%.0f",totalMin] forState:UIControlStateNormal];
     Session *thisSession = [self.arrSession objectAtIndex:index];
     [thisSession removeItemFromSession];
     [self.arrSession removeObjectAtIndex:index];

@@ -2464,7 +2464,7 @@
         self.lblWattCount.text = voltage;
 
         self.dictJsonSession = dictionary;
-        
+        appDelegate().dictCurrentSessionData  = dictionary;
         
         //Here is new code
         //Display values as per label position set

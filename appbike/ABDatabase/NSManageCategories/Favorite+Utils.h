@@ -20,5 +20,8 @@
 - (void)removeItemFromFavorite;
 + (NSArray *)getHomeFavorite;
 + (NSArray *)getOtherFavorite;
++ (NSString *)getJsonString;
+
+
 
 @end

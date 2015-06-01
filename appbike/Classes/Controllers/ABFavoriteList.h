@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "REFrostedViewController.h"
+#import <CoreData/CoreData.h>
 
 @interface ABFavoriteList : UIViewController
 
+- (NSDictionary*)dataStructureFromManagedObject:(NSManagedObject*)managedObject;
 @end

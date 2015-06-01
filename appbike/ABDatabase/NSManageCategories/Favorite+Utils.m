@@ -77,6 +77,25 @@
     }];
 }
 
++ (NSString *)getJsonString
+{
+    NSMutableDictionary *dictData = [[NSMutableDictionary alloc] init];
+    
+    NSArray *arrFav = [self getOtherFavorite];
+    NSMutableArray *arrFavJson = [[NSMutableArray alloc] init];
+    NSString *strJson = @"";
+    for(int i=0; i < arrFav.count; i++)
+    {
+        Favorite *thisFav = [arrFav objectAtIndex:i];
+        //NSDictionary *dictObject = @{@"label" : thisFav.f_title,
+        //strJson = [strJson stringByAppendingString:[NSString stringWithFormat:@"%@"]];
+
+                                     
+    }
+    
+    return strJson;
+}
+
 + (void)addItemToFavorite:(NSDictionary *)data
 {
     NSManagedObjectContext *context = [NSManagedObjectContext MR_contextForCurrentThread];

@@ -12,7 +12,10 @@
 #import "ABBatteryInformation.h"
 #import "AppDelegate.h"
 #import "SBJSON.h"
+#import "Favorite+Utils.h"
 #import "CoreData+MagicalRecord.h"
+#import "NSArray+NullReplace.h"
+#import "NSDictionary+NullReplace.h"
 
 @interface ABFavoriteList ()
 {
@@ -118,9 +121,16 @@
     
     if(self.arrFavorites > 0)
     {
-        //NSArray *allFav = [NSArray arrayWithArray:[Favorite getAllFavoriteItems]];
+        NSArray *allFav = [NSArray arrayWithArray:[Favorite getAllFavoriteItems]];
         
+        Favorite *thisFavorite;
+        NSData *jsonData = [allFav MakeJsonStringFromArray:allFav Mangedobjectname:thisFavorite];
         
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString *documentsDirectory = [paths objectAtIndex:0];
+        NSString *filepath = [NSString stringWithFormat:@"%@/favorites.json", documentsDirectory];
+        
+        [jsonData writeToFile:filepath atomically:YES];
         //NSMutableDictionary *jsonDictionary = [[NSMutableDictionary alloc] init];// = [NSMutableDictionary dictionaryWithObject:(NSArray *)allFav forKey:@"favorites"];
         
         

@@ -869,7 +869,7 @@
     }
     
     NSString *strTopRight = [self.dictUpdatedDashboardData valueForKey:@"topRight"];
-    if([strTopLeft isEqualToString:@"cal"])
+    if([strTopRight isEqualToString:@"cal"])
     {
         self.goalStarSub1.hidden = NO;
     }
@@ -1510,7 +1510,7 @@
         
         [self.btnMaxCalories setTitle:[NSString stringWithFormat:@"%.0f",self.sliderSetCalories.value+1] forState:UIControlStateNormal];
         
-        NSDictionary *countValue = @{@"max" : [NSString stringWithFormat:@"%.0f",self.sliderSetCalories.value+1] };
+        NSDictionary *countValue = @{@"max" : [NSString stringWithFormat:@"%.0f",self.sliderSetCalories.value+1],@"enabled" : @"1" };
         [self saveJsonFile:@"calories.json" withDictionary:countValue];
     }
     else

@@ -12,6 +12,7 @@
 #import "Session+Utils.h"
 #import <FacebookSDK/FacebookSDK.h>
 #import "AppDelegate.h"
+#import "NSArray+NullReplace.h"
 
 @interface ABHistoryListVC ()
 {
@@ -57,13 +58,33 @@
     
     //[self postWithText:@"Hello" ImageName:@"logo.png" URL:@"" Caption:@"AppBike" Name:@"AppBike" andDescription:@"Description"];
     
-//    if(self.arrSession > 0)
-//    {
+    if(self.arrSession > 0)
+    {
+       
+        //NSMutableDictionary *jsonDictionary = [NSMutableDictionary dictionaryWithObject:(NSArray *)allFav forKey:@"objects"];
+        //[self saveJsonFile:@"mapping.json" withDictionary:jsonDictionary];
+        
+//    
 //        NSArray *allFav = [NSArray arrayWithArray:[Session getAllSessionItems]];
-//        NSMutableDictionary *jsonDictionary = [NSMutableDictionary dictionaryWithObject:(NSArray *)allFav forKey:@"objects"];
-//        [self saveJsonFile:@"mapping.json" withDictionary:jsonDictionary];
-//        
-//    }
+//            
+//            Session *thisFavorite;
+//            NSData *jsonData = [allFav MakeJsonStringFromArray:allFav Mangedobjectname:thisFavorite];
+//            
+//            NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+//            NSString *documentsDirectory = [paths objectAtIndex:0];
+//            NSString *filepath = [NSString stringWithFormat:@"%@/mapping.json", documentsDirectory];
+//            
+//            [jsonData writeToFile:filepath atomically:YES];
+
+            
+            
+            
+            //[self saveJsonFile:@"favorites.json" withDictionary:jsonDictionary];
+            
+            
+        
+        
+    }
 
     if(appDelegate().isSessionStart)
     {

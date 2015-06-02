@@ -92,6 +92,7 @@
 //            secondViewController.isDisplayDestination = NO;
 //            navigationController.viewControllers = @[secondViewController];
 //            self.frostedViewController.contentViewController = navigationController;
+            btnPressed.selected = !btnPressed.selected;
             
         }
             break;

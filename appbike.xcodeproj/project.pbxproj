@@ -89,6 +89,8 @@
 		CF3B6B191B19FD8400F0321D /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = CF3B6B111B19FD8400F0321D /* SBJsonBase.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		CF3B6B1A1B19FD8400F0321D /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = CF3B6B131B19FD8400F0321D /* SBJsonParser.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		CF3B6B1B1B19FD8400F0321D /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = CF3B6B151B19FD8400F0321D /* SBJsonWriter.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CF3B6B211B1C4B4B00F0321D /* NSArray+NullReplace.m in Sources */ = {isa = PBXBuildFile; fileRef = CF3B6B1E1B1C4B4B00F0321D /* NSArray+NullReplace.m */; };
+		CF3B6B221B1C4B4B00F0321D /* NSDictionary+NullReplace.m in Sources */ = {isa = PBXBuildFile; fileRef = CF3B6B201B1C4B4B00F0321D /* NSDictionary+NullReplace.m */; };
 		CF4934BA1B0B13C7007C7340 /* ABLeftMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CF4934B91B0B13C7007C7340 /* ABLeftMenuCell.m */; };
 		CF4934BE1B0B9512007C7340 /* dashboard_menu_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = CF4934BB1B0B9512007C7340 /* dashboard_menu_selected.png */; };
 		CF4934BF1B0B9512007C7340 /* dashboard_menu_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CF4934BC1B0B9512007C7340 /* dashboard_menu_selected@2x.png */; };
@@ -747,6 +749,10 @@
 		CF3B6B131B19FD8400F0321D /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
 		CF3B6B141B19FD8400F0321D /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
 		CF3B6B151B19FD8400F0321D /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
+		CF3B6B1D1B1C4B4B00F0321D /* NSArray+NullReplace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+NullReplace.h"; sourceTree = "<group>"; };
+		CF3B6B1E1B1C4B4B00F0321D /* NSArray+NullReplace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+NullReplace.m"; sourceTree = "<group>"; };
+		CF3B6B1F1B1C4B4B00F0321D /* NSDictionary+NullReplace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+NullReplace.h"; sourceTree = "<group>"; };
+		CF3B6B201B1C4B4B00F0321D /* NSDictionary+NullReplace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+NullReplace.m"; sourceTree = "<group>"; };
 		CF4934B81B0B13C7007C7340 /* ABLeftMenuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABLeftMenuCell.h; sourceTree = "<group>"; };
 		CF4934B91B0B13C7007C7340 /* ABLeftMenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABLeftMenuCell.m; sourceTree = "<group>"; };
 		CF4934BB1B0B9512007C7340 /* dashboard_menu_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dashboard_menu_selected.png; sourceTree = "<group>"; };
@@ -1574,6 +1580,7 @@
 		66E197CB1A5FB332003D1A9B /* External APIS */ = {
 			isa = PBXGroup;
 			children = (
+				CF3B6B1C1B1C4B4B00F0321D /* NullReplaceAndJsonString */,
 				CF3B6B081B19FD8400F0321D /* JSON */,
 				CFE87E811AE2652200E4478F /* XYPieChart */,
 				CFBB9F6E1AD91AF7000DDE89 /* REFrostedViewController */,
@@ -1763,6 +1770,17 @@
 				CF3B6B151B19FD8400F0321D /* SBJsonWriter.m */,
 			);
 			path = JSON;
+			sourceTree = "<group>";
+		};
+		CF3B6B1C1B1C4B4B00F0321D /* NullReplaceAndJsonString */ = {
+			isa = PBXGroup;
+			children = (
+				CF3B6B1D1B1C4B4B00F0321D /* NSArray+NullReplace.h */,
+				CF3B6B1E1B1C4B4B00F0321D /* NSArray+NullReplace.m */,
+				CF3B6B1F1B1C4B4B00F0321D /* NSDictionary+NullReplace.h */,
+				CF3B6B201B1C4B4B00F0321D /* NSDictionary+NullReplace.m */,
+			);
+			path = NullReplaceAndJsonString;
 			sourceTree = "<group>";
 		};
 		CF6E22BC1AEB84B5007E829C /* Localization */ = {
@@ -3278,6 +3296,7 @@
 				CFD15E521AD14B2500AE6A12 /* NSManagedObjectContext+MagicalRecord.m in Sources */,
 				CFF9506E1ADE5DFA004FCFED /* Favorite.m in Sources */,
 				CFD15E571AD14B2500AE6A12 /* NSPersistentStoreCoordinator+MagicalRecord.m in Sources */,
+				CF3B6B221B1C4B4B00F0321D /* NSDictionary+NullReplace.m in Sources */,
 				66AF00E91A6A780500342647 /* SPGooglePlacesPlaceDetailQuery.m in Sources */,
 				CFBB9F691AD84616000DDE89 /* ABFindMyBikeVC.m in Sources */,
 				CFBABC611AD2EF46008AEA7B /* SAMultisectorControl.m in Sources */,
@@ -3307,6 +3326,7 @@
 				CFD15E5D1AD14B2500AE6A12 /* MagicalRecord+ShorthandSupport.m in Sources */,
 				66F3D3451A63869400E87424 /* ABDashBoardVC.m in Sources */,
 				CFE87EFB1AE2BCDD00E4478F /* ABHistoryCell.m in Sources */,
+				CF3B6B211B1C4B4B00F0321D /* NSArray+NullReplace.m in Sources */,
 				66AF00DC1A6A77E000342647 /* ABLocationAutoCompleteVC.m in Sources */,
 				66F3D3541A63A3EC00E87424 /* ABBatteryInformation.m in Sources */,
 				CFBABC601AD2EF46008AEA7B /* SAMath.m in Sources */,

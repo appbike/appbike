@@ -1450,6 +1450,12 @@
         self.viewMinMaxSpeed.hidden = YES;
         self.viewCalories.hidden = YES;
         self.viewNormalSpeed.hidden = NO;
+        
+        NSDictionary *countValue = @{@"max" : [NSString stringWithFormat:@"%d",maxValue],
+                                     @"min" : [NSString stringWithFormat:@"%d",minValue],
+                                     @"enable" : @"0",
+                                     };
+        [self saveJsonFile:@"kmh.json" withDictionary:countValue];
      
     }
     else
@@ -1471,7 +1477,7 @@
         NSLog(@"Here is min and max value : %d and %d",minValue,maxValue);
         NSDictionary *countValue = @{@"max" : [NSString stringWithFormat:@"%d",maxValue],
                                      @"min" : [NSString stringWithFormat:@"%d",minValue],
-                                     @"enable" : @"0",
+                                     @"enable" : @"1",
                                      };
         [self saveJsonFile:@"kmh.json" withDictionary:countValue];
 
@@ -1519,6 +1525,8 @@
         self.viewMinMaxSpeed.hidden = YES;
         self.viewCalories.hidden = YES;
         self.viewNormalSpeed.hidden = NO;
+        NSDictionary *countValue = @{@"max" : [NSString stringWithFormat:@"%.0f",self.sliderSetCalories.value+1],@"enabled" : @"0" };
+        [self saveJsonFile:@"calories.json" withDictionary:countValue];
     }
     NSLog(@"We have new updated calory value : %f",self.sliderSetCalories.value+1);
     self.viewSetCalories.hidden = YES;

@@ -41,8 +41,9 @@
         
         for (NSString *attributeName in attributes) {
             id value = [objectname valueForKey:attributeName];
-            if (value != nil) {
-                [dict setValue:value forKey:attributeName];
+            if (value != nil)
+            {
+                [dict setValue:[NSString stringWithFormat:@"%@",value] forKey:attributeName];
             }
         }
         

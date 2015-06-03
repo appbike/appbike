@@ -124,13 +124,14 @@ static AppDelegate *myDelegate;
     }
     else
     {
-        self.dictCaloriesData = @{@"max" : @"500" };
+        self.dictCaloriesData = @{@"max" : @"500",@"enabled" : @"0" };
         [self saveJsonFile:@"calories.json" withDictionary:self.dictCaloriesData];
     }
     
     
     //Dashboard
-    NSString *filepathDashboard = [[NSBundle mainBundle] pathForResource:@"dashboard.json" ofType:@""];
+    NSString *filepathDashboard = [NSString stringWithFormat:@"%@/%@", documentsDirectory, @"dashboard.json"];
+   // NSString *filepathDashboard = [[NSBundle mainBundle] pathForResource:@"dashboard.json" ofType:@""];
     
     BOOL fileExistsDashboard = [[NSFileManager defaultManager] fileExistsAtPath:filepathDashboard];
     if(fileExistsDashboard)
@@ -148,7 +149,8 @@ static AppDelegate *myDelegate;
     }
     
     //KMH
-    NSString *filepathKMH = [[NSBundle mainBundle] pathForResource:@"kmh.json" ofType:@""];
+    NSString *filepathKMH = [NSString stringWithFormat:@"%@/%@", documentsDirectory, @"kmh.json"];
+    //NSString *filepathKMH = [[NSBundle mainBundle] pathForResource:@"kmh.json" ofType:@""];
     
     BOOL fileExistsKMH = [[NSFileManager defaultManager] fileExistsAtPath:filepathKMH];
     if(fileExistsKMH)
@@ -159,13 +161,14 @@ static AppDelegate *myDelegate;
     {
         self.dictKMHData = @{@"min": @"20",
                              @"max" : @"70",
-                             @"enable" : @"0" };
+                             @"enabled" : @"0" };
         
         [self saveJsonFile:@"kmh.json" withDictionary:self.dictKMHData];
     }
 
     //Countdown
-    NSString *filepathCount = [[NSBundle mainBundle] pathForResource:@"countdown.json" ofType:@""];
+    NSString *filepathCount = [NSString stringWithFormat:@"%@/%@", documentsDirectory, @"countdown.json"];
+   // NSString *filepathCount = [[NSBundle mainBundle] pathForResource:@"countdown.json" ofType:@""];
     
     BOOL fileExistsCount = [[NSFileManager defaultManager] fileExistsAtPath:filepathCount];
     if(fileExistsCount)

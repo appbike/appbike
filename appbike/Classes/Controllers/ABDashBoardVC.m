@@ -1358,6 +1358,7 @@
 - (void)setupMultiSelectorControl
 {
     
+    //self.multisectorControl = nil;
     [self.multisectorControl removeAllSectors];
     [self.multisectorControl addTarget:self action:@selector(multisectorValueChanged:) forControlEvents:UIControlEventValueChanged];
     
@@ -1406,6 +1407,7 @@
 {
     
     self.lblMinMaxSpeedValue.text = [NSString stringWithFormat:@"%d",speed];
+    //self.sliderDashboardMinMax = nil;
     [self.sliderDashboardMinMax removeAllSectors];
     UIColor *greenColor = [UIColor colorWithRed:42.0/255.0 green:133.0/255.0 blue:202/255.0 alpha:1.0];
     

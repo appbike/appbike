@@ -237,10 +237,84 @@
     self.lblRPMText.text = [appDelegate().dictDashboardData objectForKey:@"bottomLeft"];
     self.lblBPMText.text = [appDelegate().dictDashboardData objectForKey:@"bottomRight"];
     
-    [self.btnCaloriesMenu setImage:[UIImage imageNamed:@"cal.png"] forState:UIControlStateNormal];
-    [self.btnKMMenu setImage:[UIImage imageNamed:@"kilometer.png"] forState:UIControlStateNormal];
-    [self.btnRPM setImage:[UIImage imageNamed:@"rpm.png"] forState:UIControlStateNormal];
-    [self.btnBPM setImage:[UIImage imageNamed:@"bpm.png"] forState:UIControlStateNormal];
+    NSString *strTopLeft = [appDelegate().dictDashboardData valueForKey:@"topLeft"];
+    NSString *strTopRight = [appDelegate().dictDashboardData valueForKey:@"topRight"];
+    NSString *strBottomLeft = [appDelegate().dictDashboardData valueForKey:@"bottomLeft"];
+    NSString *strBottomRight = [appDelegate().dictDashboardData valueForKey:@"bottomRight"];
+    
+    if([strTopLeft isEqualToString:@"cal"])
+    {
+        [self.btnCaloriesMenu setImage:[UIImage imageNamed:@"cal.png"] forState:UIControlStateNormal];
+    }
+    if([strTopLeft isEqualToString:@"km"])
+    {
+        [self.btnCaloriesMenu setImage:[UIImage imageNamed:@"kilometer.png"] forState:UIControlStateNormal];
+    }
+    if([strTopLeft isEqualToString:@"rpm"])
+    {
+        [self.btnCaloriesMenu setImage:[UIImage imageNamed:@"rpm.png"] forState:UIControlStateNormal];
+    }
+    if([strTopLeft isEqualToString:@"bpm"])
+    {
+        [self.btnCaloriesMenu setImage:[UIImage imageNamed:@"bpm.png"] forState:UIControlStateNormal];
+    }
+    
+    //top right
+    if([strTopRight isEqualToString:@"cal"])
+    {
+        [self.btnKMMenu setImage:[UIImage imageNamed:@"cal.png"] forState:UIControlStateNormal];
+    }
+    if([strTopRight isEqualToString:@"km"])
+    {
+        [self.btnKMMenu setImage:[UIImage imageNamed:@"kilometer.png"] forState:UIControlStateNormal];
+    }
+    if([strTopRight isEqualToString:@"rpm"])
+    {
+        [self.btnKMMenu setImage:[UIImage imageNamed:@"rpm.png"] forState:UIControlStateNormal];
+    }
+    if([strTopRight isEqualToString:@"bpm"])
+    {
+        [self.btnKMMenu setImage:[UIImage imageNamed:@"bpm.png"] forState:UIControlStateNormal];
+    }
+
+    //bottom left
+    if([strBottomLeft isEqualToString:@"cal"])
+    {
+        [self.btnRPM setImage:[UIImage imageNamed:@"cal.png"] forState:UIControlStateNormal];
+    }
+    if([strBottomLeft isEqualToString:@"km"])
+    {
+        [self.btnRPM setImage:[UIImage imageNamed:@"kilometer.png"] forState:UIControlStateNormal];
+    }
+    if([strBottomLeft isEqualToString:@"rpm"])
+    {
+       [self.btnRPM setImage:[UIImage imageNamed:@"rpm.png"] forState:UIControlStateNormal];
+    }
+    if([strBottomLeft isEqualToString:@"bpm"])
+    {
+        [self.btnRPM setImage:[UIImage imageNamed:@"bpm.png"] forState:UIControlStateNormal];
+    }
+
+    //bottom Right
+    if([strBottomRight isEqualToString:@"cal"])
+    {
+        [self.btnBPM setImage:[UIImage imageNamed:@"cal.png"] forState:UIControlStateNormal];
+    }
+    if([strBottomRight isEqualToString:@"km"])
+    {
+        [self.btnBPM setImage:[UIImage imageNamed:@"kilometer.png"] forState:UIControlStateNormal];
+    }
+    if([strBottomRight isEqualToString:@"rpm"])
+    {
+        [self.btnBPM setImage:[UIImage imageNamed:@"rpm.png"] forState:UIControlStateNormal];
+    }
+    if([strBottomRight isEqualToString:@"bpm"])
+    {
+         [self.btnBPM setImage:[UIImage imageNamed:@"bpm.png"] forState:UIControlStateNormal];
+    }
+    
+    //[self.btnRPM setImage:[UIImage imageNamed:@"rpm.png"] forState:UIControlStateNormal];
+    //[self.btnBPM setImage:[UIImage imageNamed:@"bpm.png"] forState:UIControlStateNormal];
 }
 
 - (void)registerForNotifications {
@@ -1045,6 +1119,7 @@
     self.lblBPMText.text = [self.dictUpdatedDashboardData objectForKey:@"bottomRight"];
     self.lblRPMText.text = [self.dictUpdatedDashboardData objectForKey:@"bottomLeft"];
     
+    appDelegate().dictDashboardData = self.dictUpdatedDashboardData;
     [self saveJsonFile:@"dashboard.json" withDictionary:self.dictUpdatedDashboardData];
 }
 - (void)updateDashboardData:(int)tag

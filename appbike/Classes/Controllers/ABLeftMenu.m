@@ -114,6 +114,7 @@
             {
                 ABDashBoardVC *secondViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"ABDashBoardVC"];
                 secondViewController.isDisplayDestination = YES;
+                secondViewController.isSecondTime = YES;
                 navigationController.viewControllers = @[secondViewController];
                 
     //            appDelegate().dashboardVC.isDisplayDestination = YES;
@@ -175,6 +176,7 @@
             //Dashboard
                         ABDashBoardVC *secondViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"ABDashBoardVC"];
                         secondViewController.isDisplayDestination = NO;
+            secondViewController.isSecondTime = YES;
                         navigationController.viewControllers = @[secondViewController];
                         self.frostedViewController.contentViewController = navigationController;
         }

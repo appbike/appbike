@@ -30,6 +30,7 @@
 
 @property (nonatomic) SelectedSensorType currentSelectedSensorType;
 @property (nonatomic) BOOL isDisplayDestination;
+@property (nonatomic) BOOL isSecondTime;
 
 - (IBAction)showLeftMenu:(id)sender;
 - (void)showDestination;

@@ -338,13 +338,17 @@
             //  [self.btnUserName setTitle:fbUserName forState:UIControlStateNormal];
             // [self.btnUserImg setBackgroundImage:[UIImage imageWithData:imgData] forState:UIControlStateNormal];
             appDelegate().userProfileImage = imgData;
-            self.sliderDashboardSpeed.thumbImage = [UIImage imageWithData:imgData];
-            [self.sliderDashboardSpeed addProfileImage];
             
-            self.sliderDashboardCalories.thumbImage = [UIImage imageWithData:imgData];
-            [self.sliderDashboardCalories addProfileImage];
-            
-            [self.sliderDashboardMinMax setProfileImage:[UIImage imageWithData:imgData]];
+            if(!appDelegate().isSessionStart)
+            {
+                self.sliderDashboardSpeed.thumbImage = [UIImage imageWithData:imgData];
+                [self.sliderDashboardSpeed addProfileImage];
+                
+                self.sliderDashboardCalories.thumbImage = [UIImage imageWithData:imgData];
+                [self.sliderDashboardCalories addProfileImage];
+                
+                [self.sliderDashboardMinMax setProfileImage:[UIImage imageWithData:imgData]];
+            }
            // [self dismissViewControllerAnimated:YES completion:^{
                 
             //}];
@@ -362,15 +366,19 @@
 {
     [super viewDidLoad];
     
+    if(self.isSecondTime)
+        return;
     NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
     [nc addObserver:self selector:@selector(leftMenuPressed:)
                name:MenuItemNotification object:nil];
     
   
     indexLoc = 0;
+    
     [self registerForNotifications];
     [self loadDashboardData];
-    [self setupMultiSelectorControl]; //For Set speed range
+    //if(!self.isSecondTime)
+        [self setupMultiSelectorControl]; //For Set speed range
     
     [self.assistantLevelView UpdateCurrentAssitanceLevel];
     
@@ -550,7 +558,8 @@
     
     self.sliderDashboardMinMax.isDisplayCurrentValue = YES;
     
-    [self updateCurrentValueAndCheckMinMax:50];
+    if(!self.isSecondTime)
+        [self updateCurrentValueAndCheckMinMax:50];
     
     
     //Search Destination
@@ -625,6 +634,8 @@
 {
     [super viewWillDisappear:animated];
     //[self unregisterFromNotifications];
+    //[self.multisectorControl removeFromSuperview];
+    //[self.sliderDashboardMinMax]
 }
 
 - (void)viewWillLayoutSubviews
@@ -647,49 +658,55 @@
         }completion:nil];
     }
     [super viewWillAppear:animated];
+    [self.view setNeedsDisplay];
     
 }
 -(void)viewDidAppear:(BOOL)animated
 {
 
-    //Uncoment this after testing complete
-    if (![[NSUserDefaults standardUserDefaults] boolForKey:kIsLoginWithFB])
+    if (!appDelegate().dashboardVC.isSecondTime)
     {
-        UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"AppBike" bundle:nil];
-        
-        ABFBLoginVC *loginVC =  (ABFBLoginVC *)[storyBoard instantiateViewControllerWithIdentifier:@"ABFBLoginVC"];
-        
-        [self.navigationController presentViewController:loginVC animated:YES completion:^{
-            
-        }];
-    }
-    else
-    {
-        
-
-    if([FBSession activeSession].state == FBSessionStateClosed)
+    
+    
+        //Uncoment this after testing complete
+        if (![[NSUserDefaults standardUserDefaults] boolForKey:kIsLoginWithFB])
         {
+            UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"AppBike" bundle:nil];
             
-            [FBSession openActiveSessionWithPublishPermissions:@[@"public_profile,publish_actions"] defaultAudience:FBSessionDefaultAudienceEveryone allowLoginUI:YES completionHandler:^(FBSession *session, FBSessionState status, NSError *error) {
-                [FBSession setActiveSession:session];
-                [self sessionStateChanged:session state:status error:error];
+            ABFBLoginVC *loginVC =  (ABFBLoginVC *)[storyBoard instantiateViewControllerWithIdentifier:@"ABFBLoginVC"];
+            
+            [self.navigationController presentViewController:loginVC animated:YES completion:^{
+                
             }];
         }
-        
-        [self loadUserProfileImage];
-        
-       
-    }
-    
-    
-    
-//    if(IS_IPHONE_6)
+        else
+        {
+            
 
-    
-    appDelegate().dashboardVC = self;
-    [super viewDidAppear:animated];
-    
-    [self.pieChartLeft reloadData];
+        if([FBSession activeSession].state == FBSessionStateClosed)
+            {
+                
+                [FBSession openActiveSessionWithPublishPermissions:@[@"public_profile,publish_actions"] defaultAudience:FBSessionDefaultAudienceEveryone allowLoginUI:YES completionHandler:^(FBSession *session, FBSessionState status, NSError *error) {
+                    [FBSession setActiveSession:session];
+                    [self sessionStateChanged:session state:status error:error];
+                }];
+            }
+            
+            [self loadUserProfileImage];
+            
+           
+        }
+        
+        
+        
+    //    if(IS_IPHONE_6)
+
+        
+        appDelegate().dashboardVC = self;
+        [super viewDidAppear:animated];
+        
+        [self.pieChartLeft reloadData];
+    }
 }
 
 - (void)sessionStateChanged:(FBSession *)session state:(FBSessionState) state error:(NSError *)error
@@ -1358,6 +1375,7 @@
 - (void)setupMultiSelectorControl
 {
     
+    //Remove it from parent view
     //self.multisectorControl = nil;
     [self.multisectorControl removeAllSectors];
     [self.multisectorControl addTarget:self action:@selector(multisectorValueChanged:) forControlEvents:UIControlEventValueChanged];
@@ -1475,7 +1493,9 @@
         self.sliderDashboardMinMax.isDisplayCurrentValue = YES;
         self.currentSelectedSensorType = SelectedSensorTypeSpeedMinMax;
         //[self.sliderDashboardMinMax addSubview:self.bgMinMaxSpeed];
-        [self updateCurrentValueAndCheckMinMax:50];
+        if(!appDelegate().isSessionStart)
+            [self updateCurrentValueAndCheckMinMax:50];
+        
         NSLog(@"Here is min and max value : %d and %d",minValue,maxValue);
         NSDictionary *countValue = @{@"max" : [NSString stringWithFormat:@"%d",maxValue],
                                      @"min" : [NSString stringWithFormat:@"%d",minValue],

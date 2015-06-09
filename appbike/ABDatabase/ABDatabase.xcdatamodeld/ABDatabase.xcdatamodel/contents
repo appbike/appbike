@@ -13,6 +13,7 @@
         <attribute name="s_end" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="s_endlocation" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="s_id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="s_is_share" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="s_json" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="s_km" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="s_start" optional="YES" attributeType="Date" syncable="YES"/>
@@ -21,6 +22,6 @@
     </entity>
     <elements>
         <element name="Favorite" positionX="-63" positionY="45" width="128" height="120"/>
-        <element name="Session" positionX="-63" positionY="-18" width="128" height="195"/>
+        <element name="Session" positionX="-63" positionY="-18" width="128" height="210"/>
     </elements>
 </model>

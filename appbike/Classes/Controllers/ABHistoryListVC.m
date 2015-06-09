@@ -39,6 +39,7 @@
 @property (nonatomic, strong) IBOutlet UIButton *btnTotalMins;
 @property (nonatomic, strong) IBOutlet UIButton *btnTotalCal;
 @property (strong, nonatomic) NSTimer *timer;
+@property (nonatomic, strong) Session *shareSession;
 
 @end
 
@@ -259,6 +260,16 @@
     cell.btnDelete.tag = indexPath.row;
     cell.btnShare.tag = indexPath.row;
     
+    if([thisSession.s_is_share intValue] == 1)
+    {
+        cell.btnFB.hidden = NO;
+        cell.btnShare. hidden = YES;
+    }
+    else
+    {
+        cell.btnFB.hidden = YES;
+    }
+    
     if(indexPath.row == (self.arrSession.count-1))
     {
         //self.lblTotalCal.text = [NSString stringWithFormat:@""]
@@ -374,8 +385,8 @@
 
 - (void)shareThisAtIndex:(int)index
 {
-    Session *thisSession = [self.arrSession objectAtIndex:index];
-    NSString *strMessage = [NSString stringWithFormat:@"My App Bike Static is : %@",thisSession.s_json];
+    self.shareSession = (Session *)[self.arrSession objectAtIndex:index];
+    NSString *strMessage = [NSString stringWithFormat:@"My App Bike Static is : %@",self.shareSession.s_json];
     [self postWithText:strMessage ImageName:@"logo.png" URL:@"" Caption:@"AppBike" Name:@"AppBike" andDescription:@"Description"];
 }
 
@@ -453,7 +464,19 @@
                                        otherButtonTitles:nil];
              [alertView show];
          }
+         else
+         {
+             self.shareSession.s_is_share = @"1";
+             [self.shareSession saveWithCompletion:^(BOOL saved) {
+                 NSLog(@"Update session now refreshing");
+                 self.arrSession = [NSMutableArray arrayWithArray:[Session getAllSessionItems]];
+                 [self.tblHistory reloadData];
+             }];
+         }
          m_postingInProgress = NO;
+         
+                 //Need to update history record here;
+        
      }];
 }
 - (void)didReceiveMemoryWarning {

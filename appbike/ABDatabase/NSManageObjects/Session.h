@@ -22,6 +22,6 @@
 @property (nonatomic, retain) NSNumber * s_visible;
 @property (nonatomic, retain) NSString * s_startlocation;
 @property (nonatomic, retain) NSString * s_endlocation;
-
+@property (nonatomic, retain) NSString * s_is_share;
 
 @end

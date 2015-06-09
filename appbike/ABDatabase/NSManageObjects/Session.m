@@ -21,5 +21,5 @@
 @dynamic s_visible;
 @dynamic s_startlocation;
 @dynamic s_endlocation;
-
+@dynamic s_is_share;
 @end

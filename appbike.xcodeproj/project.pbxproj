@@ -146,6 +146,8 @@
 		CF9257FD1A923BC800B53F03 /* kilometer_transperent@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CF9257F11A923BC700B53F03 /* kilometer_transperent@2x.png */; };
 		CF9257FE1A923BC800B53F03 /* kilometer_transperent@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = CF9257F21A923BC700B53F03 /* kilometer_transperent@3x.png */; };
 		CF9258001A9335B900B53F03 /* constant.json in Resources */ = {isa = PBXBuildFile; fileRef = CF9257FF1A9335B800B53F03 /* constant.json */; };
+		CF933BE41B25E56F00F04C5E /* HR_monitor_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = CF933BE21B25E56F00F04C5E /* HR_monitor_selected.png */; };
+		CF933BE51B25E56F00F04C5E /* HR_monitor.png in Resources */ = {isa = PBXBuildFile; fileRef = CF933BE31B25E56F00F04C5E /* HR_monitor.png */; };
 		CFA638A21AD6D7A40045AF98 /* SessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CFA638A11AD6D7A40045AF98 /* SessionManager.m */; };
 		CFBABC511AD2E79F008AEA7B /* Session.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBABC501AD2E79F008AEA7B /* Session.m */; };
 		CFBABC551AD2E808008AEA7B /* Session+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBABC541AD2E808008AEA7B /* Session+Utils.m */; };
@@ -811,6 +813,8 @@
 		CF9257F11A923BC700B53F03 /* kilometer_transperent@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "kilometer_transperent@2x.png"; sourceTree = "<group>"; };
 		CF9257F21A923BC700B53F03 /* kilometer_transperent@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "kilometer_transperent@3x.png"; sourceTree = "<group>"; };
 		CF9257FF1A9335B800B53F03 /* constant.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = constant.json; sourceTree = "<group>"; };
+		CF933BE21B25E56F00F04C5E /* HR_monitor_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HR_monitor_selected.png; sourceTree = "<group>"; };
+		CF933BE31B25E56F00F04C5E /* HR_monitor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HR_monitor.png; sourceTree = "<group>"; };
 		CFA638A01AD6D7540045AF98 /* SessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SessionManager.h; path = appbike/Classes/SessionManager/SessionManager.h; sourceTree = SOURCE_ROOT; };
 		CFA638A11AD6D7A40045AF98 /* SessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionManager.m; sourceTree = "<group>"; };
 		CFBABC4F1AD2E79F008AEA7B /* Session.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Session.h; path = ABDatabase/NSManageObjects/Session.h; sourceTree = "<group>"; };
@@ -2613,6 +2617,8 @@
 		CFF94FFB1ADC3154004FCFED /* menuicons */ = {
 			isa = PBXGroup;
 			children = (
+				CF933BE21B25E56F00F04C5E /* HR_monitor_selected.png */,
+				CF933BE31B25E56F00F04C5E /* HR_monitor.png */,
 				CF4934BB1B0B9512007C7340 /* dashboard_menu_selected.png */,
 				CF4934BC1B0B9512007C7340 /* dashboard_menu_selected@2x.png */,
 				CF4934BD1B0B9512007C7340 /* dashboard_menu_selected@3x.png */,
@@ -2964,6 +2970,7 @@
 				CFD15D4D1ACF1E6500AE6A12 /* middlebar.png in Resources */,
 				CFC184691ACEE5E500FEFC0A /* icon1@3x.png in Resources */,
 				CFE87F931AE5837D00E4478F /* loc_refresh@3x.png in Resources */,
+				CF933BE41B25E56F00F04C5E /* HR_monitor_selected.png in Resources */,
 				66E197A61A5F8DB2003D1A9B /* LaunchScreen.xib in Resources */,
 				CFE87EDF1AE2996E00E4478F /* history_cal_white@2x.png in Resources */,
 				CFD15D511ACF1E6500AE6A12 /* pulse_selected@2x.png in Resources */,
@@ -3013,6 +3020,7 @@
 				CFF9505C1ADC3155004FCFED /* profile_selected.png in Resources */,
 				CFE87F7F1AE5837D00E4478F /* loc_battery4.png in Resources */,
 				CF26CCCC1AD6F1200049E8B8 /* Roboto-LightItalic.ttf in Resources */,
+				CF933BE51B25E56F00F04C5E /* HR_monitor.png in Resources */,
 				CFC184731ACEE5E500FEFC0A /* icon3_selected@3x.png in Resources */,
 				CFE87F7C1AE5837D00E4478F /* loc_battery3.png in Resources */,
 				CFE87F801AE5837D00E4478F /* loc_battery4@2x.png in Resources */,

@@ -44,6 +44,9 @@
     NSDictionary *dictDashboard3 = @{@"title" : @"History", @"image" : @"history.png",@"selected_image" : @"history_selected.png"};
     NSDictionary *dictDashboard4 = @{@"title" : @"Profile", @"image" : @"profile.png",@"selected_image" : @"profile_selected.png"};
     NSDictionary *dictDashboard5 = @{@"title" : @"Diagnostics", @"image" : @"diagnostic.png",@"selected_image" : @"diagnostic_selected.png"};
+    
+    NSDictionary *dictDashboard7 = @{@"title" : @"Search HR Monitor", @"image" : @"HR_monitor.png",@"selected_image" : @"HR_monitor.png_selected.png"};
+    
     NSDictionary *dictDashboard6 = @{@"title" : @"Where is my bike", @"image" : @"bike.png",@"selected_image" : @"bike_selected.png"};
     
     [self.arrMenu addObject:dictDashboard];
@@ -52,6 +55,7 @@
     [self.arrMenu addObject:dictDashboard3];
     [self.arrMenu addObject:dictDashboard4];
     [self.arrMenu addObject:dictDashboard5];
+    [self.arrMenu addObject:dictDashboard7];
     [self.arrMenu addObject:dictDashboard6];
     
     
@@ -374,19 +378,24 @@
         case 6:
         {
             //Where is my bike
-            ABFindMyBikeVC *secondViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"ABFindMyBikeVC"];
-            navigationController.viewControllers = @[secondViewController];
-            
-            self.frostedViewController.contentViewController = navigationController;
+            NSLog(@"Search HR Monitor");
+//            ABFindMyBikeVC *secondViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"ABFindMyBikeVC"];
+//            navigationController.viewControllers = @[secondViewController];
+//            
+//            self.frostedViewController.contentViewController = navigationController;
         }
             break;
             
         case 7:
         {
-            //Dashboard
-            ABDashBoardVC *secondViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"ABDashBoardVC"];
-            secondViewController.isDisplayDestination = NO;
+            //Where is my bike
+//            ABDashBoardVC *secondViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"ABDashBoardVC"];
+//            secondViewController.isDisplayDestination = NO;
+//            navigationController.viewControllers = @[secondViewController];
+//            self.frostedViewController.contentViewController = navigationController;
+            ABFindMyBikeVC *secondViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"ABFindMyBikeVC"];
             navigationController.viewControllers = @[secondViewController];
+            
             self.frostedViewController.contentViewController = navigationController;
         }
             break;

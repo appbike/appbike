@@ -31,6 +31,9 @@
 @property (nonatomic) SelectedSensorType currentSelectedSensorType;
 @property (nonatomic) BOOL isDisplayDestination;
 @property (nonatomic) BOOL isSecondTime;
+@property (nonatomic, strong) NSDictionary *dictSessionTemp;
+@property (nonatomic) BOOL isSessionSave;
+
 
 - (IBAction)showLeftMenu:(id)sender;
 - (void)showDestination;

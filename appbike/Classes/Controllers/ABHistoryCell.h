@@ -16,5 +16,6 @@
 @property (nonatomic, strong) IBOutlet UIButton *btnCal;
 @property (nonatomic, strong) IBOutlet UIButton *btnShare;
 @property (nonatomic, strong) IBOutlet UIButton *btnDelete;
+@property (nonatomic, strong) IBOutlet UIButton *btnFB;
 
 @end

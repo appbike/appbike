@@ -19,6 +19,7 @@
 + (float)getGrandTotal;
 - (void)removeItemFromSession;
 -(void)updateQuantityWithId:(NSString *)cartId :(NSString *)quantity;
+- (void)saveWithCompletion:(void (^)(BOOL saved))completion;
 + (NSArray *)findThisWeek;
 + (NSArray *)findLastWeek;
 

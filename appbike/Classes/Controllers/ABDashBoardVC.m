@@ -44,6 +44,7 @@
     MKRoute *routeDetails;
     BOOL m_postingInProgress;
     int iPositionTag;
+    NSString *strIsShare;
 }
 
 
@@ -440,6 +441,7 @@
 {
     [super viewDidLoad];
     
+    strIsShare = @"0";
     if(self.isSecondTime)
         return;
     NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
@@ -1845,10 +1847,13 @@
         
         NSString *strMessage = [NSString stringWithFormat:@"Check out my statistics : %@",finalJson];
         [self postWithText:strMessage ImageName:@"logo.png" URL:@"" Caption:@"AppBike" Name:@"AppBike" andDescription:@"Description"];
+        strIsShare = @"1";
+        
     }
     else
     {
         //No
+        strIsShare = @"0";
         // What to Do here? :)
         appDelegate().strFromAddress = nil;
         
@@ -1857,6 +1862,24 @@
         appDelegate().toLocation = nil;
         
     }
+    
+    if (self.isSessionSave)
+    {
+        //int newSessionID = [Session getMaxId];
+        
+        //NSString *finalJson = [self convertDictToString:self.dictJsonSession];
+        NSDictionary *newDict = @{@"id":[self.dictSessionTemp objectForKey:@"id"],
+                                 @"cal" : [self.dictSessionTemp objectForKey:@"cal"],
+                                 @"km" : [self.dictSessionTemp objectForKey:@"km"],
+                                 @"json" : [self.dictSessionTemp objectForKey:@"json"],
+                                 @"start" : [self.dictSessionTemp objectForKey:@"start"],
+                                 @"avgkm" : [self.dictSessionTemp objectForKey:@"avgkm"],
+                                  @"is_share" : strIsShare
+                                 };
+        [Session addItemToSession:newDict];
+    }
+    
+   
     
     self.btnShare.hidden = YES;
     self.btnShareYes.hidden = YES;
@@ -1894,18 +1917,18 @@
            
             
             //Yes save session
-            
+            self.isSessionSave = YES;
             int newSessionID = [Session getMaxId];
             
             NSString *finalJson = [self convertDictToString:self.dictJsonSession];
-            NSDictionary *dictData = @{@"id":[NSString stringWithFormat:@"%d",newSessionID],
+            self.dictSessionTemp = @{@"id":[NSString stringWithFormat:@"%d",newSessionID],
                                        @"cal" : self.lblCalorieCount.text ? self.lblCalorieCount.text : @"0",
                                        @"km" : self.lblKilometerCount.text ? self.lblKilometerCount.text : @"0",
                                        @"json" : finalJson,
                                        @"start" : self.dtStartSession ? self.dtStartSession : [NSDate date],
                                        @"avgkm" : self.lblKilometerCount.text ? self.lblKilometerCount.text : @"0"
                                        };
-            [Session addItemToSession:dictData];
+//            [Session addItemToSession:self.dictSessionTemp];
             
             self.btnShare.hidden = NO;
             self.btnShareYes.hidden = NO;
@@ -1971,6 +1994,7 @@
         else
         {
             //Not Save but reset session
+            self.isSessionSave = NO;
             self.viewSaveSession.hidden = YES;
             
             self.lblStopSaveSession.text = @"Stop Session?";

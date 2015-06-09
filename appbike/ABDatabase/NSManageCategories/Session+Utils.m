@@ -22,6 +22,35 @@
     return cart;
 }
 
+- (void)saveWithCompletion:(void (^)(BOOL saved))completion
+{
+    NSManagedObjectContext *context = [NSManagedObjectContext MR_contextForCurrentThread];
+    Session *item = [Session getSessionWithId:self.s_id];
+    if (!item)
+    {
+        item = [Session MR_createInContext:context];
+        item.s_id = self.s_id;
+    }
+    
+    item.s_id               = self.s_id;
+    item.s_is_share         = self.s_is_share;
+    item.s_avgkm            = self.s_avgkm;
+    item.s_cal              = self.s_cal;
+    item.s_end              = self.s_end;
+    item.s_endlocation      = self.s_endlocation;
+    item.s_json             = self.s_json;
+    item.s_km               = self.s_km;
+    item.s_start            = self.s_start;
+    item.s_startlocation    = self.s_startlocation;
+    item.s_visible          = self.s_visible;
+    
+    [context MR_saveWithOptions:MRSaveSynchronously completion:^(BOOL success, NSError *error) {
+        NSLog(@"completion handler success : %d and error : %@",success,error.description);
+        completion(success);
+    }];
+}
+
+
 + (Session *)getSessionWithItemId:(NSString *)itemId
 {
     NSManagedObjectContext *context = [NSManagedObjectContext MR_contextForCurrentThread];
@@ -58,6 +87,7 @@
         cart.s_start = [data objectForKey:@"start"];
         cart.s_end = [NSDate date];
         cart.s_json = [data objectForKey:@"json"];
+        cart.s_is_share = [data objectForKey:@"is_share"];
         cart.s_cal = [NSNumber numberWithInt:[[data objectForKey:@"cal"] integerValue]];
         cart.s_km = [NSNumber numberWithInt:[[data objectForKey:@"km"] integerValue]];
         cart.s_avgkm = [NSNumber numberWithInt:[[data objectForKey:@"avgkm"] integerValue]];
@@ -71,6 +101,7 @@
         cart.s_start = [data objectForKey:@"start"];
         cart.s_end = [NSDate date];
         cart.s_json = [data objectForKey:@"json"];
+        cart.s_is_share = [data objectForKey:@"is_share"];
         cart.s_cal = [NSNumber numberWithInt:[[data objectForKey:@"cal"] integerValue]];
         cart.s_km = [NSNumber numberWithInt:[[data objectForKey:@"km"] integerValue]];
         cart.s_avgkm = [NSNumber numberWithInt:[[data objectForKey:@"avgkm"] integerValue]];

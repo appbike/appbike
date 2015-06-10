@@ -1686,9 +1686,15 @@
     else
     {
         //Skip
-        self.viewMinMaxSpeed.hidden = YES;
-        self.viewCalories.hidden = NO;
-        self.viewNormalSpeed.hidden = YES;
+        if([mainSensor isEqualToString:@"cal"])
+        {
+            self.viewNormalSpeed.hidden = YES;
+            self.viewMinMaxSpeed.hidden = YES;
+            self.viewCalories.hidden = NO;
+        }
+//        self.viewMinMaxSpeed.hidden = YES;
+//        self.viewCalories.hidden = NO;
+//        self.viewNormalSpeed.hidden = YES;
         NSDictionary *countValue = @{@"max" : [NSString stringWithFormat:@"%.0f",self.sliderSetCalories.value+1],@"enabled" : @"0" };
         [self saveJsonFile:@"calories.json" withDictionary:countValue];
     }

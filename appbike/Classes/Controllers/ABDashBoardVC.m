@@ -45,6 +45,7 @@
     BOOL m_postingInProgress;
     int iPositionTag;
     NSString *strIsShare;
+    NSDate *oldDate;
 }
 
 
@@ -440,6 +441,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    oldDate = [NSDate date];
     
     strIsShare = @"0";
     if(self.isSecondTime)
@@ -1158,6 +1161,13 @@
                     [self.btnRPM setImage:[UIImage imageNamed:@"bpm.png"] forState:UIControlStateNormal];
                 }
                     break;
+                case 5505:
+                {
+                    [self.dictUpdatedDashboardData setObject:@"kmh" forKey:@"main"];
+                   // [self.btnRPM setImage:[UIImage imageNamed:@"bpm.png"] forState:UIControlStateNormal];
+                }
+                    break;
+                    
                 default:
                     break;
             }
@@ -1194,6 +1204,12 @@
                     [self.btnRPM setImage:[UIImage imageNamed:@"rpm.png"] forState:UIControlStateNormal];
                 }
                     break;
+                case 5505:
+                {
+                    [self.dictUpdatedDashboardData setObject:@"kmh" forKey:@"main"];
+                    // [self.btnRPM setImage:[UIImage imageNamed:@"bpm.png"] forState:UIControlStateNormal];
+                }
+                    break;
                 default:
                     break;
             }
@@ -1228,6 +1244,12 @@
                 {
                     [self.dictUpdatedDashboardData setObject:@"km" forKey:@"bottomLeft"];
                     [self.btnRPM setImage:[UIImage imageNamed:@"kilometer.png"] forState:UIControlStateNormal];
+                }
+                    break;
+                case 5505:
+                {
+                    [self.dictUpdatedDashboardData setObject:@"kmh" forKey:@"main"];
+                    // [self.btnRPM setImage:[UIImage imageNamed:@"bpm.png"] forState:UIControlStateNormal];
                 }
                     break;
                 default:
@@ -1267,6 +1289,12 @@
                     [self.btnRPM setImage:[UIImage imageNamed:@"kilometer.png"] forState:UIControlStateNormal];
                 }
                     break;
+                case 5505:
+                {
+                    [self.dictUpdatedDashboardData setObject:@"kmh" forKey:@"main"];
+                    // [self.btnRPM setImage:[UIImage imageNamed:@"bpm.png"] forState:UIControlStateNormal];
+                }
+                    break;
                 default:
                     break;
             }
@@ -1302,6 +1330,12 @@
                     [self.btnRPM setImage:[UIImage imageNamed:@"cal.png"] forState:UIControlStateNormal];
                 }
                 break;
+                case 5505:
+                {
+                    [self.dictUpdatedDashboardData setObject:@"cal" forKey:@"main"];
+                  
+                }
+                    break;
                 default:
                     break;
             }
@@ -1321,6 +1355,10 @@
     
     //self.btnCaloriesMenu.selected= NO;
     //self.lblCalorieText.text = @"cal";
+    
+      [self updateDashboardData:btnPressed.tag];
+    
+    NSString *mainSensor = [self.dictUpdatedDashboardData objectForKey:@"main"];
     switch (btnPressed.tag)
     {
         case 1101:
@@ -1329,9 +1367,14 @@
             //self.currentSelectedSensorType = SelectedSensorTypePulse;
             
             self.currentSelectedSensorType = SelectedSensorTypeSpeedNormal;
-            self.viewMinMaxSpeed.hidden = YES;
-            self.viewNormalSpeed.hidden = NO;
-            self.viewCalories.hidden = YES;
+            
+            
+            if([mainSensor isEqualToString:@"kmh"])
+            {
+                self.viewMinMaxSpeed.hidden = YES;
+                self.viewNormalSpeed.hidden = NO;
+                self.viewCalories.hidden = YES;
+            }
             
             UIButton *btn1 = (UIButton *)[self.view viewWithTag:1102];
             btn1.selected = NO;
@@ -1352,9 +1395,13 @@
             //Avg Pulse
             //self.currentSelectedSensorType = SelectedSensorTypeAvgPulse;
             self.currentSelectedSensorType = SelectedSensorTypeSpeedNormal;
-            self.viewMinMaxSpeed.hidden = YES;
-            self.viewNormalSpeed.hidden = NO;
-            self.viewCalories.hidden = YES;
+            
+            if([mainSensor isEqualToString:@"kmh"])
+            {
+                self.viewMinMaxSpeed.hidden = YES;
+                self.viewNormalSpeed.hidden = NO;
+                self.viewCalories.hidden = YES;
+            }
             
             UIButton *btn1 = (UIButton *)[self.view viewWithTag:1101];
             btn1.selected = NO;
@@ -1395,9 +1442,12 @@
         {
             //Avg Speed
             self.currentSelectedSensorType = SelectedSensorTypeSpeedNormal;
-            self.viewMinMaxSpeed.hidden = YES;
-            self.viewNormalSpeed.hidden = NO;
-            self.viewCalories.hidden = YES;
+            if([mainSensor isEqualToString:@"kmh"])
+            {
+                self.viewMinMaxSpeed.hidden = YES;
+                self.viewNormalSpeed.hidden = NO;
+                self.viewCalories.hidden = YES;
+            }
             
             UIButton *btn1 = (UIButton *)[self.view viewWithTag:1102];
             btn1.selected = NO;
@@ -1419,6 +1469,7 @@
             //Calories
             self.currentSelectedSensorType = SelectedSensorTypeCalories;
             //Check if calories values already set if not then display that view
+            
             self.viewSetCalories.hidden = NO;
             
             UIButton *btn1 = (UIButton *)[self.view viewWithTag:1102];
@@ -1444,7 +1495,7 @@
     }
     
     btnPressed.selected = !btnPressed.selected;
-    [self updateDashboardData:btnPressed.tag];
+  
     [self hideSelectionMenu:nil];
 }
 
@@ -1538,15 +1589,25 @@
 - (IBAction)skipOrSetSpeed:(id)sender
 {
     UIButton *btnPressed = (UIButton *) sender;
-    self.viewNormalSpeed.hidden = YES;
-    self.viewCalories.hidden = YES;
-     self.viewMinMaxSpeed.hidden = NO;
+    
+    NSString *mainSensor = [self.dictUpdatedDashboardData objectForKey:@"main"];
+    
+    if([mainSensor isEqualToString:@"kmh"])
+    {
+        self.viewNormalSpeed.hidden = YES;
+        self.viewCalories.hidden = YES;
+        self.viewMinMaxSpeed.hidden = NO;
+    }
     if(btnPressed.tag == 1201)
     {
         //Skip
-        self.viewMinMaxSpeed.hidden = YES;
-        self.viewCalories.hidden = YES;
-        self.viewNormalSpeed.hidden = NO;
+        
+        if([mainSensor isEqualToString:@"kmh"])
+        {
+            self.viewMinMaxSpeed.hidden = YES;
+            self.viewCalories.hidden = YES;
+            self.viewNormalSpeed.hidden = NO;
+        }
         
         NSDictionary *countValue = @{@"max" : [NSString stringWithFormat:@"%d",maxValue],
                                      @"min" : [NSString stringWithFormat:@"%d",minValue],
@@ -1601,10 +1662,14 @@
 {
     
 
-    self.viewNormalSpeed.hidden = YES;
-    self.viewMinMaxSpeed.hidden = YES;
-    self.viewCalories.hidden = NO;
-   
+    NSString *mainSensor = [self.dictUpdatedDashboardData objectForKey:@"main"];
+    
+    if([mainSensor isEqualToString:@"cal"])
+    {
+        self.viewNormalSpeed.hidden = YES;
+        self.viewMinMaxSpeed.hidden = YES;
+        self.viewCalories.hidden = NO;
+    }
 
     UIButton *btnPressed = (UIButton *) sender;
     if(btnPressed.tag == 4401)
@@ -1879,6 +1944,23 @@
         [Session addItemToSession:newDict];
     }
     
+    
+    //Mew code
+    self.lblStopSaveSession.text = @"Stop Session?";
+    
+    self.lblKMHText.hidden = YES;
+    counterTime = [[appDelegate().dictCounterData objectForKeyedSubscript:@"value"] intValue];
+    //Display Session save message here
+    [self.bleManager stopSession];
+    
+    appDelegate().isSessionStart = NO;
+    self.viewProgress.hidden = YES;
+    
+    [self.btnMapStart setTitle:@"START" forState:UIControlStateNormal];
+    [self.btnStartStop setTitle:@"START" forState:UIControlStateNormal];
+    
+    self.btnTopCycle.selected = NO;
+    //New code end
    
     
     self.btnShare.hidden = YES;
@@ -2700,7 +2782,20 @@
         
         self.lblAlertPercentage.text = [NSString stringWithFormat:@"%dkm",[[dictionary objectForKey:@"AutonomyDistance"] intValue]];
         
-        self.btnTopCycle.selected = !self.btnTopCycle.selected;
+        NSDate *newDate = [NSDate date];
+        //Check if 1 sec
+        NSTimeInterval secondsBetween = [newDate timeIntervalSinceDate:oldDate];
+        
+        if(secondsBetween < 1.0)
+        {
+            self.btnTopCycle.selected = !self.btnTopCycle.selected;
+        }
+        else
+        {
+            self.btnTopCycle.selected = NO;
+        }
+        oldDate = newDate;
+        
     }
 
 }

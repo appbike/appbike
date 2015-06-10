@@ -254,7 +254,7 @@
     
     [cell.btnCal setTitle:[NSString stringWithFormat:@"%@",[NSString stringWithFormat:@"%@ cal",[jsonDict objectForKey:@"Calories"]]] forState:UIControlStateNormal];
     
-    [cell.btnMin setTitle:[NSString stringWithFormat:@"%d",min] forState:UIControlStateNormal];
+    [cell.btnMin setTitle:[NSString stringWithFormat:@"%d min",min] forState:UIControlStateNormal];
     
     //cell.lblDate.text = @"TEXT";
     cell.btnDelete.tag = indexPath.row;
@@ -273,9 +273,9 @@
     if(indexPath.row == (self.arrSession.count-1))
     {
         //self.lblTotalCal.text = [NSString stringWithFormat:@""]
-        [self.btnTotalCal setTitle:[NSString stringWithFormat:@"%.0f",totalCal] forState:UIControlStateNormal];
-        [self.btnTotalDistance setTitle:[NSString stringWithFormat:@"%.0f",totalDistance] forState:UIControlStateNormal];
-        [self.btnTotalMins setTitle:[NSString stringWithFormat:@"%.0f",totalMin] forState:UIControlStateNormal];
+        [self.btnTotalCal setTitle:[NSString stringWithFormat:@"%.0f cal",totalCal] forState:UIControlStateNormal];
+        [self.btnTotalDistance setTitle:[NSString stringWithFormat:@"%.0f km",totalDistance] forState:UIControlStateNormal];
+        [self.btnTotalMins setTitle:[NSString stringWithFormat:@"%.0f min",totalMin] forState:UIControlStateNormal];
     }
     
     return cell;

@@ -246,7 +246,15 @@
 		case UICircularSliderStyleCircle:
 		default:
 			[self.maximumTrackTintColor setStroke];
-			[self drawCircularTrack:self.maximumValue atPoint:middlePoint withRadius:radius inContext:context];
+            if(self.isSkipGoal)
+            {
+                [self drawCircularTrack:0 atPoint:middlePoint withRadius:radius inContext:context];
+            }
+            else
+            {
+                [self drawCircularTrack:self.maximumValue atPoint:middlePoint withRadius:radius inContext:context];
+            }
+            
 			[self.minimumTrackTintColor setStroke];
 			self.thumbCenterPoint = [self drawCircularTrack:self.value atPoint:middlePoint withRadius:radius inContext:context];
 			break;

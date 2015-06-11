@@ -124,7 +124,7 @@ static AppDelegate *myDelegate;
     }
     else
     {
-        self.dictCaloriesData = @{@"max" : @"500",@"enabled" : @"0" };
+        self.dictCaloriesData = @{@"max" : @"500",@"goal":@"0",@"enabled" : @"0" };
         [self saveJsonFile:@"calories.json" withDictionary:self.dictCaloriesData];
     }
     

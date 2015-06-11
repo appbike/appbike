@@ -89,6 +89,8 @@ typedef enum {
 @property (nonatomic) UIImage *thumbImage;
 @property (nonatomic) UIImageView *profileImageView;
 
+@property (nonatomic) BOOL isSkipGoal;
+
 - (void)addProfileImage;
 
 @end

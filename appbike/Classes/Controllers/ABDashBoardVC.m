@@ -514,7 +514,7 @@
     [self.sliderSetCalories setMaximumTrackTintColor:[UIColor lightGrayColor]];
     [self.sliderSetCalories setMinimumTrackTintColor:[UIColor colorWithRed:55/255.0 green:155/255.0 blue:233/255.0 alpha:1.0]];
     
-    [self.btnMaxCalories setTitle:[NSString stringWithFormat:@"%@",[appDelegate().dictCaloriesData objectForKey:@"max"]] forState:UIControlStateNormal];
+    [self.btnMaxCalories setTitle:[NSString stringWithFormat:@"%@",[appDelegate().dictCaloriesData objectForKey:@"goal"]] forState:UIControlStateNormal];
     
     
     self.locationManager = [GPSLocation sharedManager].locationManager;
@@ -1675,16 +1675,20 @@
     if(btnPressed.tag == 4401)
     {
         //Set
-        
-        [self.sliderDashboardCalories setMaximumValue:self.sliderSetCalories.value+1];
+        self.sliderDashboardCalories.isSkipGoal = NO;
+        [self.sliderDashboardCalories setMaximumValue:self.sliderSetCalories.value];
         
         [self.btnMaxCalories setTitle:[NSString stringWithFormat:@"%.0f",self.sliderSetCalories.value+1] forState:UIControlStateNormal];
         
-        NSDictionary *countValue = @{@"max" : [NSString stringWithFormat:@"%.0f",self.sliderSetCalories.value+1],@"enabled" : @"1" };
+        NSDictionary *countValue = @{@"max" : @"500",@"goal" :[NSString stringWithFormat:@"%.0f",self.sliderSetCalories.value+1],@"enabled" : @"1" };
         [self saveJsonFile:@"calories.json" withDictionary:countValue];
     }
     else
     {
+        [self.btnMaxCalories setTitle:@"--" forState:UIControlStateNormal];
+        //[self.sliderDashboardCalories setMaximumValue:1];
+        self.sliderDashboardCalories.isSkipGoal = YES;
+        //[self.sliderDashboardCalories setNeedsDisplay];
         //Skip
         if([mainSensor isEqualToString:@"cal"])
         {
@@ -1695,7 +1699,7 @@
 //        self.viewMinMaxSpeed.hidden = YES;
 //        self.viewCalories.hidden = NO;
 //        self.viewNormalSpeed.hidden = YES;
-        NSDictionary *countValue = @{@"max" : [NSString stringWithFormat:@"%.0f",self.sliderSetCalories.value+1],@"enabled" : @"0" };
+        NSDictionary *countValue = @{@"goal": @"--",@"max" : @"500",@"enabled" : @"0" };
         [self saveJsonFile:@"calories.json" withDictionary:countValue];
     }
     NSLog(@"We have new updated calory value : %f",self.sliderSetCalories.value+1);
@@ -2552,13 +2556,16 @@
 
 - (void)checkIfCaloriesGoalAchieve:(int)cal
 {
-    int goalCalories = [self.lblGoalCalories.text intValue];
-    if(goalCalories > 0)
+    if(self.sliderDashboardCalories.isSkipGoal == NO)
     {
-        if(goalCalories == cal)
+        int goalCalories = [self.lblGoalCalories.text intValue];
+        if(goalCalories > 0)
         {
-            self.viewGoalCalories.hidden = NO;
-            [self startAnimationGoal];
+            if(goalCalories == cal)
+            {
+                self.viewGoalCalories.hidden = NO;
+                [self startAnimationGoal];
+            }
         }
     }
 }

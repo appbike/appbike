@@ -45,7 +45,7 @@
     NSDictionary *dictDashboard4 = @{@"title" : @"Profile", @"image" : @"profile.png",@"selected_image" : @"profile_selected.png"};
     NSDictionary *dictDashboard5 = @{@"title" : @"Diagnostics", @"image" : @"diagnostic.png",@"selected_image" : @"diagnostic_selected.png"};
     
-    NSDictionary *dictDashboard7 = @{@"title" : @"Search HR Monitor", @"image" : @"HR_monitor.png",@"selected_image" : @"HR_monitor.png_selected.png"};
+    NSDictionary *dictDashboard7 = @{@"title" : @"Search HR Monitor", @"image" : @"HR_monitor.png",@"selected_image" : @"HR_monitor_selected.png"};
     
     NSDictionary *dictDashboard6 = @{@"title" : @"Where is my bike", @"image" : @"bike.png",@"selected_image" : @"bike_selected.png"};
     

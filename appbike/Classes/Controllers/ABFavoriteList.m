@@ -33,8 +33,39 @@
 
 @implementation ABFavoriteList
 
+-(void)handleLongPress:(UILongPressGestureRecognizer *)gestureRecognizer
+{
+    CGPoint p = [gestureRecognizer locationInView:self.tblFavorite];
+    
+    NSIndexPath *indexPath = [self.tblFavorite indexPathForRowAtPoint:p];
+    if (indexPath == nil) {
+        NSLog(@"long press on table view but not on a row");
+    } else if (gestureRecognizer.state == UIGestureRecognizerStateBegan)
+    {
+        deleteIndex = indexPath.row;
+        //add code here for when you hit delete
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"AppAround"
+                                                            message:@"Do you want to remove this favorite?"
+                                                           delegate:self
+                                                  cancelButtonTitle:@"No"
+                                                  otherButtonTitles:@"Yes",nil];
+        alertView.tag = 1001;
+        [alertView show];
+        NSLog(@"long press on table view at row %d", indexPath.row);
+    } else {
+        NSLog(@"gestureRecognizer.state = %d", gestureRecognizer.state);
+    }
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
+    UILongPressGestureRecognizer *lpgr = [[UILongPressGestureRecognizer alloc]
+                                          initWithTarget:self action:@selector(handleLongPress:)];
+    lpgr.minimumPressDuration = 2.0; //seconds
+    lpgr.delegate = self;
+    [self.tblFavorite addGestureRecognizer:lpgr];
+    
     // Do any additional setup after loading the view.
     //Battery Info initialize
     statusBarView = [[ABBatteryInformation alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 50)];
@@ -236,10 +267,10 @@
     [self.tblFavorite deselectRowAtIndexPath:indexPath animated:YES];
 }
 
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return YES if you want the specified item to be editable.
-    return YES;
-}
+//- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+//    // Return YES if you want the specified item to be editable.
+//    return YES;
+//}
 
 - (void)deleteHistoryAtIndex:(int)index
 {

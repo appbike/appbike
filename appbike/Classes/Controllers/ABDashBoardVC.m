@@ -981,8 +981,14 @@
         self.goalStarSub3.hidden = NO;
     }
 
+    NSString *mainSensor = [self.dictUpdatedDashboardData objectForKey:@"main"];
+    
+    if([mainSensor isEqualToString:@"cal"])
+    {
+
     
     self.goalStarMain.alpha = 1.0f;
+    }
     self.goalStarSub.alpha = 1.0;
     [UIView animateWithDuration:0.2
                           delay:0.0
@@ -991,7 +997,13 @@
      UIViewAnimationOptionAutoreverse |
      UIViewAnimationOptionAllowUserInteraction
                      animations:^{
-                         self.goalStarMain.alpha = 0.0f;
+                         
+                         
+                         if([mainSensor isEqualToString:@"cal"])
+                         {
+
+                             self.goalStarMain.alpha = 0.0f;
+                         }
                          
                          if([strTopLeft isEqualToString:@"cal"])
                          {

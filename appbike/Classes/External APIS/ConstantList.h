@@ -121,6 +121,7 @@ typedef enum {
 #define IS_IPHONE_6_PLUS ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone && MAX([UIScreen mainScreen].bounds.size.height,[UIScreen mainScreen].bounds.size.width) == 736)
 
 #define LocationUpdateNotification @"LocationDidUpdate"
+#define DisplayNotification @"DisplayMap"
 
 #define MenuItemNotification @"MenuItemNotification"
 

@@ -16,6 +16,7 @@
 #import "ABDiagnosticVC.h"
 #import "AppDelegate.h"
 #import "ABLeftMenuCell.h"
+#import "ABRootVC.h"
 
 @interface ABLeftMenu ()<UITableViewDataSource,UITableViewDelegate>
 {
@@ -45,7 +46,7 @@
     NSDictionary *dictDashboard4 = @{@"title" : @"Profile", @"image" : @"profile.png",@"selected_image" : @"profile_selected.png"};
     NSDictionary *dictDashboard5 = @{@"title" : @"Diagnostics", @"image" : @"diagnostic.png",@"selected_image" : @"diagnostic_selected.png"};
     
-    NSDictionary *dictDashboard7 = @{@"title" : @"Search HR Monitor", @"image" : @"HR_monitor.png",@"selected_image" : @"HR_monitor_selected.png"};
+    NSDictionary *dictDashboard7 = @{@"title" : @"    Search HR Monitor", @"image" : @"HR_monitor.png",@"selected_image" : @"HR_monitor_selected.png"};
     
     NSDictionary *dictDashboard6 = @{@"title" : @"Where is my bike", @"image" : @"bike.png",@"selected_image" : @"bike_selected.png"};
     
@@ -66,6 +67,37 @@
     
     [self.tableView reloadData];
     
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+    
+    [nc addObserver:self selector:@selector(displayDashboardMap:)
+               name:DisplayNotification object:nil];
+    
+}
+
+- (void)displayDashboardMap:(NSNotification *)notify
+{
+    
+    
+    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"AppBike" bundle:nil];
+    
+    ABRootVC  *nav = (ABRootVC *)[storyBoard instantiateViewControllerWithIdentifier:@"ABRootVC"];
+    ABDashBoardVC *viewController = (ABDashBoardVC *)[storyBoard instantiateViewControllerWithIdentifier:@"ABDashBoardVC"];
+    appDelegate().isDisplayMap = YES;
+    
+    [[[AppDelegate sharedInstance] window] setRootViewController:nav];
+    [[[AppDelegate sharedInstance] window] makeKeyAndVisible];
+    
+    
+    
+//    ABNavigationVC *navigationController = [self.storyboard instantiateViewControllerWithIdentifier:@"DashBoardNav"];
+//    
+//    appDelegate().dashboardVC.isDisplayDestination = NO;
+//    
+//    [appDelegate().dashboardVC displayMap];
+//    navigationController.viewControllers = @[appDelegate().dashboardVC];
+//    self.frostedViewController.contentViewController = navigationController;
+//    
+//    [self.frostedViewController hideMenuViewController];
 }
 
 - (IBAction)btnMenuItemSelected:(id)sender
@@ -265,6 +297,10 @@
     cell.imgMenu.image = [UIImage imageNamed:[dictData objectForKey:@"image"]];
     cell.imgMenu.frame = CGRectMake(cell.imgMenu.frame.origin.x, cell.imgMenu.frame.origin.y, 40, 40);
     
+    if(indexPath.row == 6)
+    {
+        cell.lblMenu.font = [UIFont systemFontOfSize:12];
+    }
     if(indexPath.row == lastIndex )
     {
         cell.imgMenu.image = [UIImage imageNamed:[dictData objectForKey:@"selected_image"]];
@@ -379,6 +415,13 @@
         {
             //Where is my bike
             NSLog(@"Search HR Monitor");
+            
+//            appDelegate().dashboardVC.isDisplayDestination = NO;
+//            
+//            [appDelegate().dashboardVC displayMap];
+//            navigationController.viewControllers = @[appDelegate().dashboardVC];
+//            self.frostedViewController.contentViewController = navigationController;
+            
 //            ABFindMyBikeVC *secondViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"ABFindMyBikeVC"];
 //            navigationController.viewControllers = @[secondViewController];
 //            

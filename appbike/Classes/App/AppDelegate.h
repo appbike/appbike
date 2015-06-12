@@ -50,6 +50,7 @@
 @property (nonatomic) int incrementIndex;
 
 @property (nonatomic) BOOL isSessionStart;
+@property (nonatomic) BOOL isDisplayMap;
 
 @property (nonatomic,strong) SWRevealViewController *menuSlider;
 

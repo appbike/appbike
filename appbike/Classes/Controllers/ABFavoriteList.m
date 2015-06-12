@@ -265,6 +265,16 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self.tblFavorite deselectRowAtIndexPath:indexPath animated:YES];
+    
+    Favorite *thisFavorite = [self.arrFavorites objectAtIndex:indexPath.row];
+    
+    CLLocation *location = [[CLLocation alloc] initWithLatitude:[thisFavorite.f_latitude floatValue] longitude:[thisFavorite.f_longitude floatValue]];
+    appDelegate().toLocation = location;
+    
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:DisplayNotification object:nil];
+    NSLog(@"Set to location");
+   
 }
 
 //- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {

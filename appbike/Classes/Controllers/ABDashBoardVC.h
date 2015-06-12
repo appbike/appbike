@@ -37,6 +37,6 @@
 
 - (IBAction)showLeftMenu:(id)sender;
 - (void)showDestination;
-
+- (void)displayMap;
 
 @end

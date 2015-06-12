@@ -316,8 +316,8 @@
                                                     <rect key="frame" x="38" y="5" width="40" height="40"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dashboard" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="eW7-Xx-6z2">
-                                                    <rect key="frame" x="5" y="44" width="100" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dashboard" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" id="eW7-Xx-6z2">
+                                                    <rect key="frame" x="-7" y="44" width="125" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="RobotoCondensed-Regular" family="Roboto Condensed" pointSize="13"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1580,6 +1580,10 @@
                         <outlet property="imgBGLogoCalories" destination="rEM-OQ-PcN" id="6ac-8B-NEt"/>
                         <outlet property="imgBGLogoDashboardSpeed" destination="ecK-mz-rOX" id="x9E-eL-gXB"/>
                         <outlet property="imgBgSetSpeed" destination="KoE-eh-Vi9" id="6HB-8T-58p"/>
+                        <outlet property="imgBottomLeft" destination="EgV-oN-jvp" id="IV8-2l-AEc"/>
+                        <outlet property="imgBottomRight" destination="cXr-Jm-1vz" id="sv6-wT-edZ"/>
+                        <outlet property="imgTopLeft" destination="qf7-4N-Cpm" id="vBV-qi-jSN"/>
+                        <outlet property="imgTopRight" destination="Syd-zo-isx" id="srG-TI-1f9"/>
                         <outlet property="lblAlertKM" destination="2jW-SK-0g9" id="4ew-pf-dgL"/>
                         <outlet property="lblAlertMsg" destination="Xi3-CY-Mqn" id="QZA-Or-W65"/>
                         <outlet property="lblAlertPercentage" destination="vx3-oQ-V2d" id="4Iy-nt-WWb"/>
@@ -1597,11 +1601,15 @@
                         <outlet property="lblKMHText" destination="l4P-qb-edI" id="LBj-OE-IG9"/>
                         <outlet property="lblKiloMeterText" destination="qCD-Tf-dm3" id="cjX-jM-Lfq"/>
                         <outlet property="lblKilometerCount" destination="SoM-XX-hxH" id="x3q-ge-8l6"/>
+                        <outlet property="lblMapAvgSpeedText" destination="mYO-kF-rO7" id="Rxo-yu-Ee6"/>
                         <outlet property="lblMapAvgSpeedValue" destination="ema-bf-qwH" id="k8c-I7-wFO"/>
+                        <outlet property="lblMapBPMText" destination="aUF-mS-O5B" id="r9O-sr-oSw"/>
                         <outlet property="lblMapBPMValue" destination="g8e-CB-k5l" id="bwq-oc-p22"/>
                         <outlet property="lblMapCalValue" destination="UwR-8p-IUT" id="RqU-Y7-0og"/>
+                        <outlet property="lblMapKMText" destination="miv-Wy-ryx" id="K6b-Pq-ZPW"/>
                         <outlet property="lblMapKMValue" destination="3ro-o2-KKK" id="Kwk-qk-ARf"/>
                         <outlet property="lblMapMaxCalValue" destination="DxI-Ms-Atg" id="Pbx-iK-lYy"/>
+                        <outlet property="lblMapRPMText" destination="WJl-gw-bLh" id="F6f-0e-cJc"/>
                         <outlet property="lblMapRPMValue" destination="zcS-QZ-LH8" id="4fR-Xm-a8P"/>
                         <outlet property="lblMeCount" destination="kYO-Ik-C5Z" id="Sz6-uO-2qX"/>
                         <outlet property="lblMeText" destination="6hM-nA-ADC" id="XRg-K2-PQU"/>

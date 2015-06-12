@@ -552,11 +552,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appbike/Classes/Controllers/ABDashBoardVC.m"
-            timestampString = "455819062.233672"
+            timestampString = "455819947.251381"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "3123"
-            endingLineNumber = "3123"
+            startingLineNumber = "3127"
+            endingLineNumber = "3127"
             landmarkName = "-tableView:didSelectRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -568,11 +568,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appbike/Classes/Controllers/ABDashBoardVC.m"
-            timestampString = "455819062.233672"
+            timestampString = "455819947.251381"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "3130"
-            endingLineNumber = "3130"
+            startingLineNumber = "3134"
+            endingLineNumber = "3134"
             landmarkName = "-recenterMapToPlacemark:"
             landmarkType = "5">
          </BreakpointContent>

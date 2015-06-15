@@ -25,7 +25,7 @@
     //self.navigationController.
     self.menuViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"LeftMenu"];
 
-    //[self.frostedViewController setMenuViewSize:CGSizeMake(125, self.menuViewController.view.frame.size.height)];
+    //[self.frostedViewController setMenuViewSize:CGSizeMake(100, self.menuViewController.view.frame.size.height)];
     
     
     self.panGestureEnabled = NO;

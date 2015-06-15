@@ -690,13 +690,13 @@
 //    txfSearchField.layer.borderColor = [UIColor clearColor].CGColor;
     
     //Pie Chart for Map
-    self.slices = [NSMutableArray arrayWithCapacity:1];
+    self.slices = [NSMutableArray arrayWithCapacity:2];
     
-    NSNumber *one = [NSNumber numberWithInt:90];
-    //NSNumber *two = [NSNumber numberWithInt:100];
+    NSNumber *one = [NSNumber numberWithInt:0];
+    NSNumber *two = [NSNumber numberWithInt:500];
     
     [_slices addObject:one];
-   
+    [_slices addObject:two];
     
     
     
@@ -712,10 +712,11 @@
     [self.pieChartLeft setPieBackgroundColor:[UIColor colorWithRed:245.0/255.0 green:138.0/255.0 blue:35.0/255.0 alpha:1]];
     [self.pieChartLeft setPieCenter:CGPointMake(50,50)];
     [self.pieChartLeft setUserInteractionEnabled:YES];
+    
     //[self.pieChartLeft setLabelShadowColor:[UIColor blackColor]];
     
     self.sliceColors =[NSArray arrayWithObjects:
-                       [UIColor colorWithRed:23/255.0 green:138/255.0 blue:230/255.0 alpha:1],nil];
+                       [UIColor colorWithRed:23/255.0 green:138/255.0 blue:230/255.0 alpha:1],[UIColor colorWithRed:245.0/255.0 green:138.0/255.0 blue:35.0/255.0 alpha:1],nil];
     
 
     //Display Destination based on menu selection
@@ -2891,6 +2892,15 @@
         
         
         
+        [self.slices removeAllObjects];
+        self.slices = [NSMutableArray arrayWithCapacity:2];
+        
+        NSNumber *one = cal;
+        NSNumber *two = [NSNumber numberWithInt:500];
+        
+        [_slices addObject:one];
+        [_slices addObject:two];
+        [self.pieChartLeft reloadData];
         
 //#warning TESTING - Remove
         [self checkLowBettaryAlert:[[dictionary objectForKey:@"Autonomy"] intValue]];
@@ -2905,7 +2915,7 @@
         
         if(secondsBetween < 1.0)
         {
-            self.btnTopCycle.selected = !self.btnTopCycle.selected;
+            self.btnTopCycle.selected = YES;//!self.btnTopCycle.selected;
         }
         else
         {

@@ -29,6 +29,7 @@
 #import "UIView+REFrostedViewController.h"
 #import "UIViewController+REFrostedViewController.h"
 #import "RECommonFunctions.h"
+#import "ConstantList.h"
 
 @interface REFrostedViewController ()
 
@@ -97,6 +98,7 @@
 {
     [super viewDidLoad];
     [self re_displayController:self.contentViewController frame:self.view.bounds];
+    //[self re_displayController:self.contentViewController frame:CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y, 100, self.view.frame.size.height)];
 }
 
 - (UIViewController *)childViewControllerForStatusBarStyle
@@ -145,6 +147,7 @@
     _menuViewController = menuViewController;
 
     CGRect frame = _menuViewController.view.frame;
+    //CGRect frame = CGRectMake(_menuViewController.view.frame.origin.x,_menuViewController.view.frame.origin.y,100,_menuViewController.view.frame.size.height);
     [_menuViewController willMoveToParentViewController:nil];
     [_menuViewController removeFromParentViewController];
     [_menuViewController.view removeFromSuperview];
@@ -180,7 +183,16 @@
     self.containerViewController.animateApperance = animateApperance;
     if (self.automaticSize) {
         if (self.direction == REFrostedViewControllerDirectionLeft || self.direction == REFrostedViewControllerDirectionRight)
-            self.calculatedMenuViewSize = CGSizeMake(self.contentViewController.view.frame.size.width - 200.0f, self.contentViewController.view.frame.size.height);
+        {
+            if(IS_IPHONE_5)
+                self.calculatedMenuViewSize = CGSizeMake(self.contentViewController.view.frame.size.width - 200.0f, self.contentViewController.view.frame.size.height);
+            else if(IS_IPHONE_6)
+                self.calculatedMenuViewSize = CGSizeMake(self.contentViewController.view.frame.size.width - 250.0f, self.contentViewController.view.frame.size.height);
+            else if(IS_IPHONE_6_PLUS)
+                self.calculatedMenuViewSize = CGSizeMake(self.contentViewController.view.frame.size.width - 290.0f, self.contentViewController.view.frame.size.height);
+            else
+                self.calculatedMenuViewSize = CGSizeMake(self.contentViewController.view.frame.size.width - 200.0f, self.contentViewController.view.frame.size.height);
+        }
         
         if (self.direction == REFrostedViewControllerDirectionTop || self.direction == REFrostedViewControllerDirectionBottom)
             self.calculatedMenuViewSize = CGSizeMake(self.contentViewController.view.frame.size.width, self.contentViewController.view.frame.size.height - 50.0f);

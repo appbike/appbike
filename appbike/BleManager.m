@@ -29,8 +29,8 @@
 -(NSTimer*)timer{
     if(!_timer){
         
-//        _timer = [NSTimer scheduledTimerWithTimeInterval:0.2 target:self selector:@selector(sendBroadcastHeaderMessage) userInfo:nil repeats:YES];
-         _timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(sendBroadcastHeaderMessage) userInfo:nil repeats:YES];
+//        _timer = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(sendBroadcastHeaderMessage) userInfo:nil repeats:YES];
+         _timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(sendBroadcastHeaderMessage) userInfo:nil repeats:YES];
     
     }
     

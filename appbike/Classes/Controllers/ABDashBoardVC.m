@@ -1001,6 +1001,7 @@
     if([strTopLeft isEqualToString:@"cal"])
     {
             self.goalStarSub.hidden = NO;
+        
     }
     
     NSString *strTopRight = [self.dictUpdatedDashboardData valueForKey:@"topRight"];
@@ -1031,6 +1032,9 @@
     }
     
     self.goalStarSub.alpha = 1.0;
+    self.goalStarSub1.alpha = 1.0;
+    self.goalStarSub2.alpha = 1.0;
+    self.goalStarSub3.alpha = 1.0;
     [UIView animateWithDuration:0.2
                           delay:0.0
                         options:UIViewAnimationOptionCurveEaseInOut |
@@ -1110,6 +1114,7 @@
             [btnPressed setTitle:@"STOP" forState:UIControlStateNormal];
             [self.btnMapStart setTitle:@"STOP" forState:UIControlStateNormal];
             [self.btnStartStop setTitle:@"STOP" forState:UIControlStateNormal];
+            
             self.btnTopCycle.selected = YES;
         }
         else
@@ -2130,6 +2135,16 @@
             self.lblMapRPMValue.text = @"0";
             self.lblMapAvgSpeedValue.text = @"0";
             
+            [self.slices removeAllObjects];
+            self.slices = [NSMutableArray arrayWithCapacity:2];
+            
+            NSNumber *one = [NSNumber numberWithInt:0];;
+            NSNumber *two = [NSNumber numberWithInt:500];
+            
+            [_slices addObject:one];
+            [_slices addObject:two];
+            [self.pieChartLeft reloadData];
+            
             self.viewMinMaxSpeed.hidden = YES;
             self.viewCalories.hidden = YES;
             self.viewNormalSpeed.hidden = NO;
@@ -2203,6 +2218,17 @@
             // self.viewSaveSession.hidden = YES;
             appDelegate().strToAddress = nil;
             appDelegate().toLocation = nil;
+            
+            
+            [self.slices removeAllObjects];
+            self.slices = [NSMutableArray arrayWithCapacity:2];
+            
+            NSNumber *one = [NSNumber numberWithInt:0];;
+            NSNumber *two = [NSNumber numberWithInt:500];
+            
+            [_slices addObject:one];
+            [_slices addObject:two];
+            [self.pieChartLeft reloadData];
             
             self.lblCalorieCount.text = @"0";
             self.lblKilometerCount.text = @"0";
@@ -2662,7 +2688,7 @@
         {
             if(goalCalories == cal)
             {
-                self.viewGoalCalories.hidden = NO;
+                //self.viewGoalCalories.hidden = NO;
                 [self startAnimationGoal];
             }
         }
@@ -2671,6 +2697,20 @@
 
 -(void)getHeaderPacketWithNotification:(NSNotification*)notification{
 
+    
+    NSDate *newDate = [NSDate date];
+    //Check if 1 sec
+    NSTimeInterval secondsBetween = [newDate timeIntervalSinceDate:oldDate];
+    
+    if(secondsBetween < 0.9)
+    {
+        self.btnTopCycle.selected = YES;//!self.btnTopCycle.selected;
+    }
+    else
+    {
+        self.btnTopCycle.selected = NO;
+    }
+    oldDate = newDate;
     
     if([[notification name] isEqualToString:@"headerPacket"]){
     
@@ -2923,19 +2963,7 @@
         
         self.lblAlertPercentage.text = [NSString stringWithFormat:@"%dkm",[[dictionary objectForKey:@"AutonomyDistance"] intValue]];
         
-        NSDate *newDate = [NSDate date];
-        //Check if 1 sec
-        NSTimeInterval secondsBetween = [newDate timeIntervalSinceDate:oldDate];
         
-        if(secondsBetween < 1.0)
-        {
-            self.btnTopCycle.selected = NO;//!self.btnTopCycle.selected;
-        }
-        else
-        {
-            self.btnTopCycle.selected = YES;
-        }
-        oldDate = newDate;
         
     }
 

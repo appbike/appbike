@@ -128,7 +128,20 @@
     
 }
 
-
+- (IBAction)btnHomePressed:(id)sender
+{
+    NSMutableArray *arrHome = [NSMutableArray arrayWithArray:[Favorite getHomeFavorite]];
+    
+    if(arrHome.count > 0)
+    {
+        Favorite *thisFavorite = [arrHome firstObject];
+        CLLocation *location = [[CLLocation alloc] initWithLatitude:[thisFavorite.f_latitude floatValue] longitude:[thisFavorite.f_longitude floatValue]];
+        appDelegate().toLocation = location;
+        
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:DisplayNotification object:nil];
+    }
+}
 
 - (void)reloadFavoriteData
 {

@@ -181,6 +181,19 @@ static AppDelegate *myDelegate;
         [self saveJsonFile:@"countdown.json" withDictionary:self.dictCounterData];
     }
     
+    
+    //Favorite
+    NSString *filepathFavorite = [NSString stringWithFormat:@"%@/%@", documentsDirectory, @"favorite.json"];
+   
+    
+    BOOL fileExistsFavorite = [[NSFileManager defaultManager] fileExistsAtPath:filepathFavorite];
+
+    if(!fileExistsFavorite)
+    {
+        NSDictionary *dictFavorite = @{@"home" : @"" , @"favorites" : @""};
+        [self saveJsonFile:@"favorite.json" withDictionary:dictFavorite];
+    }
+    
     [self initializeLocationManager];
     
 

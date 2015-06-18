@@ -995,7 +995,7 @@
 
 - (void)startAnimationGoal
 {
-    self.viewGoalCalories.hidden = NO;
+    
     
     NSString *strTopLeft = [self.dictUpdatedDashboardData valueForKey:@"topLeft"];
     if([strTopLeft isEqualToString:@"cal"])
@@ -1025,9 +1025,11 @@
     if([mainSensor isEqualToString:@"cal"])
     {
 
+        self.viewGoalCalories.hidden = NO;
     
-    self.goalStarMain.alpha = 1.0f;
+        self.goalStarMain.alpha = 1.0f;
     }
+    
     self.goalStarSub.alpha = 1.0;
     [UIView animateWithDuration:0.2
                           delay:0.0
@@ -2122,6 +2124,12 @@
             self.lblBPMCount.text = @"0";
             self.lblKmOrHour.text = @"0";
             
+            self.lblMapBPMValue.text = @"0";
+            self.lblMapCalValue.text = @"0";
+            self.lblMapKMValue.text = @"0";
+            self.lblMapRPMValue.text = @"0";
+            self.lblMapAvgSpeedValue.text = @"0";
+            
             self.viewMinMaxSpeed.hidden = YES;
             self.viewCalories.hidden = YES;
             self.viewNormalSpeed.hidden = NO;
@@ -2201,6 +2209,12 @@
             self.lblRPMCount.text = @"0";
             self.lblBPMCount.text = @"0";
             self.lblKmOrHour.text = @"0";
+            
+            self.lblMapBPMValue.text = @"0";
+            self.lblMapCalValue.text = @"0";
+            self.lblMapKMValue.text = @"0";
+            self.lblMapRPMValue.text = @"0";
+            self.lblMapAvgSpeedValue.text = @"0";
             
             self.viewMinMaxSpeed.hidden = YES;
             self.viewCalories.hidden = YES;
@@ -2915,11 +2929,11 @@
         
         if(secondsBetween < 1.0)
         {
-            self.btnTopCycle.selected = YES;//!self.btnTopCycle.selected;
+            self.btnTopCycle.selected = NO;//!self.btnTopCycle.selected;
         }
         else
         {
-            self.btnTopCycle.selected = NO;
+            self.btnTopCycle.selected = YES;
         }
         oldDate = newDate;
         

@@ -16,6 +16,12 @@
 @property (nonatomic,strong) IBOutlet UIButton *btn2;
 @property (nonatomic,strong) IBOutlet UIButton *btn3;
 @property (nonatomic,strong) IBOutlet UIButton *btn4;
+
+@property (nonatomic,strong) IBOutlet UIButton *btnc1;
+@property (nonatomic,strong) IBOutlet UIButton *btnc2;
+@property (nonatomic,strong) IBOutlet UIButton *btnc3;
+@property (nonatomic,strong) IBOutlet UIButton *btnc4;
+
 @property (nonatomic,strong) IBOutlet UILabel *lblTitle;
 @property (nonatomic,strong) IBOutlet UITextView *tvDescription;
 @property (weak, nonatomic) IBOutlet SAMultisectorControl *multisectorControl;
@@ -80,6 +86,30 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
    // [self setupMultiSelectorControl];
+    
+    if(IS_IPHONE_6_PLUS)
+    {
+        self.imgBike.frame = CGRectMake(self.imgBike.frame.origin.x, self.imgBike.frame.origin.y, 400, self.imgBike.frame.size.height);
+        
+        self.btnc1.frame = CGRectMake(self.btnc1.frame.origin.x+30, self.btnc1.frame.origin.y, self.btnc1.frame.size.width, self.btnc1.frame.size.height);
+        self.btnc2.frame = CGRectMake(self.btnc2.frame.origin.x+40, self.btnc2.frame.origin.y, self.btnc2.frame.size.width, self.btnc2.frame.size.height);
+        self.btnc3.frame = CGRectMake(self.btnc3.frame.origin.x+60, self.btnc3.frame.origin.y, self.btnc3.frame.size.width, self.btnc3.frame.size.height);
+        self.btnc4.frame = CGRectMake(self.btnc4.frame.origin.x+70, self.btnc4.frame.origin.y, self.btnc4.frame.size.width, self.btnc4.frame.size.height);
+    }
+    else if(IS_IPHONE_6)
+    {
+        self.imgBike.frame = CGRectMake(self.imgBike.frame.origin.x, self.imgBike.frame.origin.y, 365, self.imgBike.frame.size.height);
+        self.btnc2.frame = CGRectMake(self.btnc2.frame.origin.x+30, self.btnc2.frame.origin.y, self.btnc2.frame.size.width, self.btnc2.frame.size.height);
+        self.btnc3.frame = CGRectMake(self.btnc3.frame.origin.x+40, self.btnc3.frame.origin.y, self.btnc3.frame.size.width, self.btnc3.frame.size.height);
+        self.btnc4.frame = CGRectMake(self.btnc4.frame.origin.x+50, self.btnc4.frame.origin.y, self.btnc4.frame.size.width, self.btnc4.frame.size.height);
+        
+    }
+    
+//    self.btnc1.backgroundColor = [UIColor redColor];
+//    self.btnc2.backgroundColor = [UIColor redColor];
+//    self.btnc3.backgroundColor = [UIColor redColor];
+//    self.btnc4.backgroundColor = [UIColor redColor];
+    
 }
 
 - (IBAction)displayPartDetail:(id)sender

@@ -263,88 +263,112 @@
     
     if([strTopLeft isEqualToString:@"cal"])
     {
-        [self.btnCaloriesMenu setImage:[UIImage imageNamed:@"cal.png"] forState:UIControlStateNormal];
+        [self.btnCaloriesMenu setBackgroundImage:[UIImage imageNamed:@"cal.png"] forState:UIControlStateNormal];
         self.imgTopLeft.image = [UIImage imageNamed:@"cal.png"];
     }
     if([strTopLeft isEqualToString:@"km"])
     {
-        [self.btnCaloriesMenu setImage:[UIImage imageNamed:@"kilometer.png"] forState:UIControlStateNormal];
-        self.imgTopLeft.image = [UIImage imageNamed:@"map_kilometer.png"];
+        //[self.btnCaloriesMenu setImage:[UIImage imageNamed:@"kilometer.png"] forState:UIControlStateNormal];
+        //self.imgTopLeft.image = [UIImage imageNamed:@"map_kilometer.png"];
+        
+        [self.btnCaloriesMenu setBackgroundImage:[UIImage imageNamed:@"avg_speed_selected.png"] forState:UIControlStateNormal];
+        self.imgTopLeft.image = [UIImage imageNamed:@"map_speed.png"];
+        
+        self.lblCalorieText.text = @"km/h";
+        self.lblMapAvgSpeedText.text = @"km/h";
+        
     }
     if([strTopLeft isEqualToString:@"rpm"])
     {
-        [self.btnCaloriesMenu setImage:[UIImage imageNamed:@"rpm.png"] forState:UIControlStateNormal];
+        [self.btnCaloriesMenu setBackgroundImage:[UIImage imageNamed:@"rpm.png"] forState:UIControlStateNormal];
         self.imgTopLeft.image = [UIImage imageNamed:@"map_rpm.png"];
     }
     if([strTopLeft isEqualToString:@"bpm"])
     {
-        [self.btnCaloriesMenu setImage:[UIImage imageNamed:@"bpm.png"] forState:UIControlStateNormal];
+        [self.btnCaloriesMenu setBackgroundImage:[UIImage imageNamed:@"bpm.png"] forState:UIControlStateNormal];
         self.imgTopLeft.image = [UIImage imageNamed:@"map_bpm.png"];
     }
     
     //top right
     if([strTopRight isEqualToString:@"cal"])
     {
-        [self.btnKMMenu setImage:[UIImage imageNamed:@"cal.png"] forState:UIControlStateNormal];
+        [self.btnKMMenu setBackgroundImage:[UIImage imageNamed:@"cal.png"] forState:UIControlStateNormal];
         self.imgTopRight.image = [UIImage imageNamed:@"cal.png"];
     }
     if([strTopRight isEqualToString:@"km"])
     {
-        [self.btnKMMenu setImage:[UIImage imageNamed:@"kilometer.png"] forState:UIControlStateNormal];
-        self.imgTopRight.image = [UIImage imageNamed:@"map_kilometer.png"];
+//        [self.btnKMMenu setImage:[UIImage imageNamed:@"kilometer.png"] forState:UIControlStateNormal];
+//        self.imgTopRight.image = [UIImage imageNamed:@"map_kilometer.png"];
+        
+        [self.btnKMMenu setBackgroundImage:[UIImage imageNamed:@"avg_speed_selected.png"] forState:UIControlStateNormal];
+        self.imgTopRight.image = [UIImage imageNamed:@"map_speed.png"];
+        
+        self.lblKiloMeterText.text = @"km/h";
+        self.lblMapKMText.text = @"km/h";
     }
     if([strTopRight isEqualToString:@"rpm"])
     {
-        [self.btnKMMenu setImage:[UIImage imageNamed:@"rpm.png"] forState:UIControlStateNormal];
+        [self.btnKMMenu setBackgroundImage:[UIImage imageNamed:@"rpm.png"] forState:UIControlStateNormal];
         self.imgTopRight.image = [UIImage imageNamed:@"map_rpm.png"];
     }
     if([strTopRight isEqualToString:@"bpm"])
     {
-        [self.btnKMMenu setImage:[UIImage imageNamed:@"bpm.png"] forState:UIControlStateNormal];
+        [self.btnKMMenu setBackgroundImage:[UIImage imageNamed:@"bpm.png"] forState:UIControlStateNormal];
         self.imgTopRight.image = [UIImage imageNamed:@"map_bpm.png"];
     }
 
     //bottom left
     if([strBottomLeft isEqualToString:@"cal"])
     {
-        [self.btnRPM setImage:[UIImage imageNamed:@"cal.png"] forState:UIControlStateNormal];
+        [self.btnRPM setBackgroundImage:[UIImage imageNamed:@"cal.png"] forState:UIControlStateNormal];
         self.imgBottomLeft.image = [UIImage imageNamed:@"cal.png"];
     }
     if([strBottomLeft isEqualToString:@"km"])
     {
-        [self.btnRPM setImage:[UIImage imageNamed:@"kilometer.png"] forState:UIControlStateNormal];
-        self.imgBottomLeft.image = [UIImage imageNamed:@"map_kilometer.png"];
+//        [self.btnRPM setImage:[UIImage imageNamed:@"kilometer.png"] forState:UIControlStateNormal];
+//        self.imgBottomLeft.image = [UIImage imageNamed:@"map_kilometer.png"];
+        
+        [self.btnRPM setBackgroundImage:[UIImage imageNamed:@"avg_speed_selected.png"] forState:UIControlStateNormal];
+        self.imgBottomLeft.image = [UIImage imageNamed:@"map_speed.png"];
+        self.lblRPMText.text = @"km/h";
+        self.lblMapRPMText.text = @"km/h";
+
     }
     if([strBottomLeft isEqualToString:@"rpm"])
     {
-       [self.btnRPM setImage:[UIImage imageNamed:@"rpm.png"] forState:UIControlStateNormal];
+       [self.btnRPM setBackgroundImage:[UIImage imageNamed:@"rpm.png"] forState:UIControlStateNormal];
         self.imgBottomLeft.image = [UIImage imageNamed:@"map_rpm.png"];
     }
     if([strBottomLeft isEqualToString:@"bpm"])
     {
-        [self.btnRPM setImage:[UIImage imageNamed:@"bpm.png"] forState:UIControlStateNormal];
+        [self.btnRPM setBackgroundImage:[UIImage imageNamed:@"bpm.png"] forState:UIControlStateNormal];
         self.imgBottomLeft.image = [UIImage imageNamed:@"map_bpm.png"];
     }
 
     //bottom Right
     if([strBottomRight isEqualToString:@"cal"])
     {
-        [self.btnBPM setImage:[UIImage imageNamed:@"cal.png"] forState:UIControlStateNormal];
+        [self.btnBPM setBackgroundImage:[UIImage imageNamed:@"cal.png"] forState:UIControlStateNormal];
         self.imgBottomRight.image = [UIImage imageNamed:@"cal.png"];
     }
     if([strBottomRight isEqualToString:@"km"])
     {
-        [self.btnBPM setImage:[UIImage imageNamed:@"kilometer.png"] forState:UIControlStateNormal];
-        self.imgBottomRight.image = [UIImage imageNamed:@"map_kilometer.png"];
+//        [self.btnBPM setImage:[UIImage imageNamed:@"kilometer.png"] forState:UIControlStateNormal];
+//        self.imgBottomRight.image = [UIImage imageNamed:@"map_kilometer.png"];
+        
+        [self.btnBPM setBackgroundImage:[UIImage imageNamed:@"avg_speed_selected.png"] forState:UIControlStateNormal];
+        self.imgBottomRight.image = [UIImage imageNamed:@"map_speed.png"];
+        self.lblBPMText.text = @"km/h";
+        self.lblMapBPMText.text = @"km/h";
     }
     if([strBottomRight isEqualToString:@"rpm"])
     {
-        [self.btnBPM setImage:[UIImage imageNamed:@"rpm.png"] forState:UIControlStateNormal];
+        [self.btnBPM setBackgroundImage:[UIImage imageNamed:@"rpm.png"] forState:UIControlStateNormal];
         self.imgBottomRight.image = [UIImage imageNamed:@"map_rpm.png"];
     }
     if([strBottomRight isEqualToString:@"bpm"])
     {
-         [self.btnBPM setImage:[UIImage imageNamed:@"bpm.png"] forState:UIControlStateNormal];
+         [self.btnBPM setBackgroundImage:[UIImage imageNamed:@"bpm.png"] forState:UIControlStateNormal];
         self.imgBottomRight.image = [UIImage imageNamed:@"map_bpm.png"];
     }
     
@@ -1196,6 +1220,41 @@
     self.lblMapBPMText.text = [self.dictUpdatedDashboardData objectForKey:@"bottomRight"];
     
     
+    if([self.lblCalorieText.text isEqualToString:@"km"])
+    {
+        self.lblCalorieText.text = @"km/h";
+    }
+    if([self.lblKiloMeterText.text isEqualToString:@"km"])
+    {
+        self.lblKiloMeterText.text = @"km/h";
+    }
+    if([self.lblBPMText.text isEqualToString:@"km"])
+    {
+        self.lblBPMText.text = @"km/h";
+    }
+    if([self.lblRPMText.text isEqualToString:@"km"])
+    {
+        self.lblRPMText.text = @"km/h";
+    }
+    if([self.lblMapAvgSpeedText.text isEqualToString:@"km"])
+    {
+        self.lblMapAvgSpeedText.text = @"km/h";
+    }
+    if([self.lblMapKMText.text isEqualToString:@"km"])
+    {
+        self.lblMapKMText.text = @"km/h";
+    }
+    if([self.lblMapRPMText.text isEqualToString:@"km"])
+    {
+        self.lblMapRPMText.text = @"km/h";
+    }
+    if([self.lblMapBPMText.text isEqualToString:@"km"])
+    {
+        self.lblMapBPMText.text = @"km/h";
+    }
+    
+    
+    
     appDelegate().dictDashboardData = self.dictUpdatedDashboardData;
     [self saveJsonFile:@"dashboard.json" withDictionary:self.dictUpdatedDashboardData];
 }
@@ -1212,28 +1271,28 @@
                 case 5501:
                 {
                     [self.dictUpdatedDashboardData setObject:@"bpm" forKey:@"topLeft"];
-                    [self.btnCaloriesMenu setImage:[UIImage imageNamed:@"bpm.png"] forState:UIControlStateNormal];
+                    [self.btnCaloriesMenu setBackgroundImage:[UIImage imageNamed:@"bpm.png"] forState:UIControlStateNormal];
                     self.imgTopLeft.image = [UIImage imageNamed:@"map_bpm.png"];
                 }
                     break;
                 case 5502:
                 {
                     [self.dictUpdatedDashboardData setObject:@"bpm" forKey:@"topRight"];
-                    [self.btnKMMenu setImage:[UIImage imageNamed:@"bpm.png"] forState:UIControlStateNormal];
+                    [self.btnKMMenu setBackgroundImage:[UIImage imageNamed:@"bpm.png"] forState:UIControlStateNormal];
                     self.imgTopRight.image = [UIImage imageNamed:@"map_bpm.png"];
                 }
                     break;
                 case 5503:
                 {
                     [self.dictUpdatedDashboardData setObject:@"bpm" forKey:@"bottomRight"];
-                    [self.btnBPM setImage:[UIImage imageNamed:@"bpm.png"] forState:UIControlStateNormal];
+                    [self.btnBPM setBackgroundImage:[UIImage imageNamed:@"bpm.png"] forState:UIControlStateNormal];
                     self.imgBottomRight.image = [UIImage imageNamed:@"map_bpm.png"];
                 }
                     break;
                 case 5504:
                 {
                     [self.dictUpdatedDashboardData setObject:@"bpm" forKey:@"bottomLeft"];
-                    [self.btnRPM setImage:[UIImage imageNamed:@"bpm.png"] forState:UIControlStateNormal];
+                    [self.btnRPM setBackgroundImage:[UIImage imageNamed:@"bpm.png"] forState:UIControlStateNormal];
                     self.imgBottomLeft.image = [UIImage imageNamed:@"map_bpm.png"];
                 }
                     break;
@@ -1259,28 +1318,28 @@
                 case 5501:
                 {
                     [self.dictUpdatedDashboardData setObject:@"rpm" forKey:@"topLeft"];
-                    [self.btnCaloriesMenu setImage:[UIImage imageNamed:@"rpm.png"] forState:UIControlStateNormal];
+                    [self.btnCaloriesMenu setBackgroundImage:[UIImage imageNamed:@"rpm.png"] forState:UIControlStateNormal];
                     self.imgTopLeft.image = [UIImage imageNamed:@"map_rpm.png"];
                 }
                     break;
                 case 5502:
                 {
                     [self.dictUpdatedDashboardData setObject:@"rpm" forKey:@"topRight"];
-                    [self.btnKMMenu setImage:[UIImage imageNamed:@"rpm.png"] forState:UIControlStateNormal];
+                    [self.btnKMMenu setBackgroundImage:[UIImage imageNamed:@"rpm.png"] forState:UIControlStateNormal];
                     self.imgTopRight.image = [UIImage imageNamed:@"map_rpm.png"];
                 }
                     break;
                 case 5503:
                 {
                     [self.dictUpdatedDashboardData setObject:@"rpm" forKey:@"bottomRight"];
-                    [self.btnBPM setImage:[UIImage imageNamed:@"rpm.png"] forState:UIControlStateNormal];
+                    [self.btnBPM setBackgroundImage:[UIImage imageNamed:@"rpm.png"] forState:UIControlStateNormal];
                     self.imgBottomRight.image = [UIImage imageNamed:@"map_rpm.png"];
                 }
                     break;
                 case 5504:
                 {
                     [self.dictUpdatedDashboardData setObject:@"rpm" forKey:@"bottomLeft"];
-                    [self.btnRPM setImage:[UIImage imageNamed:@"rpm.png"] forState:UIControlStateNormal];
+                    [self.btnRPM setBackgroundImage:[UIImage imageNamed:@"rpm.png"] forState:UIControlStateNormal];
                     self.imgBottomLeft.image = [UIImage imageNamed:@"map_rpm.png"];
                 }
                     break;
@@ -1305,29 +1364,31 @@
                 case 5501:
                 {
                     [self.dictUpdatedDashboardData setObject:@"km" forKey:@"topLeft"];
-                    [self.btnCaloriesMenu setImage:[UIImage imageNamed:@"kilometer.png"] forState:UIControlStateNormal];
-                    self.imgTopLeft.image = [UIImage imageNamed:@"map_bpm.png"];
+//                    [self.btnCaloriesMenu setImage:[UIImage imageNamed:@"kilometer.png"] forState:UIControlStateNormal];
+//                    self.imgTopLeft.image = [UIImage imageNamed:@"map_bpm.png"];
+                    [self.btnCaloriesMenu setBackgroundImage:[UIImage imageNamed:@"avg_speed_selected.png"] forState:UIControlStateNormal];
+                    self.imgTopLeft.image = [UIImage imageNamed:@"map_speed.png"];
                 }
                     break;
                 case 5502:
                 {
                     [self.dictUpdatedDashboardData setObject:@"km" forKey:@"topRight"];
-                    [self.btnKMMenu setImage:[UIImage imageNamed:@"kilometer.png"] forState:UIControlStateNormal];
-                    self.imgTopRight.image = [UIImage imageNamed:@"map_kilometer.png"];
+                    [self.btnKMMenu setBackgroundImage:[UIImage imageNamed:@"avg_speed_selected.png"] forState:UIControlStateNormal];
+                    self.imgTopRight.image = [UIImage imageNamed:@"map_speed.png"];
                 }
                     break;
                 case 5503:
                 {
                     [self.dictUpdatedDashboardData setObject:@"km" forKey:@"bottomRight"];
-                    [self.btnBPM setImage:[UIImage imageNamed:@"kilometer.png"] forState:UIControlStateNormal];
-                    self.imgBottomRight.image = [UIImage imageNamed:@"map_kilometer.png"];
+                    [self.btnBPM setBackgroundImage:[UIImage imageNamed:@"avg_speed_selected.png"] forState:UIControlStateNormal];
+                    self.imgBottomRight.image = [UIImage imageNamed:@"map_speed.png"];
                 }
                     break;
                 case 5504:
                 {
                     [self.dictUpdatedDashboardData setObject:@"km" forKey:@"bottomLeft"];
-                    [self.btnRPM setImage:[UIImage imageNamed:@"kilometer.png"] forState:UIControlStateNormal];
-                    self.imgBottomLeft.image = [UIImage imageNamed:@"map_kilometer.png"];
+                    [self.btnRPM setBackgroundImage:[UIImage imageNamed:@"avg_speed_selected.png"] forState:UIControlStateNormal];
+                    self.imgBottomLeft.image = [UIImage imageNamed:@"map_speed.png"];
                 }
                     break;
                 case 5505:
@@ -1352,29 +1413,29 @@
                 case 5501:
                 {
                     [self.dictUpdatedDashboardData setObject:@"km" forKey:@"topLeft"];
-                    [self.btnCaloriesMenu setImage:[UIImage imageNamed:@"kilometer.png"] forState:UIControlStateNormal];
-                    self.imgTopLeft.image = [UIImage imageNamed:@"map_kilometer.png"];
+                    [self.btnCaloriesMenu setBackgroundImage:[UIImage imageNamed:@"avg_speed_selected.png"] forState:UIControlStateNormal];
+                    self.imgTopLeft.image = [UIImage imageNamed:@"map_speed.png"];
                 }
                     break;
                 case 5502:
                 {
                     [self.dictUpdatedDashboardData setObject:@"km" forKey:@"topRight"];
-                    [self.btnKMMenu setImage:[UIImage imageNamed:@"kilometer.png"] forState:UIControlStateNormal];
-                    self.imgTopRight.image = [UIImage imageNamed:@"map_kilometer.png"];
+                    [self.btnKMMenu setBackgroundImage:[UIImage imageNamed:@"avg_speed_selected.png"] forState:UIControlStateNormal];
+                    self.imgTopRight.image = [UIImage imageNamed:@"map_speed.png"];
                 }
                     break;
                 case 5503:
                 {
                     [self.dictUpdatedDashboardData setObject:@"km" forKey:@"bottomRight"];
-                    [self.btnBPM setImage:[UIImage imageNamed:@"kilometer.png"] forState:UIControlStateNormal];
-                    self.imgBottomRight.image = [UIImage imageNamed:@"map_kilometer.png"];
+                    [self.btnBPM setBackgroundImage:[UIImage imageNamed:@"avg_speed_selected.png"] forState:UIControlStateNormal];
+                    self.imgBottomRight.image = [UIImage imageNamed:@"map_speed.png"];
                 }
                     break;
                 case 5504:
                 {
                     [self.dictUpdatedDashboardData setObject:@"km" forKey:@"bottomLeft"];
-                    [self.btnRPM setImage:[UIImage imageNamed:@"kilometer.png"] forState:UIControlStateNormal];
-                    self.imgBottomLeft.image = [UIImage imageNamed:@"map_kilometer.png"];
+                    [self.btnRPM setBackgroundImage:[UIImage imageNamed:@"avg_speed_selected.png"] forState:UIControlStateNormal];
+                    self.imgBottomLeft.image = [UIImage imageNamed:@"map_speed.png"];
                 }
                     break;
                 case 5505:
@@ -1397,28 +1458,28 @@
                 case 5501:
                 {
                     [self.dictUpdatedDashboardData setObject:@"cal" forKey:@"topLeft"];
-                    [self.btnCaloriesMenu setImage:[UIImage imageNamed:@"cal.png"] forState:UIControlStateNormal];
+                    [self.btnCaloriesMenu setBackgroundImage:[UIImage imageNamed:@"cal.png"] forState:UIControlStateNormal];
                     self.imgTopLeft.image = [UIImage imageNamed:@"cal.png"];
                 }
                 break;
                 case 5502:
                 {
                     [self.dictUpdatedDashboardData setObject:@"cal" forKey:@"topRight"];
-                    [self.btnKMMenu setImage:[UIImage imageNamed:@"cal.png"] forState:UIControlStateNormal];
+                    [self.btnKMMenu setBackgroundImage:[UIImage imageNamed:@"cal.png"] forState:UIControlStateNormal];
                     self.imgTopRight.image = [UIImage imageNamed:@"cal.png"];
                 }
                 break;
                 case 5503:
                 {
                     [self.dictUpdatedDashboardData setObject:@"cal" forKey:@"bottomRight"];
-                    [self.btnBPM setImage:[UIImage imageNamed:@"cal.png"] forState:UIControlStateNormal];
+                    [self.btnBPM setBackgroundImage:[UIImage imageNamed:@"cal.png"] forState:UIControlStateNormal];
                     self.imgBottomRight.image = [UIImage imageNamed:@"cal.png"];
                 }
                 break;
                 case 5504:
                 {
                     [self.dictUpdatedDashboardData setObject:@"cal" forKey:@"bottomLeft"];
-                    [self.btnRPM setImage:[UIImage imageNamed:@"cal.png"] forState:UIControlStateNormal];
+                    [self.btnRPM setBackgroundImage:[UIImage imageNamed:@"cal.png"] forState:UIControlStateNormal];
                     self.imgBottomLeft.image = [UIImage imageNamed:@"cal.png"];
                 }
                 break;
@@ -1873,8 +1934,8 @@
     label.backgroundColor = [UIColor clearColor];
     label.textColor = [UIColor whiteColor];
     label.textAlignment = NSTextAlignmentCenter;
-    label.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:30];
-    label.text = [NSString stringWithFormat:@" %d", row+1];
+    label.font = [UIFont fontWithName:@"Roboto-Regular" size:33];
+    label.text = [NSString stringWithFormat:@" %d sec", row+1];
     return label;
 }
 
@@ -2314,6 +2375,18 @@
 {
     
     NSLog(@"iPhone 6 Size Width : %f and Height : %f",self.view.frame.size.width, self.view.frame.size.height);
+    
+    self.lblCounter.frame = CGRectMake(self.lblCounter.frame.origin.x, self.lblCounter.frame.origin.y-25, self.lblCounter.frame.size.width, self.lblCounter.frame.size.height+20);
+    self.lblCounter.font = [UIFont fontWithName:@"Roboto-Regular" size:70];
+    
+    self.btnCaloriesMenu.frame = CGRectMake(self.btnCaloriesMenu.frame.origin.x, self.btnCaloriesMenu.frame.origin.y, 40,40);
+    
+    self.btnKMMenu.frame = CGRectMake(self.btnKMMenu.frame.origin.x, self.btnKMMenu.frame.origin.y, 40,40);
+    self.btnBPM.frame = CGRectMake(self.btnBPM.frame.origin.x, self.btnBPM.frame.origin.y, 40,40);
+    
+    self.btnRPM.frame = CGRectMake(self.btnRPM.frame.origin.x, self.btnRPM.frame.origin.y, 40,40);
+    
+    
     //375 x 667
     self.sliderDashboardSpeed.frame = CGRectMake(self.sliderDashboardSpeed.frame.origin.x, self.sliderDashboardSpeed.frame.origin.y, 300, 300);
     self.imgBGDashboardSpeed.frame = CGRectMake(self.sliderDashboardSpeed.frame.origin.x-50, self.sliderDashboardSpeed.frame.origin.y-30, 300, 300);
@@ -2371,6 +2444,18 @@
     
      NSLog(@"iPhone 6+ Size Width : %f and Height : %f",self.view.frame.size.width, self.view.frame.size.height);
     //414x736
+    
+    self.lblCounter.frame = CGRectMake(self.lblCounter.frame.origin.x, self.lblCounter.frame.origin.y-25, self.lblCounter.frame.size.width, self.lblCounter.frame.size.height+20);
+    self.lblCounter.font = [UIFont fontWithName:@"Roboto-Regular" size:70];
+
+    self.btnCaloriesMenu.frame = CGRectMake(self.btnCaloriesMenu.frame.origin.x, self.btnCaloriesMenu.frame.origin.y, 40,40);
+    
+    self.btnKMMenu.frame = CGRectMake(self.btnKMMenu.frame.origin.x, self.btnKMMenu.frame.origin.y, 40,40);
+    self.btnBPM.frame = CGRectMake(self.btnBPM.frame.origin.x, self.btnBPM.frame.origin.y, 40,40);
+    
+    self.btnRPM.frame = CGRectMake(self.btnRPM.frame.origin.x, self.btnRPM.frame.origin.y, 40,40);
+    
+    
     
     self.sliderDashboardSpeed.frame = CGRectMake(self.sliderDashboardSpeed.frame.origin.x, self.sliderDashboardSpeed.frame.origin.y, 300, 300);
     self.imgBGDashboardSpeed.frame = CGRectMake(self.sliderDashboardSpeed.frame.origin.x-50, self.sliderDashboardSpeed.frame.origin.y-25, 300, 300);

@@ -47,7 +47,7 @@ static AppDelegate *myDelegate;
     [MagicalRecord setupCoreDataStackWithStoreNamed:@"AppBike.sqlite"];
     
     myDelegate = self;
-    //UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"AppBike" bundle:nil];
+    //
     
     
    // ABDashBoardVC *viewController = (ABDashBoardVC *)[storyBoard instantiateViewControllerWithIdentifier:@"ABDashBoardVC"];
@@ -85,17 +85,18 @@ static AppDelegate *myDelegate;
 /// ### #### Uncomment above
     
   
-    //Comment below
+    //Comment below new commen for design purpose - 17/6
     
-    
+//    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"AppBike" bundle:nil];
 //    UINavigationController *navigationController = [storyBoard instantiateViewControllerWithIdentifier:@"DashBoardNav"];
 //    
 //    //[self.menuSlider setFrontViewController:navigationController];
 //    
 //    [self.window setRootViewController:navigationController];
 //    
-//    [navigationController pushViewController:viewController animated:YES];
-    
+//   // [navigationController pushViewController:viewController animated:YES];
+//    
+//     [self.window makeKeyAndVisible];
     // Comment above
     
     appDelegate().strLog = @"";

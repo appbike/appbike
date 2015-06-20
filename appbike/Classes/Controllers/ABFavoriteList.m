@@ -137,7 +137,7 @@
         Favorite *thisFavorite = [arrHome firstObject];
         CLLocation *location = [[CLLocation alloc] initWithLatitude:[thisFavorite.f_latitude floatValue] longitude:[thisFavorite.f_longitude floatValue]];
         appDelegate().toLocation = location;
-        
+        appDelegate().strToAddress = thisFavorite.f_title;
         
         [[NSNotificationCenter defaultCenter] postNotificationName:DisplayNotification object:nil];
     }
@@ -165,6 +165,28 @@
     
     if(self.arrFavorites > 0)
     {
+        [self UpdateFavoriteJsonFile];
+//        NSArray *allFav = [NSArray arrayWithArray:[Favorite getAllFavoriteItems]];
+//        
+//        Favorite *thisFavorite;
+//        NSData *jsonData = [allFav MakeJsonStringFromArray:allFav Mangedobjectname:thisFavorite];
+//        
+//        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+//        NSString *documentsDirectory = [paths objectAtIndex:0];
+//        NSString *filepath = [NSString stringWithFormat:@"%@/favorites.json", documentsDirectory];
+//        
+//        [jsonData writeToFile:filepath atomically:YES];
+        
+      
+    }
+    
+    [self.tblFavorite reloadData];
+}
+
+- (void)UpdateFavoriteJsonFile
+{
+    if(self.arrFavorites > 0)
+    {
         NSArray *allFav = [NSArray arrayWithArray:[Favorite getAllFavoriteItems]];
         
         Favorite *thisFavorite;
@@ -175,17 +197,9 @@
         NSString *filepath = [NSString stringWithFormat:@"%@/favorites.json", documentsDirectory];
         
         [jsonData writeToFile:filepath atomically:YES];
-        //NSMutableDictionary *jsonDictionary = [[NSMutableDictionary alloc] init];// = [NSMutableDictionary dictionaryWithObject:(NSArray *)allFav forKey:@"favorites"];
-        
-        
-        
-        //[self saveJsonFile:@"favorites.json" withDictionary:jsonDictionary];
-        
-      
     }
-    
-    [self.tblFavorite reloadData];
 }
+
 - (IBAction)showLeftMenu:(id)sender
 {
     //return;
@@ -236,6 +250,8 @@
         
         [Favorite addItemToFavorite:dictParam];
         [self reloadFavoriteData];
+        
+        [self UpdateFavoriteJsonFile];
         if(btnPressed.tag == 101)
         {
             self.lblHomeAddress.text = self.lblToAddress.text;
@@ -303,6 +319,7 @@
     [thisSession removeItemFromFavorite];
     [self.arrFavorites removeObjectAtIndex:index];
     [self.tblFavorite reloadData];
+    [self UpdateFavoriteJsonFile];
 }
 
 

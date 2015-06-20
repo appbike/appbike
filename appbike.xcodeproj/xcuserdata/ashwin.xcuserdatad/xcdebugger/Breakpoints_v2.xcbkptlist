@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appbike/Classes/Controllers/ABDashBoardVC.m"
-            timestampString = "456334634.929203"
+            timestampString = "456415322.403716"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2337"
-            endingLineNumber = "2337"
+            startingLineNumber = "2352"
+            endingLineNumber = "2352"
             landmarkName = "-setProgress:animated:"
             landmarkType = "5">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appbike/Classes/External APIS/SAMultisectorControl/SAMultisectorControl/SAMultisectorControl.m"
-            timestampString = "452020971.884244"
+            timestampString = "456423817.857399"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "283"
-            endingLineNumber = "283"
+            startingLineNumber = "290"
+            endingLineNumber = "290"
             landmarkName = "-drawRect:"
             landmarkType = "5">
          </BreakpointContent>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appbike/Classes/Controllers/ABDashBoardVC.m"
-            timestampString = "456334634.929203"
+            timestampString = "456415322.403716"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2342"
-            endingLineNumber = "2342"
+            startingLineNumber = "2357"
+            endingLineNumber = "2357"
             landmarkName = "-setProgress:animated:"
             landmarkType = "5">
          </BreakpointContent>
@@ -90,11 +90,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appbike/Classes/Controllers/ABDashBoardVC.m"
-            timestampString = "456334634.929203"
+            timestampString = "456410463.795141"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "784"
-            endingLineNumber = "784"
+            startingLineNumber = "790"
+            endingLineNumber = "790"
             landmarkName = "-viewWillLayoutSubviews"
             landmarkType = "5">
          </BreakpointContent>
@@ -106,11 +106,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appbike/Classes/Controllers/ABDashBoardVC.m"
-            timestampString = "456334634.929203"
+            timestampString = "456410463.795141"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "795"
-            endingLineNumber = "795"
+            startingLineNumber = "801"
+            endingLineNumber = "801"
             landmarkName = "-viewWillAppear:"
             landmarkType = "5">
          </BreakpointContent>
@@ -186,11 +186,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appbike/Classes/Controllers/ABDashBoardVC.m"
-            timestampString = "456336107.791631"
+            timestampString = "456424782.898285"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2809"
-            endingLineNumber = "2809"
+            startingLineNumber = "2839"
+            endingLineNumber = "2839"
             landmarkName = "-getHeaderPacketWithNotification:"
             landmarkType = "5">
          </BreakpointContent>
@@ -298,11 +298,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appbike/Classes/Controllers/ABDashBoardVC.m"
-            timestampString = "456334634.929203"
+            timestampString = "456410463.795141"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "929"
-            endingLineNumber = "929"
+            startingLineNumber = "935"
+            endingLineNumber = "935"
             landmarkName = "-sessionStateChanged:state:error:"
             landmarkType = "5">
          </BreakpointContent>
@@ -409,7 +409,7 @@
                   symbolName = "__35-[ABFBLoginVC loadUserProfileImage]_block_invoke_2"
                   moduleName = "appbike"
                   urlString = "file:///Users/ashwin/Ashwin/Other%20projects/AppBike-Git/appbike/Classes/Controllers/ABFBLoginVC.m"
-                  timestampString = "455817208.437273"
+                  timestampString = "456416129.085153"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "35"
@@ -423,7 +423,7 @@
                   symbolName = "__35-[ABFBLoginVC loadUserProfileImage]_block_invoke_3"
                   moduleName = "appbike"
                   urlString = "file:///Users/ashwin/Ashwin/Other%20projects/AppBike-Git/appbike/Classes/Controllers/ABFBLoginVC.m"
-                  timestampString = "455817208.437574"
+                  timestampString = "456416129.085419"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "37"
@@ -552,11 +552,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appbike/Classes/Controllers/ABDashBoardVC.m"
-            timestampString = "456336107.791631"
+            timestampString = "456424782.898285"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "3264"
-            endingLineNumber = "3264"
+            startingLineNumber = "3297"
+            endingLineNumber = "3297"
             landmarkName = "-tableView:didSelectRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -568,11 +568,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appbike/Classes/Controllers/ABDashBoardVC.m"
-            timestampString = "456336107.791631"
+            timestampString = "456424782.898285"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "3271"
-            endingLineNumber = "3271"
+            startingLineNumber = "3304"
+            endingLineNumber = "3304"
             landmarkName = "-recenterMapToPlacemark:"
             landmarkType = "5">
          </BreakpointContent>
@@ -584,11 +584,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appbike/Classes/Controllers/ABDashBoardVC.m"
-            timestampString = "456336107.791631"
+            timestampString = "456424782.898285"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2686"
-            endingLineNumber = "2686"
+            startingLineNumber = "2716"
+            endingLineNumber = "2716"
             landmarkName = "-updateMyLocation:"
             landmarkType = "5">
          </BreakpointContent>
@@ -632,11 +632,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appbike/Classes/External APIS/SAMultisectorControl/SAMultisectorControl/SAMultisectorControl.m"
-            timestampString = "452020971.884244"
+            timestampString = "456423817.857399"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "497"
-            endingLineNumber = "497"
+            startingLineNumber = "504"
+            endingLineNumber = "504"
             landmarkName = "-drawSector:atPosition:"
             landmarkType = "5">
          </BreakpointContent>
@@ -648,11 +648,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appbike/Classes/External APIS/SAMultisectorControl/SAMultisectorControl/SAMultisectorControl.m"
-            timestampString = "452020971.884244"
+            timestampString = "456423817.857399"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "414"
-            endingLineNumber = "414"
+            startingLineNumber = "421"
+            endingLineNumber = "421"
             landmarkName = "-drawSector:atPosition:"
             landmarkType = "5">
          </BreakpointContent>
@@ -664,11 +664,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appbike/Classes/External APIS/SAMultisectorControl/SAMultisectorControl/SAMultisectorControl.m"
-            timestampString = "452020971.884244"
+            timestampString = "456423817.857399"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "301"
-            endingLineNumber = "301"
+            startingLineNumber = "308"
+            endingLineNumber = "308"
             landmarkName = "-drawSector_Setting:atPosition:"
             landmarkType = "5">
          </BreakpointContent>
@@ -984,11 +984,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appbike/Classes/External APIS/SAMultisectorControl/SAMultisectorControl/SAMultisectorControl.m"
-            timestampString = "452020971.884244"
+            timestampString = "456423817.857399"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "175"
-            endingLineNumber = "175"
+            startingLineNumber = "182"
+            endingLineNumber = "182"
             landmarkName = "-gestureRecognizer:shouldReceiveTouch:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1000,11 +1000,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appbike/Classes/Controllers/ABDashBoardVC.m"
-            timestampString = "456334634.929203"
+            timestampString = "456410463.795141"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1857"
-            endingLineNumber = "1857"
+            startingLineNumber = "1863"
+            endingLineNumber = "1863"
             landmarkName = "-CaloriesSet:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1016,11 +1016,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appbike/Classes/Controllers/ABDashBoardVC.m"
-            timestampString = "456334634.929203"
+            timestampString = "456410463.795141"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1914"
-            endingLineNumber = "1914"
+            startingLineNumber = "1920"
+            endingLineNumber = "1920"
             landmarkName = "-updateCounter"
             landmarkType = "5">
          </BreakpointContent>
@@ -1032,27 +1032,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appbike/Classes/Controllers/ABDashBoardVC.m"
-            timestampString = "456334634.929203"
+            timestampString = "456410463.795141"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1739"
-            endingLineNumber = "1739"
-            landmarkName = "-updateCurrentValueAndCheckMinMax:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "appbike/Classes/Controllers/ABDashBoardVC.m"
-            timestampString = "456334634.929203"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1650"
-            endingLineNumber = "1650"
+            startingLineNumber = "1656"
+            endingLineNumber = "1656"
             landmarkName = "-selectMenuItemPressed:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1064,11 +1048,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appbike/Classes/Controllers/ABDashBoardVC.m"
-            timestampString = "456334634.929203"
+            timestampString = "456410463.795141"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1264"
-            endingLineNumber = "1264"
+            startingLineNumber = "1270"
+            endingLineNumber = "1270"
             landmarkName = "-updateDashboardData:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1080,11 +1064,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appbike/Classes/Controllers/ABDashBoardVC.m"
-            timestampString = "456334634.929203"
+            timestampString = "456410463.795141"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1203"
-            endingLineNumber = "1203"
+            startingLineNumber = "1209"
+            endingLineNumber = "1209"
             landmarkName = "-displayLabelAsPerValue"
             landmarkType = "5">
          </BreakpointContent>
@@ -1096,11 +1080,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appbike/Classes/Controllers/ABDashBoardVC.m"
-            timestampString = "456334634.929203"
+            timestampString = "456410463.795141"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1262"
-            endingLineNumber = "1262"
+            startingLineNumber = "1268"
+            endingLineNumber = "1268"
             landmarkName = "-updateDashboardData:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1112,11 +1096,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appbike/Classes/Controllers/ABDashBoardVC.m"
-            timestampString = "456334634.929203"
+            timestampString = "456410463.795141"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1455"
-            endingLineNumber = "1455"
+            startingLineNumber = "1461"
+            endingLineNumber = "1461"
             landmarkName = "-updateDashboardData:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1192,11 +1176,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appbike/Classes/Controllers/ABDashBoardVC.m"
-            timestampString = "456334634.929203"
+            timestampString = "456410463.795141"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1024"
-            endingLineNumber = "1024"
+            startingLineNumber = "1030"
+            endingLineNumber = "1030"
             landmarkName = "-startAnimationGoal"
             landmarkType = "5">
          </BreakpointContent>
@@ -1208,23 +1192,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appbike/Classes/Controllers/ABFavoriteList.m"
-            timestampString = "456247190.760129"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "168"
-            endingLineNumber = "168"
-            landmarkName = "-reloadFavoriteData"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "appbike/Classes/Controllers/ABFavoriteList.m"
-            timestampString = "456247190.760129"
+            timestampString = "456414410.893693"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "167"
@@ -1240,11 +1208,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appbike/Classes/Controllers/ABDashBoardVC.m"
-            timestampString = "456334634.929203"
+            timestampString = "456410463.795141"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1507"
-            endingLineNumber = "1507"
+            startingLineNumber = "1513"
+            endingLineNumber = "1513"
             landmarkName = "-selectMenuItemPressed:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1256,11 +1224,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appbike/Classes/Controllers/ABDashBoardVC.m"
-            timestampString = "456334634.929203"
+            timestampString = "456410463.795141"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1661"
-            endingLineNumber = "1661"
+            startingLineNumber = "1667"
+            endingLineNumber = "1667"
             landmarkName = "-setupMultiSelectorControl"
             landmarkType = "5">
          </BreakpointContent>
@@ -1288,11 +1256,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appbike/Classes/Controllers/ABDashBoardVC.m"
-            timestampString = "456334634.929203"
+            timestampString = "456410463.795141"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "512"
-            endingLineNumber = "512"
+            startingLineNumber = "518"
+            endingLineNumber = "518"
             landmarkName = "-viewDidLoad"
             landmarkType = "5">
          </BreakpointContent>
@@ -1320,11 +1288,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appbike/Classes/Controllers/ABDashBoardVC.m"
-            timestampString = "456334634.929203"
+            timestampString = "456410463.795141"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "785"
-            endingLineNumber = "785"
+            startingLineNumber = "791"
+            endingLineNumber = "791"
             landmarkName = "-viewWillLayoutSubviews"
             landmarkType = "5">
          </BreakpointContent>
@@ -1336,11 +1304,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appbike/Classes/Controllers/ABDashBoardVC.m"
-            timestampString = "456334634.929203"
+            timestampString = "456410463.795141"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "809"
-            endingLineNumber = "809"
+            startingLineNumber = "815"
+            endingLineNumber = "815"
             landmarkName = "-viewDidAppear:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1352,11 +1320,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appbike/Classes/Controllers/ABDashBoardVC.m"
-            timestampString = "456334634.929203"
+            timestampString = "456410463.795141"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "796"
-            endingLineNumber = "796"
+            startingLineNumber = "802"
+            endingLineNumber = "802"
             landmarkName = "-viewWillAppear:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1368,11 +1336,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appbike/Classes/Controllers/ABDashBoardVC.m"
-            timestampString = "456334634.929203"
+            timestampString = "456410463.795141"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2094"
-            endingLineNumber = "2094"
+            startingLineNumber = "2100"
+            endingLineNumber = "2100"
             landmarkName = "-btnSharePressed:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1384,11 +1352,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appbike/Classes/Controllers/ABDashBoardVC.m"
-            timestampString = "456334634.929203"
+            timestampString = "456410463.795141"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1828"
-            endingLineNumber = "1828"
+            startingLineNumber = "1834"
+            endingLineNumber = "1834"
             landmarkName = "-CaloriesSet:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1400,12 +1368,108 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appbike/Classes/Controllers/ABDashBoardVC.m"
-            timestampString = "456334634.929203"
+            timestampString = "456410463.795141"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "760"
-            endingLineNumber = "760"
+            startingLineNumber = "766"
+            endingLineNumber = "766"
             landmarkName = "-viewDidLoad"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "appbike/Classes/Controllers/BikesConnectionViewController.m"
+            timestampString = "456413189.124476"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "358"
+            endingLineNumber = "358"
+            landmarkName = "-BleManagerDelegate:onBleDeviceConnectedWithStatus:andCode:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "appbike/Classes/Controllers/BikesConnectionViewController.m"
+            timestampString = "456413244.276569"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "398"
+            endingLineNumber = "398"
+            landmarkName = "-BleDeviceView:onEnableKeyCodeInsertedWithValue:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "appbike/Classes/Controllers/BikesConnectionViewController.m"
+            timestampString = "456413363.1542"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "356"
+            endingLineNumber = "356"
+            landmarkName = "-BleManagerDelegate:onBleDeviceConnectedWithStatus:andCode:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "appbike/Classes/Controllers/BikesConnectionViewController.m"
+            timestampString = "456413780.629988"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "352"
+            endingLineNumber = "352"
+            landmarkName = "-BleManagerDelegate:onBleDeviceConnectedWithStatus:andCode:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "appbike/Classes/Controllers/BikesConnectionViewController.m"
+            timestampString = "456413824.020679"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "584"
+            endingLineNumber = "584"
+            landmarkName = "-tapOnConnectButton"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "appbike/Classes/Controllers/ABDashBoardVC.m"
+            timestampString = "456424782.898285"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "2799"
+            endingLineNumber = "2799"
+            landmarkName = "-checkIfCaloriesGoalAchieve:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

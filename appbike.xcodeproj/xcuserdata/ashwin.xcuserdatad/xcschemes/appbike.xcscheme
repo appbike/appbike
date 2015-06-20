@@ -65,8 +65,8 @@
          </AdditionalOption>
       </AdditionalOptions>
       <LocationScenarioReference
-         identifier = "../../Newyorkcity.gpx"
-         referenceType = "0">
+         identifier = "com.apple.dt.IDEFoundation.CurrentLocationScenarioIdentifier"
+         referenceType = "1">
       </LocationScenarioReference>
    </LaunchAction>
    <ProfileAction

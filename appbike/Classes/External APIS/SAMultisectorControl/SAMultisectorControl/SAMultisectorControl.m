@@ -80,7 +80,14 @@ typedef struct{
 - (void) setupDefaultConfigurations
 {
     sectorsArray = [NSMutableArray new];
+    
+    //self.frame = CGRectMake(0, 0, 320, 320);
     self.sectorsRadius = 90.0; //45.0
+    if(IS_IPHONE_6)
+    {
+//        self.sectorsRadius = 130.0; //45.0
+//        self.frame = CGRectMake(self.frame.origin.x-80, self.frame.origin.y, 320, 320);
+    }
     self.backgroundColor = [UIColor clearColor];
     self.startAngle = toRadians(90);  //270
     self.minCircleMarkerRadius = 10.0; //10.0

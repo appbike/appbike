@@ -509,6 +509,12 @@
                name:MenuItemNotification object:nil];
     
   
+    if(appDelegate().isSessionStart)
+    {
+        [self.btnStartStop setTitle:@"STOP" forState:UIControlStateNormal];
+        [self.btnMapStart setTitle:@"STOP" forState:UIControlStateNormal];
+    }
+    
     indexLoc = 0;
     
     [self registerForNotifications];
@@ -2196,6 +2202,11 @@
             self.lblMapRPMValue.text = @"0";
             self.lblMapAvgSpeedValue.text = @"0";
             
+            self.lblCaloriesValueSlider.text = @"0";
+            self.lblCaloriesPercentage.text = @"0";
+            
+            self.sliderDashboardCalories.isSkipGoal = NO;
+            
             [self.slices removeAllObjects];
             self.slices = [NSMutableArray arrayWithCapacity:2];
             
@@ -2303,10 +2314,14 @@
             self.lblMapRPMValue.text = @"0";
             self.lblMapAvgSpeedValue.text = @"0";
             
+            self.lblCaloriesValueSlider.text = @"0";
+            self.lblCaloriesPercentage.text = @"0";
+            
             self.viewMinMaxSpeed.hidden = YES;
             self.viewCalories.hidden = YES;
             self.viewNormalSpeed.hidden = NO;
             
+            self.sliderDashboardCalories.isSkipGoal = NO;
             
             //self.btnSkipSpeed.hidden = YES;
             //self.btnSkipCalories.hidden = YES;
@@ -2436,11 +2451,18 @@
     
   
     
+    self.sliderDashboardMinMax.sectorsRadius = 130.0;
+    self.sliderDashboardMinMax.frame = CGRectMake(self.sliderDashboardMinMax.frame.origin.x-80, self.sliderDashboardMinMax.frame.origin.y, 320, 320);
+
+     self.viewMinMaxSpeed.frame = CGRectMake(self.viewMinMaxSpeed.frame.origin.x-30, self.viewMinMaxSpeed.frame.origin.y, 300, 300);
+    //self.sliderDashboardMinMax.frame = CGRectMake(0, 0, 300, 200);
+    self.bgMinMaxSpeed.frame = CGRectMake(0, 0, 290, 290);
    //[self.sliderDashboardCalories setValue:400];
 }
 
 - (void)updateUIForiPhone6Plus
 {
+    
     
      NSLog(@"iPhone 6+ Size Width : %f and Height : %f",self.view.frame.size.width, self.view.frame.size.height);
     //414x736
@@ -2503,6 +2525,14 @@
 
     self.viewGoalCalories.frame = CGRectMake(self.viewGoalCalories.frame.origin.x-40, self.viewGoalCalories.frame.origin.y-40, 280, 280);
     self.bgGoalImage.frame = CGRectMake(self.bgGoalImage.frame.origin.x-50, self.sliderDashboardSpeed.frame.origin.y, 300, 300);
+    
+    
+    self.sliderDashboardMinMax.sectorsRadius = 130.0;
+    self.sliderDashboardMinMax.frame = CGRectMake(self.sliderDashboardMinMax.frame.origin.x-80, self.sliderDashboardMinMax.frame.origin.y, 320, 320);
+    
+    self.viewMinMaxSpeed.frame = CGRectMake(self.viewMinMaxSpeed.frame.origin.x-30, self.viewMinMaxSpeed.frame.origin.y, 300, 300);
+    //self.sliderDashboardMinMax.frame = CGRectMake(0, 0, 300, 200);
+    self.bgMinMaxSpeed.frame = CGRectMake(0, 0, 290, 290);
     
     //[self.sliderDashboardCalories setValue:400];
 }
@@ -2874,7 +2904,10 @@
                 [self.lblCaloriesValueSlider setText:[cal stringValue]];
                 [self.sliderDashboardCalories setValue:[cal floatValue]];
                 [self checkIfCaloriesGoalAchieve:[cal intValue]];
-                float totalPer = ([cal floatValue] / self.sliderSetCalories.maximumValue) * 100;
+                
+                
+                //float totalPer = ([cal floatValue] / self.sliderSetCalories.maximumValue) * 100;
+                float totalPer = ([cal floatValue] / self.sliderSetCalories.value) * 100;
                 self.lblCaloriesPercentage.text = [NSString stringWithFormat:@"%.0f%%",totalPer];
                 
             }
@@ -2883,7 +2916,7 @@
             break;
         }
         
-      
+      [self checkIfCaloriesGoalAchieve:[cal intValue]];
 
         
         //Battery Parameters

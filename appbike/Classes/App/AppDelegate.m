@@ -86,7 +86,7 @@ static AppDelegate *myDelegate;
     
   
     //Comment below new commen for design purpose - 17/6
-    
+//    
 //    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"AppBike" bundle:nil];
 //    UINavigationController *navigationController = [storyBoard instantiateViewControllerWithIdentifier:@"DashBoardNav"];
 //    
@@ -184,7 +184,7 @@ static AppDelegate *myDelegate;
     
     
     //Favorite
-    NSString *filepathFavorite = [NSString stringWithFormat:@"%@/%@", documentsDirectory, @"favorite.json"];
+    NSString *filepathFavorite = [NSString stringWithFormat:@"%@/%@", documentsDirectory, @"favorites.json"];
    
     
     BOOL fileExistsFavorite = [[NSFileManager defaultManager] fileExistsAtPath:filepathFavorite];
@@ -192,7 +192,7 @@ static AppDelegate *myDelegate;
     if(!fileExistsFavorite)
     {
         NSDictionary *dictFavorite = @{@"home" : @"" , @"favorites" : @""};
-        [self saveJsonFile:@"favorite.json" withDictionary:dictFavorite];
+        [self saveJsonFile:@"favorites.json" withDictionary:dictFavorite];
     }
     
     [self initializeLocationManager];

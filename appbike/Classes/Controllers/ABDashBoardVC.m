@@ -218,6 +218,9 @@
 @property (strong, nonatomic) IBOutlet UILabel *lblAlertKM;
 @property (strong, nonatomic) IBOutlet UILabel *lblAlertMsg;
 
+@property (strong, nonatomic) IBOutlet UILabel *lblCalTextSlider;
+@property (strong, nonatomic) IBOutlet UIButton *btnSaveSessionYes;
+@property (strong, nonatomic) IBOutlet UIButton *btnSaveSessionNo;
 
 @property (strong, nonatomic) NSMutableDictionary *dictUpdatedDashboardData;
 //####
@@ -644,6 +647,9 @@
         
         
         yAxis = 30;
+        
+        self.lblCounter.frame = CGRectMake(self.lblCounter.frame.origin.x, self.lblCounter.frame.origin.y-25, self.lblCounter.frame.size.width, self.lblCounter.frame.size.height+30);
+        self.lblCounter.font = [UIFont fontWithName:@"Roboto-Regular" size:62];
     }
     else
     {
@@ -2391,8 +2397,28 @@
     
     NSLog(@"iPhone 6 Size Width : %f and Height : %f",self.view.frame.size.width, self.view.frame.size.height);
     
-    self.lblCounter.frame = CGRectMake(self.lblCounter.frame.origin.x, self.lblCounter.frame.origin.y-25, self.lblCounter.frame.size.width, self.lblCounter.frame.size.height+20);
-    self.lblCounter.font = [UIFont fontWithName:@"Roboto-Regular" size:70];
+    self.lblCounter.frame = CGRectMake(self.lblCounter.frame.origin.x, self.lblCounter.frame.origin.y-25, self.lblCounter.frame.size.width, self.lblCounter.frame.size.height+40);
+    self.lblCounter.font = [UIFont fontWithName:@"Roboto-Regular" size:80];
+    
+    self.lblMinMaxSpeedValue.frame = CGRectMake(self.lblMinMaxSpeedValue.frame.origin.x-25, self.lblMinMaxSpeedValue.frame.origin.y-10, self.lblMinMaxSpeedValue.frame.size.width+40, self.lblMinMaxSpeedValue.frame.size.height+30);
+    self.lblMinMaxSpeedValue.font = [UIFont fontWithName:@"Roboto-Bold" size:110];
+    
+    self.lblCurrentSpeed.frame = CGRectMake(self.lblCurrentSpeed.frame.origin.x-20, self.lblCurrentSpeed.frame.origin.y, self.lblCurrentSpeed.frame.size.width+40, self.lblCurrentSpeed.frame.size.height+50);
+    self.lblCurrentSpeed.font = [UIFont fontWithName:@"Roboto-Bold" size:90];
+    
+    self.lblKMHText.frame = CGRectMake(self.lblKMHText.frame.origin.x, self.lblKMHText.frame.origin.y+30, self.lblKMHText.frame.size.width, self.lblKMHText.frame.size.height);
+    
+    
+    self.lblCalTextSlider.frame = CGRectMake(self.lblCalTextSlider.frame.origin.x, self.lblCalTextSlider.frame.origin.y+30, self.lblCalTextSlider.frame.size.width, self.lblCalTextSlider.frame.size.height);
+    self.lblCalTextSlider.font = [UIFont fontWithName:@"Roboto-Regular" size:32];
+    
+    // self.lblCaloriesValueSlider.backgroundColor = [UIColor redColor];
+    self.lblCaloriesValueSlider.frame = CGRectMake(self.lblCaloriesValueSlider.frame.origin.x-50, self.lblCaloriesValueSlider.frame.origin.y, self.lblCaloriesValueSlider.frame.size.width+100, self.lblCaloriesValueSlider.frame.size.height+40);
+    self.lblCaloriesValueSlider.font = [UIFont fontWithName:@"Roboto-Bold" size:80];
+    
+    //self.lblCaloriesPercentage.backgroundColor = [UIColor redColor];
+    self.lblCaloriesPercentage.frame = CGRectMake(self.lblCaloriesPercentage.frame.origin.x-30, self.lblCaloriesPercentage.frame.origin.y+20, self.lblCaloriesPercentage.frame.size.width+60, self.lblCaloriesPercentage.frame.size.height+40);
+    self.lblCaloriesPercentage.font = [UIFont fontWithName:@"Roboto-Bold" size:60];
     
     self.btnCaloriesMenu.frame = CGRectMake(self.btnCaloriesMenu.frame.origin.x, self.btnCaloriesMenu.frame.origin.y, 40,40);
     
@@ -2458,6 +2484,14 @@
     //self.sliderDashboardMinMax.frame = CGRectMake(0, 0, 300, 200);
     self.bgMinMaxSpeed.frame = CGRectMake(0, 0, 290, 290);
    //[self.sliderDashboardCalories setValue:400];
+    
+    self.circularSlider.frame = CGRectMake(self.circularSlider.frame.origin.x-30, self.circularSlider.frame.origin.y-10, self.circularSlider.frame.size.width + 60, self.circularSlider.frame.size.height + 60);
+    
+    self.btnShareYes.frame = CGRectMake(self.btnShareYes.frame.origin.x+8, self.btnShareYes.frame.origin.y, self.btnShareYes.frame.size.width, self.btnShareYes.frame.size.height);
+    self.btnShareNo.frame = CGRectMake(self.btnShareNo.frame.origin.x-8, self.btnShareNo.frame.origin.y, self.btnShareNo.frame.size.width, self.btnShareNo.frame.size.height);
+    
+    self.btnSaveSessionYes.frame = CGRectMake(self.btnSaveSessionYes.frame.origin.x+7, self.btnSaveSessionYes.frame.origin.y, self.btnSaveSessionYes.frame.size.width, self.btnSaveSessionYes.frame.size.height);
+    self.btnSaveSessionNo.frame = CGRectMake(self.btnSaveSessionNo.frame.origin.x-7, self.btnSaveSessionNo.frame.origin.y, self.btnSaveSessionNo.frame.size.width, self.btnSaveSessionNo.frame.size.height);
 }
 
 - (void)updateUIForiPhone6Plus
@@ -2467,8 +2501,32 @@
      NSLog(@"iPhone 6+ Size Width : %f and Height : %f",self.view.frame.size.width, self.view.frame.size.height);
     //414x736
     
-    self.lblCounter.frame = CGRectMake(self.lblCounter.frame.origin.x, self.lblCounter.frame.origin.y-25, self.lblCounter.frame.size.width, self.lblCounter.frame.size.height+20);
-    self.lblCounter.font = [UIFont fontWithName:@"Roboto-Regular" size:70];
+    self.lblCounter.frame = CGRectMake(self.lblCounter.frame.origin.x, self.lblCounter.frame.origin.y-25, self.lblCounter.frame.size.width, self.lblCounter.frame.size.height+40);
+    self.lblCounter.font = [UIFont fontWithName:@"Roboto-Regular" size:80];
+
+    
+    //self.lblMinMaxSpeedValue.backgroundColor = [UIColor redColor];
+    self.lblMinMaxSpeedValue.frame = CGRectMake(self.lblMinMaxSpeedValue.frame.origin.x-25, self.lblMinMaxSpeedValue.frame.origin.y-10, self.lblMinMaxSpeedValue.frame.size.width+40, self.lblMinMaxSpeedValue.frame.size.height+30);
+    self.lblMinMaxSpeedValue.font = [UIFont fontWithName:@"Roboto-Bold" size:110];
+
+    
+    self.lblCurrentSpeed.frame = CGRectMake(self.lblCurrentSpeed.frame.origin.x-20, self.lblCurrentSpeed.frame.origin.y, self.lblCurrentSpeed.frame.size.width+40, self.lblCurrentSpeed.frame.size.height+50);
+    self.lblCurrentSpeed.font = [UIFont fontWithName:@"Roboto-Bold" size:90];
+    
+    self.lblKMHText.frame = CGRectMake(self.lblKMHText.frame.origin.x, self.lblKMHText.frame.origin.y+30, self.lblKMHText.frame.size.width, self.lblKMHText.frame.size.height);
+    
+    
+    self.lblCalTextSlider.frame = CGRectMake(self.lblCalTextSlider.frame.origin.x, self.lblCalTextSlider.frame.origin.y+30, self.lblCalTextSlider.frame.size.width, self.lblCalTextSlider.frame.size.height);
+    self.lblCalTextSlider.font = [UIFont fontWithName:@"Roboto-Regular" size:32];
+    
+   // self.lblCaloriesValueSlider.backgroundColor = [UIColor redColor];
+    self.lblCaloriesValueSlider.frame = CGRectMake(self.lblCaloriesValueSlider.frame.origin.x-50, self.lblCaloriesValueSlider.frame.origin.y, self.lblCaloriesValueSlider.frame.size.width+100, self.lblCaloriesValueSlider.frame.size.height+40);
+    self.lblCaloriesValueSlider.font = [UIFont fontWithName:@"Roboto-Bold" size:80];
+    
+     //self.lblCaloriesPercentage.backgroundColor = [UIColor redColor];
+    self.lblCaloriesPercentage.frame = CGRectMake(self.lblCaloriesPercentage.frame.origin.x-30, self.lblCaloriesPercentage.frame.origin.y+30, self.lblCaloriesPercentage.frame.size.width+60, self.lblCaloriesPercentage.frame.size.height+40);
+    self.lblCaloriesPercentage.font = [UIFont fontWithName:@"Roboto-Bold" size:60];
+    
 
     self.btnCaloriesMenu.frame = CGRectMake(self.btnCaloriesMenu.frame.origin.x, self.btnCaloriesMenu.frame.origin.y, 40,40);
     
@@ -2533,6 +2591,15 @@
     self.viewMinMaxSpeed.frame = CGRectMake(self.viewMinMaxSpeed.frame.origin.x-30, self.viewMinMaxSpeed.frame.origin.y, 300, 300);
     //self.sliderDashboardMinMax.frame = CGRectMake(0, 0, 300, 200);
     self.bgMinMaxSpeed.frame = CGRectMake(0, 0, 290, 290);
+    
+    
+    self.circularSlider.frame = CGRectMake(self.circularSlider.frame.origin.x-30, self.circularSlider.frame.origin.y-10, self.circularSlider.frame.size.width + 60, self.circularSlider.frame.size.height + 60);
+    
+    self.btnShareYes.frame = CGRectMake(self.btnShareYes.frame.origin.x+15, self.btnShareYes.frame.origin.y, self.btnShareYes.frame.size.width, self.btnShareYes.frame.size.height);
+    self.btnShareNo.frame = CGRectMake(self.btnShareNo.frame.origin.x-15, self.btnShareNo.frame.origin.y, self.btnShareNo.frame.size.width, self.btnShareNo.frame.size.height);
+    
+    self.btnSaveSessionYes.frame = CGRectMake(self.btnSaveSessionYes.frame.origin.x+13, self.btnSaveSessionYes.frame.origin.y, self.btnSaveSessionYes.frame.size.width, self.btnSaveSessionYes.frame.size.height);
+    self.btnSaveSessionNo.frame = CGRectMake(self.btnSaveSessionNo.frame.origin.x-13, self.btnSaveSessionNo.frame.origin.y, self.btnSaveSessionNo.frame.size.width, self.btnSaveSessionNo.frame.size.height);
     
     //[self.sliderDashboardCalories setValue:400];
 }

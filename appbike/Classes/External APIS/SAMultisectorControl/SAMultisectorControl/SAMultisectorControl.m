@@ -501,7 +501,16 @@ typedef struct{
 //    
 //    CGContextStrokePath(context);
     
-    self.imgViewProfile.frame = CGRectMake(drawInf.currentMarkerCenter.x-15,drawInf.currentMarkerCenter.y-15,self.imgViewProfile.frame.size.width,self.imgViewProfile.frame.size.height);
+    
+    if(sector.currValue < 40 || sector.currValue > 90)
+    {
+        self.imgViewProfile.frame = CGRectMake(drawInf.currentMarkerCenter.x-15,drawInf.currentMarkerCenter.y-30,self.imgViewProfile.frame.size.width,self.imgViewProfile.frame.size.height); //y=15
+    }
+ 
+    else
+    {
+         self.imgViewProfile.frame = CGRectMake(drawInf.currentMarkerCenter.x-15,drawInf.currentMarkerCenter.y-15,self.imgViewProfile.frame.size.width,self.imgViewProfile.frame.size.height);
+    }
    
     
     

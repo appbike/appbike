@@ -121,6 +121,7 @@
 @property (weak, nonatomic) IBOutlet SAMultisectorControl *multisectorControl;
 @property (strong, nonatomic) IBOutlet UILabel *setSpeedlblDistance;
 @property (strong, nonatomic) IBOutlet UIImageView *imgBgSetSpeed;
+@property (strong, nonatomic) IBOutlet UIImageView *imgBgSetSpeedLogo;
 
 
 @property (strong, nonatomic) IBOutlet UIImageView *goalStarMain;
@@ -263,6 +264,26 @@
     NSString *strTopRight = [appDelegate().dictDashboardData valueForKey:@"topRight"];
     NSString *strBottomLeft = [appDelegate().dictDashboardData valueForKey:@"bottomLeft"];
     NSString *strBottomRight = [appDelegate().dictDashboardData valueForKey:@"bottomRight"];
+    NSString *mainSensor = [appDelegate().dictDashboardData objectForKey:@"main"];
+    
+    if([mainSensor isEqualToString:@"kmh"])
+    {
+        self.lblKMHText.text = @"km/h";
+        self.imgBGLogoDashboardSpeed.image = [UIImage imageNamed:@"flow_ring_logo.png"];
+        
+    }
+    else if([mainSensor isEqualToString:@"bpm"])
+    {
+        //TODO : Replace with bpm logo.
+        self.imgBGLogoDashboardSpeed.image = [UIImage imageNamed:@"avg-pulse-logo.png"];
+        self.lblKMHText.text = @"bpm";
+    }
+    else if([mainSensor isEqualToString:@"rpm"])
+    {
+        //TODO : Replace with rpm logo.
+        self.imgBGLogoDashboardSpeed.image = [UIImage imageNamed:@"avg-pulse-logo.png"];
+        self.lblKMHText.text = @"bpm";
+    }
     
     if([strTopLeft isEqualToString:@"cal"])
     {
@@ -1310,7 +1331,7 @@
                     break;
                 case 5505:
                 {
-                    [self.dictUpdatedDashboardData setObject:@"kmh" forKey:@"main"];
+                    [self.dictUpdatedDashboardData setObject:@"bpm" forKey:@"main"];
                    // [self.btnRPM setImage:[UIImage imageNamed:@"bpm.png"] forState:UIControlStateNormal];
                 }
                     break;
@@ -1357,7 +1378,7 @@
                     break;
                 case 5505:
                 {
-                    [self.dictUpdatedDashboardData setObject:@"kmh" forKey:@"main"];
+                    [self.dictUpdatedDashboardData setObject:@"rpm" forKey:@"main"];
                     // [self.btnRPM setImage:[UIImage imageNamed:@"bpm.png"] forState:UIControlStateNormal];
                 }
                     break;
@@ -1529,9 +1550,9 @@
         case 1101:
         {
             //Pulse
-            //self.currentSelectedSensorType = SelectedSensorTypePulse;
+            self.currentSelectedSensorType = SelectedSensorTypePulse;
             
-            self.currentSelectedSensorType = SelectedSensorTypeSpeedNormal;
+            //self.currentSelectedSensorType = SelectedSensorTypeSpeedNormal;
             
             
             if([mainSensor isEqualToString:@"kmh"])
@@ -1539,8 +1560,28 @@
                 self.viewMinMaxSpeed.hidden = YES;
                 self.viewNormalSpeed.hidden = NO;
                 self.viewCalories.hidden = YES;
+                self.lblKMHText.text = @"km/h";
+                self.imgBGLogoDashboardSpeed.image = [UIImage imageNamed:@"flow_ring_logo.png"];
+                
             }
-            
+            else if([mainSensor isEqualToString:@"bpm"])
+            {
+                //TODO : Replace with bpm logo.
+                self.viewMinMaxSpeed.hidden = YES;
+                self.viewNormalSpeed.hidden = NO;
+                self.viewCalories.hidden = YES;
+                self.imgBGLogoDashboardSpeed.image = [UIImage imageNamed:@"avg-pulse-logo.png"];
+                self.lblKMHText.text = @"bpm";
+            }
+            else if([mainSensor isEqualToString:@"rpm"])
+            {
+                //TODO : Replace with rpm logo.
+                self.viewMinMaxSpeed.hidden = YES;
+                self.viewNormalSpeed.hidden = NO;
+                self.viewCalories.hidden = YES;
+                self.imgBGLogoDashboardSpeed.image = [UIImage imageNamed:@"avg-pulse-logo.png"];
+                self.lblKMHText.text = @"bpm";
+            }
             UIButton *btn1 = (UIButton *)[self.view viewWithTag:1102];
             btn1.selected = NO;
             
@@ -1558,16 +1599,35 @@
         case 1102:
         {
             //Avg Pulse
-            //self.currentSelectedSensorType = SelectedSensorTypeAvgPulse;
-            self.currentSelectedSensorType = SelectedSensorTypeSpeedNormal;
+            self.currentSelectedSensorType = SelectedSensorTypeAvgPulse;
+            //self.currentSelectedSensorType = SelectedSensorTypeSpeedNormal;
             
             if([mainSensor isEqualToString:@"kmh"])
             {
                 self.viewMinMaxSpeed.hidden = YES;
                 self.viewNormalSpeed.hidden = NO;
                 self.viewCalories.hidden = YES;
+                self.lblKMHText.text = @"km/h";
+                self.imgBGLogoDashboardSpeed.image = [UIImage imageNamed:@"flow_ring_logo.png"];
             }
-            
+            else if([mainSensor isEqualToString:@"bpm"])
+            {
+                //TODO : Replace with bpm logo.
+                self.imgBGLogoDashboardSpeed.image = [UIImage imageNamed:@"avg-pulse-logo.png"];
+                self.lblKMHText.text = @"bpm";
+                self.viewMinMaxSpeed.hidden = YES;
+                self.viewNormalSpeed.hidden = NO;
+                self.viewCalories.hidden = YES;
+            }
+            else if([mainSensor isEqualToString:@"rpm"])
+            {
+                //TODO : Replace with rpm logo.
+                self.imgBGLogoDashboardSpeed.image = [UIImage imageNamed:@"avg-pulse-logo.png"];
+                self.lblKMHText.text = @"bpm";
+                self.viewMinMaxSpeed.hidden = YES;
+                self.viewNormalSpeed.hidden = NO;
+                self.viewCalories.hidden = YES;
+            }
             UIButton *btn1 = (UIButton *)[self.view viewWithTag:1101];
             btn1.selected = NO;
             
@@ -1587,7 +1647,7 @@
             //Speed
             self.currentSelectedSensorType = SelectedSensorTypeSpeedMinMax;
             self.viewSetSpeed.hidden = NO;
-            
+             self.lblKMHText.text = @"km/h";
             
             UIButton *btn1 = (UIButton *)[self.view viewWithTag:1102];
             btn1.selected = NO;
@@ -1607,13 +1667,42 @@
         {
             //Avg Speed
             self.currentSelectedSensorType = SelectedSensorTypeSpeedNormal;
+//            if([mainSensor isEqualToString:@"kmh"])
+//            {
+//                self.viewMinMaxSpeed.hidden = YES;
+//                self.viewNormalSpeed.hidden = NO;
+//                self.viewCalories.hidden = YES;
+//            }
             if([mainSensor isEqualToString:@"kmh"])
             {
                 self.viewMinMaxSpeed.hidden = YES;
                 self.viewNormalSpeed.hidden = NO;
                 self.viewCalories.hidden = YES;
+                self.lblKMHText.text = @"km/h";
+                self.imgBGLogoDashboardSpeed.image = [UIImage imageNamed:@"flow_ring_logo.png"];
+                
+            }
+            else if([mainSensor isEqualToString:@"bpm"])
+            {
+                //TODO : Replace with bpm logo.
+                self.imgBGLogoDashboardSpeed.image = [UIImage imageNamed:@"avg-pulse-logo.png"];
+                self.lblKMHText.text = @"bpm";
+                self.viewMinMaxSpeed.hidden = YES;
+                self.viewNormalSpeed.hidden = NO;
+                self.viewCalories.hidden = YES;
+            }
+            else if([mainSensor isEqualToString:@"rpm"])
+            {
+                //TODO : Replace with rpm logo.
+                self.imgBGLogoDashboardSpeed.image = [UIImage imageNamed:@"avg-pulse-logo.png"];
+                self.lblKMHText.text = @"bpm";
+                self.viewMinMaxSpeed.hidden = YES;
+                self.viewNormalSpeed.hidden = NO;
+                self.viewCalories.hidden = YES;
             }
             
+            //self.lblKMHText.text = @"km/h";
+            //self.imgBGLogoDashboardSpeed.image = [UIImage imageNamed:@"flow_ring_logo.png"];
             UIButton *btn1 = (UIButton *)[self.view viewWithTag:1102];
             btn1.selected = NO;
             
@@ -1635,6 +1724,35 @@
             self.currentSelectedSensorType = SelectedSensorTypeCalories;
             //Check if calories values already set if not then display that view
             
+            
+            if([mainSensor isEqualToString:@"kmh"])
+            {
+                self.viewMinMaxSpeed.hidden = YES;
+                self.viewNormalSpeed.hidden = NO;
+                self.viewCalories.hidden = YES;
+                self.lblKMHText.text = @"km/h";
+                self.imgBGLogoDashboardSpeed.image = [UIImage imageNamed:@"flow_ring_logo.png"];
+                
+            }
+            else if([mainSensor isEqualToString:@"bpm"])
+            {
+                //TODO : Replace with bpm logo.
+                self.viewMinMaxSpeed.hidden = YES;
+                self.viewNormalSpeed.hidden = NO;
+                self.viewCalories.hidden = YES;
+                self.imgBGLogoDashboardSpeed.image = [UIImage imageNamed:@"avg-pulse-logo.png"];
+                self.lblKMHText.text = @"bpm";
+            }
+            else if([mainSensor isEqualToString:@"rpm"])
+            {
+                //TODO : Replace with rpm logo.
+                self.viewMinMaxSpeed.hidden = YES;
+                self.viewNormalSpeed.hidden = NO;
+                self.viewCalories.hidden = YES;
+                self.imgBGLogoDashboardSpeed.image = [UIImage imageNamed:@"avg-pulse-logo.png"];
+                self.lblKMHText.text = @"bpm";
+            }
+
             self.viewSetCalories.hidden = NO;
             
             UIButton *btn1 = (UIButton *)[self.view viewWithTag:1102];
@@ -1763,6 +1881,37 @@
         self.viewCalories.hidden = YES;
         self.viewMinMaxSpeed.hidden = NO;
     }
+    
+    if([mainSensor isEqualToString:@"kmh"])
+    {
+        
+        self.viewNormalSpeed.hidden = YES;
+        self.viewCalories.hidden = YES;
+        self.viewMinMaxSpeed.hidden = NO;
+        self.lblKMHText.text = @"km/h";
+        self.imgBGLogoDashboardSpeed.image = [UIImage imageNamed:@"flow_ring_logo.png"];
+        
+    }
+    else if([mainSensor isEqualToString:@"bpm"])
+    {
+        //TODO : Replace with bpm logo.
+        self.viewNormalSpeed.hidden = NO;
+        self.viewCalories.hidden = YES;
+        self.viewMinMaxSpeed.hidden = YES;
+        self.imgBGLogoDashboardSpeed.image = [UIImage imageNamed:@"avg-pulse-logo.png"];
+        self.lblKMHText.text = @"bpm";
+    }
+    else if([mainSensor isEqualToString:@"rpm"])
+    {
+        //TODO : Replace with rpm logo.
+        self.viewNormalSpeed.hidden = NO;
+        self.viewCalories.hidden = YES;
+        self.viewMinMaxSpeed.hidden = YES;
+        self.imgBGLogoDashboardSpeed.image = [UIImage imageNamed:@"avg-pulse-logo.png"];
+        self.lblKMHText.text = @"bpm";
+    }
+
+    
     if(btnPressed.tag == 1201)
     {
         //Skip
@@ -1772,7 +1921,31 @@
             self.viewMinMaxSpeed.hidden = YES;
             self.viewCalories.hidden = YES;
             self.viewNormalSpeed.hidden = NO;
+            self.lblKMHText.text = @"km/h";
+            self.imgBGLogoDashboardSpeed.image = [UIImage imageNamed:@"flow_ring_logo.png"];
+            
         }
+        else if([mainSensor isEqualToString:@"bpm"])
+        {
+            //TODO : Replace with bpm logo.
+            self.viewMinMaxSpeed.hidden = YES;
+            self.viewCalories.hidden = YES;
+            self.viewNormalSpeed.hidden = NO;
+
+            self.imgBGLogoDashboardSpeed.image = [UIImage imageNamed:@"avg-pulse-logo.png"];
+            self.lblKMHText.text = @"bpm";
+        }
+        else if([mainSensor isEqualToString:@"rpm"])
+        {
+            //TODO : Replace with rpm logo.
+            self.viewMinMaxSpeed.hidden = YES;
+            self.viewCalories.hidden = YES;
+            self.viewNormalSpeed.hidden = NO;
+            self.imgBGLogoDashboardSpeed.image = [UIImage imageNamed:@"avg-pulse-logo.png"];
+            self.lblKMHText.text = @"bpm";
+        }
+        
+
         
         NSDictionary *countValue = @{@"max" : [NSString stringWithFormat:@"%d",maxValue],
                                      @"min" : [NSString stringWithFormat:@"%d",minValue],
@@ -2209,9 +2382,13 @@
             self.lblMapAvgSpeedValue.text = @"0";
             
             self.lblCaloriesValueSlider.text = @"0";
-            self.lblCaloriesPercentage.text = @"0";
+            self.lblCaloriesPercentage.text = @"0%";
             
             self.sliderDashboardCalories.isSkipGoal = NO;
+            
+            
+            [self.viewMap removeOverlay:routeDetails.polyline]; //Remove overlays
+            [self.viewMap setNeedsDisplay];
             
             [self.slices removeAllObjects];
             self.slices = [NSMutableArray arrayWithCapacity:2];
@@ -2321,7 +2498,7 @@
             self.lblMapAvgSpeedValue.text = @"0";
             
             self.lblCaloriesValueSlider.text = @"0";
-            self.lblCaloriesPercentage.text = @"0";
+            self.lblCaloriesPercentage.text = @"0%";
             
             self.viewMinMaxSpeed.hidden = YES;
             self.viewCalories.hidden = YES;
@@ -2396,6 +2573,8 @@
 {
     
     NSLog(@"iPhone 6 Size Width : %f and Height : %f",self.view.frame.size.width, self.view.frame.size.height);
+    
+     self.imgBgSetSpeedLogo.frame = CGRectMake(self.imgBgSetSpeedLogo.frame.origin.x+3, self.imgBgSetSpeedLogo.frame.origin.y+3, self.imgBgSetSpeedLogo.frame.size.width, self.imgBgSetSpeedLogo.frame.size.height);
     
     self.lblCounter.frame = CGRectMake(self.lblCounter.frame.origin.x, self.lblCounter.frame.origin.y-25, self.lblCounter.frame.size.width, self.lblCounter.frame.size.height+40);
     self.lblCounter.font = [UIFont fontWithName:@"Roboto-Regular" size:80];
@@ -2501,6 +2680,8 @@
      NSLog(@"iPhone 6+ Size Width : %f and Height : %f",self.view.frame.size.width, self.view.frame.size.height);
     //414x736
     
+    self.imgBgSetSpeedLogo.frame = CGRectMake(self.imgBgSetSpeedLogo.frame.origin.x+3, self.imgBgSetSpeedLogo.frame.origin.y-40, self.imgBgSetSpeedLogo.frame.size.width, self.imgBgSetSpeedLogo.frame.size.height);
+
     self.lblCounter.frame = CGRectMake(self.lblCounter.frame.origin.x, self.lblCounter.frame.origin.y-25, self.lblCounter.frame.size.width, self.lblCounter.frame.size.height+40);
     self.lblCounter.font = [UIFont fontWithName:@"Roboto-Regular" size:80];
 
@@ -2946,11 +3127,18 @@
             case SelectedSensorTypePulse:
             {
                 //Pulse Sensor goes here
+                float hb = [[dictionary objectForKey:@"HB"] floatValue];
+                [self.sliderDashboardSpeed setValue:hb];
+                self.lblCurrentSpeed.text = [NSString stringWithFormat:@"%.0f",hb];
+                
             }
             break;
             case SelectedSensorTypeAvgPulse:
             {
                 //Avg Sensor method
+                float avghb = [[dictionary objectForKey:@"AvgHB"] floatValue];
+                [self.sliderDashboardSpeed setValue:avghb];
+                self.lblCurrentSpeed.text = [NSString stringWithFormat:@"%.0f",avghb];
             }
             break;
             case SelectedSensorTypeSpeedNormal:
@@ -2975,7 +3163,8 @@
                 
                 //float totalPer = ([cal floatValue] / self.sliderSetCalories.maximumValue) * 100;
                 float totalPer = ([cal floatValue] / self.sliderSetCalories.value) * 100;
-                self.lblCaloriesPercentage.text = [NSString stringWithFormat:@"%.0f%%",totalPer];
+                if(totalPer < 100.0f)
+                    self.lblCaloriesPercentage.text = [NSString stringWithFormat:@"%.0f%%",totalPer];
                 
             }
             break;
@@ -3015,7 +3204,7 @@
         appDelegate().dictCurrentSessionData  = dictionary;
         
         //Map value change
-        self.lblMapRPMValue.text = [NSString stringWithFormat:@"%d",[[dictionary objectForKey:@"Autonomy"] intValue]];
+        self.lblMapRPMValue.text = [NSString stringWithFormat:@"%d",[[dictionary objectForKey:@"AvgHB"] intValue]];
         self.lblMapBPMValue.text = [NSString stringWithFormat:@"%d",[[dictionary objectForKey:@"HB"] intValue]];
         
         self.lblMapKMValue.text = [NSString stringWithFormat:@"%d",[[dictionary objectForKey:@"AutonomyDistance"] intValue] ];
@@ -3045,9 +3234,9 @@
         }
         else if([strTopLeft isEqualToString:@"rpm"])
         {
-            self.lblCalorieCount.text = [NSString stringWithFormat:@"%d",[[dictionary objectForKey:@"Autonomy"] intValue]];
+            self.lblCalorieCount.text = [NSString stringWithFormat:@"%d",[[dictionary objectForKey:@"AvgHB"] intValue]];
             
-            self.lblMapAvgSpeedValue.text = [NSString stringWithFormat:@"%d",[[dictionary objectForKey:@"Autonomy"] intValue]];
+            self.lblMapAvgSpeedValue.text = [NSString stringWithFormat:@"%d",[[dictionary objectForKey:@"AvgHB"] intValue]];//Autonomy
         }
         else if([strTopLeft isEqualToString:@"bpm"])
         {
@@ -3070,8 +3259,8 @@
         }
         else if([strTopRight isEqualToString:@"rpm"])
         {
-            self.lblKilometerCount.text = [NSString stringWithFormat:@"%d",[[dictionary objectForKey:@"Autonomy"] intValue]];
-            self.lblMapKMValue.text = [NSString stringWithFormat:@"%d",[[dictionary objectForKey:@"Autonomy"] intValue]];
+            self.lblKilometerCount.text = [NSString stringWithFormat:@"%d",[[dictionary objectForKey:@"AvgHB"] intValue]];
+            self.lblMapKMValue.text = [NSString stringWithFormat:@"%d",[[dictionary objectForKey:@"AvgHB"] intValue]];
         }
         else if([strTopRight isEqualToString:@"bpm"])
         {
@@ -3094,8 +3283,8 @@
         }
         else if([strBottomLeft isEqualToString:@"rpm"])
         {
-            self.lblRPMCount.text = [NSString stringWithFormat:@"%d",[[dictionary objectForKey:@"Autonomy"] intValue]];
-            self.lblMapRPMValue.text = [NSString stringWithFormat:@"%d",[[dictionary objectForKey:@"Autonomy"] intValue]];
+            self.lblRPMCount.text = [NSString stringWithFormat:@"%d",[[dictionary objectForKey:@"AvgHB"] intValue]];
+            self.lblMapRPMValue.text = [NSString stringWithFormat:@"%d",[[dictionary objectForKey:@"AvgHB"] intValue]];
         }
         else if([strBottomLeft isEqualToString:@"bpm"])
         {
@@ -3118,9 +3307,9 @@
         }
         else if([strBottomRight isEqualToString:@"rpm"])
         {
-            self.lblBPMCount.text = [NSString stringWithFormat:@"%d",[[dictionary objectForKey:@"Autonomy"] intValue]];
+            self.lblBPMCount.text = [NSString stringWithFormat:@"%d",[[dictionary objectForKey:@"AvgHB"] intValue]];
             
-            self.lblMapBPMValue.text = [NSString stringWithFormat:@"%d",[[dictionary objectForKey:@"Autonomy"] intValue]];
+            self.lblMapBPMValue.text = [NSString stringWithFormat:@"%d",[[dictionary objectForKey:@"AvgHB"] intValue]];
         }
         else if([strBottomRight isEqualToString:@"bpm"])
         {
@@ -3285,6 +3474,7 @@
     region.center.longitude = self.locationManager.location.coordinate.longitude;
     region.span = MKCoordinateSpanMake(spanX, spanY);
     [self.viewMap setRegion:region animated:YES];
+    
     
     if(appDelegate().strToAddress)
     {
@@ -3479,6 +3669,7 @@
         else
         {
             routeDetails = response.routes.lastObject;
+            //[self.viewMap removeOverlays:<#(NSArray *)#>]
             [self.viewMap addOverlay:routeDetails.polyline];
             
             for (int i = 0; i < routeDetails.steps.count; i++)

@@ -169,6 +169,7 @@
     [headerPacket setObject:[NSNumber numberWithUnsignedInteger:arc4random()%100] forKey:@"AvgSpeed"];
     
     [headerPacket setObject:[NSNumber numberWithUnsignedInteger:arc4random()%100] forKey:@"HB"];
+    [headerPacket setObject:[NSNumber numberWithUnsignedInteger:arc4random()%100] forKey:@"AvgHB"];
 
     [headerPacket setObject:[NSNumber numberWithUnsignedInteger:arc4random()%100] forKey:@"Autonomy"];
     

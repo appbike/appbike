@@ -78,6 +78,7 @@
 
 //Phase2
 
+@property (strong, nonatomic) IBOutlet UILabel *lblSecText;
 @property (strong, nonatomic) IBOutlet UIButton *btnTopCycle;
 @property (strong, nonatomic) IBOutlet UIButton *btnShare;
 @property (strong, nonatomic) IBOutlet UIButton *btnShareYes;
@@ -145,6 +146,7 @@
 @property (strong, nonatomic) IBOutlet UIView  *viewSetCalories;
 @property (unsafe_unretained, nonatomic) IBOutlet UICircularSlider *sliderSetCalories;
 @property (nonatomic, strong) IBOutlet UILabel *lblSetCaloriesValue;
+@property (strong, nonatomic) IBOutlet UIImageView *bgImgSetCaloris;
 
 @property (strong, nonatomic) IBOutlet UIView  *viewCalories;
 @property (unsafe_unretained, nonatomic) IBOutlet UICircularSlider *sliderDashboardCalories;
@@ -597,9 +599,12 @@
     
     self.sliderSetCalories.transform = CGAffineTransformMakeRotation(3.14);
     //self.sliderSetCalories.userInteractionEnabled = NO;
-    [self.sliderSetCalories setThumbTintColor:[UIColor colorWithRed:55/255.0 green:155/255.0 blue:233/255.0 alpha:1.0]];
-    [self.sliderSetCalories setMaximumTrackTintColor:[UIColor lightGrayColor]];
+    [self.sliderSetCalories setThumbTintColor:[UIColor colorWithRed:55/255.0 green:155/255.0 blue:233/255.0 alpha:0.5]];
+//    [self.sliderSetCalories setMaximumTrackTintColor:[UIColor lightGrayColor]];
     [self.sliderSetCalories setMinimumTrackTintColor:[UIColor colorWithRed:55/255.0 green:155/255.0 blue:233/255.0 alpha:1.0]];
+    [self.sliderSetCalories setMaximumTrackTintColor:[UIColor clearColor]];
+//    [self.sliderSetCalories setMinimumTrackTintColor:[UIColor clearColor]];
+
     
     [self.btnMaxCalories setTitle:[NSString stringWithFormat:@"%@",[appDelegate().dictCaloriesData objectForKey:@"goal"]] forState:UIControlStateNormal];
     
@@ -671,6 +676,8 @@
         
         self.lblCounter.frame = CGRectMake(self.lblCounter.frame.origin.x, self.lblCounter.frame.origin.y-25, self.lblCounter.frame.size.width, self.lblCounter.frame.size.height+30);
         self.lblCounter.font = [UIFont fontWithName:@"Roboto-Regular" size:62];
+        
+         self.bgImgSetCaloris.frame = CGRectMake(self.bgImgSetCaloris.frame.origin.x, self.bgImgSetCaloris.frame.origin.y+5, self.bgImgSetCaloris.frame.size.width, self.bgImgSetCaloris.frame.size.height-10);
     }
     else
     {
@@ -1048,6 +1055,8 @@
                      completion:^(BOOL finished){
                          // Do nothing
                      }];
+    
+//     self.btnMaxCalories.frame = CGRectMake(self.imgBGLogoCalories.frame.origin.x+self.imgBGLogoCalories.frame.size.width,self.imgBGLogoCalories.frame.origin.y-35, self.btnMaxCalories.frame.size.width, self.btnMaxCalories.frame.size.height);
 }
 
 - (void)startAnimationGoal
@@ -2120,8 +2129,12 @@
     label.textColor = [UIColor whiteColor];
     label.textAlignment = NSTextAlignmentCenter;
     label.font = [UIFont fontWithName:@"Roboto-Regular" size:33];
-    label.text = [NSString stringWithFormat:@" %d sec", row+1];
+    label.text = [NSString stringWithFormat:@" %ld", row+1];
     return label;
+}
+- (CGFloat)pickerView:(UIPickerView *)pickerView rowHeightForComponent:(NSInteger)component
+{
+    return 50;
 }
 
 // number Of Components
@@ -2574,6 +2587,12 @@
     
     NSLog(@"iPhone 6 Size Width : %f and Height : %f",self.view.frame.size.width, self.view.frame.size.height);
     
+    //lblSecText
+    
+    self.lblSecText.frame = CGRectMake(self.lblSecText.frame.origin.x-23, self.lblSecText.frame.origin.y+20, self.lblSecText.frame.size.width, self.lblSecText.frame.size.height);
+    
+     self.bgImgSetCaloris.frame = CGRectMake(self.bgImgSetCaloris.frame.origin.x-23, self.bgImgSetCaloris.frame.origin.y+3, self.bgImgSetCaloris.frame.size.width+50, self.bgImgSetCaloris.frame.size.height);
+    
      self.imgBgSetSpeedLogo.frame = CGRectMake(self.imgBgSetSpeedLogo.frame.origin.x+3, self.imgBgSetSpeedLogo.frame.origin.y+3, self.imgBgSetSpeedLogo.frame.size.width, self.imgBgSetSpeedLogo.frame.size.height);
     
     self.lblCounter.frame = CGRectMake(self.lblCounter.frame.origin.x, self.lblCounter.frame.origin.y-25, self.lblCounter.frame.size.width, self.lblCounter.frame.size.height+40);
@@ -2641,7 +2660,13 @@
     self.imgBGCalories.frame = CGRectMake(self.sliderDashboardCalories.frame.origin.x-45, self.sliderDashboardCalories.frame.origin.y-20, 290, 290);
     self.sliderDashboardCalories.frame = CGRectMake(self.sliderDashboardCalories.frame.origin.x-40, self.sliderDashboardCalories.frame.origin.y-10, 280, 280);
     self.imgBGLogoCalories.frame = CGRectMake(self.imgBGLogoCalories.frame.origin.x-12,self.imgBGLogoCalories.frame.origin.y+55, 70, 46);
-    self.btnMaxCalories.frame = CGRectMake(self.imgBGLogoCalories.frame.origin.x+self.imgBGLogoCalories.frame.size.width,self.imgBGLogoCalories.frame.origin.y-8, self.btnMaxCalories.frame.size.width, self.btnMaxCalories.frame.size.height);
+    
+//    self.btnMaxCalories.frame = CGRectMake(self.imgBGLogoCalories.frame.origin.x+self.imgBGLogoCalories.frame.size.width,self.imgBGLogoCalories.frame.origin.y-8, self.btnMaxCalories.frame.size.width, self.btnMaxCalories.frame.size.height);
+    
+    
+      self.btnMaxCalories.frame = CGRectMake(self.imgBGLogoCalories.frame.origin.x+self.imgBGLogoCalories.frame.size.width-25,self.imgBGLogoCalories.frame.origin.y, self.btnMaxCalories.frame.size.width, self.btnMaxCalories.frame.size.height);
+    //self.sliderDashboardCalories.value = 100;
+    
     
       self.viewCalories.frame = CGRectMake(self.viewCalories.frame.origin.x, self.viewCalories.frame.origin.y-50, self.viewCalories.frame.size.width, self.viewCalories.frame.size.height);
   
@@ -2679,6 +2704,10 @@
     
      NSLog(@"iPhone 6+ Size Width : %f and Height : %f",self.view.frame.size.width, self.view.frame.size.height);
     //414x736
+    
+    self.lblSecText.frame = CGRectMake(self.lblSecText.frame.origin.x-38, self.lblSecText.frame.origin.y+30, self.lblSecText.frame.size.width, self.lblSecText.frame.size.height);
+    
+    self.bgImgSetCaloris.frame = CGRectMake(self.bgImgSetCaloris.frame.origin.x+10, self.bgImgSetCaloris.frame.origin.y+27, self.bgImgSetCaloris.frame.size.width-5, self.bgImgSetCaloris.frame.size.height-60);
     
     self.imgBgSetSpeedLogo.frame = CGRectMake(self.imgBgSetSpeedLogo.frame.origin.x+3, self.imgBgSetSpeedLogo.frame.origin.y-40, self.imgBgSetSpeedLogo.frame.size.width, self.imgBgSetSpeedLogo.frame.size.height);
 
@@ -2757,7 +2786,8 @@
     self.imgBGCalories.frame = CGRectMake(self.sliderDashboardCalories.frame.origin.x-50, self.sliderDashboardCalories.frame.origin.y-25, 300, 300);
     self.sliderDashboardCalories.frame = CGRectMake(self.sliderDashboardCalories.frame.origin.x-40, self.sliderDashboardCalories.frame.origin.y-12, 290, 290);
     self.imgBGLogoCalories.frame = CGRectMake(self.imgBGLogoCalories.frame.origin.x-10,self.imgBGLogoCalories.frame.origin.y+70, 70, 46);
-    self.btnMaxCalories.frame = CGRectMake(self.imgBGLogoCalories.frame.origin.x+self.imgBGLogoCalories.frame.size.width,self.imgBGLogoCalories.frame.origin.y-15, self.btnMaxCalories.frame.size.width, self.btnMaxCalories.frame.size.height);
+    
+    self.btnMaxCalories.frame = CGRectMake(self.imgBGLogoCalories.frame.origin.x+self.imgBGLogoCalories.frame.size.width-25,self.imgBGLogoCalories.frame.origin.y-5, self.btnMaxCalories.frame.size.width, self.btnMaxCalories.frame.size.height);
     
     
     self.viewCalories.frame = CGRectMake(self.viewCalories.frame.origin.x, self.viewCalories.frame.origin.y-50, self.viewCalories.frame.size.width, self.viewCalories.frame.size.height);
@@ -2782,7 +2812,7 @@
     self.btnSaveSessionYes.frame = CGRectMake(self.btnSaveSessionYes.frame.origin.x+13, self.btnSaveSessionYes.frame.origin.y, self.btnSaveSessionYes.frame.size.width, self.btnSaveSessionYes.frame.size.height);
     self.btnSaveSessionNo.frame = CGRectMake(self.btnSaveSessionNo.frame.origin.x-13, self.btnSaveSessionNo.frame.origin.y, self.btnSaveSessionNo.frame.size.width, self.btnSaveSessionNo.frame.size.height);
     
-    //[self.sliderDashboardCalories setValue:400];
+    //[self.sliderDashboardCalories setValue:500];
 }
 
 - (NSString *)fetchTimeByAddingMicroSeconds:(long)microseconds
@@ -3165,7 +3195,8 @@
                 float totalPer = ([cal floatValue] / self.sliderSetCalories.value) * 100;
                 if(totalPer < 100.0f)
                     self.lblCaloriesPercentage.text = [NSString stringWithFormat:@"%.0f%%",totalPer];
-                
+                else
+                    self.lblCaloriesPercentage.text = @"100%";
             }
             break;
             default:

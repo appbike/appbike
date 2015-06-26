@@ -30,6 +30,7 @@
             <string>Roboto-Regular</string>
             <string>Roboto-Regular</string>
             <string>Roboto-Regular</string>
+            <string>Roboto-Regular</string>
         </mutableArray>
         <mutableArray key="RobotoCondensed-Bold.ttf">
             <string>RobotoCondensed-Bold</string>
@@ -576,7 +577,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0LL-Z5-kSx">
-                                                <rect key="frame" x="0.0" y="36" width="320" height="1"/>
+                                                <rect key="frame" x="0.0" y="36.000000096857548" width="320" height="1"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
@@ -1225,13 +1226,17 @@
                                             <action selector="skipOrSetSpeed:" destination="M0w-tV-0Be" eventType="touchUpInside" id="n9J-d1-qjV"/>
                                         </connections>
                                     </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="set_speed_ring.png" id="bzy-Pr-cca">
+                                        <rect key="frame" x="55" y="57" width="210" height="210"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                     <view opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="4Wy-dS-tJc" customClass="SAMultisectorControl">
                                         <rect key="frame" x="50" y="49" width="220" height="220"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="set_speed_ring.png" id="KoE-eh-Vi9">
-                                                <rect key="frame" x="4" y="9" width="210" height="210"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <rect key="frame" x="5" y="5" width="210" height="210"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20/70" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" id="vS9-K2-4bZ">
                                                 <rect key="frame" x="40" y="59" width="130" height="60"/>
@@ -1246,7 +1251,7 @@
                                                 <fontDescription key="fontDescription" name="RobotoCondensed-Regular" family="Roboto Condensed" pointSize="17"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="map_speed.png" id="Fgh-Bj-akt">
+                                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="map_speed.png" id="Fgh-Bj-akt">
                                                 <rect key="frame" x="94" y="186" width="28" height="28"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             </imageView>
@@ -1278,6 +1283,10 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flow_cal_set.png" id="Y3Y-2U-mcw">
+                                        <rect key="frame" x="55" y="57" width="205" height="196"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    </imageView>
                                     <view contentMode="scaleToFill" id="6VZ-PO-IVI" customClass="UICircularSlider">
                                         <rect key="frame" x="55" y="53" width="205" height="205"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
@@ -1311,20 +1320,20 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="500" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" id="JyP-yf-cJk">
-                                        <rect key="frame" x="112" y="129" width="94" height="60"/>
+                                        <rect key="frame" x="82" y="129" width="152" height="60"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="RobotoCondensed-Bold" family="Roboto Condensed" pointSize="40"/>
+                                        <fontDescription key="fontDescription" name="RobotoCondensed-Bold" family="Roboto Condensed" pointSize="60"/>
                                         <color key="textColor" red="0.1843137255" green="0.24313725489999999" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="cal" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="XHC-tb-TLG">
-                                        <rect key="frame" x="124" y="187" width="72" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="cal" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" id="XHC-tb-TLG">
+                                        <rect key="frame" x="124" y="187" width="72" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="RobotoCondensed-Regular" family="Roboto Condensed" pointSize="17"/>
+                                        <fontDescription key="fontDescription" name="RobotoCondensed-Regular" family="Roboto Condensed" pointSize="25"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calories_selected.png" id="kxC-Ds-Hjt">
+                                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calories_selected.png" id="kxC-Ds-Hjt">
                                         <rect key="frame" x="146" y="219" width="28" height="28"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     </imageView>
@@ -1482,6 +1491,13 @@
                                             <outlet property="delegate" destination="M0w-tV-0Be" id="my1-0Q-hR9"/>
                                         </connections>
                                     </pickerView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="sec" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" id="o7Q-EN-fSt">
+                                        <rect key="frame" x="157" y="419" width="56" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="26"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="AyV-r0-nbU">
                                         <rect key="frame" x="284" y="412" width="28" height="28"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
@@ -1553,6 +1569,7 @@
                     <connections>
                         <outlet property="assistantLevelView" destination="p3H-id-Ay2" id="Ghu-Zf-pFg"/>
                         <outlet property="bgGoalImage" destination="lh0-Zn-VE1" id="hzJ-al-eZm"/>
+                        <outlet property="bgImgSetCaloris" destination="Y3Y-2U-mcw" id="qCb-Zh-dm6"/>
                         <outlet property="bgMinMaxSpeed" destination="4fa-Mf-hcd" id="345-iN-Bxl"/>
                         <outlet property="btnBPM" destination="YOp-HD-PDP" id="3ye-4f-6bs"/>
                         <outlet property="btnBackground" destination="8A2-OL-UgI" id="bMw-aY-zRG"/>
@@ -1627,6 +1644,7 @@
                         <outlet property="lblMinMaxSpeedValue" destination="R6V-o9-Nm3" id="Bgr-mU-NhO"/>
                         <outlet property="lblRPMCount" destination="kj0-Wa-hEc" id="Ld7-nt-FcJ"/>
                         <outlet property="lblRPMText" destination="MKM-YP-7NW" id="w4h-Jv-6ZD"/>
+                        <outlet property="lblSecText" destination="o7Q-EN-fSt" id="9E6-gk-u1s"/>
                         <outlet property="lblSetCaloriesValue" destination="JyP-yf-cJk" id="cqP-RS-iBl"/>
                         <outlet property="lblStopSaveSession" destination="ffb-au-JVN" id="5Oz-hl-fPC"/>
                         <outlet property="lblWattCount" destination="Pfy-VN-e5P" id="H99-dc-TGZ"/>
@@ -2682,6 +2700,7 @@
         <image name="facebook.png" width="28" height="28"/>
         <image name="favourite.png" width="72" height="72"/>
         <image name="favourite_selected.png" width="72" height="72"/>
+        <image name="flow_cal_set.png" width="410" height="410"/>
         <image name="flow_ring.png" width="410" height="410"/>
         <image name="flow_ring_counter.png" width="318" height="318"/>
         <image name="flow_ring_logo.png" width="101" height="61"/>

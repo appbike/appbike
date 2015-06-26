@@ -306,10 +306,12 @@ typedef struct{
     
     CGContextSetLineWidth(context, saCircleLineWidth);
     
-    UIColor *startCircleColor = [sector.color colorWithAlphaComponent:0.3];
-//    UIColor *startCircleColor = [sector.color colorWithAlphaComponent:0.0];
+    //UIColor *startCircleColor = [sector.color colorWithAlphaComponent:0.3];
+    UIColor *startCircleColor = [UIColor clearColor];
+
     UIColor *circleColor = sector.color;
-    UIColor *endCircleColor = [[UIColor grayColor] colorWithAlphaComponent:0.1];
+//    UIColor *endCircleColor = [[UIColor grayColor] colorWithAlphaComponent:0.1];
+    UIColor *endCircleColor = [UIColor clearColor];
     
     SASectorDrawingInformation drawInf = [self sectorToDrawInf:sector position:position];
     

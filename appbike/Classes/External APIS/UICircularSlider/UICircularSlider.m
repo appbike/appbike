@@ -152,7 +152,8 @@
 	self.maximumValue = 1.0;
 	self.minimumTrackTintColor = [UIColor orangeColor];
 	self.maximumTrackTintColor = [UIColor yellowColor];
-	self.thumbTintColor = [UIColor darkGrayColor];
+	//self.thumbTintColor = [UIColor darkGrayColor];
+    self.thumbTintColor = [UIColor clearColor];
 	self.continuous = YES;
 	self.thumbCenterPoint = CGPointZero;
 	

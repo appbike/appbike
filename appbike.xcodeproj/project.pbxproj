@@ -47,6 +47,9 @@
 		C3DA2C001AB1A24E00DB636D /* style.css in Resources */ = {isa = PBXBuildFile; fileRef = C3DA2BE61AB1A24E00DB636D /* style.css */; };
 		C3DA2C011AB1A24E00DB636D /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = C3DA2BE71AB1A24E00DB636D /* index.html */; };
 		C3DA2C021AB1A24E00DB636D /* script.js in Resources */ = {isa = PBXBuildFile; fileRef = C3DA2BE91AB1A24E00DB636D /* script.js */; };
+		CF1E67531B3DA04D00825F2D /* flow_cal_set@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = CF1E67521B3DA04D00825F2D /* flow_cal_set@3x.png */; };
+		CF1E67561B3DA06000825F2D /* flow_cal_set.png in Resources */ = {isa = PBXBuildFile; fileRef = CF1E67541B3DA06000825F2D /* flow_cal_set.png */; };
+		CF1E67571B3DA06000825F2D /* flow_cal_set@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CF1E67551B3DA06000825F2D /* flow_cal_set@2x.png */; };
 		CF246C391AE81CEF00413525 /* battery_a3.png in Resources */ = {isa = PBXBuildFile; fileRef = CF246C331AE81CEF00413525 /* battery_a3.png */; };
 		CF246C3A1AE81CEF00413525 /* battery_a3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CF246C341AE81CEF00413525 /* battery_a3@2x.png */; };
 		CF246C3B1AE81CEF00413525 /* battery_a3@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = CF246C351AE81CEF00413525 /* battery_a3@3x.png */; };
@@ -715,6 +718,9 @@
 		C3DA2BE61AB1A24E00DB636D /* style.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = style.css; sourceTree = "<group>"; };
 		C3DA2BE71AB1A24E00DB636D /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		C3DA2BE91AB1A24E00DB636D /* script.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = script.js; sourceTree = "<group>"; };
+		CF1E67521B3DA04D00825F2D /* flow_cal_set@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flow_cal_set@3x.png"; sourceTree = "<group>"; };
+		CF1E67541B3DA06000825F2D /* flow_cal_set.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flow_cal_set.png; sourceTree = "<group>"; };
+		CF1E67551B3DA06000825F2D /* flow_cal_set@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flow_cal_set@2x.png"; sourceTree = "<group>"; };
 		CF246C331AE81CEF00413525 /* battery_a3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = battery_a3.png; sourceTree = "<group>"; };
 		CF246C341AE81CEF00413525 /* battery_a3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "battery_a3@2x.png"; sourceTree = "<group>"; };
 		CF246C351AE81CEF00413525 /* battery_a3@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "battery_a3@3x.png"; sourceTree = "<group>"; };
@@ -1731,6 +1737,9 @@
 		CF246C321AE81CEF00413525 /* alert */ = {
 			isa = PBXGroup;
 			children = (
+				CF1E67541B3DA06000825F2D /* flow_cal_set.png */,
+				CF1E67551B3DA06000825F2D /* flow_cal_set@2x.png */,
+				CF1E67521B3DA04D00825F2D /* flow_cal_set@3x.png */,
 				CF488A691B3D474D0028BAD1 /* avg-pulse-logo.png */,
 				CF488A6A1B3D474D0028BAD1 /* avg-pulse-logo@2x.png */,
 				CF488A6B1B3D474D0028BAD1 /* avg-pulse-logo@3x.png */,
@@ -2817,6 +2826,7 @@
 				CFF950521ADC3155004FCFED /* history_selected@3x.png in Resources */,
 				CF6E22C51AEE86AB007E829C /* Newyorkcity.gpx in Resources */,
 				CFC184481ACEE5E500FEFC0A /* battery10@2x.png in Resources */,
+				CF1E67561B3DA06000825F2D /* flow_cal_set.png in Resources */,
 				CF9A4A1F1B2F171D00DA303F /* HR_monitor_selected@3x.png in Resources */,
 				CFD15D041ACF0F6D00AE6A12 /* bpm.png in Resources */,
 				CFD15CF91ACF0F6D00AE6A12 /* battery1.png in Resources */,
@@ -2826,6 +2836,7 @@
 				CFD15D3B1ACF1E6500AE6A12 /* avg_pulse_selected.png in Resources */,
 				CFE87EAA1AE27DA600E4478F /* map_flag.png in Resources */,
 				CFD15CD41ACF08F000AE6A12 /* aasistance_level_9.png in Resources */,
+				CF1E67531B3DA04D00825F2D /* flow_cal_set@3x.png in Resources */,
 				CFF9503C1ADC3155004FCFED /* destination@2x.png in Resources */,
 				CFF950431ADC3155004FCFED /* diagnostic@3x.png in Resources */,
 				CFE87F791AE5837D00E4478F /* loc_battery2.png in Resources */,
@@ -3205,6 +3216,7 @@
 				CFF950461ADC3155004FCFED /* diagnostic_selected@3x.png in Resources */,
 				CFF950401ADC3155004FCFED /* destination_selected@3x.png in Resources */,
 				CFC184721ACEE5E500FEFC0A /* icon3_selected@2x.png in Resources */,
+				CF1E67571B3DA06000825F2D /* flow_cal_set@2x.png in Resources */,
 				CFC184861ACEE5E500FEFC0A /* topbar@2x.png in Resources */,
 				CFC184301ACEE5E500FEFC0A /* aasistance_level_0@2x.png in Resources */,
 				CF6E22BA1AEAA1A1007E829C /* login_with_FB@2x.png in Resources */,

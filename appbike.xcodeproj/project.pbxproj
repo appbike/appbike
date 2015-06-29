@@ -86,6 +86,9 @@
 		CF26CCDB1AD7141B0049E8B8 /* max_speed_ring.png in Resources */ = {isa = PBXBuildFile; fileRef = CF26CCD81AD7141B0049E8B8 /* max_speed_ring.png */; };
 		CF26CCDC1AD7141B0049E8B8 /* max_speed_ring@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CF26CCD91AD7141B0049E8B8 /* max_speed_ring@2x.png */; };
 		CF26CCDD1AD7141B0049E8B8 /* max_speed_ring@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = CF26CCDA1AD7141B0049E8B8 /* max_speed_ring@3x.png */; };
+		CF3050521B41AE3000F2E2B1 /* ring_blank.png in Resources */ = {isa = PBXBuildFile; fileRef = CF30504F1B41AE3000F2E2B1 /* ring_blank.png */; };
+		CF3050531B41AE3000F2E2B1 /* ring_blank@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CF3050501B41AE3000F2E2B1 /* ring_blank@2x.png */; };
+		CF3050541B41AE3000F2E2B1 /* ring_blank@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = CF3050511B41AE3000F2E2B1 /* ring_blank@3x.png */; };
 		CF3B6B161B19FD8400F0321D /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = CF3B6B0B1B19FD8400F0321D /* NSObject+SBJSON.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		CF3B6B171B19FD8400F0321D /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = CF3B6B0D1B19FD8400F0321D /* NSString+SBJSON.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		CF3B6B181B19FD8400F0321D /* SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = CF3B6B0F1B19FD8400F0321D /* SBJSON.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -757,6 +760,9 @@
 		CF26CCD81AD7141B0049E8B8 /* max_speed_ring.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = max_speed_ring.png; sourceTree = "<group>"; };
 		CF26CCD91AD7141B0049E8B8 /* max_speed_ring@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "max_speed_ring@2x.png"; sourceTree = "<group>"; };
 		CF26CCDA1AD7141B0049E8B8 /* max_speed_ring@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "max_speed_ring@3x.png"; sourceTree = "<group>"; };
+		CF30504F1B41AE3000F2E2B1 /* ring_blank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ring_blank.png; sourceTree = "<group>"; };
+		CF3050501B41AE3000F2E2B1 /* ring_blank@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ring_blank@2x.png"; sourceTree = "<group>"; };
+		CF3050511B41AE3000F2E2B1 /* ring_blank@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ring_blank@3x.png"; sourceTree = "<group>"; };
 		CF3B6B091B19FD8400F0321D /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
 		CF3B6B0A1B19FD8400F0321D /* NSObject+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJSON.h"; sourceTree = "<group>"; };
 		CF3B6B0B1B19FD8400F0321D /* NSObject+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJSON.m"; sourceTree = "<group>"; };
@@ -1737,6 +1743,9 @@
 		CF246C321AE81CEF00413525 /* alert */ = {
 			isa = PBXGroup;
 			children = (
+				CF30504F1B41AE3000F2E2B1 /* ring_blank.png */,
+				CF3050501B41AE3000F2E2B1 /* ring_blank@2x.png */,
+				CF3050511B41AE3000F2E2B1 /* ring_blank@3x.png */,
 				CF1E67541B3DA06000825F2D /* flow_cal_set.png */,
 				CF1E67551B3DA06000825F2D /* flow_cal_set@2x.png */,
 				CF1E67521B3DA04D00825F2D /* flow_cal_set@3x.png */,
@@ -2909,6 +2918,7 @@
 				CF26CCCA1AD6F1200049E8B8 /* Roboto-Italic.ttf in Resources */,
 				CFC1847D1ACEE5E500FEFC0A /* minus@3x.png in Resources */,
 				CFD15CD11ACF08F000AE6A12 /* aasistance_level_6.png in Resources */,
+				CF3050541B41AE3000F2E2B1 /* ring_blank@3x.png in Resources */,
 				CFE87EE91AE2996E00E4478F /* history_flag@3x.png in Resources */,
 				CF246C3B1AE81CEF00413525 /* battery_a3@3x.png in Resources */,
 				CFE87F961AE5837D00E4478F /* loc_user@3x.png in Resources */,
@@ -3117,6 +3127,7 @@
 				CFC184381ACEE5E500FEFC0A /* aasistance_level_3@2x.png in Resources */,
 				CFD15D6B1AD03F2C00AE6A12 /* background@3x.png in Resources */,
 				CFC184571ACEE5E500FEFC0A /* battery7@3x.png in Resources */,
+				CF3050521B41AE3000F2E2B1 /* ring_blank.png in Resources */,
 				CF756F7D1A90BD690084DB8B /* menu_transperent@3x.png in Resources */,
 				CF6554E21B05069500C85362 /* dashboard_menu@2x.png in Resources */,
 				CFD15D481ACF1E6500AE6A12 /* calories_selected@2x.png in Resources */,
@@ -3189,6 +3200,7 @@
 				CFD15CCB1ACF08F000AE6A12 /* aasistance_level_0.png in Resources */,
 				CFBB9F8F1AD9715F000DDE89 /* stars@2x.png in Resources */,
 				CFC1843E1ACEE5E500FEFC0A /* aasistance_level_6@2x.png in Resources */,
+				CF3050531B41AE3000F2E2B1 /* ring_blank@2x.png in Resources */,
 				CFF950481ADC3155004FCFED /* favourite@2x.png in Resources */,
 				CF756F7A1A90BD690084DB8B /* fitness_transperent@2x.png in Resources */,
 				CFE87F8A1AE5837D00E4478F /* loc_battery7@3x.png in Resources */,

@@ -661,6 +661,10 @@
         self.btnStartStop.frame = CGRectMake(self.btnStartStop.frame.origin.x, self.btnStartStop.frame.origin.y-20, self.btnStartStop.frame.size.width, self.btnStartStop.frame.size.height);
         
         self.viewSetCalories.frame = CGRectMake(self.viewSetCalories.frame.origin.x, self.viewSetCalories.frame.origin.y, self.viewSetCalories.frame.size.width, self.viewSetCalories.frame.size.height-17);
+        
+        
+        self.btnUpDown.frame = CGRectMake(self.btnUpDown.frame.origin.x-5, self.btnUpDown.frame.origin.y, self.btnUpDown.frame.size.width, self.btnUpDown.frame.size.height);
+        
          yAxis = 40;
        
     }
@@ -678,6 +682,8 @@
         self.lblCounter.font = [UIFont fontWithName:@"Roboto-Regular" size:62];
         
          self.bgImgSetCaloris.frame = CGRectMake(self.bgImgSetCaloris.frame.origin.x, self.bgImgSetCaloris.frame.origin.y+5, self.bgImgSetCaloris.frame.size.width, self.bgImgSetCaloris.frame.size.height-10);
+        
+         self.viewSetSpeed.frame = CGRectMake(self.viewSetSpeed.frame.origin.x, self.viewSetSpeed.frame.origin.y+41, self.viewSetSpeed.frame.size.width, self.viewSetSpeed.frame.size.height-41);
     }
     else
     {
@@ -1153,8 +1159,8 @@
 //                    animations:^{ self.viewGoalCalories.layer.opacity = 1.0f; }
 //                    completion:NULL];
     //self.viewGoalCalories.hidden = NO;
-//    [self.bleManager getHeaderPacket]; // Testing purpose only
-   // return;
+    [self.bleManager getHeaderPacket]; // Testing purpose only
+    return;
     if(appDelegate().strToAddress)
     {
 
@@ -1437,6 +1443,7 @@
                 {
                     [self.dictUpdatedDashboardData setObject:@"kmh" forKey:@"main"];
                     // [self.btnRPM setImage:[UIImage imageNamed:@"bpm.png"] forState:UIControlStateNormal];
+                  //  self.imgBGLogoDashboardSpeed.image = [UIImage imageNamed:@"flow_ring_logo.png"] ;
                 }
                     break;
                 default:
@@ -1484,6 +1491,7 @@
                 {
                     [self.dictUpdatedDashboardData setObject:@"kmh" forKey:@"main"];
                     // [self.btnRPM setImage:[UIImage imageNamed:@"bpm.png"] forState:UIControlStateNormal];
+                    // self.imgBGLogoDashboardSpeed.image = [UIImage imageNamed:@"white_bg_logo.png"] ;
                 }
                     break;
                 default:
@@ -1688,7 +1696,7 @@
                 self.viewNormalSpeed.hidden = NO;
                 self.viewCalories.hidden = YES;
                 self.lblKMHText.text = @"km/h";
-                self.imgBGLogoDashboardSpeed.image = [UIImage imageNamed:@"flow_ring_logo.png"];
+                self.imgBGLogoDashboardSpeed.image = [UIImage imageNamed:@"white_bg_logo.png"];
                 
             }
             else if([mainSensor isEqualToString:@"bpm"])
@@ -1999,9 +2007,9 @@
 #pragma mark - Set Calories View Method
 - (IBAction)ColoriesValueChange:(id)sender
 {
-    self.lblSetCaloriesValue.text = [NSString stringWithFormat:@"%d",(int)self.sliderSetCalories.value+1];
+    self.lblSetCaloriesValue.text = [NSString stringWithFormat:@"%d",(int)self.sliderSetCalories.value];
     
-    self.lblGoalCalories.text = [NSString stringWithFormat:@"%d",(int)self.sliderSetCalories.value+1];
+    self.lblGoalCalories.text = [NSString stringWithFormat:@"%d",(int)self.sliderSetCalories.value];
 
 }
 
@@ -2022,12 +2030,13 @@
     if(btnPressed.tag == 4401)
     {
         //Set
+        //NSLog(@"Value is ")
         self.sliderDashboardCalories.isSkipGoal = NO;
         [self.sliderDashboardCalories setMaximumValue:self.sliderSetCalories.value];
         
-        [self.btnMaxCalories setTitle:[NSString stringWithFormat:@"%.0f",self.sliderSetCalories.value+1] forState:UIControlStateNormal];
+        [self.btnMaxCalories setTitle:[NSString stringWithFormat:@"%d",(int)self.sliderSetCalories.value] forState:UIControlStateNormal];
         
-        NSDictionary *countValue = @{@"max" : @"500",@"goal" :[NSString stringWithFormat:@"%.0f",self.sliderSetCalories.value+1],@"enabled" : @"1" };
+        NSDictionary *countValue = @{@"max" : @"500",@"goal" :[NSString stringWithFormat:@"%.0f",self.sliderSetCalories.value],@"enabled" : @"1" };
         [self saveJsonFile:@"calories.json" withDictionary:countValue];
     }
     else
@@ -2049,7 +2058,7 @@
         NSDictionary *countValue = @{@"goal": @"--",@"max" : @"500",@"enabled" : @"0" };
         [self saveJsonFile:@"calories.json" withDictionary:countValue];
     }
-    NSLog(@"We have new updated calory value : %f",self.sliderSetCalories.value+1);
+    NSLog(@"We have new updated calory value : %d",self.sliderSetCalories.value);
     self.viewSetCalories.hidden = YES;
     self.btnSkipCalories.hidden = NO;
     self.isSetCalories = YES;
@@ -2587,13 +2596,13 @@
     
     NSLog(@"iPhone 6 Size Width : %f and Height : %f",self.view.frame.size.width, self.view.frame.size.height);
     
-    //lblSecText
+     self.viewSetSpeed.frame = CGRectMake(self.viewSetSpeed.frame.origin.x, self.viewSetSpeed.frame.origin.y+41, self.viewSetSpeed.frame.size.width, self.viewSetSpeed.frame.size.height-41);
     
     self.lblSecText.frame = CGRectMake(self.lblSecText.frame.origin.x-23, self.lblSecText.frame.origin.y+20, self.lblSecText.frame.size.width, self.lblSecText.frame.size.height);
     
      self.bgImgSetCaloris.frame = CGRectMake(self.bgImgSetCaloris.frame.origin.x-23, self.bgImgSetCaloris.frame.origin.y+3, self.bgImgSetCaloris.frame.size.width+50, self.bgImgSetCaloris.frame.size.height);
     
-     self.imgBgSetSpeedLogo.frame = CGRectMake(self.imgBgSetSpeedLogo.frame.origin.x+3, self.imgBgSetSpeedLogo.frame.origin.y+3, self.imgBgSetSpeedLogo.frame.size.width, self.imgBgSetSpeedLogo.frame.size.height);
+     self.imgBgSetSpeedLogo.frame = CGRectMake(self.imgBgSetSpeedLogo.frame.origin.x+3, self.imgBgSetSpeedLogo.frame.origin.y+10, self.imgBgSetSpeedLogo.frame.size.width, self.imgBgSetSpeedLogo.frame.size.height);
     
     self.lblCounter.frame = CGRectMake(self.lblCounter.frame.origin.x, self.lblCounter.frame.origin.y-25, self.lblCounter.frame.size.width, self.lblCounter.frame.size.height+40);
     self.lblCounter.font = [UIFont fontWithName:@"Roboto-Regular" size:80];
@@ -2630,11 +2639,11 @@
     self.sliderDashboardSpeed.frame = CGRectMake(self.sliderDashboardSpeed.frame.origin.x, self.sliderDashboardSpeed.frame.origin.y, 300, 300);
     self.imgBGDashboardSpeed.frame = CGRectMake(self.sliderDashboardSpeed.frame.origin.x-50, self.sliderDashboardSpeed.frame.origin.y-30, 300, 300);
     self.sliderDashboardSpeed.frame = CGRectMake(self.sliderDashboardSpeed.frame.origin.x-40, self.sliderDashboardSpeed.frame.origin.y-15, 280, 280);
-    self.imgBGLogoDashboardSpeed.frame = CGRectMake(self.imgBGLogoDashboardSpeed.frame.origin.x-12,self.imgBGLogoDashboardSpeed.frame.origin.y+55, 70, 46);
+    self.imgBGLogoDashboardSpeed.frame = CGRectMake(self.imgBGLogoDashboardSpeed.frame.origin.x-12,self.imgBGLogoDashboardSpeed.frame.origin.y+58, 70, 50);//46
     
    // self.viewSpeedStart.frame = CGRectMake(self.viewSpeedStart.frame.origin.x, self.viewSpeedStart.frame.origin.y, self.viewSpeedStart.frame.size.width, self.viewSpeedStart.frame.size.height-30);
     
-    self.btnUpDown.frame = CGRectMake(self.btnUpDown.frame.origin.x, self.btnUpDown.frame.origin.y - 5, self.btnUpDown.frame.size.width, self.btnUpDown.frame.size.height);
+    self.btnUpDown.frame = CGRectMake(self.btnUpDown.frame.origin.x-5, self.btnUpDown.frame.origin.y, self.btnUpDown.frame.size.width, self.btnUpDown.frame.size.height);
     
     //Top Progress
     self.lblEngineText.frame = CGRectMake(self.lblEngineText.frame.origin.x + 20, self.lblEngineText.frame.origin.y, self.lblEngineText.frame.size.width, self.lblEngineText.frame.size.height);
@@ -2672,7 +2681,7 @@
   
 //      self.viewGoalCalories.frame = CGRectMake(self.viewGoalCalories.frame.origin.x-40, self.viewGoalCalories.frame.origin.y-40, self.viewGoalCalories.frame.size.width+80, self.viewGoalCalories.frame.size.height+80);
     
-    self.viewGoalCalories.frame = CGRectMake(self.viewGoalCalories.frame.origin.x-40, self.viewGoalCalories.frame.origin.y-40, 280, 280);
+    self.viewGoalCalories.frame = CGRectMake(self.viewGoalCalories.frame.origin.x-40, self.viewGoalCalories.frame.origin.y-40, 290, 290); //280 280
     self.bgGoalImage.frame = CGRectMake(self.bgGoalImage.frame.origin.x-50, self.sliderDashboardSpeed.frame.origin.y, 300, 300);
     //self.bgGoalImage.frame = CGRectMake(self.bgGoalImage.frame.origin.x, self.bgGoalImage.frame.origin.y, self.bgGoalImage.frame.size.width+50, self.bgGoalImage.frame.size.height+50);
     
@@ -2681,13 +2690,23 @@
     
   
     
-    self.sliderDashboardMinMax.sectorsRadius = 130.0;
-    self.sliderDashboardMinMax.frame = CGRectMake(self.sliderDashboardMinMax.frame.origin.x-80, self.sliderDashboardMinMax.frame.origin.y, 320, 320);
-
-     self.viewMinMaxSpeed.frame = CGRectMake(self.viewMinMaxSpeed.frame.origin.x-30, self.viewMinMaxSpeed.frame.origin.y, 300, 300);
+//    self.sliderDashboardMinMax.sectorsRadius = 130.0;
+//    self.sliderDashboardMinMax.frame = CGRectMake(self.sliderDashboardMinMax.frame.origin.x-80, self.sliderDashboardMinMax.frame.origin.y, 320, 320);
+//
+//     self.viewMinMaxSpeed.frame = CGRectMake(self.viewMinMaxSpeed.frame.origin.x-30, self.viewMinMaxSpeed.frame.origin.y, 300, 300);
+//    //self.sliderDashboardMinMax.frame = CGRectMake(0, 0, 300, 200);
+//    self.bgMinMaxSpeed.frame = CGRectMake(0, 0, 290, 290);
+    
+    self.sliderDashboardMinMax.sectorsRadius = 120.0;//130
+    self.sliderDashboardMinMax.frame = CGRectMake(self.sliderDashboardMinMax.frame.origin.x-60, self.sliderDashboardMinMax.frame.origin.y, 300, 300);
+    //    self.sliderDashboardMinMax.frame = CGRectMake(self.sliderDashboardMinMax.frame.origin.x-80, self.sliderDashboardMinMax.frame.origin.y, 300, 300); //320 320
+    
+    self.viewMinMaxSpeed.frame = CGRectMake(self.viewMinMaxSpeed.frame.origin.x-20, self.viewMinMaxSpeed.frame.origin.y, 280, 280);
+    //    self.viewMinMaxSpeed.frame = CGRectMake(self.viewMinMaxSpeed.frame.origin.x-30, self.viewMinMaxSpeed.frame.origin.y, 280, 280);//300 300
     //self.sliderDashboardMinMax.frame = CGRectMake(0, 0, 300, 200);
-    self.bgMinMaxSpeed.frame = CGRectMake(0, 0, 290, 290);
-   //[self.sliderDashboardCalories setValue:400];
+    self.bgMinMaxSpeed.frame = CGRectMake(0, 0, 270, 270);//290 290
+
+   
     
     self.circularSlider.frame = CGRectMake(self.circularSlider.frame.origin.x-30, self.circularSlider.frame.origin.y-10, self.circularSlider.frame.size.width + 60, self.circularSlider.frame.size.height + 60);
     
@@ -2705,11 +2724,13 @@
      NSLog(@"iPhone 6+ Size Width : %f and Height : %f",self.view.frame.size.width, self.view.frame.size.height);
     //414x736
     
+    self.viewSetSpeed.frame = CGRectMake(self.viewSetSpeed.frame.origin.x, self.viewSetSpeed.frame.origin.y+41, self.viewSetSpeed.frame.size.width, self.viewSetSpeed.frame.size.height-41);
+    
     self.lblSecText.frame = CGRectMake(self.lblSecText.frame.origin.x-38, self.lblSecText.frame.origin.y+30, self.lblSecText.frame.size.width, self.lblSecText.frame.size.height);
     
-    self.bgImgSetCaloris.frame = CGRectMake(self.bgImgSetCaloris.frame.origin.x+10, self.bgImgSetCaloris.frame.origin.y+27, self.bgImgSetCaloris.frame.size.width-5, self.bgImgSetCaloris.frame.size.height-60);
+    self.bgImgSetCaloris.frame = CGRectMake(self.bgImgSetCaloris.frame.origin.x+10, self.bgImgSetCaloris.frame.origin.y+27, self.bgImgSetCaloris.frame.size.width-5, self.bgImgSetCaloris.frame.size.height-70);
     
-    self.imgBgSetSpeedLogo.frame = CGRectMake(self.imgBgSetSpeedLogo.frame.origin.x+3, self.imgBgSetSpeedLogo.frame.origin.y-40, self.imgBgSetSpeedLogo.frame.size.width, self.imgBgSetSpeedLogo.frame.size.height);
+    self.imgBgSetSpeedLogo.frame = CGRectMake(self.imgBgSetSpeedLogo.frame.origin.x+3, self.imgBgSetSpeedLogo.frame.origin.y-35, self.imgBgSetSpeedLogo.frame.size.width, self.imgBgSetSpeedLogo.frame.size.height);
 
     self.lblCounter.frame = CGRectMake(self.lblCounter.frame.origin.x, self.lblCounter.frame.origin.y-25, self.lblCounter.frame.size.width, self.lblCounter.frame.size.height+40);
     self.lblCounter.font = [UIFont fontWithName:@"Roboto-Regular" size:80];
@@ -2762,8 +2783,7 @@
     //Set Min Max Speed View UI
     NSLog(@"Multi sector control frame : x : %f, y : %f, width : %f, height : %f",self.multisectorControl.frame.origin.x, self.multisectorControl.frame.origin.y, self.multisectorControl.frame.size.width, self.multisectorControl.frame.size.height);
     
-    //self.multisectorControl.frame = CGRectMake(self.multisectorControl.frame.origin.x+95, self.multisectorControl.frame.origin.y+119, 600, 600);
-    //self.multisectorControl.frame = CGRectMake(self.multisectorControl.frame.origin.x, self.multisectorControl.frame.origin.y, self.view.frame.size.width, self.view.frame.size.height-150);
+   
     
      NSLog(@"Multi sector control frame : x : %f, y : %f, width : %f, height : %f",self.multisectorControl.frame.origin.x, self.multisectorControl.frame.origin.y, self.multisectorControl.frame.size.width, self.multisectorControl.frame.size.height);
     //Selection Menu
@@ -2792,16 +2812,18 @@
     
     self.viewCalories.frame = CGRectMake(self.viewCalories.frame.origin.x, self.viewCalories.frame.origin.y-50, self.viewCalories.frame.size.width, self.viewCalories.frame.size.height);
 
-    self.viewGoalCalories.frame = CGRectMake(self.viewGoalCalories.frame.origin.x-40, self.viewGoalCalories.frame.origin.y-40, 280, 280);
+    self.viewGoalCalories.frame = CGRectMake(self.viewGoalCalories.frame.origin.x-40, self.viewGoalCalories.frame.origin.y-40, 300, 300);//280 280
     self.bgGoalImage.frame = CGRectMake(self.bgGoalImage.frame.origin.x-50, self.sliderDashboardSpeed.frame.origin.y, 300, 300);
     
     
-    self.sliderDashboardMinMax.sectorsRadius = 130.0;
-    self.sliderDashboardMinMax.frame = CGRectMake(self.sliderDashboardMinMax.frame.origin.x-80, self.sliderDashboardMinMax.frame.origin.y, 320, 320);
-    
-    self.viewMinMaxSpeed.frame = CGRectMake(self.viewMinMaxSpeed.frame.origin.x-30, self.viewMinMaxSpeed.frame.origin.y, 300, 300);
+    self.sliderDashboardMinMax.sectorsRadius = 120.0;//130
+     self.sliderDashboardMinMax.frame = CGRectMake(self.sliderDashboardMinMax.frame.origin.x-60, self.sliderDashboardMinMax.frame.origin.y, 300, 300);
+//    self.sliderDashboardMinMax.frame = CGRectMake(self.sliderDashboardMinMax.frame.origin.x-80, self.sliderDashboardMinMax.frame.origin.y, 300, 300); //320 320
+
+     self.viewMinMaxSpeed.frame = CGRectMake(self.viewMinMaxSpeed.frame.origin.x-20, self.viewMinMaxSpeed.frame.origin.y, 280, 280);
+//    self.viewMinMaxSpeed.frame = CGRectMake(self.viewMinMaxSpeed.frame.origin.x-30, self.viewMinMaxSpeed.frame.origin.y, 280, 280);//300 300
     //self.sliderDashboardMinMax.frame = CGRectMake(0, 0, 300, 200);
-    self.bgMinMaxSpeed.frame = CGRectMake(0, 0, 290, 290);
+    self.bgMinMaxSpeed.frame = CGRectMake(0, 0, 270, 270);//290 290
     
     
     self.circularSlider.frame = CGRectMake(self.circularSlider.frame.origin.x-30, self.circularSlider.frame.origin.y-10, self.circularSlider.frame.size.width + 60, self.circularSlider.frame.size.height + 60);

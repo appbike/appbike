@@ -1161,8 +1161,8 @@
 //                    animations:^{ self.viewGoalCalories.layer.opacity = 1.0f; }
 //                    completion:NULL];
     //self.viewGoalCalories.hidden = NO;
-//    [self.bleManager getHeaderPacket]; // Testing purpose only
-//    return;
+    [self.bleManager getHeaderPacket]; // Testing purpose only
+    return;
     if(appDelegate().strToAddress)
     {
 
@@ -1908,7 +1908,7 @@
         self.viewCalories.hidden = YES;
         self.viewMinMaxSpeed.hidden = NO;
         self.lblKMHText.text = @"km/h";
-        self.imgBGLogoDashboardSpeed.image = [UIImage imageNamed:@"flow_ring_logo.png"];
+        self.imgBGLogoDashboardSpeed.image = [UIImage imageNamed:@"white_bg_logo.png"]; //flow_ring_logo.png
         
     }
     else if([mainSensor isEqualToString:@"bpm"])
@@ -1941,7 +1941,7 @@
             self.viewCalories.hidden = YES;
             self.viewNormalSpeed.hidden = NO;
             self.lblKMHText.text = @"km/h";
-            self.imgBGLogoDashboardSpeed.image = [UIImage imageNamed:@"flow_ring_logo.png"];
+            self.imgBGLogoDashboardSpeed.image = [UIImage imageNamed:@"flow_ring_logo.png"];//flow_ring_logo.png
             
         }
         else if([mainSensor isEqualToString:@"bpm"])
@@ -3232,7 +3232,11 @@
             case SelectedSensorTypeSpeedNormal:
             {
                 //Normal
-                [self.sliderDashboardSpeed setValue:[speed floatValue]];
+                //[self.sliderDashboardSpeed setValue:[speed floatValue]];
+                float avgSpeed = [[dictionary objectForKey:@"AvgSpeed"] floatValue];
+                [self.sliderDashboardSpeed setValue:avgSpeed ];
+                
+                 [self.lblCurrentSpeed setText:[NSString stringWithFormat:@"%.0f",avgSpeed]];
             }
             break;
             case SelectedSensorTypeSpeedMinMax:

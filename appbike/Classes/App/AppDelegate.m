@@ -75,28 +75,28 @@ static AppDelegate *myDelegate;
     
     // ############ Finally Uncomment this following code
     
-//    BikesConnectionViewController *bikesConnectionViewController = [[BikesConnectionViewController alloc] init];
-//
-//    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-//    self.window.rootViewController = bikesConnectionViewController;
-//    self.window.backgroundColor = [UIColor whiteColor];
-//    [self.window makeKeyAndVisible];
+    BikesConnectionViewController *bikesConnectionViewController = [[BikesConnectionViewController alloc] init];
+
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.rootViewController = bikesConnectionViewController;
+    self.window.backgroundColor = [UIColor whiteColor];
+    [self.window makeKeyAndVisible];
     
 /// ### #### Uncomment above
     
   
     //Comment below new commen for design purpose - 17/6
     
-    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"AppBike" bundle:nil];
-    UINavigationController *navigationController = [storyBoard instantiateViewControllerWithIdentifier:@"DashBoardNav"];
-    
-    //[self.menuSlider setFrontViewController:navigationController];
-    
-    [self.window setRootViewController:navigationController];
-    
-   // [navigationController pushViewController:viewController animated:YES];
-    
-     [self.window makeKeyAndVisible];
+//    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"AppBike" bundle:nil];
+//    UINavigationController *navigationController = [storyBoard instantiateViewControllerWithIdentifier:@"DashBoardNav"];
+//    
+//    //[self.menuSlider setFrontViewController:navigationController];
+//    
+//    [self.window setRootViewController:navigationController];
+//    
+//   // [navigationController pushViewController:viewController animated:YES];
+//    
+//     [self.window makeKeyAndVisible];
     // Comment above
     
     appDelegate().strLog = @"";

@@ -1191,7 +1191,7 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
-                            <view hidden="YES" tag="9999" contentMode="scaleToFill" id="2lY-l8-Ucc" userLabel="SetSpeed View">
+                            <view tag="9999" contentMode="scaleToFill" id="2lY-l8-Ucc" userLabel="SetSpeed View">
                                 <rect key="frame" x="0.0" y="50" width="320" height="324"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
@@ -1605,6 +1605,7 @@
                         <outlet property="imgBGDashboardSpeed" destination="kVd-Bu-Ywg" id="YCY-rn-gOE"/>
                         <outlet property="imgBGLogoCalories" destination="rEM-OQ-PcN" id="6ac-8B-NEt"/>
                         <outlet property="imgBGLogoDashboardSpeed" destination="ecK-mz-rOX" id="x9E-eL-gXB"/>
+                        <outlet property="imgBGMinMaxSet" destination="bzy-Pr-cca" id="t8r-X8-ozi"/>
                         <outlet property="imgBgSetSpeed" destination="KoE-eh-Vi9" id="6HB-8T-58p"/>
                         <outlet property="imgBgSetSpeedLogo" destination="kxC-Ds-Hjt" id="Ln2-Gy-8hs"/>
                         <outlet property="imgBottomLeft" destination="EgV-oN-jvp" id="IV8-2l-AEc"/>
@@ -1653,6 +1654,7 @@
                         <outlet property="progressBarRoundedFat" destination="yPg-QE-1SS" id="pRv-G7-qNt"/>
                         <outlet property="searchDisplayController" destination="IOF-4v-4un" id="HxQ-oe-15b"/>
                         <outlet property="setSpeedlblDistance" destination="vS9-K2-4bZ" id="qoj-3B-0Ik"/>
+                        <outlet property="setSpeedlblKMH" destination="8aQ-gx-USi" id="7V3-LX-Vtf"/>
                         <outlet property="sliderDashboardCalories" destination="LaR-vv-FPw" id="1c3-rg-v26"/>
                         <outlet property="sliderDashboardMinMax" destination="wMD-N9-MAc" id="jlh-fc-uqI"/>
                         <outlet property="sliderDashboardSpeed" destination="aAI-Jj-eh6" id="IKF-oo-sZ7"/>

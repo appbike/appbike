@@ -120,7 +120,9 @@
 
 @property (strong, nonatomic) IBOutlet UIView  *viewSetSpeed;
 @property (weak, nonatomic) IBOutlet SAMultisectorControl *multisectorControl;
+@property (strong, nonatomic) IBOutlet UIImageView *imgBGMinMaxSet;
 @property (strong, nonatomic) IBOutlet UILabel *setSpeedlblDistance;
+@property (strong, nonatomic) IBOutlet UILabel *setSpeedlblKMH;
 @property (strong, nonatomic) IBOutlet UIImageView *imgBgSetSpeed;
 @property (strong, nonatomic) IBOutlet UIImageView *imgBgSetSpeedLogo;
 
@@ -2596,6 +2598,20 @@
     
     NSLog(@"iPhone 6 Size Width : %f and Height : %f",self.view.frame.size.width, self.view.frame.size.height);
     
+    
+    self.multisectorControl.sectorsRadius = 120.0;//130
+    self.multisectorControl.frame = CGRectMake(self.multisectorControl.frame.origin.x-40, self.multisectorControl.frame.origin.y-72, 300, 300);
+    
+    
+    self.imgBGMinMaxSet.frame = CGRectMake(self.imgBGMinMaxSet.frame.origin.x-40, self.imgBGMinMaxSet.frame.origin.y-78, 290, 290);
+    
+    self.setSpeedlblDistance.frame =  CGRectMake(self.setSpeedlblDistance.frame.origin.x+50, self.setSpeedlblDistance.frame.origin.y+30, self.setSpeedlblDistance.frame.size.width, self.setSpeedlblDistance.frame.size.height);
+    
+    
+    self.setSpeedlblKMH.frame =  CGRectMake(self.setSpeedlblKMH.frame.origin.x+50, self.setSpeedlblKMH.frame.origin.y+30, self.setSpeedlblKMH.frame.size.width, self.setSpeedlblKMH.frame.size.height);
+    
+    
+    
      self.viewSetSpeed.frame = CGRectMake(self.viewSetSpeed.frame.origin.x, self.viewSetSpeed.frame.origin.y+41, self.viewSetSpeed.frame.size.width, self.viewSetSpeed.frame.size.height-41);
     
     self.lblSecText.frame = CGRectMake(self.lblSecText.frame.origin.x-23, self.lblSecText.frame.origin.y+20, self.lblSecText.frame.size.width, self.lblSecText.frame.size.height);
@@ -2681,7 +2697,7 @@
   
 //      self.viewGoalCalories.frame = CGRectMake(self.viewGoalCalories.frame.origin.x-40, self.viewGoalCalories.frame.origin.y-40, self.viewGoalCalories.frame.size.width+80, self.viewGoalCalories.frame.size.height+80);
     
-    self.viewGoalCalories.frame = CGRectMake(self.viewGoalCalories.frame.origin.x-40, self.viewGoalCalories.frame.origin.y-40, 290, 290); //280 280
+    self.viewGoalCalories.frame = CGRectMake(self.viewGoalCalories.frame.origin.x-40, self.viewGoalCalories.frame.origin.y-40, 280, 290); //280 280
     self.bgGoalImage.frame = CGRectMake(self.bgGoalImage.frame.origin.x-50, self.sliderDashboardSpeed.frame.origin.y, 300, 300);
     //self.bgGoalImage.frame = CGRectMake(self.bgGoalImage.frame.origin.x, self.bgGoalImage.frame.origin.y, self.bgGoalImage.frame.size.width+50, self.bgGoalImage.frame.size.height+50);
     
@@ -2785,6 +2801,8 @@
     
    
     
+    
+    
      NSLog(@"Multi sector control frame : x : %f, y : %f, width : %f, height : %f",self.multisectorControl.frame.origin.x, self.multisectorControl.frame.origin.y, self.multisectorControl.frame.size.width, self.multisectorControl.frame.size.height);
     //Selection Menu
     [self.btnSelectPulse setTitleEdgeInsets:UIEdgeInsetsMake(30,-42, 0, 0)];
@@ -2812,7 +2830,7 @@
     
     self.viewCalories.frame = CGRectMake(self.viewCalories.frame.origin.x, self.viewCalories.frame.origin.y-50, self.viewCalories.frame.size.width, self.viewCalories.frame.size.height);
 
-    self.viewGoalCalories.frame = CGRectMake(self.viewGoalCalories.frame.origin.x-40, self.viewGoalCalories.frame.origin.y-40, 300, 300);//280 280
+    self.viewGoalCalories.frame = CGRectMake(self.viewGoalCalories.frame.origin.x-40, self.viewGoalCalories.frame.origin.y-40, 290, 300);//280 280
     self.bgGoalImage.frame = CGRectMake(self.bgGoalImage.frame.origin.x-50, self.sliderDashboardSpeed.frame.origin.y, 300, 300);
     
     
@@ -2824,6 +2842,24 @@
 //    self.viewMinMaxSpeed.frame = CGRectMake(self.viewMinMaxSpeed.frame.origin.x-30, self.viewMinMaxSpeed.frame.origin.y, 280, 280);//300 300
     //self.sliderDashboardMinMax.frame = CGRectMake(0, 0, 300, 200);
     self.bgMinMaxSpeed.frame = CGRectMake(0, 0, 270, 270);//290 290
+    
+    
+    
+    //New code
+    
+    self.multisectorControl.sectorsRadius = 120.0;//130
+    self.multisectorControl.frame = CGRectMake(self.multisectorControl.frame.origin.x-40, self.multisectorControl.frame.origin.y-72, 300, 300);
+    
+    
+    
+    self.imgBGMinMaxSet.frame = CGRectMake(self.imgBGMinMaxSet.frame.origin.x-40, self.imgBGMinMaxSet.frame.origin.y-78, 290, 290);
+    
+    self.setSpeedlblDistance.frame =  CGRectMake(self.setSpeedlblDistance.frame.origin.x+50, self.setSpeedlblDistance.frame.origin.y+30, self.setSpeedlblDistance.frame.size.width, self.setSpeedlblDistance.frame.size.height);
+    
+    
+    
+    self.setSpeedlblKMH.frame =  CGRectMake(self.setSpeedlblKMH.frame.origin.x+50, self.setSpeedlblKMH.frame.origin.y+30, self.setSpeedlblKMH.frame.size.width, self.setSpeedlblKMH.frame.size.height);
+  
     
     
     self.circularSlider.frame = CGRectMake(self.circularSlider.frame.origin.x-30, self.circularSlider.frame.origin.y-10, self.circularSlider.frame.size.width + 60, self.circularSlider.frame.size.height + 60);

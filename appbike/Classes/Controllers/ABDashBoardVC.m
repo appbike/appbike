@@ -1159,8 +1159,8 @@
 //                    animations:^{ self.viewGoalCalories.layer.opacity = 1.0f; }
 //                    completion:NULL];
     //self.viewGoalCalories.hidden = NO;
-    [self.bleManager getHeaderPacket]; // Testing purpose only
-    return;
+//    [self.bleManager getHeaderPacket]; // Testing purpose only
+//    return;
     if(appDelegate().strToAddress)
     {
 

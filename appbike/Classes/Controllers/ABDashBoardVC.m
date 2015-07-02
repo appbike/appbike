@@ -146,6 +146,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *lblMinMaxSpeedValue;
 
 @property (strong, nonatomic) IBOutlet UIView  *viewSetCalories;
+@property (strong, nonatomic) IBOutlet UIView  *viewBgLogoCal;
 @property (unsafe_unretained, nonatomic) IBOutlet UICircularSlider *sliderSetCalories;
 @property (nonatomic, strong) IBOutlet UILabel *lblSetCaloriesValue;
 @property (strong, nonatomic) IBOutlet UIImageView *bgImgSetCaloris;
@@ -685,7 +686,12 @@
         
          self.bgImgSetCaloris.frame = CGRectMake(self.bgImgSetCaloris.frame.origin.x, self.bgImgSetCaloris.frame.origin.y+5, self.bgImgSetCaloris.frame.size.width, self.bgImgSetCaloris.frame.size.height-10);
         
-         self.viewSetSpeed.frame = CGRectMake(self.viewSetSpeed.frame.origin.x, self.viewSetSpeed.frame.origin.y+41, self.viewSetSpeed.frame.size.width, self.viewSetSpeed.frame.size.height-41);
+        self.imgBgSetSpeedLogo.frame = CGRectMake(self.imgBgSetSpeedLogo.frame.origin.x, self.imgBgSetSpeedLogo.frame.origin.y+15, self.imgBgSetSpeedLogo.frame.size.width, self.imgBgSetSpeedLogo.frame.size.height);
+        
+        
+         self.viewSetSpeed.frame = CGRectMake(self.viewSetSpeed.frame.origin.x, self.viewSetSpeed.frame.origin.y+41, self.viewSetSpeed.frame.size.width, self.viewSetSpeed.frame.size.height-43);
+        
+       self.viewSetCalories.frame = CGRectMake(self.viewSetCalories.frame.origin.x, self.viewSetCalories.frame.origin.y+41, self.viewSetCalories.frame.size.width, self.viewSetCalories.frame.size.height-43);
     }
     else
     {
@@ -1875,7 +1881,7 @@
     }
     else
     {
-        self.bgMinMaxSpeed.image = [UIImage imageNamed:@"set_speed_ring.png"];
+        self.bgMinMaxSpeed.image = [UIImage imageNamed:@"set_speed_ring_blue.png"];
         self.lblMinMaxSpeedValue.textColor = [UIColor colorWithRed:29/255.0f green:188/255.0 blue:88/255.0f alpha:1.0];
     }
     
@@ -2612,13 +2618,27 @@
     
     
     
-     self.viewSetSpeed.frame = CGRectMake(self.viewSetSpeed.frame.origin.x, self.viewSetSpeed.frame.origin.y+41, self.viewSetSpeed.frame.size.width, self.viewSetSpeed.frame.size.height-41);
+     self.viewSetSpeed.frame = CGRectMake(self.viewSetSpeed.frame.origin.x, self.viewSetSpeed.frame.origin.y+41, self.viewSetSpeed.frame.size.width, self.viewSetSpeed.frame.size.height-52);
+    
+    
+   
+//    self.bgImgSetCaloris.frame = CGRectMake(self.bgImgSetCaloris.frame.origin.x-23, self.bgImgSetCaloris.frame.origin.y+3, self.bgImgSetCaloris.frame.size.width+50, self.bgImgSetCaloris.frame.size.height);
+    
+//    self.imgBgSetSpeedLogo.frame = CGRectMake(self.imgBgSetSpeedLogo.frame.origin.x+3, self.imgBgSetSpeedLogo.frame.origin.y+10, self.imgBgSetSpeedLogo.frame.size.width, self.imgBgSetSpeedLogo.frame.size.height);
+    
+    //Set Calories
+//    self.sliderSetCalories.frame = CGRectMake(self.sliderDashboardSpeed.frame.origin.x+75, self.sliderDashboardSpeed.frame.origin.y+99, 300, 300);
+    
+    self.viewSetCalories.frame = CGRectMake(self.viewSetCalories.frame.origin.x, self.viewSetCalories.frame.origin.y+41, self.viewSetCalories.frame.size.width, self.viewSetCalories.frame.size.height-41);
+  self.sliderSetCalories.frame = CGRectMake(self.sliderSetCalories.frame.origin.x-50, self.sliderSetCalories.frame.origin.y-50, 300, 300);
+    self.bgImgSetCaloris.frame = CGRectMake(self.bgImgSetCaloris.frame.origin.x-50, self.bgImgSetCaloris.frame.origin.y-50, 300,300);
+    self.imgBgSetSpeedLogo.frame = CGRectMake(self.imgBgSetSpeedLogo.frame.origin.x+15, self.imgBgSetSpeedLogo.frame.origin.y+85, self.imgBgSetSpeedLogo.frame.size.width+10, self.imgBgSetSpeedLogo.frame.size.height+10);
+      self.viewBgLogoCal.frame = CGRectMake(self.viewBgLogoCal.frame.origin.x+15, self.viewBgLogoCal.frame.origin.y+85, self.viewBgLogoCal.frame.size.width, self.viewBgLogoCal.frame.size.height);
+    
     
     self.lblSecText.frame = CGRectMake(self.lblSecText.frame.origin.x-23, self.lblSecText.frame.origin.y+20, self.lblSecText.frame.size.width, self.lblSecText.frame.size.height);
     
-     self.bgImgSetCaloris.frame = CGRectMake(self.bgImgSetCaloris.frame.origin.x-23, self.bgImgSetCaloris.frame.origin.y+3, self.bgImgSetCaloris.frame.size.width+50, self.bgImgSetCaloris.frame.size.height);
-    
-     self.imgBgSetSpeedLogo.frame = CGRectMake(self.imgBgSetSpeedLogo.frame.origin.x+3, self.imgBgSetSpeedLogo.frame.origin.y+10, self.imgBgSetSpeedLogo.frame.size.width, self.imgBgSetSpeedLogo.frame.size.height);
+   
     
     self.lblCounter.frame = CGRectMake(self.lblCounter.frame.origin.x, self.lblCounter.frame.origin.y-25, self.lblCounter.frame.size.width, self.lblCounter.frame.size.height+40);
     self.lblCounter.font = [UIFont fontWithName:@"Roboto-Regular" size:80];
@@ -2676,8 +2696,7 @@
     [self.btnSelectCalories setTitleEdgeInsets:UIEdgeInsetsMake(30,-42, 0, 0)];
     
     
-    //Set Calories
-    self.sliderSetCalories.frame = CGRectMake(self.sliderDashboardSpeed.frame.origin.x+75, self.sliderDashboardSpeed.frame.origin.y+99, 300, 300);
+  
     
     
     //Calories Dashboard view UI
@@ -2740,13 +2759,24 @@
      NSLog(@"iPhone 6+ Size Width : %f and Height : %f",self.view.frame.size.width, self.view.frame.size.height);
     //414x736
     
-    self.viewSetSpeed.frame = CGRectMake(self.viewSetSpeed.frame.origin.x, self.viewSetSpeed.frame.origin.y+41, self.viewSetSpeed.frame.size.width, self.viewSetSpeed.frame.size.height-41);
+    self.viewSetSpeed.frame = CGRectMake(self.viewSetSpeed.frame.origin.x, self.viewSetSpeed.frame.origin.y+41, self.viewSetSpeed.frame.size.width, self.viewSetSpeed.frame.size.height-52);
+    
+//    self.viewSetCalories.frame = CGRectMake(self.viewSetCalories.frame.origin.x, self.viewSetCalories.frame.origin.y+41, self.viewSetCalories.frame.size.width, self.viewSetCalories.frame.size.height-51);
+    
+    self.viewSetCalories.frame = CGRectMake(self.viewSetCalories.frame.origin.x, self.viewSetCalories.frame.origin.y+41, self.viewSetCalories.frame.size.width, self.viewSetCalories.frame.size.height-41);
+    self.sliderSetCalories.frame = CGRectMake(self.sliderSetCalories.frame.origin.x-50, self.sliderSetCalories.frame.origin.y-50, 300, 300);
+    self.bgImgSetCaloris.frame = CGRectMake(self.bgImgSetCaloris.frame.origin.x-50, self.bgImgSetCaloris.frame.origin.y-50, 300,300);
+//    self.imgBgSetSpeedLogo.frame = CGRectMake(self.imgBgSetSpeedLogo.frame.origin.x-12, self.imgBgSetSpeedLogo.frame.origin.y-18, self.imgBgSetSpeedLogo.frame.size.width+10, self.imgBgSetSpeedLogo.frame.size.height+10);
+    
+    self.imgBgSetSpeedLogo.frame = CGRectMake(self.imgBgSetSpeedLogo.frame.origin.x+35, self.imgBgSetSpeedLogo.frame.origin.y+105, self.imgBgSetSpeedLogo.frame.size.width+10, self.imgBgSetSpeedLogo.frame.size.height+10);
+    self.viewBgLogoCal.frame = CGRectMake(self.viewBgLogoCal.frame.origin.x+35, self.viewBgLogoCal.frame.origin.y+105, self.viewBgLogoCal.frame.size.width, self.viewBgLogoCal.frame.size.height);
+    
     
     self.lblSecText.frame = CGRectMake(self.lblSecText.frame.origin.x-38, self.lblSecText.frame.origin.y+30, self.lblSecText.frame.size.width, self.lblSecText.frame.size.height);
     
-    self.bgImgSetCaloris.frame = CGRectMake(self.bgImgSetCaloris.frame.origin.x+10, self.bgImgSetCaloris.frame.origin.y+27, self.bgImgSetCaloris.frame.size.width-5, self.bgImgSetCaloris.frame.size.height-70);
+    //self.bgImgSetCaloris.frame = CGRectMake(self.bgImgSetCaloris.frame.origin.x+10, self.bgImgSetCaloris.frame.origin.y+27, self.bgImgSetCaloris.frame.size.width-5, self.bgImgSetCaloris.frame.size.height-70);
     
-    self.imgBgSetSpeedLogo.frame = CGRectMake(self.imgBgSetSpeedLogo.frame.origin.x+3, self.imgBgSetSpeedLogo.frame.origin.y-35, self.imgBgSetSpeedLogo.frame.size.width, self.imgBgSetSpeedLogo.frame.size.height);
+    //self.imgBgSetSpeedLogo.frame = CGRectMake(self.imgBgSetSpeedLogo.frame.origin.x+3, self.imgBgSetSpeedLogo.frame.origin.y-35, self.imgBgSetSpeedLogo.frame.size.width, self.imgBgSetSpeedLogo.frame.size.height);
 
     self.lblCounter.frame = CGRectMake(self.lblCounter.frame.origin.x, self.lblCounter.frame.origin.y-25, self.lblCounter.frame.size.width, self.lblCounter.frame.size.height+40);
     self.lblCounter.font = [UIFont fontWithName:@"Roboto-Regular" size:80];
@@ -2816,7 +2846,7 @@
 
     
     //Set Calories
-    self.sliderSetCalories.frame = CGRectMake(self.sliderDashboardSpeed.frame.origin.x+95, self.sliderDashboardSpeed.frame.origin.y+119, 300, 300);
+    //self.sliderSetCalories.frame = CGRectMake(self.sliderDashboardSpeed.frame.origin.x+95, self.sliderDashboardSpeed.frame.origin.y+119, 300, 300);
    
     
     //Calories on Dashboard UI

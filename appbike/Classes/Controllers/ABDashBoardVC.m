@@ -686,7 +686,7 @@
         
          self.bgImgSetCaloris.frame = CGRectMake(self.bgImgSetCaloris.frame.origin.x, self.bgImgSetCaloris.frame.origin.y+5, self.bgImgSetCaloris.frame.size.width, self.bgImgSetCaloris.frame.size.height-10);
         
-        self.imgBgSetSpeedLogo.frame = CGRectMake(self.imgBgSetSpeedLogo.frame.origin.x, self.imgBgSetSpeedLogo.frame.origin.y+15, self.imgBgSetSpeedLogo.frame.size.width, self.imgBgSetSpeedLogo.frame.size.height);
+        self.imgBgSetSpeedLogo.frame = CGRectMake(self.imgBgSetSpeedLogo.frame.origin.x, self.imgBgSetSpeedLogo.frame.origin.y+10, self.imgBgSetSpeedLogo.frame.size.width, self.imgBgSetSpeedLogo.frame.size.height);
         
         
          self.viewSetSpeed.frame = CGRectMake(self.viewSetSpeed.frame.origin.x, self.viewSetSpeed.frame.origin.y+41, self.viewSetSpeed.frame.size.width, self.viewSetSpeed.frame.size.height-43);

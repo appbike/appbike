@@ -14,6 +14,7 @@
 
 #define kLineWidth IS_IPHONE_6 ? 16.0 : IS_IPHONE_6_PLUS ? 16 : 10
 #define kThumbRadius 12.0
+#define kPercentageRatio IS_IPHONE_6 ? 0.075f : IS_IPHONE_6_PLUS ? 0.07f : 0.08f
 
 @interface UICircularSlider()
 
@@ -42,6 +43,15 @@
 		if (value > self.maximumValue) { value = self.maximumValue; }
 		if (value < self.minimumValue) { value = self.minimumValue; }
 		_value = value;
+        
+//        float diff = self.maximumValue * 0.08f;
+//        if(diff >= 1)
+//        {
+//            float nowvalue = (int)value % (int)diff;
+//        
+//            self.originalvalue = value + nowvalue;
+//        }
+        
 		[self setNeedsDisplay];
         if (self.isContinuous) {
             [self sendActionsForControlEvents:UIControlEventValueChanged];
@@ -53,7 +63,10 @@
 	if (minimumValue != _minimumValue) {
 		_minimumValue = minimumValue;
 		if (self.maximumValue < self.minimumValue)	{ self.maximumValue = self.minimumValue; }
-		if (self.value < self.minimumValue)			{ self.value = self.minimumValue; }
+		if (self.value < self.minimumValue)			{ self.value = self.minimumValue;
+            float perc = kPercentageRatio;
+            self.originalvalue = self.maximumValue * perc;
+        }
 	}
 }
 @synthesize maximumValue = _maximumValue;
@@ -61,7 +74,10 @@
 	if (maximumValue != _maximumValue) {
 		_maximumValue = maximumValue;
 		if (self.minimumValue > self.maximumValue)	{ self.minimumValue = self.maximumValue; }
-		if (self.value > self.maximumValue)			{ self.value = self.maximumValue; }
+		if (self.value > self.maximumValue)			{ self.value = self.maximumValue;
+            float perc = kPercentageRatio;
+            self.originalvalue = self.maximumValue * perc;
+        }
 	}
 }
 
@@ -147,6 +163,7 @@
 }
 
 - (void)setup {
+    self.originalvalue = 0.0;
 	self.value = 0.0;
 	self.minimumValue = 0.0;
 	self.maximumValue = 1.0;
@@ -258,6 +275,7 @@
             
 			[self.minimumTrackTintColor setStroke];
 			self.thumbCenterPoint = [self drawCircularTrack:self.value atPoint:middlePoint withRadius:radius inContext:context];
+//            self.thumbCenterPoint = [self drawCircularTrack:self.originalvalue atPoint:middlePoint withRadius:radius inContext:context];
 			break;
 	}
 	
@@ -296,7 +314,43 @@
 				angle = 2*M_PI - angle;
 			}
 			
-			self.value = translateValueFromSourceIntervalToDestinationInterval(angle, 0, 2*M_PI, self.minimumValue, self.maximumValue);
+            
+            //New changes
+//            float minusValue = self.maximumValue *0.10f;
+//            
+//            //Here we need to change
+//			self.value = translateValueFromSourceIntervalToDestinationInterval(angle, 0, 2*M_PI, self.minimumValue + minusValue, self.maximumValue - minusValue);
+//            
+//            
+//            self.lastvalue = self.value;
+            NSLog(@"Percentage : %f",kPercentageRatio);
+            float perc = kPercentageRatio;
+            float minusValue = self.maximumValue * perc;
+            
+            self.value = translateValueFromSourceIntervalToDestinationInterval(angle, 0, 2*M_PI, self.minimumValue + minusValue, self.maximumValue - minusValue);
+            
+            self.originalvalue = translateValueFromSourceIntervalToDestinationInterval(angle, 0, 2*M_PI, self.minimumValue , self.maximumValue);
+            
+            //float halfValue = self.maximumValue / 2;
+            
+//            if(self.value > halfValue)
+//            {
+//                self.value = self.value + minusValue;
+//            }
+//            else
+//            {
+//                self.value = self.value - minusValue;
+//            }
+            
+            NSLog(@"Origninal value : %f and self.value : %f",self.originalvalue,self.value);
+            
+            float totalGap = minusValue * 2;
+            float totalvaluechange = totalGap * 0.01f;
+            
+            self.value = self.value + totalvaluechange;
+            NSLog(@"Final Self.value : %f",self.value);
+            
+            
 			break;
 		}
         case UIGestureRecognizerStateEnded:

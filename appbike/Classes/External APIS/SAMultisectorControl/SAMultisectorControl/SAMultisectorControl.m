@@ -128,6 +128,8 @@ typedef struct{
     self.imgViewProfile.image = profile;
 }
 - (void)addSector:(SAMultisectorSector *)sector{
+    sector.startOriginalValue = sector.startValue + 8;
+    sector.endOriginalValue = sector.endValue + 8;
     [sectorsArray addObject:sector];
     [self setNeedsDisplay];
 }
@@ -160,6 +162,7 @@ typedef struct{
         NSUInteger position = i + 1;
         SASectorDrawingInformation drawInf =[self sectorToDrawInf:sector position:position];
         
+        
         if([self touchInCircleWithPoint:touchPoint circleCenter:drawInf.endMarkerCenter]){
             trackingSector = sector;
             trackingSectorDrawInf = drawInf;
@@ -171,6 +174,11 @@ typedef struct{
             trackingSector = sector;
             trackingSectorDrawInf = drawInf;
             trackingSectorStartMarker = YES;
+            NSLog(@"Sector : %@",sector);
+//            if ( trackingSector.startValue < 8)
+//            {
+//                return NO;
+//            }
             return YES;
         }
         
@@ -197,33 +205,87 @@ typedef struct{
     
     double procent = correctedAngle / (M_PI * 2);
     
-    double newValue = procent * (trackingSector.maxValue - trackingSector.minValue) + trackingSector.minValue;
+    double newValue = procent * (trackingSector.maxOriginalValue - trackingSector.minOrginalValue) + trackingSector.minOrginalValue;
+    NSLog(@"New Value :  %f and current value %f",newValue,trackingSector.currValue);
+    
+    NSLog(@"Orignial Value start : %f and end : %f",trackingSector.minOrginalValue,trackingSector.maxOriginalValue);
+    NSLog(@"Final Value start : %f and end : %f",trackingSector.minValue,trackingSector.maxValue);
     
     if(trackingSectorStartMarker){
+         NSLog(@"1");
         
-        if(newValue > trackingSector.startValue){
+        
+        if(newValue > trackingSector.startValue)
+        {
+             NSLog(@"2");
             double diff = newValue - trackingSector.startValue;
-            if(diff > ((trackingSector.maxValue - trackingSector.minValue)/2)){
-                trackingSector.startValue = trackingSector.minValue;
-                [self valueChangedNotification];
-                [self setNeedsDisplay];
-                return YES;
+            
+            if(diff > ((trackingSector.maxOriginalValue - trackingSector.minOrginalValue)/2)){
+                
+            NSLog(@"3");
+                
+                if (trackingSector.startValue < 9)
+                {
+                    trackingSector.startValue = 8;
+                    trackingSector.startOriginalValue = 0;
+                    [self valueChangedNotification];
+                    [self setNeedsDisplay];
+                    NSLog(@"4");
+                    return NO;
+                }
+                else
+                {
+                    trackingSector.startOriginalValue = trackingSector.minValue - 8;
+                    
+                    trackingSector.startValue = trackingSector.minValue;
+                    
+                    
+                    [self valueChangedNotification];
+                    [self setNeedsDisplay];
+                    return YES;
+                }
+               
             }
         }
         if(newValue >= trackingSector.endValue){
+            NSLog(@"5");
             trackingSector.startValue = trackingSector.endValue;
+            trackingSector.startOriginalValue = trackingSector.minValue - 8;
             [self valueChangedNotification];
             [self setNeedsDisplay];
             return YES;
         }
-        trackingSector.startValue = newValue;
-        [self valueChangedNotification];
+        trackingSector.startOriginalValue = newValue - 8;
+        NSLog(@"6");
+        if(newValue > 8)
+        {
+            NSLog(@"7");
+            trackingSector.startValue = newValue;
+           
+            [self valueChangedNotification];
+            //return YES;
+        }
+        else
+        {
+            NSLog(@"8");
+            return NO;
+        }
     }
     else{
         if(newValue < trackingSector.endValue){
             double diff = trackingSector.endValue - newValue;
-            if(diff > ((trackingSector.maxValue - trackingSector.minValue)/2)){
+            if(diff > ((trackingSector.maxOriginalValue - trackingSector.minOrginalValue)/2)){
+                if (trackingSector.endValue > 91)
+                {
+                   
+                    trackingSector.endValue = 92;
+                    trackingSector.endOriginalValue = 100;
+                    [self valueChangedNotification];
+                    [self setNeedsDisplay];
+                    return NO;
+                }
                 trackingSector.endValue = trackingSector.maxValue;
+                trackingSector.endOriginalValue = trackingSector.maxValue + 8;
                 [self valueChangedNotification];
                 [self setNeedsDisplay];
                 return YES;
@@ -231,12 +293,18 @@ typedef struct{
         }
         if(newValue <= trackingSector.startValue){
             trackingSector.endValue = trackingSector.startValue;
+            trackingSector.endOriginalValue = trackingSector.startValue + 8;
             [self valueChangedNotification];
             [self setNeedsDisplay];
             return YES;
         }
-        trackingSector.endValue = newValue;
-        [self valueChangedNotification];
+        if(newValue < 92)
+        {
+
+            trackingSector.endValue = newValue;
+            trackingSector.endOriginalValue = newValue + 8;
+            [self valueChangedNotification];
+        }
     }
     
     [self setNeedsDisplay];
@@ -388,8 +456,8 @@ typedef struct{
     
     //text on markers
     NSString *markerStrTemplate = [@"%.0f" stringByReplacingOccurrencesOfString:@"0" withString:[NSString stringWithFormat:@"%i", self.numbersAfterPoint]];
-    NSString *startMarkerStr = [NSString stringWithFormat:markerStrTemplate, sector.startValue];
-    NSString *endMarkerStr = [NSString stringWithFormat:markerStrTemplate, sector.endValue];
+    NSString *startMarkerStr = [NSString stringWithFormat:markerStrTemplate, sector.startOriginalValue];
+    NSString *endMarkerStr = [NSString stringWithFormat:markerStrTemplate, sector.endOriginalValue];
     
     //drawing start marker's text
 //    [self drawString:startMarkerStr
@@ -651,7 +719,9 @@ typedef struct{
 - (instancetype)init{
     if(self = [super init]){
         self.minValue = 0.0; //0.0
+        self.minOrginalValue = 8;
         self.maxValue = 100.0; //100.0
+        self.maxOriginalValue = 92;
         self.startValue = 0.0;
         self.endValue = 50.0;
         self.tag = 0;

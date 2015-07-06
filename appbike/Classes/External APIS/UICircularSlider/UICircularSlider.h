@@ -34,6 +34,7 @@ typedef enum {
  * Setting this property causes the receiver to redraw itself using the new value.
  * If you try to set a value that is below the minimum or above the maximum value, the minimum or maximum value is set instead. The default value of this property is 0.0.
  */
+@property (nonatomic) float originalvalue;
 @property (nonatomic) float value;
 
 /**

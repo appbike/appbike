@@ -46,9 +46,13 @@
 
 @property (nonatomic, readwrite) double minValue;
 @property (nonatomic, readwrite) double maxValue;
+@property (nonatomic, readwrite) double minOrginalValue;
+@property (nonatomic, readwrite) double maxOriginalValue;
 
 @property (nonatomic, readwrite) double startValue;
+@property (nonatomic, readwrite) double startOriginalValue;
 @property (nonatomic, readwrite) double endValue;
+@property (nonatomic, readwrite) double endOriginalValue;
 @property (nonatomic, readwrite) double currValue;
 @property (nonatomic, readwrite) NSInteger tag;
 

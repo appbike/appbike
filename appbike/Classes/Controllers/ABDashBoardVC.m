@@ -595,6 +595,8 @@
     //Set Calories slider
     
     self.lblSetCaloriesValue.text = @"0";
+    self.sliderSetCalories.originalvalue = 0;
+    self.sliderSetCalories.value = 40;
     self.sliderSetCalories.minimumValue = 0;
     self.sliderSetCalories.maximumValue = [[appDelegate().dictCaloriesData objectForKey:@"max"] floatValue];
     self.sliderSetCalories.continuous = YES;
@@ -692,6 +694,10 @@
          self.viewSetSpeed.frame = CGRectMake(self.viewSetSpeed.frame.origin.x, self.viewSetSpeed.frame.origin.y+41, self.viewSetSpeed.frame.size.width, self.viewSetSpeed.frame.size.height-43);
         
        self.viewSetCalories.frame = CGRectMake(self.viewSetCalories.frame.origin.x, self.viewSetCalories.frame.origin.y+41, self.viewSetCalories.frame.size.width, self.viewSetCalories.frame.size.height-43);
+        
+        self.viewBgLogoCal.frame = CGRectMake(self.viewBgLogoCal.frame.origin.x, self.viewBgLogoCal.frame.origin.y-2, self.viewBgLogoCal.frame.size.width, self.viewBgLogoCal.frame.size.height);
+        self.viewBgLogoCal.layer.cornerRadius = 20;
+//        self.viewBgLogoCal.backgroundColor = [UIColor darkGrayColor];
     }
     else
     {
@@ -847,6 +853,7 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    [self.sliderSetCalories setValue:40];
     if(self.searchDisplayController.isActive)
     {
         [UIView animateWithDuration:0.001 delay:0.0 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
@@ -1824,8 +1831,8 @@
     
     sector3.tag = 2;
     
-    sector3.startValue = [[appDelegate().dictKMHData objectForKey:@"min"] doubleValue];
-    sector3.endValue = [[appDelegate().dictKMHData objectForKey:@"max"] doubleValue];;
+    sector3.startValue = [[appDelegate().dictKMHData objectForKey:@"min"] doubleValue] - 8;
+    sector3.endValue = [[appDelegate().dictKMHData objectForKey:@"max"] doubleValue] - 8;
     sector3.currValue = 50.0;
     
     minValue = sector3.startValue;
@@ -1846,11 +1853,15 @@
 {
     for(SAMultisectorSector *sector in self.multisectorControl.sectors){
         
-        NSString *startValue = [NSString stringWithFormat:@"%.0f", sector.startValue];
-        NSString *endValue = [NSString stringWithFormat:@"%.0f", sector.endValue];
+        NSString *startValue = [NSString stringWithFormat:@"%.0f", sector.startOriginalValue];
+        NSString *endValue = [NSString stringWithFormat:@"%.0f", sector.endOriginalValue];
+//        NSString *startValue = [NSString stringWithFormat:@"%.0f", sector.minValue];
+ //       NSString *endValue = [NSString stringWithFormat:@"%.0f", sector.maxValue];
         
-        minValue = sector.startValue;
-        maxValue = sector.endValue;
+        minValue = sector.startOriginalValue;
+        maxValue = sector.endOriginalValue;
+//        minValue = sector.minValue;
+  //      maxValue = sector.maxValue;
         self.setSpeedlblDistance.text = [NSString stringWithFormat:@"%@ / %@",startValue,endValue];
         
         [self.multisectorControl sendSubviewToBack:self.imgBgSetSpeed];
@@ -2015,9 +2026,12 @@
 #pragma mark - Set Calories View Method
 - (IBAction)ColoriesValueChange:(id)sender
 {
-    self.lblSetCaloriesValue.text = [NSString stringWithFormat:@"%d",(int)self.sliderSetCalories.value];
+//    self.lblSetCaloriesValue.text = [NSString stringWithFormat:@"%d",(int)self.sliderSetCalories.value];
+//    
+//    self.lblGoalCalories.text = [NSString stringWithFormat:@"%d",(int)self.sliderSetCalories.value];
+    self.lblSetCaloriesValue.text = [NSString stringWithFormat:@"%d",(int)self.sliderSetCalories.originalvalue];
     
-    self.lblGoalCalories.text = [NSString stringWithFormat:@"%d",(int)self.sliderSetCalories.value];
+    self.lblGoalCalories.text = [NSString stringWithFormat:@"%d",(int)self.sliderSetCalories.originalvalue];
 
 }
 
@@ -2040,11 +2054,11 @@
         //Set
         //NSLog(@"Value is ")
         self.sliderDashboardCalories.isSkipGoal = NO;
-        [self.sliderDashboardCalories setMaximumValue:self.sliderSetCalories.value];
+        [self.sliderDashboardCalories setMaximumValue:self.sliderSetCalories.originalvalue];
         
-        [self.btnMaxCalories setTitle:[NSString stringWithFormat:@"%d",(int)self.sliderSetCalories.value] forState:UIControlStateNormal];
+        [self.btnMaxCalories setTitle:[NSString stringWithFormat:@"%d",(int)self.sliderSetCalories.originalvalue] forState:UIControlStateNormal];
         
-        NSDictionary *countValue = @{@"max" : @"500",@"goal" :[NSString stringWithFormat:@"%.0f",self.sliderSetCalories.value],@"enabled" : @"1" };
+        NSDictionary *countValue = @{@"max" : @"500",@"goal" :[NSString stringWithFormat:@"%.0f",self.sliderSetCalories.originalvalue],@"enabled" : @"1" };
         [self saveJsonFile:@"calories.json" withDictionary:countValue];
     }
     else
@@ -2066,7 +2080,7 @@
         NSDictionary *countValue = @{@"goal": @"--",@"max" : @"500",@"enabled" : @"0" };
         [self saveJsonFile:@"calories.json" withDictionary:countValue];
     }
-    NSLog(@"We have new updated calory value : %d",self.sliderSetCalories.value);
+    NSLog(@"We have new updated calory value : %d",self.sliderSetCalories.originalvalue);
     self.viewSetCalories.hidden = YES;
     self.btnSkipCalories.hidden = NO;
     self.isSetCalories = YES;
@@ -2633,7 +2647,9 @@
   self.sliderSetCalories.frame = CGRectMake(self.sliderSetCalories.frame.origin.x-50, self.sliderSetCalories.frame.origin.y-50, 300, 300);
     self.bgImgSetCaloris.frame = CGRectMake(self.bgImgSetCaloris.frame.origin.x-50, self.bgImgSetCaloris.frame.origin.y-50, 300,300);
     self.imgBgSetSpeedLogo.frame = CGRectMake(self.imgBgSetSpeedLogo.frame.origin.x+15, self.imgBgSetSpeedLogo.frame.origin.y+85, self.imgBgSetSpeedLogo.frame.size.width+10, self.imgBgSetSpeedLogo.frame.size.height+10);
-      self.viewBgLogoCal.frame = CGRectMake(self.viewBgLogoCal.frame.origin.x+15, self.viewBgLogoCal.frame.origin.y+85, self.viewBgLogoCal.frame.size.width, self.viewBgLogoCal.frame.size.height);
+      self.viewBgLogoCal.frame = CGRectMake(self.viewBgLogoCal.frame.origin.x+1, self.viewBgLogoCal.frame.origin.y+75, self.viewBgLogoCal.frame.size.width+20, self.viewBgLogoCal.frame.size.height);
+    self.viewBgLogoCal.layer.cornerRadius = 20;
+    //self.viewBgLogoCal.backgroundColor = [UIColor darkGrayColor];
     
     
     self.lblSecText.frame = CGRectMake(self.lblSecText.frame.origin.x-23, self.lblSecText.frame.origin.y+20, self.lblSecText.frame.size.width, self.lblSecText.frame.size.height);
@@ -2769,7 +2785,11 @@
 //    self.imgBgSetSpeedLogo.frame = CGRectMake(self.imgBgSetSpeedLogo.frame.origin.x-12, self.imgBgSetSpeedLogo.frame.origin.y-18, self.imgBgSetSpeedLogo.frame.size.width+10, self.imgBgSetSpeedLogo.frame.size.height+10);
     
     self.imgBgSetSpeedLogo.frame = CGRectMake(self.imgBgSetSpeedLogo.frame.origin.x+35, self.imgBgSetSpeedLogo.frame.origin.y+105, self.imgBgSetSpeedLogo.frame.size.width+10, self.imgBgSetSpeedLogo.frame.size.height+10);
-    self.viewBgLogoCal.frame = CGRectMake(self.viewBgLogoCal.frame.origin.x+35, self.viewBgLogoCal.frame.origin.y+105, self.viewBgLogoCal.frame.size.width, self.viewBgLogoCal.frame.size.height);
+    //self.viewBgLogoCal.frame = CGRectMake(self.viewBgLogoCal.frame.origin.x+35, self.viewBgLogoCal.frame.origin.y+105, self.viewBgLogoCal.frame.size.width, self.viewBgLogoCal.frame.size.height);
+    
+    self.viewBgLogoCal.frame = CGRectMake(self.viewBgLogoCal.frame.origin.x+19, self.viewBgLogoCal.frame.origin.y+105, self.viewBgLogoCal.frame.size.width+20, self.viewBgLogoCal.frame.size.height);
+    self.viewBgLogoCal.layer.cornerRadius = 20;
+    //self.viewBgLogoCal.backgroundColor = [UIColor darkGrayColor];
     
     
     self.lblSecText.frame = CGRectMake(self.lblSecText.frame.origin.x-38, self.lblSecText.frame.origin.y+30, self.lblSecText.frame.size.width, self.lblSecText.frame.size.height);
@@ -3284,7 +3304,7 @@
                 
                 
                 //float totalPer = ([cal floatValue] / self.sliderSetCalories.maximumValue) * 100;
-                float totalPer = ([cal floatValue] / self.sliderSetCalories.value) * 100;
+                float totalPer = ([cal floatValue] / self.sliderSetCalories.originalvalue) * 100;
                 if(totalPer < 100.0f)
                     self.lblCaloriesPercentage.text = [NSString stringWithFormat:@"%.0f%%",totalPer];
                 else

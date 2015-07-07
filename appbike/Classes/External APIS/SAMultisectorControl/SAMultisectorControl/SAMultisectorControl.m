@@ -586,8 +586,8 @@ typedef struct{
     
     //text on markers
     NSString *markerStrTemplate = [@"%.0f" stringByReplacingOccurrencesOfString:@"0" withString:[NSString stringWithFormat:@"%i", self.numbersAfterPoint]];
-    NSString *startMarkerStr = [NSString stringWithFormat:markerStrTemplate, sector.startValue];
-    NSString *endMarkerStr = [NSString stringWithFormat:markerStrTemplate, sector.endValue];
+    NSString *startMarkerStr = [NSString stringWithFormat:markerStrTemplate, sector.startOriginalValue];
+    NSString *endMarkerStr = [NSString stringWithFormat:markerStrTemplate, sector.endOriginalValue];
     NSString *currentMarkerStr = [NSString stringWithFormat:markerStrTemplate, sector.currValue];
     
     //drawing start marker's text

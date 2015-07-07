@@ -1858,8 +1858,8 @@
 //        NSString *startValue = [NSString stringWithFormat:@"%.0f", sector.minValue];
  //       NSString *endValue = [NSString stringWithFormat:@"%.0f", sector.maxValue];
         
-        minValue = sector.startOriginalValue;
-        maxValue = sector.endOriginalValue;
+        minValue = sector.startOriginalValue - 8;
+        maxValue = sector.endOriginalValue - 8;
 //        minValue = sector.minValue;
   //      maxValue = sector.maxValue;
         self.setSpeedlblDistance.text = [NSString stringWithFormat:@"%@ / %@",startValue,endValue];
@@ -1883,6 +1883,8 @@
     
     sector3.startValue = minValue;
     sector3.endValue = maxValue;
+   // sector3.startOriginalValue = minValue;
+    //sector3.endOriginalValue = maxValue;
     sector3.currValue = speed;
     
     if(speed < minValue || speed > maxValue)
@@ -1896,9 +1898,11 @@
         self.lblMinMaxSpeedValue.textColor = [UIColor colorWithRed:29/255.0f green:188/255.0 blue:88/255.0f alpha:1.0];
     }
     
-    
-    minValue = sector3.startValue;
-    maxValue = sector3.endValue;
+
+    //minValue = sector3.startOriginalValue;
+    //maxValue = sector3.endOriginalValue;
+ //   minValue = sector3.startValue ;
+  //  maxValue = sector3.endValue ;
     
     
     [self.sliderDashboardMinMax sendSubviewToBack:self.bgMinMaxSpeed];

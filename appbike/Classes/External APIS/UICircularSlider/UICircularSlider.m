@@ -44,6 +44,7 @@
 		if (value < self.minimumValue) { value = self.minimumValue; }
 		_value = value;
         
+        NSLog(@"Update value : %f",value);
 //        float diff = self.maximumValue * 0.08f;
 //        if(diff >= 1)
 //        {
@@ -195,6 +196,7 @@
 	return radius;
 }
 - (void)drawThumbAtPoint:(CGPoint)sliderButtonCenterPoint inContext:(CGContextRef)context {
+    NSLog(@"Draw thumb");
 	UIGraphicsPushContext(context);
 	CGContextBeginPath(context);
 	
@@ -243,6 +245,7 @@
 }
 
 - (void)drawRect:(CGRect)rect {
+    
     CGContextRef context = UIGraphicsGetCurrentContext();
 	
 	CGPoint middlePoint;
@@ -263,17 +266,21 @@
 			break;
 		case UICircularSliderStyleCircle:
 		default:
+            
 			[self.maximumTrackTintColor setStroke];
             if(self.isSkipGoal)
             {
+                NSLog(@"Skip Goal");
                 [self drawCircularTrack:0 atPoint:middlePoint withRadius:radius inContext:context];
             }
             else
             {
+                NSLog(@"Drawing....");
                 [self drawCircularTrack:self.maximumValue atPoint:middlePoint withRadius:radius inContext:context];
             }
             
 			[self.minimumTrackTintColor setStroke];
+            
 			self.thumbCenterPoint = [self drawCircularTrack:self.value atPoint:middlePoint withRadius:radius inContext:context];
 //            self.thumbCenterPoint = [self drawCircularTrack:self.originalvalue atPoint:middlePoint withRadius:radius inContext:context];
 			break;
@@ -286,13 +293,18 @@
         CGRect thumbTouchRect = CGRectMake(self.thumbCenterPoint.x - kThumbRadius, self.thumbCenterPoint.y - kThumbRadius, kThumbRadius*2, kThumbRadius*2);
         self.profileImageView.frame = thumbTouchRect;
     }
+    NSLog(@"self.orgi : %f and max : %f",self.originalvalue,self.maximumValue);
+    
 	[self drawThumbAtPoint:self.thumbCenterPoint inContext:context];
+    
 }
 
 /** @name Thumb management methods */
 #pragma mark - Thumb management methods
 - (BOOL)isPointInThumb:(CGPoint)point {
 	CGRect thumbTouchRect = CGRectMake(self.thumbCenterPoint.x - kThumbRadius, self.thumbCenterPoint.y - kThumbRadius, kThumbRadius*2, kThumbRadius*2);
+    
+    
 	return CGRectContainsPoint(thumbTouchRect, point);
 }
 
@@ -315,6 +327,22 @@
 			}
 			
             
+                    if((self.originalvalue+1) >= self.maximumValue )
+                    {
+                       
+                        //                self.originalvalue = translateValueFromSourceIntervalToDestinationInterval(angle, 0, 2*M_PI, self.minimumValue , self.maximumValue);
+                       // self.value = self.originalvalue-1;
+        
+                        break;
+                    }
+            NSLog(@"orignial %f and min : %f and angle : %f",self.originalvalue,self.minimumValue,angle);
+                if ((self.originalvalue) <= self.minimumValue +1)
+                {
+                     NSLog(@"orignial %f and min : %f and angle : %f",self.originalvalue,self.minimumValue,angle);
+                    break;
+                }
+
+            
             //New changes
 //            float minusValue = self.maximumValue *0.10f;
 //            
@@ -323,7 +351,7 @@
 //            
 //            
 //            self.lastvalue = self.value;
-            NSLog(@"Percentage : %f",kPercentageRatio);
+            //NSLog(@"Percentage : %f",kPercentageRatio);
             float perc = kPercentageRatio;
             float minusValue = self.maximumValue * perc;
             
@@ -353,14 +381,43 @@
             
 			break;
 		}
+        case UIGestureRecognizerStateBegan:
+            if((self.originalvalue+1) >= self.maximumValue)
+            {
+                self.value = 0;
+                self.originalvalue = 0;
+            }
+            float perc = kPercentageRatio;
+            float minusValue = self.maximumValue * perc;
+            self.originalvalue = self.value + minusValue;
+            
+        break;
         case UIGestureRecognizerStateEnded:
+            NSLog(@"END -----");
+            
+            
             if (!self.isContinuous) {
+                NSLog(@"not continous");
                 [self sendActionsForControlEvents:UIControlEventValueChanged];
             }
-            if ([self isPointInThumb:tapLocation]) {
-                [self sendActionsForControlEvents:UIControlEventTouchUpInside];
+            if ([self isPointInThumb:tapLocation])
+            {
+                //if((self.originalvalue + 1) < self.maximumValue)
+                //{
+                    NSLog(@"touch up inside");
+                    [self sendActionsForControlEvents:UIControlEventTouchUpInside];
+                //}
+                //else
+                //{
+                  //  NSLog(@"Cancel");
+                    //[self sendActionsForControlEvents:UIControlEventTouchUpOutside];
+                //}
             }
-            else {
+            else
+            {
+                NSLog(@"Touch outside");
+                //self.value = 0;
+                //self.originalvalue = 0;
                 [self sendActionsForControlEvents:UIControlEventTouchUpOutside];
             }
             break;

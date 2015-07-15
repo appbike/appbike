@@ -92,8 +92,8 @@
         cart.s_km = [NSNumber numberWithInt:[[data objectForKey:@"km"] integerValue]];
         cart.s_avgkm = [NSNumber numberWithInt:[[data objectForKey:@"avgkm"] integerValue]];
         cart.s_visible = [NSNumber numberWithInt:1];
-        cart.s_startlocation = appDelegate().strFromAddress;
-        cart.s_endlocation = appDelegate().strToAddress;
+        cart.s_startlocation = [NSString stringWithFormat:@"%@",[data objectForKey:@"fromadr"]];
+        cart.s_endlocation = [NSString stringWithFormat:@"%@",[data objectForKey:@"toadr"]];
         
     }else
     {
@@ -108,8 +108,8 @@
         cart.s_visible = [NSNumber numberWithInt:1];
         //cart.s_startlocation = @"Milano";
         //cart.s_endlocation = @"Como";
-        cart.s_startlocation = appDelegate().strFromAddress;
-        cart.s_endlocation = appDelegate().strToAddress;
+        cart.s_startlocation = [NSString stringWithFormat:@"%@",[data objectForKey:@"fromadr"]];
+        cart.s_endlocation = [NSString stringWithFormat:@"%@",[data objectForKey:@"toadr"]];
 
         
         

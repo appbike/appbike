@@ -1283,35 +1283,35 @@
     self.lblMapBPMText.text = [self.dictUpdatedDashboardData objectForKey:@"bottomRight"];
     
     
-    if([self.lblCalorieText.text isEqualToString:@"km"])
+    if([self.lblCalorieText.text isEqualToString:@"km"] || [self.lblCalorieText.text isEqualToString:@"speed"])
     {
         self.lblCalorieText.text = @"km/h";
     }
-    if([self.lblKiloMeterText.text isEqualToString:@"km"])
+    if([self.lblKiloMeterText.text isEqualToString:@"km"] || [self.lblKiloMeterText.text isEqualToString:@"speed"])
     {
         self.lblKiloMeterText.text = @"km/h";
     }
-    if([self.lblBPMText.text isEqualToString:@"km"])
+    if([self.lblBPMText.text isEqualToString:@"km"] || [self.lblBPMText.text isEqualToString:@"speed"])
     {
         self.lblBPMText.text = @"km/h";
     }
-    if([self.lblRPMText.text isEqualToString:@"km"])
+    if([self.lblRPMText.text isEqualToString:@"km"] || [self.lblRPMText.text isEqualToString:@"speed"])
     {
         self.lblRPMText.text = @"km/h";
     }
-    if([self.lblMapAvgSpeedText.text isEqualToString:@"km"])
+    if([self.lblMapAvgSpeedText.text isEqualToString:@"km"] || [self.lblMapAvgSpeedText.text isEqualToString:@"speed"])
     {
         self.lblMapAvgSpeedText.text = @"km/h";
     }
-    if([self.lblMapKMText.text isEqualToString:@"km"])
+    if([self.lblMapKMText.text isEqualToString:@"km"] || [self.lblMapKMText.text isEqualToString:@"speed"])
     {
         self.lblMapKMText.text = @"km/h";
     }
-    if([self.lblMapRPMText.text isEqualToString:@"km"])
+    if([self.lblMapRPMText.text isEqualToString:@"km"] || [self.lblMapRPMText.text isEqualToString:@"speed"])
     {
         self.lblMapRPMText.text = @"km/h";
     }
-    if([self.lblMapBPMText.text isEqualToString:@"km"])
+    if([self.lblMapBPMText.text isEqualToString:@"km"] || [self.lblMapBPMText.text isEqualToString:@"km"])
     {
         self.lblMapBPMText.text = @"km/h";
     }
@@ -1426,7 +1426,7 @@
             {
                 case 5501:
                 {
-                    [self.dictUpdatedDashboardData setObject:@"km" forKey:@"topLeft"];
+                    [self.dictUpdatedDashboardData setObject:@"speed" forKey:@"topLeft"];
 //                    [self.btnCaloriesMenu setImage:[UIImage imageNamed:@"kilometer.png"] forState:UIControlStateNormal];
 //                    self.imgTopLeft.image = [UIImage imageNamed:@"map_bpm.png"];
                     [self.btnCaloriesMenu setBackgroundImage:[UIImage imageNamed:@"avg_speed_selected.png"] forState:UIControlStateNormal];
@@ -1435,28 +1435,28 @@
                     break;
                 case 5502:
                 {
-                    [self.dictUpdatedDashboardData setObject:@"km" forKey:@"topRight"];
+                    [self.dictUpdatedDashboardData setObject:@"speed" forKey:@"topRight"];
                     [self.btnKMMenu setBackgroundImage:[UIImage imageNamed:@"avg_speed_selected.png"] forState:UIControlStateNormal];
                     self.imgTopRight.image = [UIImage imageNamed:@"map_speed.png"];
                 }
                     break;
                 case 5503:
                 {
-                    [self.dictUpdatedDashboardData setObject:@"km" forKey:@"bottomRight"];
+                    [self.dictUpdatedDashboardData setObject:@"speed" forKey:@"bottomRight"];
                     [self.btnBPM setBackgroundImage:[UIImage imageNamed:@"avg_speed_selected.png"] forState:UIControlStateNormal];
                     self.imgBottomRight.image = [UIImage imageNamed:@"map_speed.png"];
                 }
                     break;
                 case 5504:
                 {
-                    [self.dictUpdatedDashboardData setObject:@"km" forKey:@"bottomLeft"];
+                    [self.dictUpdatedDashboardData setObject:@"speed" forKey:@"bottomLeft"];
                     [self.btnRPM setBackgroundImage:[UIImage imageNamed:@"avg_speed_selected.png"] forState:UIControlStateNormal];
                     self.imgBottomLeft.image = [UIImage imageNamed:@"map_speed.png"];
                 }
                     break;
                 case 5505:
                 {
-                    [self.dictUpdatedDashboardData setObject:@"kmh" forKey:@"main"];
+                    [self.dictUpdatedDashboardData setObject:@"speed" forKey:@"main"];
                     // [self.btnRPM setImage:[UIImage imageNamed:@"bpm.png"] forState:UIControlStateNormal];
                   //  self.imgBGLogoDashboardSpeed.image = [UIImage imageNamed:@"flow_ring_logo.png"] ;
                 }
@@ -1922,7 +1922,7 @@
         self.viewMinMaxSpeed.hidden = NO;
     }
     
-    if([mainSensor isEqualToString:@"kmh"])
+    if([mainSensor isEqualToString:@"kmh"] || [mainSensor isEqualToString:@"speed"])
     {
         
         self.viewNormalSpeed.hidden = YES;
@@ -1956,13 +1956,18 @@
     {
         //Skip
         
-        if([mainSensor isEqualToString:@"kmh"])
+        if([mainSensor isEqualToString:@"kmh"] || [mainSensor isEqualToString:@"speed"])
         {
             self.viewMinMaxSpeed.hidden = YES;
             self.viewCalories.hidden = YES;
             self.viewNormalSpeed.hidden = NO;
             self.lblKMHText.text = @"km/h";
-            self.imgBGLogoDashboardSpeed.image = [UIImage imageNamed:@"flow_ring_logo.png"];//flow_ring_logo.png
+            //self.imgBGLogoDashboardSpeed.image = [UIImage imageNamed:@"flow_ring_logo.png"];//flow_ring_logo.png
+            self.imgBGLogoDashboardSpeed.image = [UIImage imageNamed:@"white_bg_logo.png"]; //
+//            if(IS_IPHONE_5)
+//            {
+//                self.imgBGLogoDashboardSpeed.frame = CGRectMake(self.imgBGLogoDashboardSpeed.frame.origin.x - 5, self.imgBGLogoDashboardSpeed.frame.origin.y-13, self.imgBGLogoDashboardSpeed.frame.size.width+3, self.imgBGLogoDashboardSpeed.frame.size.height + 28);
+//            }
             
         }
         else if([mainSensor isEqualToString:@"bpm"])
@@ -2335,6 +2340,8 @@
                                  @"json" : [self.dictSessionTemp objectForKey:@"json"],
                                  @"start" : [self.dictSessionTemp objectForKey:@"start"],
                                  @"avgkm" : [self.dictSessionTemp objectForKey:@"avgkm"],
+                                @"fromadr" : [self.dictSessionTemp objectForKey:@"fromadr"],
+                                @"toadr" : [self.dictSessionTemp objectForKey:@"toadr"],
                                   @"is_share" : strIsShare
                                  };
         [Session addItemToSession:newDict];
@@ -2404,9 +2411,11 @@
                                        @"km" : self.lblKilometerCount.text ? self.lblKilometerCount.text : @"0",
                                        @"json" : finalJson,
                                        @"start" : self.dtStartSession ? self.dtStartSession : [NSDate date],
-                                       @"avgkm" : self.lblKilometerCount.text ? self.lblKilometerCount.text : @"0"
+                                       @"avgkm" : self.lblKilometerCount.text ? self.lblKilometerCount.text : @"0",
+                                       @"fromadr" : appDelegate().strFromAddress ? appDelegate().strFromAddress  : @"",
+                                      @"toadr" : appDelegate().strToAddress ? appDelegate().strToAddress  : @"",
                                        };
-//            [Session addItemToSession:self.dictSessionTemp];
+            //[Session addItemToSession:self.dictSessionTemp];
             
             self.btnShare.hidden = NO;
             self.btnShareYes.hidden = NO;
@@ -3287,7 +3296,17 @@
             {
                 //Normal
                 //[self.sliderDashboardSpeed setValue:[speed floatValue]];
-                float avgSpeed = [[dictionary objectForKey:@"AvgSpeed"] floatValue];
+                float avgSpeed;
+                
+                 NSString *mainv = [self.dictUpdatedDashboardData valueForKey:@"main"];
+                if([mainv isEqualToString:@"speed"])
+                {
+                    avgSpeed = [speed floatValue];
+                }
+                else
+                {
+                    avgSpeed = [[dictionary objectForKey:@"AvgSpeed"] floatValue];
+                }
                 [self.sliderDashboardSpeed setValue:avgSpeed ];
                 
                  [self.lblCurrentSpeed setText:[NSString stringWithFormat:@"%.0f",avgSpeed]];
@@ -3390,6 +3409,13 @@
             self.lblCalorieCount.text = [NSString stringWithFormat:@"%d",[[dictionary objectForKey:@"HB"] intValue]];
             self.lblMapAvgSpeedValue.text = [NSString stringWithFormat:@"%d",[[dictionary objectForKey:@"HB"] intValue]];
         }
+        else if([strTopLeft isEqualToString:@"speed"])
+        {
+            float avgSpeed = [[dictionary objectForKey:@"Speed"] floatValue];
+            self.lblCalorieCount.text = [NSString stringWithFormat:@"%.0f",avgSpeed];
+            self.lblMapAvgSpeedValue.text = [NSString stringWithFormat:@"%.0f",avgSpeed];
+        }
+
         
         //Top Right
         NSString *strTopRight = [self.dictUpdatedDashboardData valueForKey:@"topRight"];
@@ -3414,6 +3440,12 @@
             self.lblKilometerCount.text = [NSString stringWithFormat:@"%d",[[dictionary objectForKey:@"HB"] intValue]];
             self.lblMapKMValue.text = [NSString stringWithFormat:@"%d",[[dictionary objectForKey:@"HB"] intValue]];
         }
+        else if([strTopRight isEqualToString:@"speed"])
+        {
+            float avgSpeed = [[dictionary objectForKey:@"Speed"] floatValue];
+            self.lblKilometerCount.text = [NSString stringWithFormat:@"%.0f",avgSpeed];
+            self.lblMapKMValue.text = [NSString stringWithFormat:@"%.0f",avgSpeed];
+        }
         
         //Bottom Left
         NSString *strBottomLeft = [self.dictUpdatedDashboardData valueForKey:@"bottomLeft"];
@@ -3437,6 +3469,12 @@
         {
             self.lblRPMCount.text = [NSString stringWithFormat:@"%d",[[dictionary objectForKey:@"HB"] intValue]];
             self.lblMapRPMValue.text = [NSString stringWithFormat:@"%d",[[dictionary objectForKey:@"HB"] intValue]];
+        }
+        else if([strBottomLeft isEqualToString:@"speed"])
+        {
+            float avgSpeed = [[dictionary objectForKey:@"Speed"] floatValue];
+            self.lblRPMCount.text = [NSString stringWithFormat:@"%.0f",avgSpeed];
+            self.lblMapRPMValue.text = [NSString stringWithFormat:@"%.0f",avgSpeed];
         }
         
         //Bottom Right
@@ -3463,7 +3501,13 @@
             self.lblBPMCount.text = [NSString stringWithFormat:@"%d",[[dictionary objectForKey:@"HB"] intValue]];
             self.lblMapBPMValue.text = [NSString stringWithFormat:@"%d",[[dictionary objectForKey:@"HB"] intValue]];
         }
-        
+        else if([strBottomRight isEqualToString:@"speed"])
+        {
+            float avgSpeed = [[dictionary objectForKey:@"Speed"] floatValue];
+            self.lblBPMCount.text = [NSString stringWithFormat:@"%.0f",avgSpeed];
+            self.lblMapBPMValue.text = [NSString stringWithFormat:@"%.0f",avgSpeed];
+        }
+
         
         
         

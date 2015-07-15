@@ -292,9 +292,11 @@
     NSString *dateString = [format stringFromDate:thisSession.s_start];
     
     self.lblDateDetail.text = dateString;
-    self.lblFromValue.text = thisSession.s_startlocation;
+    self.lblFromValue.text = thisSession.s_startlocation ? thisSession.s_startlocation : @"";
+   // self.lblFromValue.text = @"S.G.Highway";
     self.lblToValue.text = thisSession.s_endlocation;
     
+    NSLog(@"Start Location : %@ and end location : %@",thisSession.s_startlocation,thisSession.s_endlocation);
    // self.lblAvgSpeedValue.text = [NSString stringWithFormat:@"%@ km",thisSession.s_avgkm];
     
     NSDictionary *jsonDict = [self stringToJsonDiction:thisSession.s_json];

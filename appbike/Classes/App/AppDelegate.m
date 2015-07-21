@@ -81,7 +81,6 @@ static AppDelegate *myDelegate;
     self.window.rootViewController = bikesConnectionViewController;
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
-    
 /// ### #### Uncomment above
     
   

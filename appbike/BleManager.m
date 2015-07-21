@@ -141,7 +141,7 @@
 +(NSMutableDictionary*)generateHeaderPacket{
     NSMutableDictionary *headerPacket = [[NSMutableDictionary alloc] init];
     
-   // NSInteger speed = arc4random() % 100;
+    //NSInteger speed = arc4random() % 100;
     //NSInteger power = arc4random() % 100;
 
     //[headerPacket setObject:[NSNumber numberWithUnsignedInteger:speed] forKey:@"Speed"];

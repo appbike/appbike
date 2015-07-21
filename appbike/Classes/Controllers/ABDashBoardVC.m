@@ -702,6 +702,7 @@
     else
     {
         
+        
         self.assistantLevelView.frame = CGRectMake(self.assistantLevelView.frame.origin.x, self.assistantLevelView.frame.origin.y+20, self.assistantLevelView.frame.size.width, self.assistantLevelView.frame.size.height - 20);
         
         self.assistantLevelView.imgRate.frame = CGRectMake(self.assistantLevelView.imgRate.frame.origin.x, self.assistantLevelView.imgRate.frame.origin.y+20, self.assistantLevelView.imgRate.frame.size.width, self.assistantLevelView.imgRate.frame.size.height - 20);
@@ -733,7 +734,9 @@
        // self.imgBGCalories.frame = CGRectMake(self.sliderDashboardCalories.frame.origin.x+5, self.sliderDashboardCalories.frame.origin.y-10, 195, 195);
          self.imgBGCalories.frame = CGRectMake(self.sliderDashboardCalories.frame.origin.x+5, self.sliderDashboardCalories.frame.origin.y-10, 200, 200);
         
-        
+           self.lblSecText.frame = CGRectMake(self.lblSecText.frame.origin.x+20, self.lblSecText.frame.origin.y-10, self.lblSecText.frame.size.width, self.lblSecText.frame.size.height);
+        self.sliderDashboardSpeed.frame = CGRectMake(self.sliderDashboardSpeed.frame.origin.x, self.sliderDashboardSpeed.frame.origin.y+3, self.sliderDashboardSpeed.frame.size.width, self.sliderDashboardSpeed.frame.size.height);
+
         
     }
   
@@ -822,6 +825,9 @@
         [self displayMap];
         appDelegate().isDisplayMap = NO;
     }
+    
+    //Testing
+   // [self.sliderDashboardSpeed setValue:100.0f];
 }
 
 - (void)showDestination
@@ -1173,7 +1179,7 @@
 //                       options:UIViewAnimationOptionCurveEaseInOut
 //                    animations:^{ self.viewGoalCalories.layer.opacity = 1.0f; }
 //                    completion:NULL];
-    //self.viewGoalCalories.hidden = NO;
+//    self.viewGoalCalories.hidden = NO;
 //    [self.bleManager getHeaderPacket]; // Testing purpose only
 //    return;
     if(appDelegate().strToAddress)
@@ -2851,8 +2857,8 @@
     
     
     
-    self.sliderDashboardSpeed.frame = CGRectMake(self.sliderDashboardSpeed.frame.origin.x, self.sliderDashboardSpeed.frame.origin.y, 300, 300);
-    self.imgBGDashboardSpeed.frame = CGRectMake(self.sliderDashboardSpeed.frame.origin.x-50, self.sliderDashboardSpeed.frame.origin.y-25, 300, 300);
+    self.sliderDashboardSpeed.frame = CGRectMake(self.sliderDashboardSpeed.frame.origin.x-2, self.sliderDashboardSpeed.frame.origin.y-5, 305, 305);
+    self.imgBGDashboardSpeed.frame = CGRectMake(self.imgBGDashboardSpeed.frame.origin.x-42, self.imgBGDashboardSpeed.frame.origin.y-22, 298, 298);
     self.sliderDashboardSpeed.frame = CGRectMake(self.sliderDashboardSpeed.frame.origin.x-40, self.sliderDashboardSpeed.frame.origin.y-15, 290, 290);
     self.imgBGLogoDashboardSpeed.frame = CGRectMake(self.imgBGLogoDashboardSpeed.frame.origin.x-10,self.imgBGLogoDashboardSpeed.frame.origin.y+70, 70, 46);
     

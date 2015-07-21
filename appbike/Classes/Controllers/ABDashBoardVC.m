@@ -1883,8 +1883,12 @@
     
     sector3.startValue = minValue;
     sector3.endValue = maxValue;
-   // sector3.startOriginalValue = minValue;
-    //sector3.endOriginalValue = maxValue;
+    
+    NSLog(@"MIN : %d and MAX : %d",minValue,maxValue);
+    sector3.startOriginalValue = minValue + 8;
+    sector3.endOriginalValue = maxValue + 8;
+    
+    
     sector3.currValue = speed;
     
     if(speed < minValue || speed > maxValue)

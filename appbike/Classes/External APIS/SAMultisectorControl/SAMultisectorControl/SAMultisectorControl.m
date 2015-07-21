@@ -129,7 +129,19 @@ typedef struct{
 }
 - (void)addSector:(SAMultisectorSector *)sector{
     sector.startOriginalValue = sector.startValue + 8;
+    if(sector.startValue <= 8)
+    {
+        sector.startValue = 8;
+    }
+
     sector.endOriginalValue = sector.endValue + 8;
+    if(sector.endValue > 92)
+    {
+        sector.endValue = 92;
+    }
+
+    
+    NSLog(@"Original value is : start : %f and end : %f",sector.startOriginalValue, sector.endOriginalValue);
     [sectorsArray addObject:sector];
     [self setNeedsDisplay];
 }

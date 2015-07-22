@@ -697,6 +697,8 @@
         
         self.viewBgLogoCal.frame = CGRectMake(self.viewBgLogoCal.frame.origin.x, self.viewBgLogoCal.frame.origin.y-2, self.viewBgLogoCal.frame.size.width, self.viewBgLogoCal.frame.size.height);
         self.viewBgLogoCal.layer.cornerRadius = 20;
+        
+        self.imgBGLogoDashboardSpeed.frame = CGRectMake(self.imgBGLogoDashboardSpeed.frame.origin.x,self.imgBGLogoDashboardSpeed.frame.origin.y-6, 46, 50);
 //        self.viewBgLogoCal.backgroundColor = [UIColor darkGrayColor];
     }
     else

@@ -77,6 +77,7 @@ typedef enum {
  */
 @property(nonatomic, getter=isContinuous) BOOL continuous;
 @property (nonatomic) BOOL isThumbnailEnabled;
+@property (nonatomic) BOOL isMapCircle;
 
 /**
  * The current graphical style of the receiver.

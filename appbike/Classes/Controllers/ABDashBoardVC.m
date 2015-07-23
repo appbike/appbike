@@ -242,6 +242,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *lblCentralMapValue;
 @property (strong, nonatomic) IBOutlet UILabel *lblCentralMapText;
 @property (unsafe_unretained, nonatomic) IBOutlet UICircularSlider *sliderCentralMap;
+@property (strong, nonatomic) IBOutlet UIImageView *imgMapCenter;
 
 @property (nonatomic) BOOL isAssistantViewOpen;
 @property (nonatomic) double distanceKM;
@@ -584,6 +585,7 @@
     self.sliderCentralMap.continuous = NO;
     
     self.sliderCentralMap.isThumbnailEnabled = NO;
+    self.sliderCentralMap.isMapCircle = YES;
     self.sliderCentralMap.transform = CGAffineTransformMakeRotation(3.14);
     self.sliderCentralMap.userInteractionEnabled = NO;
     [self.sliderCentralMap setThumbTintColor:[UIColor colorWithRed:55/255.0 green:155/255.0 blue:233/255.0 alpha:1.0]];
@@ -1398,6 +1400,7 @@
                 {
                     [self.dictUpdatedDashboardData setObject:@"bpm" forKey:@"main"];
                     self.viewCentralMap.hidden = NO;
+                    self.imgMapCenter.image = [UIImage imageNamed:@"map_bpm.png"];
                    // [self.btnRPM setImage:[UIImage imageNamed:@"bpm.png"] forState:UIControlStateNormal];
                 }
                     break;
@@ -1446,6 +1449,7 @@
                 {
                     [self.dictUpdatedDashboardData setObject:@"rpm" forKey:@"main"];
                     self.viewCentralMap.hidden = NO;
+                    self.imgMapCenter.image = [UIImage imageNamed:@"map_rpm.png"];
                     // [self.btnRPM setImage:[UIImage imageNamed:@"bpm.png"] forState:UIControlStateNormal];
                 }
                     break;
@@ -1495,6 +1499,7 @@
                 {
                     [self.dictUpdatedDashboardData setObject:@"speed" forKey:@"main"];
                     self.viewCentralMap.hidden = NO;
+                    self.imgMapCenter.image = [UIImage imageNamed:@"map_speed.png"];
                     // [self.btnRPM setImage:[UIImage imageNamed:@"bpm.png"] forState:UIControlStateNormal];
                   //  self.imgBGLogoDashboardSpeed.image = [UIImage imageNamed:@"flow_ring_logo.png"] ;
                 }
@@ -1546,6 +1551,7 @@
                     
                     self.viewCentralMap.hidden = NO;
                     
+                    self.imgMapCenter.image = [UIImage imageNamed:@"map_kilometer.png"];
                    // self.imgBGLogoDashboardSpeed.frame = CGRectMake(self.imgBGLogoDashboardSpeed.frame.origin.x,self.imgBGLogoDashboardSpeed.frame.origin.y, 46, 50);
                     
                     // [self.btnRPM setImage:[UIImage imageNamed:@"bpm.png"] forState:UIControlStateNormal];
@@ -1595,6 +1601,7 @@
                 {
                     [self.dictUpdatedDashboardData setObject:@"cal" forKey:@"main"];
                     self.viewCentralMap.hidden = YES;
+                    self.imgMapCenter.image = [UIImage imageNamed:@"map_calories.png"];
                 }
                     break;
                 default:
@@ -1637,6 +1644,7 @@
                 self.viewCalories.hidden = YES;
                 self.lblKMHText.text = @"km/h";
                 self.imgBGLogoDashboardSpeed.image = [UIImage imageNamed:@"flow_ring_logo.png"];
+                self.imgMapCenter.image = [UIImage imageNamed:@"map_speed.png"];
                 
             }
             else if([mainSensor isEqualToString:@"bpm"])
@@ -1647,6 +1655,7 @@
                 self.viewCalories.hidden = YES;
                 self.imgBGLogoDashboardSpeed.image = [UIImage imageNamed:@"avg-pulse-logo.png"];
                 self.lblKMHText.text = @"bpm";
+                self.imgMapCenter.image = [UIImage imageNamed:@"map_bpm.png"];
             }
             else if([mainSensor isEqualToString:@"rpm"])
             {
@@ -1656,6 +1665,7 @@
                 self.viewCalories.hidden = YES;
                 self.imgBGLogoDashboardSpeed.image = [UIImage imageNamed:@"avg-pulse-logo.png"];
                 self.lblKMHText.text = @"bpm";
+                self.imgMapCenter.image = [UIImage imageNamed:@"map_bpm.png"];
             }
             UIButton *btn1 = (UIButton *)[self.view viewWithTag:1102];
             btn1.selected = NO;
@@ -1684,6 +1694,7 @@
                 self.viewCalories.hidden = YES;
                 self.lblKMHText.text = @"km/h";
                 self.imgBGLogoDashboardSpeed.image = [UIImage imageNamed:@"flow_ring_logo.png"];
+                self.imgMapCenter.image = [UIImage imageNamed:@"map_speed.png"];
             }
             else if([mainSensor isEqualToString:@"bpm"])
             {
@@ -1693,6 +1704,7 @@
                 self.viewMinMaxSpeed.hidden = YES;
                 self.viewNormalSpeed.hidden = NO;
                 self.viewCalories.hidden = YES;
+                self.imgMapCenter.image = [UIImage imageNamed:@"map_bpm.png"];
             }
             else if([mainSensor isEqualToString:@"rpm"])
             {
@@ -1702,6 +1714,7 @@
                 self.viewMinMaxSpeed.hidden = YES;
                 self.viewNormalSpeed.hidden = NO;
                 self.viewCalories.hidden = YES;
+                self.imgMapCenter.image = [UIImage imageNamed:@"map_rpm.png"];
             }
             UIButton *btn1 = (UIButton *)[self.view viewWithTag:1101];
             btn1.selected = NO;
@@ -1755,6 +1768,8 @@
                 self.viewCalories.hidden = YES;
                 self.lblKMHText.text = @"km/h";
                 self.imgBGLogoDashboardSpeed.image = [UIImage imageNamed:@"white_bg_logo.png"];
+                
+                self.imgMapCenter.image = [UIImage imageNamed:@"map_kilometer.png"];
                 //self.imgBGLogoDashboardSpeed.frame = CGRectMake(self.imgBGLogoDashboardSpeed.frame.origin.x,self.imgBGLogoDashboardSpeed.frame.origin.y, 46, 50);
                 
             }
@@ -1766,6 +1781,7 @@
                 self.viewMinMaxSpeed.hidden = YES;
                 self.viewNormalSpeed.hidden = NO;
                 self.viewCalories.hidden = YES;
+                self.imgMapCenter.image = [UIImage imageNamed:@"map_bpm.png"];
             }
             else if([mainSensor isEqualToString:@"rpm"])
             {
@@ -1775,6 +1791,7 @@
                 self.viewMinMaxSpeed.hidden = YES;
                 self.viewNormalSpeed.hidden = NO;
                 self.viewCalories.hidden = YES;
+                self.imgMapCenter.image = [UIImage imageNamed:@"map_rpm.png"];
             }
             
             //self.lblKMHText.text = @"km/h";
@@ -1807,6 +1824,7 @@
                 self.viewCalories.hidden = YES;
                 self.lblKMHText.text = @"km/h";
                 self.imgBGLogoDashboardSpeed.image = [UIImage imageNamed:@"flow_ring_logo.png"];
+                self.imgMapCenter.image = [UIImage imageNamed:@"map_kilometer.png"];
                 
             }
             else if([mainSensor isEqualToString:@"bpm"])
@@ -1817,6 +1835,7 @@
                 self.viewCalories.hidden = YES;
                 self.imgBGLogoDashboardSpeed.image = [UIImage imageNamed:@"avg-pulse-logo.png"];
                 self.lblKMHText.text = @"bpm";
+                self.imgMapCenter.image = [UIImage imageNamed:@"map_bpm.png"];
             }
             else if([mainSensor isEqualToString:@"rpm"])
             {
@@ -1826,6 +1845,7 @@
                 self.viewCalories.hidden = YES;
                 self.imgBGLogoDashboardSpeed.image = [UIImage imageNamed:@"avg-pulse-logo.png"];
                 self.lblKMHText.text = @"bpm";
+                self.imgMapCenter.image = [UIImage imageNamed:@"map_rpm.png"];
             }
 
             self.viewSetCalories.hidden = NO;

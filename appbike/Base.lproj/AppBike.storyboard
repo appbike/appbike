@@ -903,7 +903,7 @@
                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </view>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="map_calories.png" id="aMR-u4-K4l">
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="map_speed.png" id="aMR-u4-K4l">
                                                         <rect key="frame" x="94" y="43" width="25" height="25"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
                                                     </imageView>
@@ -1643,6 +1643,7 @@
                         <outlet property="imgBgSetSpeedLogo" destination="kxC-Ds-Hjt" id="Ln2-Gy-8hs"/>
                         <outlet property="imgBottomLeft" destination="EgV-oN-jvp" id="IV8-2l-AEc"/>
                         <outlet property="imgBottomRight" destination="cXr-Jm-1vz" id="sv6-wT-edZ"/>
+                        <outlet property="imgMapCenter" destination="aMR-u4-K4l" id="ky2-ef-U0L"/>
                         <outlet property="imgTopLeft" destination="qf7-4N-Cpm" id="vBV-qi-jSN"/>
                         <outlet property="imgTopRight" destination="Syd-zo-isx" id="srG-TI-1f9"/>
                         <outlet property="lblAlertKM" destination="2jW-SK-0g9" id="4ew-pf-dgL"/>
@@ -2774,7 +2775,6 @@
         <image name="login_with_FB.png" width="180" height="44"/>
         <image name="logo.png" width="38" height="43"/>
         <image name="map_bpm.png" width="56" height="56"/>
-        <image name="map_calories.png" width="56" height="56"/>
         <image name="map_flag.png" width="56" height="56"/>
         <image name="map_kilometer.png" width="56" height="56"/>
         <image name="map_rpm.png" width="56" height="56"/>

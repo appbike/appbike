@@ -13,6 +13,9 @@
 #import "ConstantList.h"
 
 #define kLineWidth IS_IPHONE_6 ? 16.0 : IS_IPHONE_6_PLUS ? 16 : 10
+
+#define kLineWidthMap IS_IPHONE_6 ? 7.0 : IS_IPHONE_6_PLUS ? 7.0 : 5.0
+
 #define kThumbRadius 12.0
 #define kPercentageRatio IS_IPHONE_6 ? 0.075f : IS_IPHONE_6_PLUS ? 0.07f : 0.08f
 
@@ -191,8 +194,17 @@
 #pragma mark - Drawing methods
 
 - (CGFloat)sliderRadius {
-	CGFloat radius = MIN(self.bounds.size.width/2, self.bounds.size.height/2);
-	radius -= MAX(kLineWidth, kThumbRadius);	
+    
+    CGFloat radius = MIN(self.bounds.size.width/2, self.bounds.size.height/2);
+    if(self.isMapCircle)
+    {
+        
+        radius -= MAX(kLineWidthMap, kThumbRadius);
+    }
+    else
+    {
+        radius -= MAX(kLineWidth, kThumbRadius);
+    }
 	return radius;
 }
 - (void)drawThumbAtPoint:(CGPoint)sliderButtonCenterPoint inContext:(CGContextRef)context {
@@ -252,7 +264,13 @@
 	middlePoint.x = self.bounds.origin.x + self.bounds.size.width/2;
 	middlePoint.y = self.bounds.origin.y + self.bounds.size.height/2;
 	
-	CGContextSetLineWidth(context, kLineWidth);
+    if(self.isMapCircle)
+    {
+        CGContextSetLineWidth(context, kLineWidthMap);
+    }
+    else{
+        CGContextSetLineWidth(context, kLineWidth);
+    }
 	
 	CGFloat radius = [self sliderRadius];
 	switch (self.sliderStyle) {

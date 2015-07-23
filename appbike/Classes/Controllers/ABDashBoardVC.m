@@ -238,6 +238,11 @@
 @property (strong, nonatomic) IBOutlet UIView *viewDashboardExternalView;
 @property (strong, nonatomic) IBOutlet UIView *viewDashboardInternalView;
 
+@property (strong, nonatomic) IBOutlet UIView *viewCentralMap;
+@property (strong, nonatomic) IBOutlet UILabel *lblCentralMapValue;
+@property (strong, nonatomic) IBOutlet UILabel *lblCentralMapText;
+@property (unsafe_unretained, nonatomic) IBOutlet UICircularSlider *sliderCentralMap;
+
 @property (nonatomic) BOOL isAssistantViewOpen;
 @property (nonatomic) double distanceKM;
 
@@ -271,10 +276,12 @@
     NSString *strBottomRight = [appDelegate().dictDashboardData valueForKey:@"bottomRight"];
     NSString *mainSensor = [appDelegate().dictDashboardData objectForKey:@"main"];
     
+    self.viewCentralMap.hidden = NO;
     if([mainSensor isEqualToString:@"kmh"])
     {
         self.lblKMHText.text = @"km/h";
         self.imgBGLogoDashboardSpeed.image = [UIImage imageNamed:@"flow_ring_logo.png"];
+        
         
     }
     else if([mainSensor isEqualToString:@"bpm"])
@@ -289,11 +296,16 @@
         self.imgBGLogoDashboardSpeed.image = [UIImage imageNamed:@"avg-pulse-logo.png"];
         self.lblKMHText.text = @"bpm";
     }
+    else if([mainSensor isEqualToString:@"cal"])
+    {
+        self.viewCentralMap.hidden = YES;
+    }
     
     if([strTopLeft isEqualToString:@"cal"])
     {
         [self.btnCaloriesMenu setBackgroundImage:[UIImage imageNamed:@"cal.png"] forState:UIControlStateNormal];
         self.imgTopLeft.image = [UIImage imageNamed:@"cal.png"];
+        
     }
     if([strTopLeft isEqualToString:@"km"])
     {
@@ -566,6 +578,20 @@
     [self.sliderDashboardSpeed setMaximumTrackTintColor:[UIColor clearColor]];
     [self.sliderDashboardSpeed setMinimumTrackTintColor:[UIColor colorWithRed:55/255.0 green:155/255.0 blue:233/255.0 alpha:1.0]];
     
+    //Map Slider
+    self.sliderCentralMap.minimumValue = 0;
+    self.sliderCentralMap.maximumValue = 100;
+    self.sliderCentralMap.continuous = NO;
+    
+    self.sliderCentralMap.isThumbnailEnabled = NO;
+    self.sliderCentralMap.transform = CGAffineTransformMakeRotation(3.14);
+    self.sliderCentralMap.userInteractionEnabled = NO;
+    [self.sliderCentralMap setThumbTintColor:[UIColor colorWithRed:55/255.0 green:155/255.0 blue:233/255.0 alpha:1.0]];
+    [self.sliderCentralMap setMaximumTrackTintColor:[UIColor grayColor]];
+    [self.sliderCentralMap setMinimumTrackTintColor:[UIColor colorWithRed:55/255.0 green:155/255.0 blue:233/255.0 alpha:1.0]];
+    
+    
+    
     //Calories Dashboard
     self.sliderDashboardCalories.minimumValue = 0;
     self.sliderDashboardCalories.maximumValue = [[appDelegate().dictCaloriesData objectForKey:@"max"] floatValue];
@@ -829,6 +855,7 @@
     }
     
     //Testing
+   // self.viewMapMain.hidden = NO;
    // [self.sliderDashboardSpeed setValue:100.0f];
 }
 
@@ -1370,6 +1397,7 @@
                 case 5505:
                 {
                     [self.dictUpdatedDashboardData setObject:@"bpm" forKey:@"main"];
+                    self.viewCentralMap.hidden = NO;
                    // [self.btnRPM setImage:[UIImage imageNamed:@"bpm.png"] forState:UIControlStateNormal];
                 }
                     break;
@@ -1417,6 +1445,7 @@
                 case 5505:
                 {
                     [self.dictUpdatedDashboardData setObject:@"rpm" forKey:@"main"];
+                    self.viewCentralMap.hidden = NO;
                     // [self.btnRPM setImage:[UIImage imageNamed:@"bpm.png"] forState:UIControlStateNormal];
                 }
                     break;
@@ -1465,6 +1494,7 @@
                 case 5505:
                 {
                     [self.dictUpdatedDashboardData setObject:@"speed" forKey:@"main"];
+                    self.viewCentralMap.hidden = NO;
                     // [self.btnRPM setImage:[UIImage imageNamed:@"bpm.png"] forState:UIControlStateNormal];
                   //  self.imgBGLogoDashboardSpeed.image = [UIImage imageNamed:@"flow_ring_logo.png"] ;
                 }
@@ -1513,6 +1543,11 @@
                 case 5505:
                 {
                     [self.dictUpdatedDashboardData setObject:@"kmh" forKey:@"main"];
+                    
+                    self.viewCentralMap.hidden = NO;
+                    
+                   // self.imgBGLogoDashboardSpeed.frame = CGRectMake(self.imgBGLogoDashboardSpeed.frame.origin.x,self.imgBGLogoDashboardSpeed.frame.origin.y, 46, 50);
+                    
                     // [self.btnRPM setImage:[UIImage imageNamed:@"bpm.png"] forState:UIControlStateNormal];
                     // self.imgBGLogoDashboardSpeed.image = [UIImage imageNamed:@"white_bg_logo.png"] ;
                 }
@@ -1559,7 +1594,7 @@
                 case 5505:
                 {
                     [self.dictUpdatedDashboardData setObject:@"cal" forKey:@"main"];
-                  
+                    self.viewCentralMap.hidden = YES;
                 }
                     break;
                 default:
@@ -1720,6 +1755,7 @@
                 self.viewCalories.hidden = YES;
                 self.lblKMHText.text = @"km/h";
                 self.imgBGLogoDashboardSpeed.image = [UIImage imageNamed:@"white_bg_logo.png"];
+                //self.imgBGLogoDashboardSpeed.frame = CGRectMake(self.imgBGLogoDashboardSpeed.frame.origin.x,self.imgBGLogoDashboardSpeed.frame.origin.y, 46, 50);
                 
             }
             else if([mainSensor isEqualToString:@"bpm"])
@@ -1755,7 +1791,6 @@
             UIButton *btn4 = (UIButton *)[self.view viewWithTag:1105];
             btn4.selected = NO;
 
-            
         }
         break;
         case 1105:
@@ -1879,6 +1914,10 @@
 - (void)updateCurrentValueAndCheckMinMax:(int)speed
 {
     
+    [self.sliderCentralMap setValue:speed];
+    self.lblCentralMapValue.text = [NSString stringWithFormat:@"%d",speed];
+    self.lblCentralMapText.text = @"km/h";
+    
     self.lblMinMaxSpeedValue.text = [NSString stringWithFormat:@"%d",speed];
     //self.sliderDashboardMinMax = nil;
     [self.sliderDashboardMinMax removeAllSectors];
@@ -1898,16 +1937,25 @@
     
     
     sector3.currValue = speed;
+    NSString *mainSensor = [self.dictUpdatedDashboardData objectForKey:@"main"];
     
+    
+        
     if(speed < minValue || speed > maxValue)
     {
         self.bgMinMaxSpeed.image = [UIImage imageNamed:@"max_speed_ring.png"];
         self.lblMinMaxSpeedValue.textColor = [UIColor redColor];
+    
+        if([mainSensor isEqualToString:@"speed"])
+            self.lblCentralMapValue.textColor = [UIColor redColor];
     }
     else
     {
         self.bgMinMaxSpeed.image = [UIImage imageNamed:@"set_speed_ring_blue.png"];
         self.lblMinMaxSpeedValue.textColor = [UIColor colorWithRed:29/255.0f green:188/255.0 blue:88/255.0f alpha:1.0];
+        
+        if([mainSensor isEqualToString:@"speed"])
+            self.lblCentralMapValue.textColor = [UIColor colorWithRed:29/255.0f green:188/255.0 blue:88/255.0f alpha:1.0];
     }
     
 
@@ -2643,6 +2691,11 @@
     
     NSLog(@"iPhone 6 Size Width : %f and Height : %f",self.view.frame.size.width, self.view.frame.size.height);
     
+//    self.viewCentralMap.frame = CGRectMake(self.viewCentralMap.frame.origin.x, self.viewCentralMap.frame.origin.y-6, self.viewCentralMap.frame.size.width+6, self.viewCentralMap.frame.size.height-20);
+//    
+//     self.sliderCentralMap.frame = CGRectMake(self.sliderCentralMap.frame.origin.x, self.sliderCentralMap.frame.origin.y-10, self.sliderCentralMap.frame.size.width, self.sliderCentralMap.frame.size.height);
+////    self.viewCentralMap.backgroundColor = [UIColor redColor];
+    self.lblCentralMapText.frame = CGRectMake(self.lblCentralMapText.frame.origin.x, self.lblCentralMapText.frame.origin.y-5, self.lblCentralMapText.frame.size.width, self.lblCentralMapText.frame.size.height);
     
     self.multisectorControl.sectorsRadius = 120.0;//130
     self.multisectorControl.frame = CGRectMake(self.multisectorControl.frame.origin.x-40, self.multisectorControl.frame.origin.y-72, 300, 300);
@@ -2799,6 +2852,8 @@
     
      NSLog(@"iPhone 6+ Size Width : %f and Height : %f",self.view.frame.size.width, self.view.frame.size.height);
     //414x736
+    
+      self.lblCentralMapText.frame = CGRectMake(self.lblCentralMapText.frame.origin.x, self.lblCentralMapText.frame.origin.y-5, self.lblCentralMapText.frame.size.width, self.lblCentralMapText.frame.size.height);
     
     self.viewSetSpeed.frame = CGRectMake(self.viewSetSpeed.frame.origin.x, self.viewSetSpeed.frame.origin.y+41, self.viewSetSpeed.frame.size.width, self.viewSetSpeed.frame.size.height-52);
     
@@ -3294,6 +3349,9 @@
                 [self.sliderDashboardSpeed setValue:hb];
                 self.lblCurrentSpeed.text = [NSString stringWithFormat:@"%.0f",hb];
                 
+                [self.sliderCentralMap setValue:hb];
+                self.lblCentralMapValue.text = [NSString stringWithFormat:@"%.0f",hb];
+                self.lblCentralMapText.text = @"BPM";
             }
             break;
             case SelectedSensorTypeAvgPulse:
@@ -3302,6 +3360,11 @@
                 float avghb = [[dictionary objectForKey:@"AvgHB"] floatValue];
                 [self.sliderDashboardSpeed setValue:avghb];
                 self.lblCurrentSpeed.text = [NSString stringWithFormat:@"%.0f",avghb];
+                
+                [self.sliderCentralMap setValue:avghb];
+                self.lblCentralMapValue.text = [NSString stringWithFormat:@"%.0f",avghb];
+                self.lblCentralMapText.text = @"RPM";
+                
             }
             break;
             case SelectedSensorTypeSpeedNormal:
@@ -3322,12 +3385,18 @@
                 [self.sliderDashboardSpeed setValue:avgSpeed ];
                 
                  [self.lblCurrentSpeed setText:[NSString stringWithFormat:@"%.0f",avgSpeed]];
+               
+                [self.sliderCentralMap setValue:avgSpeed];
+                self.lblCentralMapValue.text = [NSString stringWithFormat:@"%.0f",avgSpeed];
+                self.lblCentralMapText.text = @"km/h";
             }
             break;
             case SelectedSensorTypeSpeedMinMax:
             {
                 //Min Max Speed
                 [self updateCurrentValueAndCheckMinMax:[speed intValue]];
+                
+                
             }
             break;
             case SelectedSensorTypeCalories:

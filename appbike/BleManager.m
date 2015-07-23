@@ -158,7 +158,7 @@
    // #warning TESTING - Remove
 //#warning remove following comment for GPS data
     //Remove following comment for GPS data
-    [headerPacket setObject:[NSNumber numberWithInt:speedCalc] forKey:@"Speed"];
+   [headerPacket setObject:[NSNumber numberWithInt:speedCalc] forKey:@"Speed"];
     
     [headerPacket setObject:[NSNumber numberWithUnsignedInteger:arc4random()%100] forKey:@"Distance"];
     

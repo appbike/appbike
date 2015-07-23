@@ -168,8 +168,8 @@
 	self.value = 0.0;
 	self.minimumValue = 0.0;
 	self.maximumValue = 1.0;
-	self.minimumTrackTintColor = [UIColor orangeColor];
-	self.maximumTrackTintColor = [UIColor yellowColor];
+    self.minimumTrackTintColor = [UIColor grayColor];
+    self.maximumTrackTintColor =  [UIColor colorWithRed:23/255.0 green:138/255.0 blue:230/255.0 alpha:1];//[UIColor yellowColor];
 	//self.thumbTintColor = [UIColor darkGrayColor];
     self.thumbTintColor = [UIColor clearColor];
 	self.continuous = YES;
@@ -293,6 +293,13 @@
         CGRect thumbTouchRect = CGRectMake(self.thumbCenterPoint.x - kThumbRadius, self.thumbCenterPoint.y - kThumbRadius, kThumbRadius*2, kThumbRadius*2);
         self.profileImageView.frame = thumbTouchRect;
     }
+//    if(self.isThumbnailEnabled && self.value > 0)
+//    {
+//        self.profileImageView.hidden = NO;
+//    }
+//    else{
+//        self.profileImageView.hidden = YES;
+//    }
     NSLog(@"self.orgi : %f and max : %f",self.originalvalue,self.maximumValue);
     
 	[self drawThumbAtPoint:self.thumbCenterPoint inContext:context];

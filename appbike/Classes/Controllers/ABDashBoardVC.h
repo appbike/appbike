@@ -34,6 +34,8 @@
 @property (nonatomic, strong) NSDictionary *dictSessionTemp;
 @property (nonatomic) BOOL isSessionSave;
 
+@property (nonatomic, strong) NSArray *places;
+@property(nonatomic,retain) UITableView *tableView;
 
 - (IBAction)showLeftMenu:(id)sender;
 - (void)showDestination;

@@ -579,7 +579,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0LL-Z5-kSx">
-                                                <rect key="frame" x="0.0" y="36" width="320" height="1"/>
+                                                <rect key="frame" x="0.0" y="36.000000096857548" width="320" height="1"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
@@ -1937,11 +1937,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" id="0vT-Qr-EYF">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" id="0vT-Qr-EYF">
                                 <rect key="frame" x="0.0" y="242" width="320" height="326"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="K09-Qc-xCo" id="icx-Zw-NY6"/>
+                                </connections>
                             </mapView>
-                            <view contentMode="scaleToFill" id="9Vo-dk-ItM" customClass="MapView">
+                            <view hidden="YES" contentMode="scaleToFill" id="9Vo-dk-ItM" customClass="MapView">
                                 <rect key="frame" x="0.0" y="242" width="320" height="326"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </view>
@@ -2077,7 +2080,7 @@
                         <outlet property="lblBetterPer" destination="DRJ-5U-dtC" id="uUo-KM-1Da"/>
                         <outlet property="lblDistanceValue" destination="Dyn-JC-k4t" id="IUn-d7-3bQ"/>
                         <outlet property="lblUpdatedDate" destination="I9p-8f-9N3" id="fCe-Xx-Zha"/>
-                        <outlet property="mapView" destination="9Vo-dk-ItM" id="wnn-ZY-6rU"/>
+                        <outlet property="mapView" destination="0vT-Qr-EYF" id="qWu-nW-nDk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ugj-NS-ASw" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -252,6 +252,12 @@
 @property (nonatomic,assign) BOOL isRegistered;
 
 
+@property (nonatomic, assign) MKCoordinateRegion boundingRegion;
+
+@property (nonatomic, strong) MKLocalSearch *localSearch;
+@property (nonatomic) CLLocationCoordinate2D userLocation;
+@property (strong, nonatomic) MKMapItem *destination;
+
 @end
 
 @implementation ABDashBoardVC
@@ -3674,28 +3680,39 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [searchResultPlaces count];
+    //return [searchResultPlaces count];
+    return [self.places count];
 }
 
-- (SPGooglePlacesAutocompletePlace *)placeAtIndexPath:(NSIndexPath *)indexPath
-{
-    return [searchResultPlaces objectAtIndex:indexPath.row];
-}
+//- (SPGooglePlacesAutocompletePlace *)placeAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    return [searchResultPlaces objectAtIndex:indexPath.row];
+//}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *cellIdentifier = @"SPGooglePlacesAutocompleteCell";
+    //static NSString *kCellIdentifier = @"cellIdentifier";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+//     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCellIdentifier forIndexPath:indexPath];
     if (!cell)
     {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+        //cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kCellIdentifier];
     }
     
     cell.textLabel.font = [UIFont fontWithName:@"Roboto" size:16.0];
-    cell.textLabel.text = [self placeAtIndexPath:indexPath].name;
+    //cell.textLabel.text = [self placeAtIndexPath:indexPath].name;
     cell.textLabel.textColor = [UIColor whiteColor];
     [cell setBackgroundColor:[UIColor clearColor]];
+    
+   
+    
+    MKMapItem *mapItem = [self.places objectAtIndex:indexPath.row];
+    cell.textLabel.text = mapItem.name;
+    
     return cell;
+   // return cell;
 }
 
 - (void)dismissSearchControllerWhileStayingActive
@@ -3823,27 +3840,38 @@
 //}
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    SPGooglePlacesAutocompletePlace *place = [self placeAtIndexPath:indexPath];
-    [place resolveToPlacemark:^(CLPlacemark *placemark, NSString *addressString, NSError *error)
-     {
-         if (error)
-         {
-             SPPresentAlertViewWithErrorAndTitle(error, @"Could not map selected Place");
-         }
-         else if (placemark)
-         {
-             appDelegate().ToLocation = placemark.location;
-             appDelegate().strToAddress = addressString;
-             [self.searchDisplayController.searchResultsTableView deselectRowAtIndexPath:indexPath animated:NO];
-             
-             [self dismissSearchControllerWhileStayingActive];
-            
-             NSLog(@"We are done here now display map");
-//             UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-//             ABMapVC *mapVC = (ABMapVC *)[storyBoard instantiateViewControllerWithIdentifier:@"MapViewViewController"];
-//             [self.navigationController pushViewController:mapVC animated:YES];
-         }
-     }];
+    
+    NSIndexPath *selectedItem = [tableView indexPathForSelectedRow];
+    
+    NSArray *mapItemList = [NSArray arrayWithObject:[self.places objectAtIndex:selectedItem.row]];
+    
+    NSLog(@"Map : %@",[mapItemList description]);
+    MKMapItem *place = [mapItemList firstObject];
+    appDelegate().toLocation = place.placemark.location;
+    appDelegate().strToAddress = place.placemark.title;
+    self.destination = place;
+    
+     [self.searchDisplayController.searchResultsTableView deselectRowAtIndexPath:indexPath animated:NO];
+    [self dismissSearchControllerWhileStayingActive];
+//    SPGooglePlacesAutocompletePlace *place = [self placeAtIndexPath:indexPath];
+//    [place resolveToPlacemark:^(CLPlacemark *placemark, NSString *addressString, NSError *error)
+//     {
+//         if (error)
+//         {
+//             SPPresentAlertViewWithErrorAndTitle(error, @"Could not map selected Place");
+//         }
+//         else if (placemark)
+//         {
+//             appDelegate().ToLocation = placemark.location;
+//             appDelegate().strToAddress = addressString;
+//             [self.searchDisplayController.searchResultsTableView deselectRowAtIndexPath:indexPath animated:NO];
+//             
+//             [self dismissSearchControllerWhileStayingActive];
+//            
+//             NSLog(@"We are done here now display map");
+//
+//         }
+//     }];
 }
 
 - (void)recenterMapToPlacemark:(CLPlacemark *)placemark
@@ -3891,8 +3919,8 @@
 }
 
 - (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString {
-    [self handleSearchForSearchString:searchString];
-    
+   // [self handleSearchForSearchString:searchString];
+    [self startSearch:searchString];
     // Return YES to cause the search result table view to be reloaded.
     return YES;
 }
@@ -3922,6 +3950,122 @@
     BOOL boolToReturn = shouldBeginEditing;
     shouldBeginEditing = YES;
     return boolToReturn;
+}
+
+#pragma New Methods for Apple API
+- (void)searchBarCancelButtonClicked:(UISearchBar *) searchBar
+{
+    [searchBar resignFirstResponder];
+}
+
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
+{
+    [searchBar setShowsCancelButton:YES animated:YES];
+}
+
+- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar
+{
+    [searchBar setShowsCancelButton:NO animated:YES];
+}
+
+- (void)startSearch:(NSString *)searchString
+{
+    if (self.localSearch.searching)
+    {
+        [self.localSearch cancel];
+    }
+    
+    // confine the map search area to the user's current location
+    MKCoordinateRegion newRegion;
+    newRegion.center.latitude = self.userLocation.latitude;
+    newRegion.center.longitude = self.userLocation.longitude;
+    
+    // setup the area spanned by the map region:
+    // we use the delta values to indicate the desired zoom level of the map,
+    //      (smaller delta values corresponding to a higher zoom level)
+    //
+    newRegion.span.latitudeDelta = 0.112872;
+    newRegion.span.longitudeDelta = 0.109863;
+    
+    MKLocalSearchRequest *request = [[MKLocalSearchRequest alloc] init];
+    
+    request.naturalLanguageQuery = searchString;
+    request.region = newRegion;
+    
+    MKLocalSearchCompletionHandler completionHandler = ^(MKLocalSearchResponse *response, NSError *error)
+    {
+        if (error != nil)
+        {
+            NSString *errorStr = [[error userInfo] valueForKey:NSLocalizedDescriptionKey];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Could not find places"
+                                                            message:errorStr
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
+            [alert show];
+        }
+        else
+        {
+            self.places = [response mapItems];
+            
+            // used for later when setting the map's region in "prepareForSegue"
+            self.boundingRegion = response.boundingRegion;
+            
+           // self.viewAllButton.enabled = self.places != nil ? YES : NO;
+            
+            //[self.tableView reloadData];
+            [self.searchDisplayController.searchResultsTableView reloadData];
+        }
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+    };
+    
+    if (self.localSearch != nil)
+    {
+        self.localSearch = nil;
+    }
+    self.localSearch = [[MKLocalSearch alloc] initWithRequest:request];
+    
+    [self.localSearch startWithCompletionHandler:completionHandler];
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+}
+
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    [searchBar resignFirstResponder];
+    
+    // check to see if Location Services is enabled, there are two state possibilities:
+    // 1) disabled for entire device, 2) disabled just for this app
+    //
+    NSString *causeStr = nil;
+    
+    // check whether location services are enabled on the device
+    if ([CLLocationManager locationServicesEnabled] == NO)
+    {
+        causeStr = @"device";
+    }
+    // check the application’s explicit authorization status:
+    else if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusDenied)
+    {
+        causeStr = @"app";
+    }
+    else
+    {
+        // we are good to go, start the search
+        [self startSearch:searchBar.text];
+    }
+    
+    if (causeStr != nil)
+    {
+        NSString *alertMessage = [NSString stringWithFormat:@"You currently have location services disabled for this %@. Please refer to \"Settings\" app to turn on Location Services.", causeStr];
+        
+        UIAlertView *servicesDisabledAlert = [[UIAlertView alloc] initWithTitle:@"Location Services Disabled"
+                                                                        message:alertMessage
+                                                                       delegate:nil
+                                                              cancelButtonTitle:@"OK"
+                                                              otherButtonTitles:nil];
+        [servicesDisabledAlert show];
+    }
 }
 
 #pragma mark - Map View Drawing and Route

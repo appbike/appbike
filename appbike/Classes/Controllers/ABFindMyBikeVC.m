@@ -20,10 +20,11 @@
 @property (nonatomic,strong) IBOutlet UILabel *lblBetterLifeKm;
 @property (nonatomic,strong) IBOutlet UILabel *lblDistanceValue;
 @property (nonatomic,strong) IBOutlet UILabel *lblUpdatedDate;
-//@property (nonatomic,strong) IBOutlet MKMapView *mapView;
-@property (nonatomic,strong) IBOutlet MapView *mapView;
+@property (nonatomic,strong) IBOutlet MKMapView *mapView;
+//@property (nonatomic,strong) IBOutlet MapView *mapView;
 @property (nonatomic,strong) IBOutlet UIButton *btnLock;
-
+@property (nonatomic, retain) MKPolyline *routeLine; //your line
+@property (nonatomic, retain) MKPolylineView *routeLineView;
 
 
 @end
@@ -42,10 +43,10 @@
     NSString *dateString = [format stringFromDate:[NSDate date]];
     self.lblUpdatedDate.text = dateString;
     
-    self.mapView = [[MapView alloc] initWithFrame:
-                         CGRectMake(self.mapView.frame.origin.x, self.mapView.frame.origin.y, self.mapView.frame.size.width, self.mapView.frame.size.height)];
-    
-    [self.view addSubview:self.mapView];
+//    self.mapView = [[MapView alloc] initWithFrame:
+//                         CGRectMake(self.mapView.frame.origin.x, self.mapView.frame.origin.y, self.mapView.frame.size.width, self.mapView.frame.size.height)];
+//    
+//    [self.view addSubview:self.mapView];
     
     [self getMyBikeLocation];
 }
@@ -148,7 +149,55 @@
          double distance = distanceChange / 1000;
          self.lblDistanceValue.text = [NSString stringWithFormat:@"%.2f",distance];
          
-         [self.mapView showRouteFrom:home to:office];
+         
+         //new code
+         CLLocationCoordinate2D coordinateArray[2];
+         coordinateArray[0] = CLLocationCoordinate2DMake(home.latitude, home.longitude);
+         coordinateArray[1] = CLLocationCoordinate2DMake(office.latitude, office.longitude);
+//         
+//         
+//         self.routeLine = [MKPolyline polylineWithCoordinates:coordinateArray count:2];
+//         [self.mapView setVisibleMapRect:[self.routeLine boundingMapRect]]; //If you want the route to be visible
+//         
+//         [self.mapView addOverlay:self.routeLine];
+         
+         MKDirectionsRequest *directionsRequest = [[MKDirectionsRequest alloc] init];
+         directionsRequest.requestsAlternateRoutes=YES;
+         MKPlacemark *placemark = [[MKPlacemark alloc] initWithCoordinate:coordinateArray[0] addressDictionary:nil];
+         MKPlacemark *placemarkDest = [[MKPlacemark alloc] initWithCoordinate:coordinateArray[1] addressDictionary:nil];
+         
+         //placemark.coordinate
+         [directionsRequest setSource:[[MKMapItem alloc] initWithPlacemark:placemark]];
+         [directionsRequest setDestination:[[MKMapItem alloc] initWithPlacemark:placemarkDest]];
+         
+         [self.mapView addAnnotation:placemark];
+         
+         directionsRequest.transportType = MKDirectionsTransportTypeAutomobile;
+         MKDirections *directions = [[MKDirections alloc] initWithRequest:directionsRequest];
+         [directions calculateDirectionsWithCompletionHandler:^(MKDirectionsResponse *response, NSError *error) {
+             if (error)
+             {
+                 NSLog(@"Error %@", error.description);
+                 // isInProgress = NO;
+                 //self.lblToAddress.text = appDelegate().strToAddress;
+             }
+             else
+             {
+                 MKRoute *routeDetails = response.routes.lastObject;
+                 //[self.viewMap removeOverlays:<#(NSArray *)#>]
+                 [self.mapView addOverlay:routeDetails.polyline];
+                 
+                 for (int i = 0; i < routeDetails.steps.count; i++)
+                 {
+                     MKRouteStep *step = [routeDetails.steps objectAtIndex:i];
+                     NSString *newStep = step.instructions;
+                     NSLog(@"Steps : %@",newStep);
+                 }
+             }
+         }];
+
+         //end new code
+        // [self.mapView showRouteFrom:home to:office];
         
          NSDateFormatter *format = [[NSDateFormatter alloc] init];
          [format setDateFormat:@"dd.MM.yyyy HH:mm"];
@@ -159,6 +208,101 @@
     
 
 }
+
+- (void)createRoute
+{
+    
+    MKDirectionsRequest *directionsRequest = [[MKDirectionsRequest alloc] init];
+    directionsRequest.requestsAlternateRoutes=YES;
+    
+#warning TODO : From address issue while drawin map from to to location
+    appDelegate().fromLocation = [GPSLocation sharedManager].currentLocation;
+    
+    NSLog(@"From Location : lat : %f, long : %f",appDelegate().fromLocation.coordinate.latitude,appDelegate().fromLocation.coordinate.longitude);
+    
+    NSLog(@"Destination Location : lat : %f, long : %f",appDelegate().toLocation.coordinate.latitude,appDelegate().toLocation.coordinate.longitude);
+    
+    MKPlacemark *placemark = [[MKPlacemark alloc] initWithCoordinate:appDelegate().fromLocation.coordinate addressDictionary:nil];
+    MKPlacemark *placemarkDest = [[MKPlacemark alloc] initWithCoordinate:appDelegate().toLocation.coordinate addressDictionary:nil];
+    
+    //placemark.coordinate
+    [directionsRequest setSource:[[MKMapItem alloc] initWithPlacemark:placemark]];
+    [directionsRequest setDestination:[[MKMapItem alloc] initWithPlacemark:placemarkDest]];
+    
+    [self.mapView addAnnotation:placemark];
+    [self.mapView addAnnotation:placemarkDest];
+    
+    directionsRequest.transportType = MKDirectionsTransportTypeAutomobile;
+    MKDirections *directions = [[MKDirections alloc] initWithRequest:directionsRequest];
+    [directions calculateDirectionsWithCompletionHandler:^(MKDirectionsResponse *response, NSError *error) {
+        if (error)
+        {
+            NSLog(@"Error %@", error.description);
+            // isInProgress = NO;
+            //self.lblToAddress.text = appDelegate().strToAddress;
+        }
+        else
+        {
+           MKRoute *routeDetails = response.routes.lastObject;
+            //[self.viewMap removeOverlays:<#(NSArray *)#>]
+            [self.mapView addOverlay:routeDetails.polyline];
+            
+            for (int i = 0; i < routeDetails.steps.count; i++)
+            {
+                MKRouteStep *step = [routeDetails.steps objectAtIndex:i];
+                NSString *newStep = step.instructions;
+                NSLog(@"Steps : %@",newStep);
+            }
+        }
+    }];
+    
+   // [self.locationManager startUpdatingLocation];
+}
+
+
+- (void)addAnnotation:(CLPlacemark *)placemark
+{
+    MKPointAnnotation *point = [[MKPointAnnotation alloc] init];
+    point.coordinate = CLLocationCoordinate2DMake(placemark.location.coordinate.latitude, placemark.location.coordinate.longitude);
+    point.title = [placemark.addressDictionary objectForKey:@"Street"];
+    point.subtitle = [placemark.addressDictionary objectForKey:@"City"];
+    [self.mapView addAnnotation:point];
+}
+
+
+#pragma mark Map View Delegates
+
+- (MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id <MKOverlay>)overlay
+{
+    MKPolylineView *polylineView = [[MKPolylineView alloc] initWithPolyline:overlay];
+    polylineView.strokeColor = [UIColor colorWithRed:42.0/255.0 green:133.0/255.0 blue:202/255.0 alpha:1.0];
+    //[appDelegate() toUIColor:[appDelegate().dictSkinData objectForKey:@"mapLinePathColor"]];
+    
+    //polylineView.strokeColor = [UIColor colorWithRed:204/255. green:45/255. blue:70/255. alpha:1.0];
+    polylineView.lineWidth = 10.0;
+    
+    return polylineView;
+}
+
+
+//-(MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id<MKOverlay>)overlay
+//{
+//    if(overlay == self.routeLine)
+//    {
+//        if(nil == self.routeLineView)
+//        {
+//            self.routeLineView = [[MKPolylineView alloc] initWithPolyline:self.routeLine];
+//            self.routeLineView.fillColor = [UIColor redColor];
+//            self.routeLineView.strokeColor = [UIColor redColor];
+//            self.routeLineView.lineWidth = 5;
+//            
+//        }
+//        
+//        return self.routeLineView;
+//    }
+//    
+//    return nil;
+//}
 - (IBAction)refreshGetLocation:(id)sender
 {
     [self getMyBikeLocation];

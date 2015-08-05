@@ -1,4 +1,4 @@
-
+//
 //  DashBoardViewController.m
 //  Apparound
 //
@@ -801,7 +801,6 @@
     searchQuery = [[SPGooglePlacesAutocompleteQuery alloc] init];
     searchQuery.radius = 100.0;
     shouldBeginEditing = YES;
-    
     self.searchDisplayController.searchBar.placeholder = @"Search or Address";
 //    [[UISearchBar appearance] setTintColor:[UIColor blackColor]];
 //    self.searchDisplayController.searchBar.tintColor = [UIColor blackColor];
@@ -3768,57 +3767,32 @@
     self.viewMap.delegate = self;
     self.viewMap.showsUserLocation = NO;
     
-    
-    
-     NSLog(@"%@",appDelegate().toLocation);
-    
-    MKPlacemark *placemark = [[MKPlacemark alloc] initWithCoordinate:appDelegate().toLocation.coordinate addressDictionary:nil];
+    MKPlacemark *placemark = [[MKPlacemark alloc] initWithCoordinate:appDelegate().fromLocation.coordinate addressDictionary:nil];
     
      [self.viewMap removeAnnotations:self.viewMap.annotations];
-    
-    
-    
-  
-    
-    
     [self.viewMap addAnnotation:placemark];
     
     [self.viewMap setCenterCoordinate:self.viewMap.userLocation.location.coordinate animated:YES];
-    
     self.viewMap.userTrackingMode = MKUserTrackingModeFollow;
     //self.mapView.camera = mapCamera;
     
     float spanX = 0.58;
     float spanY = 0.58;
     MKCoordinateRegion region;
-    
-    
-//    region.center.latitude = self.locationManager.location.coordinate.latitude;
-//    
-//    region.center.longitude = self.locationManager.location.coordinate.longitude;
-
-    
-    region.center.latitude =lat;
-    
-    region.center.longitude =log;
-
-    
-    
-    
+    region.center.latitude = self.locationManager.location.coordinate.latitude;
+    region.center.longitude = self.locationManager.location.coordinate.longitude;
     region.span = MKCoordinateSpanMake(spanX, spanY);
-    
     [self.viewMap setRegion:region animated:YES];
     
     
     if(appDelegate().strToAddress)
     {
         MKPlacemark *placemarkDest = [[MKPlacemark alloc] initWithCoordinate:appDelegate().toLocation.coordinate addressDictionary:nil];
-        
+       
         [self.viewMap addAnnotation:placemarkDest];
         
         [self createRoute];
     }
-    
 }
 
 - (void) searchDisplayControllerDidEndSearch:(UISearchDisplayController *)controller
@@ -3867,32 +3841,15 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    NSIndexPath *selectedItem = [self.tableView indexPathForSelectedRow];
-    
-    
+    NSIndexPath *selectedItem = [tableView indexPathForSelectedRow];
     
     NSArray *mapItemList = [NSArray arrayWithObject:[self.places objectAtIndex:selectedItem.row]];
     
-   
-    
+    NSLog(@"Map : %@",[mapItemList description]);
     MKMapItem *place = [mapItemList firstObject];
-    
     appDelegate().toLocation = place.placemark.location;
-    
-    NSLog(@"%@",appDelegate().toLocation);
-    
     appDelegate().strToAddress = place.placemark.title;
-    
     self.destination = place;
-    
-       lat =place.placemark.location.coordinate.latitude;
-    
-        log =place.placemark.location.coordinate.longitude;
-    
-    
-    
-    
-    
     
      [self.searchDisplayController.searchResultsTableView deselectRowAtIndexPath:indexPath animated:NO];
     [self dismissSearchControllerWhileStayingActive];
@@ -3971,20 +3928,16 @@
 #pragma mark -
 #pragma mark UISearchBar Delegate
 
-- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
-{
-    if (![searchBar isFirstResponder])
-    {
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    if (![searchBar isFirstResponder]) {
         // User tapped the 'clear' button.
         shouldBeginEditing = NO;
         [self.searchDisplayController setActive:NO];
     }
 }
 
-- (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar
-{
-    if (shouldBeginEditing)
-    {
+- (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar {
+    if (shouldBeginEditing) {
         // Animate in the table view.
         NSTimeInterval animationDuration = 0.3;
         [UIView beginAnimations:nil context:NULL];
@@ -4222,22 +4175,6 @@
         return pinView;
     }
     return nil;
-    
-    
-//    MKPinAnnotationView *annotationView = nil;
-//    if ([annotation isKindOfClass:[annotation class]])
-//    {
-//        annotationView = (MKPinAnnotationView *)[self.self.viewMap dequeueReusableAnnotationViewWithIdentifier:@"Pin"];
-//        if (annotationView == nil)
-//        {
-//            annotationView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"Pin"];
-//            annotationView.canShowCallout = YES;
-//            annotationView.animatesDrop = YES;
-//        }
-//    }
-//    return annotationView;
-
-    
 }
 
 
